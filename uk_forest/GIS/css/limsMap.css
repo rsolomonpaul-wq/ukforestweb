@@ -1,0 +1,293 @@
+﻿.ol-zoom .ol-unselectable .ol-control {
+    left: 96.6% !important;
+    top: 35px !important;
+}
+
+.card-header {
+    padding: 0.75rem 1.25rem;
+    margin-bottom: 0;
+    background-color: rgba(0, 0, 0, 0.03);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+    .card-header:first-child {
+        border-radius: calc(0.25rem - 1px) calc(0.25rem - 1px) 0 0;
+    }
+
+    .card-header + .list-group .list-group-item:first-child {
+        border-top: 0;
+    }
+
+.card-footer {
+    padding: 0.75rem 1.25rem;
+    background-color: rgba(0, 0, 0, 0.03);
+    border-top: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+    .card-footer:last-child {
+        border-radius: 0 0 calc(0.25rem - 1px) calc(0.25rem - 1px);
+    }
+
+.card-header-tabs {
+    margin-right: -0.625rem;
+    margin-bottom: -0.75rem;
+    margin-left: -0.625rem;
+    border-bottom: 0;
+}
+
+.card-header-pills {
+    margin-right: -0.625rem;
+    margin-left: -0.625rem;
+}
+
+.map_properties {
+    background: none;
+}
+
+    .map_properties ul {
+        margin: 0;
+        padding: 0;
+    }
+
+        .map_properties ul li {
+            display: inline-block;
+            text-align: center;
+        }
+
+            .map_properties ul li a {
+                background: transparent;
+                padding: 1px 4px 4px 4px;
+                border-radius: 5px;
+                position: relative;
+                top: 4px;
+                /*border: 1px solid #fff;*/
+            }
+
+                .map_properties ul li a img {
+                    height: 19px;
+                    width: auto;
+                }
+
+.mapIcons {
+    background: #117e4b;
+}
+
+.left-panel {
+    float: left;
+    width: 100%;
+    height: 100%;
+}
+
+/*#maptoolsn {
+    width: 200px;
+    background-color: red;
+    padding: 10px;
+    position: absolute;
+    z-index: 4;
+    top: 200px;
+    height: 400px;
+    max-height: 500px;
+    overflow-y: scroll;
+}*/
+
+.popdisplay {
+    display: block;
+}
+
+#btnQueryBuilderpop {
+    padding: 7px 10px;
+    /*background: white;*/
+    border-radius: 5px;
+    cursor: pointer;
+    position: relative;
+    top: 5px;
+}
+
+.divQueryBuilder {
+    position: absolute;
+    top: 170px;
+    right: 34px;
+    background-color: white;
+    padding: 5px;
+    width: 300px;
+    display: none;
+    z-index: 1;
+}
+
+
+
+.popdisplay {
+    display: block;
+}
+
+.queryTop {
+    margin: 0px !important;
+    display: flex;
+    justify-content: space-between;
+    background-color: #107a49;
+    padding: 6px;
+    color: #fff;
+}
+
+    .queryTop .form-control {
+        box-shadow: 0px 0px 10px #dedede;
+    }
+
+    .queryTop input#btnSearch {
+        background-color: #215eb0;
+        border: 0;
+    }
+
+.queryHead {
+    width: 90%;
+    text-align: center;
+}
+
+.queryClose {
+    width: 8%;
+    padding: 0px;
+    border-radius: 5px;
+    background-color: #fe7f50;
+    text-align: center;
+    cursor: pointer;
+}
+
+#popup {
+    position: absolute;
+    display: block;
+    background-color: white;
+    padding: 5px;
+}
+
+.ol-overlay-container {
+    position: absolute !important;
+    /*left: 0 !important;
+    top: 0 !important;*/
+}
+
+.queryTable {
+    position: fixed;
+    bottom: 0 !important;
+    background-color: #ffffff;
+    padding: 5px;
+    bottom: 2px;
+    height: 180px;
+    width: 860px;
+    width: calc(100% - 260px);
+    overflow: scroll;
+    z-index: 1;
+}
+
+.queryTable1 {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    text-align: right;
+    display: block;
+    right: 0;
+    z-index: 1200;
+    transition: .3s;
+}
+
+
+
+.queryTabledisplay {
+    display: none;
+}
+
+div#map {
+    width: 100%;
+    height: calc(100vh - 60px);
+}
+
+
+
+/*====== info popup design =======*/
+
+#infoOuterPopup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 12000;
+    background-color: #0000008a;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: scale(0);
+    transition: all 0.1s ease-in-out;
+}
+
+.addInfoP {
+    transform: scale(1) !important;
+}
+
+#infoOuterPopup .infoImgColumn {
+    width: 500px;
+}
+
+    #infoOuterPopup .infoImgColumn img {
+        width: 100%;
+    }
+
+    #infoOuterPopup .infoImgColumn .closeBtn {
+        color: #000;
+        width: 35px;
+        height: 35px;
+        line-height: 35px;
+        text-align: center;
+        background-color: #fff;
+        display: inline-block;
+        font-size: 24px;
+        font-weight: 500;
+        position: relative;
+        top: 17px;
+        right: -485px;
+        border-radius: 50px;
+        box-shadow: 0px 0px 12px #80808078;
+    }
+
+.tooltip {
+    position: relative;
+    /*background: rgba(0, 0, 0, 0.5);*/
+    background: transparent;
+    border-radius: 4px;
+    color: black;
+    padding: 4px 8px;
+    opacity: 0.7;
+    white-space: nowrap;
+}
+
+.tooltip-measure {
+    opacity: 1;
+    font-weight: bold;
+}
+
+.tooltip-static {
+    background-color: #008080;
+    color: black;
+    border: 1px solid white;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+    .tooltip-measure:before,
+    .tooltip-static:before {
+        border-top: 6px solid #008080;
+        border-right: 6px solid transparent;
+        border-left: 6px solid transparent;
+        content: "";
+        position: absolute;
+        bottom: -6px;
+        margin-left: -7px;
+        left: 50%;
+    }
+
+    .tooltip-static:before {
+        border-top-color: #008080;
+    }
+
+.filterselectedrow {
+    background-color: #008080;
+}

@@ -1,0 +1,669 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+ul, ol {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+:active, :focus {
+    border: 0;
+    outline: none;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+    body::-webkit-scrollbar {
+        width: 8px;
+    }
+
+    body::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    }
+
+    body::-webkit-scrollbar-thumb {
+        background-color: #157347;
+        outline: 1px solid #157347;
+    }
+
+
+/* ===== header ===== */
+
+.navigationBar {
+    width: 100%;
+    background-color: #fff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1200;
+    box-shadow: 0px 2px 20px #636363;
+}
+
+    .navigationBar .navbar-toggler {
+        border: 0;
+        outline: 0;
+        color: #fff;
+    }
+
+.navbar-toggler:focus {
+    border: 0;
+    outline: 0;
+}
+
+.navigationBar .navbar-nav .nav-item .nav-link {
+    color: #000;
+    font-weight: 500;
+    letter-spacing: 0.1px;
+    padding: 8px;
+    font-size: 14px;
+    margin-right: 6px;
+}
+
+.navigationBar .nav-link.registerBtn {
+    font-size: 12px !important;
+    background-color: #419741;
+    border-radius: 5px;
+    font-weight: 400 !important;
+    letter-spacing: 0.3px !important;
+    color: #fff !important;
+}
+
+.navigationBar .nav-link.loginBtn {
+    background-color: #0f4fa0;
+    font-size: 12px !important;
+    border-radius: 5px;
+    color: #fff !important;
+}
+
+.navbar-brand img {
+    width: 100%;
+    max-width: 100px;
+}
+
+#sliderBox .item.slide1 {
+    width: 100vw;
+    height: 100vh;
+    background-image: url("../images/banner3.webp");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: #0000002b;
+    background-blend-mode: overlay;
+    position: relative;
+    z-index: 1;
+}
+
+#sliderBox .item.slide2 {
+    width: 100vw;
+    height: 100vh;
+    background-image: url("../images/banner2.webp");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: #0000002b;
+    background-blend-mode: overlay;
+    position: relative;
+    z-index: 1;
+}
+
+#sliderBox .item.slide3 {
+    width: 100vw;
+    height: 100vh;
+    background-image: url("../images/banner.webp");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: #0000002b;
+    background-blend-mode: overlay;
+    position: relative;
+    z-index: 1;
+}
+
+#sliderBox .item.slide4 {
+    width: 100vw;
+    height: 100vh;
+    background-image: url("../images/banner4.webp");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: #0000002b;
+    background-blend-mode: overlay;
+    position: relative;
+    z-index: 1;
+}
+
+#sliderBox .item.slide5 {
+    width: 100vw;
+    height: 100vh;
+    background-image: url("../images/banner5.webp");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: #0000002b;
+    background-blend-mode: overlay;
+    position: relative;
+    z-index: 1;
+}
+
+#sliderBox button.owl-prev {
+    position: absolute;
+    top: 50%;
+    left: 30px;
+    width: 45px;
+    height: 45px;
+    display: block !important;
+    color: #000 !important;
+    background-color: #ffffffc2 !important;
+    z-index: 9999;
+    font-size: 40px !important;
+    border-radius: 50px;
+}
+
+    #sliderBox button.owl-prev span {
+        position: relative;
+        bottom: 11px;
+    }
+
+#sliderBox button.owl-next {
+    position: absolute;
+    top: 50%;
+    right: 30px;
+    width: 45px;
+    height: 45px;
+    display: block !important;
+    color: #000 !important;
+    background-color: #ffffffc2 !important;
+    z-index: 9999;
+    font-size: 40px !important;
+    border-radius: 50px;
+}
+
+    #sliderBox button.owl-next span {
+        position: relative;
+        bottom: 11px;
+    }
+
+img.adminLogo {
+    width: 100%;
+    max-width: 190px !important;
+}
+
+.slide-contt {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 50%;
+    height: 100%;
+    color: #fff;
+    padding: 100px 30px 0px 30px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    z-index: -1;
+    text-align: center;
+    transform: translate(-50%, -50%);
+}
+
+    .slide-contt span {
+        text-transform: uppercase;
+        width: 130px;
+        background-color: #3ab128;
+        height: 34px;
+        line-height: 34px;
+        text-align: center;
+        /*margin-bottom: 15px;*/
+        margin: 10px auto;
+    }
+
+    .slide-contt h1 {
+        font-size: 50px;
+        font-weight: 700;
+        letter-spacing: 0.3px;
+    }
+
+        .slide-contt h1 span {
+            background-color: transparent;
+            font-size: 60px;
+        }
+
+
+/*==== web gis solutions ====*/
+.web_gis_solutions {
+    width: 100%;
+    padding: 50px 0;
+}
+
+    .web_gis_solutions .web_assets {
+        padding: 40px 0;
+        border-radius: 20px;
+        width: 100%;
+        height: 330px;
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+        .web_gis_solutions .web_assets.color1 {
+            background-color: #d6739a;
+        }
+
+        .web_gis_solutions .web_assets.color2 {
+            background-color: #309a3f;
+        }
+
+        .web_gis_solutions .web_assets.color3 {
+            background-color: #4e1f72;
+        }
+
+        .web_gis_solutions .web_assets.color4 {
+            background-color: #73b4cb;
+        }
+
+        .web_gis_solutions .web_assets.color5 {
+            background-color: #989898;
+        }
+
+        .web_gis_solutions .web_assets.color6 {
+            background-color: #c48f26;
+        }
+
+        .web_gis_solutions .web_assets.color7 {
+            background-color: #dd90d4;
+        }
+
+        .web_gis_solutions .web_assets.color8 {
+            background-color: #4a7eb0;
+        }
+
+        .web_gis_solutions .web_assets.color9 {
+            background-color: #705e11;
+        }
+
+        .web_gis_solutions .web_assets h4 {
+            color: #fff;
+            font-size: 30px;
+            font-family: helvetica;
+        }
+
+        .web_gis_solutions .web_assets .icon_pic {
+            margin-bottom: 10px;
+        }
+
+            .web_gis_solutions .web_assets .icon_pic img {
+                border-radius: 200px;
+                transition: all 0.5s;
+            }
+
+        .web_gis_solutions .web_assets:hover img {
+            scale: 0.9;
+        }
+
+/*=== multiple page ====*/
+.multiple-page {
+    width: 100%;
+    padding: 7rem 2rem 0 0;
+    background-image: url("../images/inner-bg.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: #0000002b;
+    background-blend-mode: overlay;
+}
+
+    .multiple-page .page-contents {
+        width: 100%;
+        text-align: center;
+        padding: 20px 0;
+        color: #fff;
+    }
+
+        .multiple-page .page-contents h3 {
+            font-weight: 700;
+            letter-spacing: 0.3px;
+        }
+
+.sticky-top {
+    animation: scrollAnimation linear 0.4s 1;
+}
+/* ======= navbar animation ======= */
+@keyframes scrollAnimation {
+    0% {
+        transform: translateY(-100px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+
+.registration_Form {
+    padding: 0;
+    margin: 30px 0;
+    /*box-shadow: 0px 0px 7px #afafaf82;*/
+    border-radius: 10px;
+}
+
+    .registration_Form .form-group {
+        width: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        margin-bottom: 20px;
+    }
+
+        .registration_Form .form-group label {
+            font-size: 16px;
+            padding-bottom: 3px;
+        }
+
+        .registration_Form .form-group input {
+            padding: 7px 5px;
+            border: 0;
+            border: 1px solid #68686870;
+            border-radius: 0;
+        }
+
+        .registration_Form .form-group select {
+            padding: 7px 5px;
+            border: 0;
+            border: 1px solid #68686870;
+            border-radius: 0;
+        }
+
+    .registration_Form .form-documents {
+        text-align: center;
+        display: block;
+        padding: 20px 0;
+        color: #150d58;
+        font-size: 24px;
+        position: relative;
+        font-weight: 600;
+    }
+
+    /*.registration_Form .form-documents::before {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 45%;
+            height: 1px;
+            background-color: #bababa;
+            content: '';
+        }
+
+        .registration_Form .form-documents::after {
+            position: absolute;
+            top: 50%;
+            right: 0;
+            width: 45%;
+            height: 1px;
+            background-color: #bababa;
+            content: '';
+        }*/
+
+    .registration_Form .button-box {
+        width: 100%;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .registration_Form .submitBtn {
+        width: 150px;
+        height: 40px;
+        border: 0;
+        background-color: #0b442a;
+        color: #fff;
+        font-size: 18px;
+        text-align: center;
+        margin: 0 auto;
+        border-radius: 5px !important;
+    }
+
+.heading_title_d {
+    text-align: center;
+    font-weight: 600;
+    color: #150e58;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0;
+}
+
+.registration_Form .colorBg {
+    background-image: url('../images/contact-info.jpg');
+    background-size: cover;
+    background-position: center;
+    padding: 20px;
+    background-color: #1573473b;
+    background-blend-mode: overlay;
+}
+
+    .registration_Form .colorBg .form-group label {
+        color: #fff;
+    }
+
+.formTableBox table {
+    height: 200px;
+    overflow-y: scroll;
+}
+
+    .formTableBox table td label {
+        padding-left: 10px;
+        display: inline-block;
+    }
+
+.modulesBox .mContents h4 {
+    color: #000;
+    margin-bottom: 0;
+    font-weight: 600;
+    font-size: 18px;
+    letter-spacing: 0.5px;
+}
+
+.main-footer {
+    width: 100%;
+    text-align: center;
+    background: linear-gradient(269deg, #150958, #117e4b);
+    color: #fff;
+    padding: 10px 0;
+    z-index: 9999;
+    /*    position: fixed;
+    bottom: 0;*/
+}
+
+    .main-footer p {
+        margin-bottom: 0;
+        padding: 10px 0;
+        font-size: 16px;
+        letter-spacing: 0.5px;
+        color: #fff;
+    }
+
+        .main-footer p a {
+            color: #fff;
+            font-weight: 600;
+            font-style: italic;
+            text-decoration: underline;
+        }
+
+            .main-footer p a:hover {
+                color: #fff;
+            }
+
+.farmerList table tr:first-child {
+    background-color: #8aebc8 !important;
+}
+
+    .farmerList table tr:first-child th {
+        font-weight: 700;
+        color: #000 !important;
+    }
+
+
+.dashboard-nav-list ul.nav.flex-column.sub-menu {
+    background-color: #150b58;
+}
+
+    .dashboard-nav-list ul.nav.flex-column.sub-menu a {
+        padding-left: 30px;
+    }
+
+        .dashboard-nav-list ul.nav.flex-column.sub-menu a:hover {
+            background-color: #138c54;
+        }
+
+
+/*======= Dasbord modules ========*/
+.modulesBox {
+    width: 100%;
+}
+
+    .modulesBox .mContents {
+        padding: 20px;
+        text-align: center;
+        box-shadow: 0px 0px 20px #cbcbcb;
+        background-color: #fff;
+        margin-bottom:30px;
+        border-radius: 10px;
+        width: 100%;
+        height:200px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        position: relative;
+        transition: all 0.4s ease-in-out;
+    }
+
+        .modulesBox .mContents::before {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #150958;
+            content: '';
+            transition: all 0.4s ease-in-out;
+        }
+
+        .modulesBox .mContents::after {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 2px;
+            height: 0;
+            background-color: #150958;
+            content: '';
+            transition: all 0.4s ease-in-out;
+        }
+
+        .modulesBox .mContents:hover::before {
+            width: 100%;
+        }
+
+        .modulesBox .mContents:hover {
+            transform: translateY(-10px);
+        }
+
+            .modulesBox .mContents:hover::after {
+                height: 100%;
+            }
+
+        .modulesBox .mContents .icon_pic img {
+            border-radius: 50%;
+            width: 100px;
+            margin-bottom: 15px;
+        }
+
+    .modulesBox a {
+        color: #000;
+        text-decoration: none;
+    }
+
+        .modulesBox a:hover {
+            color: #000;
+            text-decoration: none;
+        }
+
+    .modulesBox .clickHere {
+        color: #221e95;
+        text-decoration: underline;
+        font-weight: 600;
+        font-size: 14px;
+    }
+
+        .modulesBox .clickHere:hover {
+            text-decoration: underline;
+        }
+
+/*=== Responsive design ====*/
+@media (max-width:991px) {
+    .navigationBar .navbar-nav .nav-item .nav-link {
+        color: #000;
+        border-bottom: 1px solid #9a9a9a;
+    }
+
+    .navigationBar .nav-link.registerBtn {
+        margin-bottom: 10px;
+    }
+
+    .slide-contt {
+        width: 100%;
+        align-items: center;
+        text-align: center;
+    }
+}
+
+@media (max-width:767.98px) {
+    .web_gis_solutions .web_assets .icon_pic img {
+        max-width: 140px;
+    }
+
+    .web_gis_solutions .web_assets h4 {
+        font-size: 24px;
+    }
+
+    .web_gis_solutions .web_assets {
+        height: auto;
+    }
+
+        .web_gis_solutions .web_assets .icon_pic img {
+            max-width: 100px;
+        }
+
+    .slide-contt h1 {
+        font-size: 42px;
+    }
+}
+
+@media (max-width:479.98px) {
+    .web_gis_solutions .web_assets {
+        height: 220px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+        .web_gis_solutions .web_assets h4 {
+            font-size: 18px;
+        }
+}
