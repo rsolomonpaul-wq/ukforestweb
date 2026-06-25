@@ -234,8 +234,7 @@ namespace uk_forest.DSS
             {
                 bindddlcircle();
 
-                string script1 = "applyfilter();";
-                ScriptManager.RegisterStartupScript(this, this.GetType(), Guid.NewGuid().ToString(), script1, true);
+                
             }
             catch (Exception ex)
             {
@@ -249,8 +248,7 @@ namespace uk_forest.DSS
             {
                 bindddldivision();
 
-                string script1 = "applyfilter();";
-                ScriptManager.RegisterStartupScript(this, this.GetType(), Guid.NewGuid().ToString(), script1, true);
+                
             }
             catch (Exception ex)
             {
@@ -265,9 +263,7 @@ namespace uk_forest.DSS
             {
                 bindddlrange();
 
-                string script1 = "applyfilter();";
-                ScriptManager.RegisterStartupScript(this, this.GetType(), Guid.NewGuid().ToString(), script1, true);
-                // binddataaccrodingfilter();
+                 
             }
             catch (Exception ex)
             {
@@ -282,9 +278,7 @@ namespace uk_forest.DSS
             {
                 bindddlbeat();
 
-                string script1 = "applyfilter();";
-                ScriptManager.RegisterStartupScript(this, this.GetType(), Guid.NewGuid().ToString(), script1, true);
-                //  binddataaccrodingfilter();
+               
             }
             catch (Exception ex)
             {
@@ -299,9 +293,7 @@ namespace uk_forest.DSS
             {
                  
 
-                string script1 = "applyfilter();";
-                ScriptManager.RegisterStartupScript(this, this.GetType(), Guid.NewGuid().ToString(), script1, true);
-                //  binddataaccrodingfilter();
+                
             }
             catch (Exception ex)
             {
@@ -339,23 +331,7 @@ namespace uk_forest.DSS
         {
             try
             {
-                string script1 = "applyfilter();";
-                ScriptManager.RegisterStartupScript(this, this.GetType(), Guid.NewGuid().ToString(), script1, true);
-                //if (ddllevel.SelectedValue != "")
-                //{
-                //    string layer = "tbl_" + ddllevel.SelectedValue + "_master";
-                //    string q = "select " + ddllevel.SelectedValue + " from " + layer + " order by " + ddllevel.SelectedValue + " asc";
-                //    DataTable dt = connectDB.executeGetData(q);
-                //    if (dt.Rows.Count > 0)
-                //    {
-                //        ddlsection.Items.Clear();
-                //        ddlsection.DataSource = dt;
-                //        ddlsection.DataValueField = ddllevel.SelectedValue;
-                //        ddlsection.DataTextField = ddllevel.SelectedValue;
-                //        ddlsection.DataBind();
-                //        ddlsection.Items.Insert(0, new ListItem("All", "All"));
-                //    }
-                //}
+                 
 
             }
             catch (Exception ex)

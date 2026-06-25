@@ -28,55 +28,7 @@ namespace uk_forest.Forest
             {
                 if (!IsPostBack)
                 {
-                    //DateTime today = DateTime.Today;
-                    //DateTime firstDayOfYear = new DateTime(today.Year, 1, 1);
-
-                    //txtStartDate.Text = firstDayOfYear.ToString("yyyy-MM-dd");
-                    //txtEndDate.Text = today.ToString("yyyy-MM-dd");
-
-                    DateTime today = DateTime.Today;
-                    DateTime startDate = today.AddYears(-1).AddDays(1); // 1 year ago + 1 day
-                    txtStartDate.Text = startDate.ToString("yyyy-MM-dd"); // 2024-11-18
-                    txtEndDate.Text = today.ToString("yyyy-MM-dd");
-
-
-                    string userId = Session["UserId"]?.ToString();
-                    Int32 roleId = Convert.ToInt32(Session["RoleId"]);
-                    string status = "Application Submission";
-                    string claim_category = "0";
-                    Int32 zoneId = 0;
-                    Int32 circleId = 0;
-
-                    BindDivision();                   
-                    Int32 divisionId = Convert.ToInt32(ddlDivision.SelectedValue);
-                    BindRange(zoneId, circleId, divisionId);
-
-                    bindcarddata();
-                    BindBudgetCardsTotal();
-                    BindBudgetCardsDisbursed();
-                    BindIncidentProgressSummary();
-                    RemainingAmount();
-                    if (roleId == 10) // RO
-                    {
-                        status = "Application Submission, Document Verified by Range Officer, Advanced Approved by DFO, Document Returned by Range Officer, Document Returned by SDO, Document Returned by DFO";
-                    }
-                    else if (roleId == 9) //SDO
-                    {
-                        status = "Document Verified by SDO, Advanced Approved by Range Officer, Approved by Range Officer, Document Returned by SDO, Document Returned by DFO";
-                    }
-                    else if (roleId == 8) //DFO
-                    {
-                        status = "Document Verified by DFO, Advanced Approved by SDO, Approved by SDO, Document Returned by DFO";
-                        divbudgetcards.Visible = true;
-                        BindBudgetDetails(Convert.ToDateTime(txtStartDate.Text), Convert.ToDateTime(txtEndDate.Text), Convert.ToInt32(ddlDivision.SelectedValue), Convert.ToInt32(ddlDivision.SelectedValue), Convert.ToInt32(ddlRange.SelectedValue), ddlDataType.SelectedValue);
-                    }
-                    else
-                    {
-                        status = "All";
-                    }
-
-                    BindUserGrid(userId, roleId, status, claim_category, txtStartDate.Text, txtEndDate.Text);
-                    BindBudgetDetails(Convert.ToDateTime(txtStartDate.Text), Convert.ToDateTime(txtEndDate.Text), Convert.ToInt32(ddlDivision.SelectedValue), Convert.ToInt32(ddlDivision.SelectedValue), Convert.ToInt32(ddlRange.SelectedValue), ddlDataType.SelectedValue);
+                   
                 }
             }
             catch(Exception ex)
