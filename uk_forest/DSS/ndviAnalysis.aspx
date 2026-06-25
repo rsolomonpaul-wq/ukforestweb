@@ -3,12 +3,12 @@
     <link rel="stylesheet" href="https://openlayers.org/en/v3.20.1/css/ol.css" type="text/css" />
      <link href="css/datepicker.css" rel="stylesheet" />
      <style>
-                    .page-container {
+            .page-container {
                 padding: 0;
             }
-                  canvas.ol-unselectable {
-             height: calc(100vh - 100px) !important;
-         }   
+             canvas.ol-unselectable {
+                 height: calc(100vh - 100px) !important;
+             }   
             .infoPopupBox {
                 position: fixed;
                 top: 50%;
@@ -21,7 +21,6 @@
                 cursor: move;
                 max-width: 360px;
             }
-
             #infodiv .info-table-heading {
                 background-color: #107a49;
                 color: #fff;
@@ -29,8 +28,7 @@
                 padding: 5px 0;
                 font-size: 18px;
             }
-
-            .infoPopupBox img.closebtns {
+            .infoPopupBox img.closebtns{
                 position: relative;
                 top: 7px;
                 right: 5px;
@@ -40,15 +38,10 @@
                 padding: 0px;
             }
 
-
-
-
-
-
         .layer-switcher {
             position: absolute;
             background: white;
-            border: 1px solid black;
+            border:1px solid black;
             border-radius: 4px;
             left: 12px;
             top: 90px;
@@ -57,22 +50,22 @@
             overflow: hidden;
         }
 
-            .layer-switcher:hover {
-                position: absolute;
-                background: white;
-                padding: 5px;
-                border: 1px solid black;
-                border-radius: 4px;
-                right: 5px;
-                top: 90px;
-                height: 210px !important;
-                width: 200px !important;
-                transition: .4s;
-            }
+        .layer-switcher:hover {
+            position: absolute;
+            background: white;
+            padding: 5px;
+            border: 1px solid black;
+            border-radius: 4px;
+            right: 5px;
+            top: 90px;
+            height: 210px !important;
+            width: 200px !important;
+            transition: .4s;
+        }
 
-                 .layer-switcher:hover .layerswitcherimg {
-                    display: none !important;
-                }
+        .layer-switcher:hover .layerswitcherimg {
+            display: none !important;
+        }
 
         #imglayericon {
             height: 30px;
@@ -90,9 +83,10 @@
             display: flex;
         }
 
-            .layer-switcher div div label {
-                margin-left: 5px;
-            }
+
+        .layer-switcher div div label {
+            margin-left: 5px;
+        }
          div#mouse-position {
              position: absolute;
              z-index: 1;
@@ -106,6 +100,15 @@
              z-index: 1;
          }
 
+
+
+
+
+
+
+
+
+
          .datalayers {
              display: block;
              position: absolute;
@@ -115,13 +118,15 @@
              top: 72px;
              padding: 5px;
              width:250px;
-                 max-height: 300px;
-    overflow: auto;
+             max-height: 300px;
+            overflow: auto;
          }
+        .datalayers ul li{
+            list-style-type: none;
+        }
 
-             .datalayers ul li{
-                 list-style-type: none;
-             }
+
+
     </style> 
    
 </asp:Content>
@@ -180,21 +185,21 @@
                                             <asp:CheckBox ID="zone" runat="server" onclick='sfdzone(this);' Text="SFD Zone Boundaries" class="nav-item" />
 
                                             <span id='div_zone' style='display: none'>
-                                                <img src="http://180.151.15.18:9007/geoserver/uk_sfd/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=uk_sfd:tbl_zone_master&Format=image/gif&scale=800000&Transparent=true" />
+                                                <img src="https://ukforestgis.in/geoserver/uk_sfd/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=uk_sfd:tbl_zone_master&Format=image/gif&scale=800000&Transparent=true" />
                                             </span>
                                         </li>
                                          <li >
                                             <asp:CheckBox ID="circle" runat="server" onclick='sfdcircle(this);' Text="SFD Circle Boundaries" class="nav-item" />
 
                                             <span id='div_circle' style='display: none'>
-                                                <img src="http://180.151.15.18:9007/geoserver/uk_sfd/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=uk_sfd:tbl_circle_master&Format=image/gif&scale=800000&Transparent=true" />
+                                                <img src="https://ukforestgis.in/geoserver/uk_sfd/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=uk_sfd:tbl_circle_master&Format=image/gif&scale=800000&Transparent=true" />
                                             </span>
                                         </li>
                                          <li >
                                             <asp:CheckBox ID="division" runat="server" onclick='sfddivision(this);' Text="SFD Division Boundaries" class="nav-item" />
 
                                             <span id='div_division' style='display: none'>
-                                                <img src="http://180.151.15.18:9007/geoserver/uk_sfd/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=uk_sfd:tbl_division_master&Format=image/gif&scale=800000&Transparent=true" />
+                                                <img src="https://ukforestgis.in/geoserver/uk_sfd/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=uk_sfd:tbl_division_master&Format=image/gif&scale=800000&Transparent=true" />
                                             </span>
                                         </li>
 
@@ -203,7 +208,7 @@
                                             <asp:CheckBox ID="cd_LandDetails" runat="server" onclick='LandDetails(this);' Text="Plantation AOI" class="nav-item" />
 
                                             <span id='div_LandDetails' style='display: none'>
-                                                <img src="http://180.151.15.18:9007/geoserver/uk_sfd/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=uk_sfd:tbl_plantation_area&Format=image/gif&scale=800000&Transparent=true" />
+                                                <img src="https://ukforestgis.in/geoserver/uk_sfd/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=uk_sfd:tbl_plantation_area&Format=image/gif&scale=800000&Transparent=true" />
                                             </span>
                                         </li>
 

@@ -1,6 +1,6 @@
 ﻿
-var geoserver_ip = "http://180.151.15.18:9007/geoserver/uk_sfd/wms?";
-var geoserver_ip_ows = "http://180.151.15.18:9007/geoserver/sbl/ows";
+var geoserver_ip = "https://ukforestgis.in/geoserver/uk_sfd/wms?";
+var geoserver_ip_ows = "https://ukforestgis.in/geoserver/sbl/ows";
 
 var format = 'image/png';
 var lastselectedlayer = [];
@@ -46,7 +46,7 @@ window.onload = function () {
     layerobject.push(divisions);
     map.addOverlay(divisions);
     lastselectedlayer.push("tbl_division_master");
-    lastselectedlayername.push("SFD Division Boundaries");
+    lastselectedlayername.push(" Division ");
     lastselectedlayer_vector.push("tbl_division_master");
 
 
@@ -230,7 +230,7 @@ var layers = {
         visible: false,
         name: 'sentinal-2',
         source: new ol.source.TileWMS({
-            url: 'https://services.sentinel-hub.com/ogc/wms/13d5aaea-1d0e-4581-9288-a463ce586119',
+            url: 'https://services.sentinel-hub.com/ogc/wms/514e719b-3d56-429e-bdc8-55b90d20d343',
             params: { "maxcc": 50, "minZoom": 6, "maxZoom": 16, "preset": "2_FALSE_COLOR", "layers": "2_FALSE_COLOR", "time": timlapse },
             serverType: 'geoserver',
             crossOrigin: 'anonymous',
@@ -242,7 +242,7 @@ var layers = {
         visible: false,
         name: 'sentinal-2',
         source: new ol.source.TileWMS({
-            url: 'https://services.sentinel-hub.com/ogc/wms/a52df360-16d7-4601-8f95-3a5205ab3889',
+            url: 'https://services.sentinel-hub.com/ogc/wms/7b26bc88-1826-4a0c-91d1-6b6f69ef8799',
             params: { "maxcc": 50, "minZoom": 6, "maxZoom": 16, "preset": "TRUE_COLOR", "layers": "TRUE_COLOR", "time": timlapse },
             serverType: 'geoserver',
             crossOrigin: 'anonymous',
@@ -388,14 +388,14 @@ var map = new ol.Map({
     view: new ol.View({
         
         center: ol.proj.fromLonLat([79.0193, 30.0668]),
-        zoom: 8,
+        zoom: 8.4,
         minZoom: 3,
         maxZoom:18
 
 
 
     }),
-    interactions: []
+   // interactions: []
 });
 
 //const map = new ol.Map({
@@ -737,7 +737,7 @@ function village(checkbox) {
         jQuery('#div_village').css('display', 'block');
         map.addLayer(village_layer);
         layerobject.push(village_layer);
-        map.addOverlay(village_layer);
+        //map.addOverlay(village_layer);
         lastselectedlayer.push("tbl_forest_data_final");
         lastselectedlayername.push("Forest Area");
         lastselectedlayer_vector.push("tbl_forest_data_final");
@@ -747,7 +747,7 @@ function village(checkbox) {
         jQuery('#div_village').css('display', 'none');
         map.removeLayer(village_layer);
         layerobject.pop(village_layer);
-        map.removeOverlay(village_layer);
+       // map.removeOverlay(village_layer);
         lastselectedlayer.pop("tbl_forest_data_final");
         lastselectedlayername.pop("Forest Area");
         lastselectedlayer_vector.pop("tbl_forest_data_final");
@@ -817,7 +817,7 @@ function forestfireprone(checkbox) {
         jQuery('#div_forest_fire_prone').css('display', 'block');
         map.addLayer(forestfireprone_layer);
         layerobject.push(forestfireprone_layer);
-        map.addOverlay(forestfireprone_layer);
+       // map.addOverlay(forestfireprone_layer);
         lastselectedlayer.push("tbl_uk_forest_fire_prone_fsi_data");
         lastselectedlayername.push("Forest Fire Prone (2013-2023)");
         lastselectedlayer_vector.push("tbl_uk_forest_fire_prone_fsi_data");
@@ -827,7 +827,7 @@ function forestfireprone(checkbox) {
         jQuery('#div_forest_fire_prone').css('display', 'none');
         map.removeLayer(forestfireprone_layer);
         layerobject.pop(forestfireprone_layer);
-        map.removeOverlay(forestfireprone_layer);
+       // map.removeOverlay(forestfireprone_layer);
         lastselectedlayer.pop("tbl_uk_forest_fire_prone_fsi_data");
         lastselectedlayername.pop("Forest Fire Prone (2013-2023)");
         lastselectedlayer_vector.pop("tbl_uk_forest_fire_prone_fsi_data");
@@ -851,44 +851,44 @@ var forestfireprone_layer = new ol.layer.Image({
 });
 
 
-function forestCapopy(checkbox) {
+//function forestCapopy(checkbox) {
 
-    if (checkbox.checked) {
-        jQuery('#div_forest_canopy').css('display', 'block');
-        map.addLayer(forest_canopy);
-        layerobject.push(forest_canopy);
-        map.addOverlay(forest_canopy);
-        lastselectedlayer.push("tbl_uk_fsi_fcd2021");
-        lastselectedlayername.push("Forest Canopy Cover 2021");
-        lastselectedlayer_vector.push("tbl_uk_fsi_fcd2021");
-        //village_zoom();
-    }
-    else {
-        jQuery('#div_forest_canopy').css('display', 'none');
-        map.removeLayer(forest_canopy);
-        layerobject.pop(forest_canopy);
-        map.removeOverlay(forest_canopy);
-        lastselectedlayer.pop("tbl_uk_fsi_fcd2021");
-        lastselectedlayername.pop("Forest Canopy Cover 2021");
-        lastselectedlayer_vector.pop("tbl_uk_fsi_fcd2021");
-    }
-}
+//    if (checkbox.checked) {
+//        jQuery('#div_forest_canopy').css('display', 'block');
+//        map.addLayer(forest_canopy);
+//        layerobject.push(forest_canopy);
+//        map.addOverlay(forest_canopy);
+//        lastselectedlayer.push("tbl_uk_fsi_fcd2021");
+//        lastselectedlayername.push("Forest Canopy Cover 2021");
+//        lastselectedlayer_vector.push("tbl_uk_fsi_fcd2021");
+//        //village_zoom();
+//    }
+//    else {
+//        jQuery('#div_forest_canopy').css('display', 'none');
+//        map.removeLayer(forest_canopy);
+//        layerobject.pop(forest_canopy);
+//        map.removeOverlay(forest_canopy);
+//        lastselectedlayer.pop("tbl_uk_fsi_fcd2021");
+//        lastselectedlayername.pop("Forest Canopy Cover 2021");
+//        lastselectedlayer_vector.pop("tbl_uk_fsi_fcd2021");
+//    }
+//}
 
-var forest_canopy = new ol.layer.Image({
-    source: new ol.source.ImageWMS({
-        ratio: 1,
-        url: geoserver_ip,
-        params: {
-            'FORMAT': format,
-            tiled: true,
-            STYLES: '',
-            layers: 'uk_sfd:tbl_uk_fsi_fcd2021',
-            transition: 0
-        }, serverType: 'geoserver',
-        crossOrigin: 'anonymous'
+//var forest_canopy = new ol.layer.Image({
+//    source: new ol.source.ImageWMS({
+//        ratio: 1,
+//        url: geoserver_ip,
+//        params: {
+//            'FORMAT': format,
+//            tiled: true,
+//            STYLES: '',
+//            layers: 'uk_sfd:tbl_uk_fsi_fcd2021',
+//            transition: 0
+//        }, serverType: 'geoserver',
+//        crossOrigin: 'anonymous'
 
-    })
-});
+//    })
+//});
 
 
 
@@ -912,20 +912,20 @@ function forestDensity(checkbox) {
         jQuery('#div_forest_density').css('display', 'block');
         map.addLayer(forest_Density);
         layerobject.push(forest_Density);
-        map.addOverlay(forest_Density);
-        lastselectedlayer.push("uttarakhand_forest_Density_2021_FSI");
-        lastselectedlayername.push("Forest Canopy Cover 2021");
-        lastselectedlayer_vector.push("uttarakhand_forest_Density_2021_FSI");
+       // map.addOverlay(forest_Density);
+        lastselectedlayer.push("uk_density_recode_color_final");
+        lastselectedlayername.pop("Forest Density");
+        lastselectedlayer_vector.push("uk_density_recode_color_final");
         //village_zoom();
     }
     else {
         jQuery('#div_forest_density').css('display', 'none');
         map.removeLayer(forest_Density);
         layerobject.pop(forest_Density);
-        map.removeOverlay(forest_Density);
-        lastselectedlayer.pop("uttarakhand_forest_Density_2021_FSI");
-        lastselectedlayername.pop("Forest Canopy Cover 2021");
-        lastselectedlayer_vector.pop("uttarakhand_forest_Density_2021_FSI");
+        //map.removeOverlay(forest_Density);
+        lastselectedlayer.pop("uk_density_recode_color_final");
+        lastselectedlayername.pop("Forest Density");
+        lastselectedlayer_vector.pop("uk_density_recode_color_final");
     }
 }
 
@@ -937,7 +937,7 @@ var forest_Density = new ol.layer.Image({
             'FORMAT': format,
             tiled: true,
             STYLES: '',
-            layers: 'uk_sfd:uttarakhand_forest_Density_2021_FSI',
+            layers: 'uk_sfd:uk_density_recode_color_final',
             transition: 0
         }, serverType: 'geoserver',
         crossOrigin: 'anonymous'
@@ -952,9 +952,9 @@ function landdegradation(checkbox) {
         map.addLayer(land_degradation);
         layerobject.push(land_degradation);
         map.addOverlay(land_degradation);
-        lastselectedlayer.push("tbl_uk_clip_reproj_uttarakhand_land_degradation_status_2018_19_");
+        lastselectedlayer.push("land_degadation_sac");
         lastselectedlayername.push("Land Degradation (2018-19)");
-        lastselectedlayer_vector.push("tbl_uk_clip_reproj_uttarakhand_land_degradation_status_2018_19_");
+        lastselectedlayer_vector.push("land_degadation_sac");
         //village_zoom();
     }
     else {
@@ -962,9 +962,9 @@ function landdegradation(checkbox) {
         map.removeLayer(land_degradation);
         layerobject.pop(land_degradation);
         map.removeOverlay(land_degradation);
-        lastselectedlayer.pop("tbl_uk_clip_reproj_uttarakhand_land_degradation_status_2018_19_");
+        lastselectedlayer.pop("land_degadation_sac");
         lastselectedlayername.pop("Land Degradation (2018-19)");
-        lastselectedlayer_vector.pop("tbl_uk_clip_reproj_uttarakhand_land_degradation_status_2018_19_");
+        lastselectedlayer_vector.pop("land_degadation_sac");
     }
 }
 
@@ -976,7 +976,7 @@ var land_degradation = new ol.layer.Image({
             'FORMAT': format,
             tiled: true,
             STYLES: '',
-            layers: 'uk_sfd:tbl_uk_clip_reproj_uttarakhand_land_degradation_status_2018_19_',
+            layers: 'uk_sfd:land_degadation_sac',
             transition: 0
         }, serverType: 'geoserver',
         crossOrigin: 'anonymous'
@@ -1546,39 +1546,39 @@ function forestfirepoints2024(checkbox) {
 }
 
 
-var forest_fire_points2024 = new ol.layer.Heatmap({
-    source: new ol.source.Vector({
-        url: `http://180.151.15.18:9007/geoserver/uk_sfd/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=uk_sfd:tbl_2024&outputFormat=application/json`,
-        format: new ol.format.GeoJSON()
-    }),
-    blur: 5,
-    radius: 2,
-    weight: function (feature) {
-        return feature.get('intensity') || 1;
-    }
-});
-forest_fire_points2024.setGradient([
-    '#fff5e6', // very light orange (low intensity)
-    '#ffd699', // soft orange
-    '#ffa64d', // medium orange
-    '#ff8000', // rich orange
-    '#ffff00'  // dark orange (high intensity)
-]);
-//var forest_fire_points2024 = new ol.layer.Image({
-//    source: new ol.source.ImageWMS({
-//        ratio: 1,
-//        url: geoserver_ip,
-//        params: {
-//            'FORMAT': format,
-//            tiled: true,
-//            STYLES: '',
-//            layers: 'uk_sfd:tbl_2024',
-//            transition: 0
-//        }, serverType: 'geoserver',
-//        crossOrigin: 'anonymous'
-
-//    })
+//var forest_fire_points2024 = new ol.layer.Heatmap({
+//    source: new ol.source.Vector({
+//        url: `https://ukforestgis.in/geoserver/uk_sfd/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=uk_sfd:tbl_2024&outputFormat=application/json`,
+//        format: new ol.format.GeoJSON()
+//    }),
+//    blur: 5,
+//    radius: 2,
+//    weight: function (feature) {
+//        return feature.get('intensity') || 1;
+//    }
 //});
+//forest_fire_points2024.setGradient([
+//    '#fff5e6', // very light orange (low intensity)
+//    '#ffd699', // soft orange
+//    '#ffa64d', // medium orange
+//    '#ff8000', // rich orange
+//    '#ffff00'  // dark orange (high intensity)
+//]);
+var forest_fire_points2024 = new ol.layer.Image({
+    source: new ol.source.ImageWMS({
+        ratio: 1,
+        url: geoserver_ip,
+        params: {
+            'FORMAT': format,
+            tiled: true,
+            STYLES: '',
+            layers: 'uk_sfd:tbl_2024',
+            transition: 0
+        }, serverType: 'geoserver',
+        crossOrigin: 'anonymous'
+
+    })
+});
 
 function forestfirepoints2023(checkbox) {
 
@@ -1603,41 +1603,41 @@ function forestfirepoints2023(checkbox) {
     }
 }
 
-var forest_fire_points2023 = new ol.layer.Heatmap({
-    source: new ol.source.Vector({
-        url: `http://180.151.15.18:9007/geoserver/uk_sfd/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=uk_sfd:tbl_2023&outputFormat=application/json`,
-        format: new ol.format.GeoJSON()
-    }),
-    blur: 5,
-    radius: 2,
-    weight: function (feature) {
-        return feature.get('intensity') || 1;
-    }
-});
-forest_fire_points2023.setGradient([
-    '#fff5e6', // very light orange (low intensity)
-    '#ffd699', // soft orange
-    '#ffa64d', // medium orange
-    '#ff8000', // rich orange
-    '#ffff00'  // dark orange (high intensity)
-]);
-
-//var forest_fire_points2023 = new ol.layer.Image({
-//    source: new ol.source.ImageWMS({
-//        ratio: 1,
-//        url: geoserver_ip,
-//        params: {
-//            'FORMAT': format,
-//            tiled: true,
-//            STYLES: '',
-//            layers: 'uk_sfd:tbl_2023',
-//            transition: 0
-//        }, serverType: 'geoserver',
-//        crossOrigin: 'anonymous'
-
-//    })
+//var forest_fire_points2023 = new ol.layer.Heatmap({
+//    source: new ol.source.Vector({
+//        url: `https://ukforestgis.in/geoserver/uk_sfd/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=uk_sfd:tbl_2023&outputFormat=application/json`,
+//        format: new ol.format.GeoJSON()
+//    }),
+//    blur: 5,
+//    radius: 2,
+//    weight: function (feature) {
+//        return feature.get('intensity') || 1;
+//    }
 //});
+//forest_fire_points2023.setGradient([
+//    '#fff5e6', // very light orange (low intensity)
+//    '#ffd699', // soft orange
+//    '#ffa64d', // medium orange
+//    '#ff8000', // rich orange
+//    '#ffff00'  // dark orange (high intensity)
+//]);
 
+var forest_fire_points2023 = new ol.layer.Image({
+    source: new ol.source.ImageWMS({
+        ratio: 1,
+        url: geoserver_ip,
+        params: {
+            'format': format,
+            tiled: true,
+            styles: '',
+            layers: 'uk_sfd:tbl_2023',
+            transition: 0
+        }, servertype: 'geoserver',
+        crossorigin: 'anonymous'
+
+    })
+});
+ 
 
 
 function forestfirepoints2022(checkbox) {
@@ -1663,40 +1663,40 @@ function forestfirepoints2022(checkbox) {
     }
 }
 
-var forest_fire_points2022 = new ol.layer.Heatmap({
-    source: new ol.source.Vector({
-        url: `http://180.151.15.18:9007/geoserver/uk_sfd/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=uk_sfd:tbl_2022&outputFormat=application/json`,
-        format: new ol.format.GeoJSON()
-    }),
-    blur: 5,
-    radius: 2,
-    weight: function (feature) {
-        return feature.get('intensity') || 1;
-    }
-});
-forest_fire_points2022.setGradient([
-    '#fff5e6', // very light orange (low intensity)
-    '#ffd699', // soft orange
-    '#ffa64d', // medium orange
-    '#ff8000', // rich orange
-    '#ffff00'  // dark orange (high intensity)
-]);
-
-//var forest_fire_points2022 = new ol.layer.Image({
-//    source: new ol.source.ImageWMS({
-//        ratio: 1,
-//        url: geoserver_ip,
-//        params: {
-//            'FORMAT': format,
-//            tiled: true,
-//            STYLES: '',
-//            layers: 'uk_sfd:tbl_2022',
-//            transition: 0
-//        }, serverType: 'geoserver',
-//        crossOrigin: 'anonymous'
-
-//    })
+//var forest_fire_points2022 = new ol.layer.Heatmap({
+//    source: new ol.source.Vector({
+//        url: `https://ukforestgis.in/geoserver/uk_sfd/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=uk_sfd:tbl_2022&outputFormat=application/json`,
+//        format: new ol.format.GeoJSON()
+//    }),
+//    blur: 5,
+//    radius: 2,
+//    weight: function (feature) {
+//        return feature.get('intensity') || 1;
+//    }
 //});
+//forest_fire_points2022.setGradient([
+//    '#fff5e6', // very light orange (low intensity)
+//    '#ffd699', // soft orange
+//    '#ffa64d', // medium orange
+//    '#ff8000', // rich orange
+//    '#ffff00'  // dark orange (high intensity)
+//]);
+
+var forest_fire_points2022 = new ol.layer.Image({
+    source: new ol.source.ImageWMS({
+        ratio: 1,
+        url: geoserver_ip,
+        params: {
+            'FORMAT': format,
+            tiled: true,
+            STYLES: '',
+            layers: 'uk_sfd:tbl_2022',
+            transition: 0
+        }, serverType: 'geoserver',
+        crossOrigin: 'anonymous'
+
+    })
+});
 
 
 function forestfirepoints2021(checkbox) {
@@ -1722,40 +1722,40 @@ function forestfirepoints2021(checkbox) {
     }
 }
 
-var forest_fire_points2021 = new ol.layer.Heatmap({
-    source: new ol.source.Vector({
-        url: `http://180.151.15.18:9007/geoserver/uk_sfd/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=uk_sfd:tbl_2021&outputFormat=application/json`,
-        format: new ol.format.GeoJSON()
-    }),
-    blur: 5,
-    radius: 2,
-    weight: function (feature) {
-        return feature.get('intensity') || 1;
-    }
-});
-forest_fire_points2021.setGradient([
-    '#fff5e6', // very light orange (low intensity)
-    '#ffd699', // soft orange
-    '#ffa64d', // medium orange
-    '#ff8000', // rich orange
-    '#ffff00'  // dark orange (high intensity)
-]);
-
-//var forest_fire_points2021 = new ol.layer.Image({
-//    source: new ol.source.ImageWMS({
-//        ratio: 1,
-//        url: geoserver_ip,
-//        params: {
-//            'FORMAT': format,
-//            tiled: true,
-//            STYLES: '',
-//            layers: 'uk_sfd:tbl_2021',
-//            transition: 0
-//        }, serverType: 'geoserver',
-//        crossOrigin: 'anonymous'
-
-//    })
+//var forest_fire_points2021 = new ol.layer.Heatmap({
+//    source: new ol.source.Vector({
+//        url: `https://ukforestgis.in/geoserver/uk_sfd/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=uk_sfd:tbl_2021&outputFormat=application/json`,
+//        format: new ol.format.GeoJSON()
+//    }),
+//    blur: 5,
+//    radius: 2,
+//    weight: function (feature) {
+//        return feature.get('intensity') || 1;
+//    }
 //});
+//forest_fire_points2021.setGradient([
+//    '#fff5e6', // very light orange (low intensity)
+//    '#ffd699', // soft orange
+//    '#ffa64d', // medium orange
+//    '#ff8000', // rich orange
+//    '#ffff00'  // dark orange (high intensity)
+//]);
+
+var forest_fire_points2021 = new ol.layer.Image({
+    source: new ol.source.ImageWMS({
+        ratio: 1,
+        url: geoserver_ip,
+        params: {
+            'FORMAT': format,
+            tiled: true,
+            STYLES: '',
+            layers: 'uk_sfd:tbl_2021',
+            transition: 0
+        }, serverType: 'geoserver',
+        crossOrigin: 'anonymous'
+
+    })
+});
 
 
 function forestfirepoints2020(checkbox) {
@@ -1781,40 +1781,40 @@ function forestfirepoints2020(checkbox) {
     }
 }
 
-var forest_fire_points2020 = new ol.layer.Heatmap({
-    source: new ol.source.Vector({
-        url: `http://180.151.15.18:9007/geoserver/uk_sfd/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=uk_sfd:tbl_2020&outputFormat=application/json`,
-        format: new ol.format.GeoJSON()
-    }),
-    blur: 5,
-    radius: 2,
-    weight: function (feature) {
-        return feature.get('intensity') || 1;
-    }
-});
-forest_fire_points2020.setGradient([
-    '#fff5e6', // very light orange (low intensity)
-    '#ffd699', // soft orange
-    '#ffa64d', // medium orange
-    '#ff8000', // rich orange
-    '#ffff00'  // dark orange (high intensity)
-]);
-
-//var forest_fire_points2020 = new ol.layer.Image({
-//    source: new ol.source.ImageWMS({
-//        ratio: 1,
-//        url: geoserver_ip,
-//        params: {
-//            'FORMAT': format,
-//            tiled: true,
-//            STYLES: '',
-//            layers: 'uk_sfd:tbl_2020',
-//            transition: 0
-//        }, serverType: 'geoserver',
-//        crossOrigin: 'anonymous'
-
-//    })
+//var forest_fire_points2020 = new ol.layer.Heatmap({
+//    source: new ol.source.Vector({
+//        url: `https://ukforestgis.in/geoserver/uk_sfd/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=uk_sfd:tbl_2020&outputFormat=application/json`,
+//        format: new ol.format.GeoJSON()
+//    }),
+//    blur: 5,
+//    radius: 2,
+//    weight: function (feature) {
+//        return feature.get('intensity') || 1;
+//    }
 //});
+//forest_fire_points2020.setGradient([
+//    '#fff5e6', // very light orange (low intensity)
+//    '#ffd699', // soft orange
+//    '#ffa64d', // medium orange
+//    '#ff8000', // rich orange
+//    '#ffff00'  // dark orange (high intensity)
+//]);
+
+var forest_fire_points2020 = new ol.layer.Image({
+    source: new ol.source.ImageWMS({
+        ratio: 1,
+        url: geoserver_ip,
+        params: {
+            'FORMAT': format,
+            tiled: true,
+            STYLES: '',
+            layers: 'uk_sfd:tbl_2020',
+            transition: 0
+        }, serverType: 'geoserver',
+        crossOrigin: 'anonymous'
+
+    })
+});
 
 
 
@@ -1841,40 +1841,40 @@ function forestfirepoints2019(checkbox) {
     }
 }
 
-var forest_fire_points2019 = new ol.layer.Heatmap({
-    source: new ol.source.Vector({
-        url: `http://180.151.15.18:9007/geoserver/uk_sfd/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=uk_sfd:tbl_2019&outputFormat=application/json`,
-        format: new ol.format.GeoJSON()
-    }),
-    blur: 5,
-    radius: 2,
-    weight: function (feature) {
-        return feature.get('intensity') || 1;
-    }
-});
-forest_fire_points2019.setGradient([
-    '#fff5e6', // very light orange (low intensity)
-    '#ffd699', // soft orange
-    '#ffa64d', // medium orange
-    '#ff8000', // rich orange
-    '#ffff00'  // dark orange (high intensity)
-]);
-
-//var forest_fire_points2019 = new ol.layer.Image({
-//    source: new ol.source.ImageWMS({
-//        ratio: 1,
-//        url: geoserver_ip,
-//        params: {
-//            'FORMAT': format,
-//            tiled: true,
-//            STYLES: '',
-//            layers: 'uk_sfd:tbl_2019',
-//            transition: 0
-//        }, serverType: 'geoserver',
-//        crossOrigin: 'anonymous'
-
-//    })
+//var forest_fire_points2019 = new ol.layer.Heatmap({
+//    source: new ol.source.Vector({
+//        url: `https://ukforestgis.in/geoserver/uk_sfd/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=uk_sfd:tbl_2019&outputFormat=application/json`,
+//        format: new ol.format.GeoJSON()
+//    }),
+//    blur: 5,
+//    radius: 2,
+//    weight: function (feature) {
+//        return feature.get('intensity') || 1;
+//    }
 //});
+//forest_fire_points2019.setGradient([
+//    '#fff5e6', // very light orange (low intensity)
+//    '#ffd699', // soft orange
+//    '#ffa64d', // medium orange
+//    '#ff8000', // rich orange
+//    '#ffff00'  // dark orange (high intensity)
+//]);
+
+var forest_fire_points2019 = new ol.layer.Image({
+    source: new ol.source.ImageWMS({
+        ratio: 1,
+        url: geoserver_ip,
+        params: {
+            'FORMAT': format,
+            tiled: true,
+            STYLES: '',
+            layers: 'uk_sfd:tbl_2019',
+            transition: 0
+        }, serverType: 'geoserver',
+        crossOrigin: 'anonymous'
+
+    })
+});
 
 
 function sfdzone(checkbox) {
@@ -2204,7 +2204,7 @@ var blockdata = new ol.layer.Image({
             'FORMAT': format,
             tiled: true,
             STYLES: '',
-            layers: 'uk_sfd:tbl_block_areas',
+            layers: 'uk_sfd:tbl_beat_master',
             transition: 0
         }, serverType: 'geoserver',
         crossOrigin: 'anonymous'
@@ -2223,9 +2223,9 @@ function range_fun(checkbox) {
         map.addLayer(ranges);
         layerobject.push(ranges);
         map.addOverlay(ranges);
-        lastselectedlayer.push("tbl_range_areas");
+        lastselectedlayer.push("range_master");
         lastselectedlayername.push("Range");
-        lastselectedlayer_vector.push("tbl_range_areas");
+        lastselectedlayer_vector.push("range_master");
         //village_zoom();
     }
     else {
@@ -2233,9 +2233,9 @@ function range_fun(checkbox) {
         map.removeLayer(ranges);
         layerobject.pop(ranges);
         map.removeOverlay(ranges);
-        lastselectedlayer.pop("tbl_range_areas");
+        lastselectedlayer.pop("range_master");
         lastselectedlayername.pop("Range");
-        lastselectedlayer_vector.pop("tbl_range_areas");
+        lastselectedlayer_vector.pop("range_master");
     }
 }
 
@@ -2247,7 +2247,7 @@ var ranges = new ol.layer.Image({
             'FORMAT': format,
             tiled: true,
             STYLES: '',
-            layers: 'uk_sfd:tbl_range_areas',
+            layers: 'uk_sfd:tbl_range_master',
             transition: 0
         }, serverType: 'geoserver',
         crossOrigin: 'anonymous'
@@ -2264,7 +2264,7 @@ function slopefn(checkbox) {
         jQuery('#div_slope').css('display', 'block');
         map.addLayer(slope_layer);
         layerobject.push(slope_layer);
-        map.addOverlay(slope_layer);
+        //map.addOverlay(slope_layer);
         lastselectedlayer.push("Slope_Geo");
         lastselectedlayername.push("Slope_Geo");
         lastselectedlayer_vector.push("Slope_Geo");
@@ -2274,7 +2274,7 @@ function slopefn(checkbox) {
         jQuery('#div_slope').css('display', 'none');
         map.removeLayer(slope_layer);
         layerobject.pop(slope_layer);
-        map.removeOverlay(slope_layer);
+        //map.removeOverlay(slope_layer);
         lastselectedlayer.pop("Slope_Geo");
         lastselectedlayername.pop("Slope_Geo");
         lastselectedlayer_vector.pop("Slope_Geo");
@@ -2284,7 +2284,7 @@ function slopefn(checkbox) {
 var slope_layer = new ol.layer.Image({
     source: new ol.source.ImageWMS({
         ratio: 1,
-        url: 'http://180.151.15.18:9007/geoserver/uk_sfd/wms?',
+        url: 'https://ukforestgis.in/geoserver/uk_sfd/wms?',
         params: {
             'FORMAT': format,
             tiled: true,
@@ -2303,7 +2303,7 @@ function Aspect_Geofn(checkbox) {
         jQuery('#div_Aspects').css('display', 'block');
         map.addLayer(Aspect_Geo_layer);
         layerobject.push(Aspect_Geo_layer);
-        map.addOverlay(Aspect_Geo_layer);
+        //map.addOverlay(Aspect_Geo_layer);
         lastselectedlayer.push("Aspect_Geo");
         lastselectedlayername.push("Aspect_Geo");
         lastselectedlayer_vector.push("Aspect_Geo");
@@ -2313,7 +2313,7 @@ function Aspect_Geofn(checkbox) {
         jQuery('#div_Aspects').css('display', 'none');
         map.removeLayer(Aspect_Geo_layer);
         layerobject.pop(Aspect_Geo_layer);
-        map.removeOverlay(Aspect_Geo_layer);
+       // map.removeOverlay(Aspect_Geo_layer);
         lastselectedlayer.pop("Aspect_Geo");
         lastselectedlayername.pop("Aspect_Geo");
         lastselectedlayer_vector.pop("Aspect_Geo");
@@ -2323,7 +2323,7 @@ function Aspect_Geofn(checkbox) {
 var Aspect_Geo_layer = new ol.layer.Image({
     source: new ol.source.ImageWMS({
         ratio: 1,
-        url: 'http://180.151.15.18:9007/geoserver/uk_sfd/wms?',
+        url: 'https://ukforestgis.in/geoserver/uk_sfd/wms?',
         params: {
             'FORMAT': format,
             tiled: true,
@@ -2343,9 +2343,9 @@ function srtmfun(checkbox) {
         jQuery('#div_srtm').css('display', 'block');
         map.addLayer(srtm_layer);
         layerobject.push(srtm_layer);
-        map.addOverlay(srtm_layer);
+        //map.addOverlay(srtm_layer);
         lastselectedlayer.push("Uttaranchal_SRTM_GEO");
-        lastselectedlayername.push("SRTM");
+        lastselectedlayername.push("DTM");
         lastselectedlayer_vector.push("Uttaranchal_SRTM_GEO");
         //tehsil_zoom();
     }
@@ -2353,9 +2353,9 @@ function srtmfun(checkbox) {
         jQuery('#div_srtm').css('display', 'none');
         map.removeLayer(srtm_layer);
         layerobject.pop(srtm_layer);
-        map.removeOverlay(srtm_layer);
+        //map.removeOverlay(srtm_layer);
         lastselectedlayer.pop("Uttaranchal_SRTM_GEO");
-        lastselectedlayername.pop("SRTM");
+        lastselectedlayername.pop("DTM");
         lastselectedlayer_vector.pop("Uttaranchal_SRTM_GEO");
     }
 }
@@ -2722,6 +2722,12 @@ function capitalize_Words(str) {
     str = String(str);
     return str.replace(/(?:_| |\b)(\w)/g, function ($1) { return $1.toUpperCase().replace('_', ' '); });
 }
+function roundIfNumeric(value) {
+    if (!isNaN(value) && !isNaN(parseFloat(value))) {
+        return parseFloat(value).toFixed(2);   
+    }
+    return value; 
+}
 function showpopupinfo(result, _coordinate, fetch_layername) {
 
     var globalCollectionArray = [];
@@ -2751,14 +2757,14 @@ function showpopupinfo(result, _coordinate, fetch_layername) {
         makeCustomHTML += '<div class=\'layer-info-popup\'><table >';
         for (var j in globalCollectionArray[i].row) {
             var capt = capitalize_Words(globalCollectionArray[i].row[j].column);
-            var val = capitalize_Words(globalCollectionArray[i].row[j].value)
+            var val = capitalize_Words(globalCollectionArray[i].row[j].value);
             var re = /^[-+]?[0-9]+\.[0-9]+jQuery/;
             if (val.match(re)) {
                 dval = parseFloat(val).toFixed(2);
                 makeCustomHTML += '<tr><td class=\'tdpadding\' ><b>' + capt + '</b></td><td class=\'tdpadding\' > ' + dval + '</td></tr>';
             }
             else {
-                makeCustomHTML += '<tr><td class=\'tdpadding\' ><b>' + capt + '</b></td><td class=\'tdpadding\' > ' + capitalize_Words(globalCollectionArray[i].row[j].value) + '</td></tr>';
+                makeCustomHTML += '<tr><td class=\'tdpadding\' ><b>' + capt + '</b></td><td class=\'tdpadding\' > ' + roundIfNumeric(capitalize_Words(globalCollectionArray[i].row[j].value)) + '</td></tr>';
             }
         }
         makeCustomHTML += '</table></div>';
@@ -3349,10 +3355,10 @@ function clearAll() {
     undoStack = [];
     redoStack = [];
 
-    const popup = document.getElementById('popup');
-    popup.classList.remove('hidden');
-    popup.textContent = 'All features cleared!';
-    setTimeout(() => popup.classList.add('hidden'), 1200);
+    //const popup = document.getElementById('popup');
+    //popup.classList.remove('hidden');
+    //popup.textContent = 'All features cleared!';
+    //setTimeout(() => popup.classList.add('hidden'), 1200);
 }
 // ========================== Button Events ========================== //
 let activeTool = null;
@@ -4333,7 +4339,7 @@ function fshowhide() {
 //    })
 //});
 
-////var geoServerURL = "http://180.151.15.18:9007/geoserver/sbl/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=sbl:" + lastselectedlayer[Number(lastselectedlayer.length) - 1] + "&outputFormat=application/json";
+////var geoServerURL = "https://ukforestgis.in/geoserver/sbl/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=sbl:" + lastselectedlayer[Number(lastselectedlayer.length) - 1] + "&outputFormat=application/json";
 ////console.log(geoServerURL);
 ////var vectorSource = new ol.source.Vector({
 ////    url: geoServerURL, // Fetch GeoJSON from GeoServer
@@ -4388,10 +4394,10 @@ function fshowhide() {
 //    }
 //    // Handle different filtertypes
 //    if (filtertype == "NA") {
-//        geoServerURL = `http://180.151.15.18:9007/geoserver/sbl/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=sbl:${lastselectedlayer}&outputFormat=application/json`;
+//        geoServerURL = `https://ukforestgis.in/geoserver/sbl/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=sbl:${lastselectedlayer}&outputFormat=application/json`;
 //    }
 //    else if (filtertype == "query") {
-//        geoServerURL = `http://180.151.15.18:9007/geoserver/sbl/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=sbl:${lastselectedlayer}&outputFormat=application/json&${cqlFilter}`;
+//        geoServerURL = `https://ukforestgis.in/geoserver/sbl/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=sbl:${lastselectedlayer}&outputFormat=application/json&${cqlFilter}`;
 //    }
 
 
@@ -5975,12 +5981,12 @@ function fshowhide() {
 //    var img1 = new Image();
 //    var img2 = new Image();
 
-//    //img1.src = "http://180.151.15.18:9007/geoserver/nrdc/wms?service=WMS&version=1.1.0&request=GetMap&layers=nrdc%3Arow_image&time=" + datefrom +"&bbox=557386.8163888006%2C2931084.918491676%2C567596.8163888006%2C2941404.918491676&width=759&height=768&srs=EPSG%3A32644&styles=&format=image%2Fvnd.jpeg-png";  // Image 1 URL
-//    //img2.src = 'http://180.151.15.18:9007/geoserver/nrdc/wms?service=WMS&version=1.1.0&request=GetMap&layers=nrdc%3Arow_image&time=2024-03-01T00:00:00.000Z&bbox=557386.8163888006%2C2931084.918491676%2C567596.8163888006%2C2941404.918491676&width=759&height=768&srs=EPSG%3A32644&styles=&format=image%2Fvnd.jpeg-png';  // Image 2 URL
+//    //img1.src = "https://ukforestgis.in/geoserver/nrdc/wms?service=WMS&version=1.1.0&request=GetMap&layers=nrdc%3Arow_image&time=" + datefrom +"&bbox=557386.8163888006%2C2931084.918491676%2C567596.8163888006%2C2941404.918491676&width=759&height=768&srs=EPSG%3A32644&styles=&format=image%2Fvnd.jpeg-png";  // Image 1 URL
+//    //img2.src = 'https://ukforestgis.in/geoserver/nrdc/wms?service=WMS&version=1.1.0&request=GetMap&layers=nrdc%3Arow_image&time=2024-03-01T00:00:00.000Z&bbox=557386.8163888006%2C2931084.918491676%2C567596.8163888006%2C2941404.918491676&width=759&height=768&srs=EPSG%3A32644&styles=&format=image%2Fvnd.jpeg-png';  // Image 2 URL
 
 
-//    img1.src = "http://180.151.15.18:9007/geoserver/nrdc/wms?service=WMS&version=1.1.0&request=GetMap&layers=nrdc%3Arow_image&time=" + dtfrm + "&bbox=557386.8163888006%2C2931084.918491676%2C567596.8163888006%2C2941404.918491676&width=1500&height=768&srs=EPSG%3A32644&styles=&format=image%2Fpng";  // Image 1 URL
-//    img2.src = "http://180.151.15.18:9007/geoserver/nrdc/wms?service=WMS&version=1.1.0&request=GetMap&layers=nrdc%3Arow_image&time=" + dtto + "&bbox=557386.8163888006%2C2931084.918491676%2C567596.8163888006%2C2941404.918491676&width=1500&height=768&srs=EPSG%3A32644&styles=&format=image%2Fpng";  // Image 2 URL
+//    img1.src = "https://ukforestgis.in/geoserver/nrdc/wms?service=WMS&version=1.1.0&request=GetMap&layers=nrdc%3Arow_image&time=" + dtfrm + "&bbox=557386.8163888006%2C2931084.918491676%2C567596.8163888006%2C2941404.918491676&width=1500&height=768&srs=EPSG%3A32644&styles=&format=image%2Fpng";  // Image 1 URL
+//    img2.src = "https://ukforestgis.in/geoserver/nrdc/wms?service=WMS&version=1.1.0&request=GetMap&layers=nrdc%3Arow_image&time=" + dtto + "&bbox=557386.8163888006%2C2931084.918491676%2C567596.8163888006%2C2941404.918491676&width=1500&height=768&srs=EPSG%3A32644&styles=&format=image%2Fpng";  // Image 2 URL
 
 
 //    img1.onload = function () {
@@ -6168,11 +6174,13 @@ function fshowhide() {
 function fun_layer() {
     if (document.getElementById("layersDataid").style.display == "none") {
         document.getElementById("layersDataid").style.display = "block";
+        document.getElementById("imgidlayer").style.backgroundColor = "green";
 
     } else {
         //document.getElementById("imgidlayer").style.backgroundColor = "";
 
         document.getElementById("layersDataid").style.display = "none";
+        document.getElementById("imgidlayer").style.backgroundColor = "";
 
     }
 }

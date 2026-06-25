@@ -1,5 +1,5 @@
-﻿var geoserver_ip = "http://180.151.15.18:9007/geoserver/uk_sfd/wms?";
-var geoserver_ip_ows = "http://180.151.15.18:9007/geoserver/sbl/ows";
+﻿var geoserver_ip = "https://ukforestgis.in/geoserver/uk_sfd/wms?";
+var geoserver_ip_ows = "https://ukforestgis.in/geoserver/sbl/ows";
 
 var format = 'image/png';
 var lastselectedlayer = [];
@@ -405,7 +405,7 @@ var baselayer = 0;
 //var slope_layer = new ol.layer.Image({
 //    source: new ol.source.ImageWMS({
 //        ratio: 1,
-//        url: 'http://180.151.15.18:9007/geoserver/uk_sfd/wms?',
+//        url: 'https://ukforestgis.in/geoserver/uk_sfd/wms?',
 //        params: {
 //            'FORMAT': format,
 //            tiled: true,
@@ -444,7 +444,7 @@ var baselayer = 0;
 //var Aspect_Geo_layer = new ol.layer.Image({
 //    source: new ol.source.ImageWMS({
 //        ratio: 1,
-//        url: 'http://180.151.15.18:9007/geoserver/uk_sfd/wms?',
+//        url: 'https://ukforestgis.in/geoserver/uk_sfd/wms?',
 //        params: {
 //            'FORMAT': format,
 //            tiled: true,
@@ -524,7 +524,7 @@ var baselayer = 0;
 
 const heatmapLayer = new ol.layer.Heatmap({
     source: new ol.source.Vector({
-        url: 'http://180.151.15.18:9007/geoserver/uk_sfd/wms?service=WFS&version=1.0.0&request=GetFeature&typeName=uk_sfd:tbl_2021&outputFormat=application/json',
+        url: 'https://ukforestgis.in/geoserver/uk_sfd/wms?service=WFS&version=1.0.0&request=GetFeature&typeName=uk_sfd:tbl_2021&outputFormat=application/json',
         format: new ol.format.GeoJSON()
     }),
     blur: 10,
@@ -618,7 +618,7 @@ function createLayer(type, date = null) {
         case 'sentinel':
             return new ol.layer.Tile({
                 source: new ol.source.TileWMS({
-                    url: 'https://services.sentinel-hub.com/ogc/wms/13d5aaea-1d0e-4581-9288-a463ce586119',
+                    url: 'https://services.sentinel-hub.com/ogc/wms/514e719b-3d56-429e-bdc8-55b90d20d343',
                     params: {
                         layers: '2_FALSE_COLOR',
                         time: date,

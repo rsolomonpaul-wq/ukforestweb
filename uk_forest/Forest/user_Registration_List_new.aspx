@@ -29,7 +29,7 @@
                                 <asp:ListItem Value="8">DFO (Division)</asp:ListItem>
                             </asp:DropDownList>
                         </div>--%>
-                        <div class="col-md-12">
+                        <div class="col-md-3">
                             <asp:Label ID="lbl_role" runat="server" CssClass="font-weight-bold">
         User Role <span class="text-danger">*</span>
                             </asp:Label>
@@ -44,9 +44,9 @@
                         </div>
 
                     </div>
-                   <%-- </div>--%>
+                    <%-- </div>--%>
 
-                    <div class="row my-3">
+                    <div class="row tableColumn my-3">
                         <div class="col-md-12">
                             <asp:Label ID="lbl_msg_alert" runat="server" ForeColor="Red" Visible="false"></asp:Label>
                             <asp:GridView ID="gv_user" OnRowDataBound="gv_users_RowDataBound" AutoGenerateColumns="false" AllowPaging="true" PageSize="50" DataKeyNames="UserId" EmptyDataText="No Data Found!" OnPageIndexChanging="gv_users_PageIndexChanging" runat="server" Width="100%">
@@ -98,7 +98,7 @@
                                         </ItemTemplate>
                                     </asp:TemplateField>
 
-                                  <%--   <asp:TemplateField HeaderText="Status">
+                                    <%--   <asp:TemplateField HeaderText="Status">
                                         <ItemTemplate>
                                             <asp:Label ID="lbl_Status" runat="server"
                                                 Text='<%# Eval("Status") != null ? Eval("Status") : "NA" %>'></asp:Label>
@@ -119,9 +119,9 @@
                                 </Columns>
                             </asp:GridView>
                         </div>
-                       </div>
                     </div>
                 </div>
+            </div>
         </ContentTemplate>
     </asp:UpdatePanel>
 </asp:Content>

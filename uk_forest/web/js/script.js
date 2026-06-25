@@ -15,7 +15,7 @@ $(document).ready(function() {
             rtl: true,
             loop: true,
             loopFillGroupWithBlank: !0,
-  
+ 
             mousewheel: {
               eventsTarged: ".swiper-slide",
               sensitivity: 1

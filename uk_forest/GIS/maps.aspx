@@ -54,7 +54,7 @@
                 padding: 0px;
             }
 
-
+          
 
 
 
@@ -663,8 +663,7 @@
             height: 38px;
         }
     </style>
-    
-                                <style>
+    <style>
                                     
     .accordion {
       border: 1px solid #ccc;
@@ -726,17 +725,38 @@
     table {
       width: 100%;
       border-collapse: collapse;
+      table-layout: fixed; /* Equal width columns */
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
     }
-
     th, td {
-      border: 1px solid #ccc;
-      padding: 8px;
-      text-align: left;
+      padding: 12px;
+      border: 1px solid #444;
+      text-align: center;
+      word-wrap: break-word; /* Handle long text */
     }
-
     th {
-      background-color: #f5f5f5;
+      background: linear-gradient(to bottom, #333, #111);
+      color: #fff;
+    } 
+    .page-content.my-5 .page-container {
+    margin-top: 10px;
+}
+ /*td:nth-child(2), th:nth-child(2) {
+      background: linear-gradient(to bottom right, #f03030, #f18c8c);
+      color: #000;
     }
+    td:nth-child(3), th:nth-child(3) {
+      background: linear-gradient(to bottom right, #fcf259, #fcf259);
+      color: #000;
+    }
+    td:nth-child(4), th:nth-child(4) {
+      background: linear-gradient(to bottom right, #a5f591, #1eff00);
+      color: #000;
+    }
+    td:nth-child(5), th:nth-child(5) {
+      background: linear-gradient(to bottom right, #122b01, #21411a);
+      color: #fffcfc;
+    }*/
   </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -750,6 +770,31 @@
                 <div > 
                     <div class="map-style-flood" id="map">
                           <div id="mouse-position"></div>
+
+                       <%-- <div style="position: absolute; z-index: 1; bottom: 0; background-color: white;">
+                            <table>
+                                <tr>
+                                    <th>dfgdfgdf</th>
+                                    <th>dfgdfgdf</th>
+                                    <th>dfgdfgdf</th>
+                                    <th>dfgdfgdf</th>
+                                </tr>
+                                <tr>
+                                    <td>dfgfg</td>
+                                    <td>dfgfg</td>
+                                    <td>dfgfg</td>
+                                    <td>dfgfg</td>
+                                </tr>
+                                <tr>
+                                    <td>dfgfg</td>
+                                    <td>dfgfg</td>
+                                    <td>dfgfg</td>
+                                    <td>dfgfg</td>
+                                </tr>
+                            </table>
+                        </div>--%>
+                        
+                      
                          <asp:HiddenField runat="server" ID="mylayerswitcher" />
                         <div class="layer-switcher" style="z-index: 11; background-color: white !important;">
                             <div class="layerswitcherimg" id="layer">
@@ -872,7 +917,7 @@
                                             <asp:CheckBox ID="cd_state" runat="server" onclick='state(this);' Text="State Boundary" class="nav-item" />
 
                                             <span id='div_state' style='display: none'>
-                                                <img src="http://180.151.15.18:9007/geoserver/uk_sfd/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=uk_sfd:tbl_uk_state_boundary&Format=image/gif&scale=800000&Transparent=true" />
+                                                <img src="https://ukforestgis.in/geoserver/uk_sfd/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=uk_sfd:tbl_uk_state_boundary&Format=image/gif&scale=800000&Transparent=true" />
                                             </span>
                                         </li>
 
@@ -880,7 +925,7 @@
                                             <asp:CheckBox ID="cd_district" runat="server" onclick='district(this);' Text="District Boundary" class="nav-item" />
 
                                             <span id='div_district' style='display: none'>
-                                                <img src="http://180.151.15.18:9007/geoserver/uk_sfd/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=uk_sfd:tbl_uk_districts&Format=image/gif&scale=800000&Transparent=true" />
+                                                <img src="https://ukforestgis.in/geoserver/uk_sfd/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=uk_sfd:tbl_uk_districts&Format=image/gif&scale=800000&Transparent=true" />
                                             </span>
                                         </li>
 
@@ -888,41 +933,41 @@
                                             <asp:CheckBox ID="cd_tehsil" runat="server" onclick='tehsil(this);' Text="Tehsil & Village Boundary" class="nav-item" />
 
                                             <span id='div_tehsil' style='display: none'>
-                                                <img src="http://180.151.15.18:9007/geoserver/uk_sfd/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=uk_sfd:tbl_uk_village_tehsil_recap4ndc_discticts&Format=image/gif&scale=800000&Transparent=true" />
+                                                <img src="https://ukforestgis.in/geoserver/uk_sfd/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=uk_sfd:tbl_uk_village_tehsil_recap4ndc_discticts&Format=image/gif&scale=800000&Transparent=true" />
                                             </span>
                                         </li>   <li >
                                             <asp:CheckBox ID="zone" runat="server" onclick='sfdzone(this);' Text="Zone Boundary" class="nav-item" />
 
                                             <span id='div_zone' style='display: none'>
-                                                <img src="http://180.151.15.18:9007/geoserver/uk_sfd/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=uk_sfd:tbl_zone_master&Format=image/gif&scale=800000&Transparent=true" />
+                                                <img src="https://ukforestgis.in/geoserver/uk_sfd/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=uk_sfd:tbl_zone_master&Format=image/gif&scale=800000&Transparent=true" />
                                             </span>
                                         </li>
                                          <li >
                                             <asp:CheckBox ID="circle" runat="server" onclick='sfdcircle(this);' Text="Circle Boundary" class="nav-item" />
 
                                             <span id='div_circle' style='display: none'>
-                                                <img src="http://180.151.15.18:9007/geoserver/uk_sfd/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=uk_sfd:tbl_circle_master&Format=image/gif&scale=800000&Transparent=true" />
+                                                <img src="https://ukforestgis.in/geoserver/uk_sfd/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=uk_sfd:tbl_circle_master&Format=image/gif&scale=800000&Transparent=true" />
                                             </span>
                                         </li>
                                          <li >
                                             <asp:CheckBox ID="division" runat="server" onclick='sfddivision(this);' Text="Division Boundary" class="nav-item" />
 
                                             <span id='div_division' style='display: none'>
-                                                <img src="http://180.151.15.18:9007/geoserver/uk_sfd/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=uk_sfd:tbl_division_master&Format=image/gif&scale=800000&Transparent=true" />
+                                                <img src="https://ukforestgis.in/geoserver/uk_sfd/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=uk_sfd:tbl_division_master&Format=image/gif&scale=800000&Transparent=true" />
                                             </span>
                                         </li><li >
                                             <asp:CheckBox ID="range" runat="server" onclick='range_fun(this);' Text="Range" class="nav-item" />
 
                                             <span id='div_range' style='display: none'>
-                                                <img src="http://180.151.15.18:9007/geoserver/uk_sfd/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=uk_sfd:tbl_range_areas&Format=image/gif&scale=800000&Transparent=true" />
+                                                <img src="https://ukforestgis.in/geoserver/uk_sfd/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=uk_sfd:tbl_range_master&Format=image/gif&scale=800000&Transparent=true" />
                                             </span>
                                         </li>
                                         
                                          <li >
-                                            <asp:CheckBox ID="block" runat="server" onclick='block_fun(this);' Text="Blocks" class="nav-item" />
+                                            <asp:CheckBox ID="block" runat="server" onclick='block_fun(this);' Text="Beat" class="nav-item" />
 
                                             <span id='div_block' style='display: none'>
-                                                <img src="http://180.151.15.18:9007/geoserver/uk_sfd/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=uk_sfd:tbl_block_areas&Format=image/gif&scale=800000&Transparent=true" />
+                                                <img src="https://ukforestgis.in/geoserver/uk_sfd/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=uk_sfd:tbl_beat_master&Format=image/gif&scale=800000&Transparent=true" />
                                             </span>
                                         </li>
               </ul>
@@ -930,105 +975,6 @@
       </div>
     </div>
 
-    <!-- Group 2 -->
-    <div class="accordion-item">
-      <button type="button" class="accordion-button" onclick="toggleAccordion(this)">Reference Info</button>
-      <div class="accordion-content">
-          <div style="padding:10px">
-              <ul>
-                   <li >
-                                            <asp:CheckBox ID="railwaystation" runat="server" onclick='railwaystation_fun(this);' Text="Railway Station" class="nav-item" />
-
-                                            <span id='div_railwaystation' style='display: none'>
-                                                <img src="http://180.151.15.18:9007/geoserver/uk_sfd/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=uk_sfd:tbl_railway_station&Format=image/gif&scale=800000&Transparent=true" />
-                                            </span>
-                                        </li>
-                                         
-                                        
-                                        
-                                        
-                                        <%--SADFASDF--%>
-                                         <li >
-                                            <asp:CheckBox ID="majorcity" runat="server" onclick='majorcity_fun(this);' Text="Major City" class="nav-item" />
-
-                                            <span id='div_majorcity' style='display: none'>
-                                                <img src="http://180.151.15.18:9007/geoserver/uk_sfd/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=uk_sfd:tbl_major_city&Format=image/gif&scale=800000&Transparent=true" />
-                                            </span>
-                                        </li>
-                                          <li >
-                                            <asp:CheckBox ID="roads" runat="server" onclick='roads_fun(this);' Text="Roads" class="nav-item" />
-
-                                            <span id='div_road' style='display: none'>
-                                                <img src="http://180.151.15.18:9007/geoserver/uk_sfd/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=uk_sfd:tbl_uk_road&Format=image/gif&scale=800000&Transparent=true" />
-                                            </span>
-                                        </li>  
-                                        <li>
-                                            <asp:CheckBox ID="railways" runat="server" onclick='railways_fun(this);' Text="Railway Lines" class="nav-item" />
-
-                                            <span id='div_railways' style='display: none'>
-                                                <img src="http://180.151.15.18:9007/geoserver/uk_sfd/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=uk_sfd:tbl_uk_railway_line&Format=image/gif&scale=800000&Transparent=true" />
-                                            </span>
-                                        </li>   
-                                        <li>
-                                            <asp:CheckBox ID="waterbody" runat="server" onclick='waterbody_fun(this);' Text="Water Body" class="nav-item" />
-
-                                            <span id='div_waterbody' style='display: none'>
-                                                <img src="http://180.151.15.18:9007/geoserver/uk_sfd/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=uk_sfd:tbl_uk_water_body&Format=image/gif&scale=800000&Transparent=true" />
-                                            </span>
-                                        </li>  <li>
-                                            <asp:CheckBox ID="rivers" runat="server" onclick='rivers_fn(this);' Text="Drainage" class="nav-item" />
-
-                                            <span id='div_rivers' style='display: none'>
-                                                <img src="http://180.151.15.18:9007/geoserver/uk_sfd/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=uk_sfd:tbl_uk_drainage&Format=image/gif&scale=800000&Transparent=true" />
-                                            </span>
-                                        </li>   <li>
-                                            <asp:CheckBox ID="population_density" runat="server" onclick='populationdensity(this);' Text="Population Density" class="nav-item" />
-
-                                            <span id='div_population_density' style='display: none'>
-                                                <img src="http://180.151.15.18:9007/geoserver/uk_sfd/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=uk_sfd:tbl_uk_population_status_y2011&Format=image/gif&scale=800000&Transparent=true" />
-                                            </span>
-                                        </li>  <li>
-                                            <asp:CheckBox ID="micro_watershed_boundary" runat="server" onclick='microwatershedboundary(this);' Text="Micro Watershed Boundary" class="nav-item" />
-
-                                            <span id='div_micro_watershed_boundary' style='display: none'>
-                                                <img src="http://180.151.15.18:9007/geoserver/uk_sfd/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=uk_sfd:tbl_uk_clip_mws_reprj&Format=image/gif&scale=800000&Transparent=true" />
-                                            </span>
-                                        </li> 
-
-
-
-                   <li >
-                                            <asp:CheckBox ID="Aspect" runat="server" onclick='Aspect_Geofn(this);' Text="Aspects" class="nav-item" />
-
-                                            <span id='div_Aspects' style='display: none'>
-                                                <%--<img src="http://180.151.15.18:9007/geoserver/uk_sfd/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=uk_sfd:Aspect_Geo&Format=image/gif&scale=800000&Transparent=true" />--%>
-                                                <img src="../DSS/img/Aspect.PNG" />
-                                            </span>
-                                        </li>
-
-                                   <li >
-                                            <asp:CheckBox ID="slope" runat="server" onclick='slopefn(this);' Text="Slope" class="nav-item" />
-
-                                            <span id='div_slope' style='display: none'>
-                                                <%--<img src="http://180.151.15.18:9007/geoserver/uk_sfd/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=uk_sfd:Aspect_Geo&Format=image/gif&scale=800000&Transparent=true" />--%>
-                                                <img src="../DSS/img/Slope.PNG" />
-                                            </span>
-                                        </li>
-                                   <li >
-                                            <asp:CheckBox ID="srtm" runat="server" onclick='srtmfun(this);' Text="DTM" class="nav-item" />
-
-                                            <span id='div_srtm' style='display: none'>
-                                                <img src="http://180.151.15.18:9007/geoserver/uk_sfd/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=uk_sfd:Uttaranchal_SRTM_GEO&Format=image/gif&scale=800000&Transparent=true" />
-                                               
-                                            </span>
-                                        </li>
-
-                                 
-              </ul>
-
-          </div>
-      </div>
-    </div>
 
     <!-- Group 3 -->
     <div class="accordion-item">
@@ -1040,7 +986,7 @@
                                             <asp:CheckBox ID="cd_village" runat="server" onclick='village(this);' Text="Forest Area" class="nav-item" />
 
                                             <span id='div_village' style='display: none'>
-                                                <img src="http://180.151.15.18:9007/geoserver/uk_sfd/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=uk_sfd:tbl_uk_uk_forest_data&Format=image/gif&scale=800000&Transparent=true" />
+                                                <img src="https://ukforestgis.in/geoserver/uk_sfd/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=uk_sfd:tbl_forest_data_final&Format=image/gif&scale=800000&Transparent=true" />
                                             </span>
                                         </li>  
 
@@ -1050,25 +996,26 @@
                                             <asp:CheckBox ID="plantation" runat="server" onclick='funplantation(this);' Text="Plantation" class="nav-item" />
 
                                             <span id='div_plantation' style='display: none'>
-                                                <img src="http://180.151.15.18:9007/geoserver/uk_sfd/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=uk_sfd:tbl_plantation_area&Format=image/gif&scale=800000&Transparent=true" />
+                                                <img src="https://ukforestgis.in/geoserver/uk_sfd/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=uk_sfd:tbl_plantation_area&Format=image/gif&scale=800000&Transparent=true" />
                                             </span>
                                         </li>  
 
 
-                                        <li>
+                                     <%--   <li>
                                             <asp:CheckBox ID="forest_canopy" runat="server" onclick='forestCapopy(this);' Text="Forest Canopy Cover" class="nav-item" />
 
                                             <span id='div_forest_canopy' style='display: none'>
-                                                <img src="http://180.151.15.18:9007/geoserver/uk_sfd/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=uk_sfd:tbl_uk_fsi_fcd2021&Format=image/gif&scale=800000&Transparent=true" />
+                                                <img src="https://ukforestgis.in/geoserver/uk_sfd/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=uk_sfd:tbl_uk_fsi_fcd2021&Format=image/gif&scale=800000&Transparent=true" />
                                             </span>
-                                        </li>   
+                                        </li>  --%> 
 
 
                     <li>
                                             <asp:CheckBox ID="CheckBox1" runat="server" onclick='forestDensity(this);' Text="Forest Density" class="nav-item" />
 
                                             <span id='div_forest_density' style='display: none'>
-                                                <img src="http://180.151.15.18:9007/geoserver/uk_sfd/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=uk_sfd:tbl_uk_fsi_fcd2021&Format=image/gif&scale=800000&Transparent=true" />
+                                               <%-- <img src="https://ukforestgis.in/geoserver/uk_sfd/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=uk_sfd:tbl_uk_fsi_fcd2021&Format=image/gif&scale=800000&Transparent=true" />--%>
+                                                <img src="../web/img/icons/density.jpg" />
                                             </span>
                                         </li>   
               </ul>
@@ -1087,12 +1034,12 @@
                                             <asp:CheckBox ID="forest_fire_prone" runat="server" onclick='forestfireprone(this);' Text="Forest Fire Prone" class="nav-item" />
 
                                             <span id='div_forest_fire_prone' style='display: none'>
-                                                <img src="http://180.151.15.18:9007/geoserver/uk_sfd/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=uk_sfd:tbl_uk_forest_fire_prone_fsi_data&Format=image/gif&scale=800000&Transparent=true" />
+                                                <img src="https://ukforestgis.in/geoserver/uk_sfd/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=uk_sfd:tbl_uk_forest_fire_prone_fsi_data&Format=image/gif&scale=800000&Transparent=true" />
                                             </span>
                                         </li>
                   <li>
                       <div class="accordion-item">
-                          <button type="button" class="accordion-button" onclick="toggleAccordion(this)">Forest Fire Incident Location</button>
+                          <button type="button" class="accordion-button" onclick="toggleAccordion(this)">Forest Fire Alerts Location</button>
                           <div class="accordion-content">
                               <div style="padding: 10px">
                                   <ul>
@@ -1100,42 +1047,42 @@
                                             <asp:CheckBox ID="tbl_2024" runat="server" onclick='forestfirepoints2024(this);' Text="2024" class="nav-item" />
 
                                             <span id='div_fire_points2024' style='display: none'>
-                                                <img src="http://180.151.15.18:9007/geoserver/uk_sfd/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=uk_sfd:tbl_2024&Format=image/gif&scale=800000&Transparent=true" />
+                                                <img src="https://ukforestgis.in/geoserver/uk_sfd/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=uk_sfd:tbl_2024&Format=image/gif&scale=800000&Transparent=true" />
                                             </span>
                                         </li> 
                                        <li>
                                             <asp:CheckBox ID="tbl_2023" runat="server" onclick='forestfirepoints2023(this);' Text="2023" class="nav-item" />
 
                                             <span id='div_fire_points2023' style='display: none'>
-                                                <img src="http://180.151.15.18:9007/geoserver/uk_sfd/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=uk_sfd:tbl_2023&Format=image/gif&scale=800000&Transparent=true" />
+                                                <img src="https://ukforestgis.in/geoserver/uk_sfd/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=uk_sfd:tbl_2023&Format=image/gif&scale=800000&Transparent=true" />
                                             </span>
                                         </li> 
                                        <li>
                                             <asp:CheckBox ID="tbl_2022" runat="server" onclick='forestfirepoints2022(this);' Text="2022" class="nav-item" />
 
                                             <span id='div_fire_points2022' style='display: none'>
-                                                <img src="http://180.151.15.18:9007/geoserver/uk_sfd/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=uk_sfd:tbl_2022&Format=image/gif&scale=800000&Transparent=true" />
+                                                <img src="https://ukforestgis.in/geoserver/uk_sfd/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=uk_sfd:tbl_2022&Format=image/gif&scale=800000&Transparent=true" />
                                             </span>
                                         </li> 
                                        <li>
                                             <asp:CheckBox ID="tbl_2021" runat="server" onclick='forestfirepoints2021(this);' Text="2021" class="nav-item" />
 
                                             <span id='div_fire_points2021' style='display: none'>
-                                                <img src="http://180.151.15.18:9007/geoserver/uk_sfd/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=uk_sfd:tbl_2021&Format=image/gif&scale=800000&Transparent=true" />
+                                                <img src="https://ukforestgis.in/geoserver/uk_sfd/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=uk_sfd:tbl_2021&Format=image/gif&scale=800000&Transparent=true" />
                                             </span>
                                         </li> 
                                        <li>
                                             <asp:CheckBox ID="tbl_2020" runat="server" onclick='forestfirepoints2020(this);' Text="2020" class="nav-item" />
 
                                             <span id='div_fire_points2020' style='display: none'>
-                                                <img src="http://180.151.15.18:9007/geoserver/uk_sfd/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=uk_sfd:tbl_2020&Format=image/gif&scale=800000&Transparent=true" />
+                                                <img src="https://ukforestgis.in/geoserver/uk_sfd/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=uk_sfd:tbl_2020&Format=image/gif&scale=800000&Transparent=true" />
                                             </span>
                                         </li> 
                                        <li>
                                             <asp:CheckBox ID="tbl_2019" runat="server" onclick='forestfirepoints2019(this);' Text="2019" class="nav-item" />
 
                                             <span id='div_fire_points2019' style='display: none'>
-                                                <img src="http://180.151.15.18:9007/geoserver/uk_sfd/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=uk_sfd:tbl_2019&Format=image/gif&scale=800000&Transparent=true" />
+                                                <img src="https://ukforestgis.in/geoserver/uk_sfd/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=uk_sfd:tbl_2019&Format=image/gif&scale=800000&Transparent=true" />
                                             </span>
                                         </li> 
                                   </ul>
@@ -1148,9 +1095,118 @@
           </div>
       </div>
     </div>
+
+      
+    <!-- Group 2 -->
+    <div class="accordion-item">
+      <button type="button" class="accordion-button" onclick="toggleAccordion(this)">Reference Info</button>
+      <div class="accordion-content">
+          <div style="padding:10px">
+              <ul>
+                   <li >
+                                            <asp:CheckBox ID="railwaystation" runat="server" onclick='railwaystation_fun(this);' Text="Railway Station" class="nav-item" />
+
+                                            <span id='div_railwaystation' style='display: none'>
+                                                <img src="https://ukforestgis.in/geoserver/uk_sfd/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=uk_sfd:tbl_railway_station&Format=image/gif&scale=800000&Transparent=true" />
+                                            </span>
+                                        </li>
+                                         
+                                        
+                                        
+                                        
+                                        <%--SADFASDF--%>
+                                         <li >
+                                            <asp:CheckBox ID="majorcity" runat="server" onclick='majorcity_fun(this);' Text="Major City" class="nav-item" />
+
+                                            <span id='div_majorcity' style='display: none'>
+                                                <img src="https://ukforestgis.in/geoserver/uk_sfd/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=uk_sfd:tbl_major_city&Format=image/gif&scale=800000&Transparent=true" />
+                                            </span>
+                                        </li>
+                                          <li >
+                                            <asp:CheckBox ID="roads" runat="server" onclick='roads_fun(this);' Text="Roads" class="nav-item" />
+
+                                            <span id='div_road' style='display: none'>
+                                                <img src="https://ukforestgis.in/geoserver/uk_sfd/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=uk_sfd:tbl_uk_road&Format=image/gif&scale=800000&Transparent=true" />
+                                            </span>
+                                        </li>  
+                                        <li>
+                                            <asp:CheckBox ID="railways" runat="server" onclick='railways_fun(this);' Text="Railway Lines" class="nav-item" />
+
+                                            <span id='div_railways' style='display: none'>
+                                                <img src="https://ukforestgis.in/geoserver/uk_sfd/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=uk_sfd:tbl_uk_railway_line&Format=image/gif&scale=800000&Transparent=true" />
+                                            </span>
+                                        </li>   
+                                        <li>
+                                            <asp:CheckBox ID="waterbody" runat="server" onclick='waterbody_fun(this);' Text="Water Body" class="nav-item" />
+
+                                            <span id='div_waterbody' style='display: none'>
+                                                <img src="https://ukforestgis.in/geoserver/uk_sfd/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=uk_sfd:tbl_uk_water_body&Format=image/gif&scale=800000&Transparent=true" />
+                                            </span>
+                                        </li>  <li>
+                                            <asp:CheckBox ID="rivers" runat="server" onclick='rivers_fn(this);' Text="Drainage" class="nav-item" />
+
+                                            <span id='div_rivers' style='display: none'>
+                                                <img src="https://ukforestgis.in/geoserver/uk_sfd/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=uk_sfd:tbl_uk_drainage&Format=image/gif&scale=800000&Transparent=true" />
+                                            </span>
+                                        </li>   <li>
+                                            <asp:CheckBox ID="population_density" runat="server" onclick='populationdensity(this);' Text="Population Density" class="nav-item" />
+
+                                            <span id='div_population_density' style='display: none'>
+                                                <img src="https://ukforestgis.in/geoserver/uk_sfd/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=uk_sfd:tbl_uk_population_status_y2011&Format=image/gif&scale=800000&Transparent=true" />
+                                            </span>
+                                        </li>  <li>
+                                            <asp:CheckBox ID="micro_watershed_boundary" runat="server" onclick='microwatershedboundary(this);' Text="Micro Watershed Boundary" class="nav-item" />
+
+                                            <span id='div_micro_watershed_boundary' style='display: none'>
+                                                <img src="https://ukforestgis.in/geoserver/uk_sfd/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=uk_sfd:tbl_uk_clip_mws_reprj&Format=image/gif&scale=800000&Transparent=true" />
+                                            </span>
+                                        </li> 
+
+
+
+                   <li >
+                                            <asp:CheckBox ID="Aspect" runat="server" onclick='Aspect_Geofn(this);' Text="Aspects" class="nav-item" />
+
+                                            <span id='div_Aspects' style='display: none'>
+                                                <%--<img src="https://ukforestgis.in/geoserver/uk_sfd/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=uk_sfd:Aspect_Geo&Format=image/gif&scale=800000&Transparent=true" />--%>
+                                                <img src="../DSS/img/Aspect.PNG" />
+                                            </span>
+                                        </li>
+
+                                   <li >
+                                            <asp:CheckBox ID="slope" runat="server" onclick='slopefn(this);' Text="Slope" class="nav-item" />
+
+                                            <span id='div_slope' style='display: none'>
+                                                <%--<img src="https://ukforestgis.in/geoserver/uk_sfd/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=uk_sfd:Aspect_Geo&Format=image/gif&scale=800000&Transparent=true" />--%>
+                                                <%--<img src="../DSS/img/Slope.PNG" />--%>
+                                                <div>
+                                                    <div>
+                                                        <span style="margin-left: 15px;">All units in degree</span>
+                                                    </div> <div>
+                                                        <img src="img/slope_legend.png" />
+                                                    </div>
+                                                
+                                                </div>
+                                            </span>
+                                        </li>
+                                   <li >
+                                            <asp:CheckBox ID="srtm" runat="server" onclick='srtmfun(this);' Text="DTM" class="nav-item" />
+
+                                            <span id='div_srtm' style='display: none'>
+                                                <img src="https://ukforestgis.in/geoserver/uk_sfd/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=uk_sfd:Uttaranchal_SRTM_GEO&Format=image/gif&scale=800000&Transparent=true" />
+                                               
+                                            </span>
+                                        </li>
+
+                                 
+              </ul>
+
+          </div>
+      </div>
+    </div>
       
     <!-- Group 4 -->
-    <div class="accordion-item">
+    <div class="accordion-item" style="display:none">
       <button type="button" class="accordion-button" onclick="toggleAccordion(this)">Other</button>
       <div class="accordion-content">
           <div style="padding: 10px">
@@ -1162,7 +1218,7 @@
                                             <asp:CheckBox ID="land_degradation" runat="server" onclick='landdegradation(this);' Text="Land Degradation (2018-19)" class="nav-item" />
 
                                             <span id='div_land_degradation' style='display: none'>
-                                                <img src="http://180.151.15.18:9007/geoserver/uk_sfd/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=uk_sfd:tbl_uk_clip_reproj_uttarakhand_land_degradation_status_2018_19_&Format=image/gif&scale=800000&Transparent=true" />
+                                                <img src="https://ukforestgis.in/geoserver/uk_sfd/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=uk_sfd:tbl_uk_clip_reproj_uttarakhand_land_degradation_status_2018_19_&Format=image/gif&scale=800000&Transparent=true" />
                                             </span>
                                         </li> 
                                       
@@ -1171,14 +1227,14 @@
                                             <asp:CheckBox ID="livestock_pressure" runat="server" onclick='livestockpressure(this);' Text="Livestock Pressure (2019)" class="nav-item" />
 
                                             <span id='div_livestock_pressure' style='display: none'>
-                                                <img src="http://180.151.15.18:9007/geoserver/uk_sfd/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=uk_sfd:tbl_uk_livestock_pressure&Format=image/gif&scale=800000&Transparent=true" />
+                                                <img src="https://ukforestgis.in/geoserver/uk_sfd/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=uk_sfd:tbl_uk_livestock_pressure&Format=image/gif&scale=800000&Transparent=true" />
                                             </span>
                                         </li> 
                                         <li>
                                             <asp:CheckBox ID="lpg_connection" runat="server" onclick='lpgconnection(this);' Text="LPG Connection (2024)" class="nav-item" />
 
                                             <span id='div_lpg_connection' style='display: none'>
-                                                <img src="http://180.151.15.18:9007/geoserver/uk_sfd/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=uk_sfd:tbl_uk_lpg_connections&Format=image/gif&scale=800000&Transparent=true" />
+                                                <img src="https://ukforestgis.in/geoserver/uk_sfd/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=uk_sfd:tbl_uk_lpg_connections&Format=image/gif&scale=800000&Transparent=true" />
                                             </span>
                                         </li> 
                                        
@@ -1186,28 +1242,28 @@
                                             <asp:CheckBox ID="green_india_mission" runat="server" onclick='greenindiamission(this);' Text="Green India Mission" class="nav-item" />
 
                                             <span id='div_green_india_mission' style='display: none'>
-                                                <img src="http://180.151.15.18:9007/geoserver/uk_sfd/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=uk_sfd:tbl_uk_utm43_gim_intersect_division_mws&Format=image/gif&scale=800000&Transparent=true" />
+                                                <img src="https://ukforestgis.in/geoserver/uk_sfd/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=uk_sfd:tbl_uk_utm43_gim_intersect_division_mws&Format=image/gif&scale=800000&Transparent=true" />
                                             </span>
                                         </li> 
                                         <li>
                                             <asp:CheckBox ID="field_validation_points" runat="server" onclick='fieldvalidationpoints(this);' Text="Field Validation Points" class="nav-item" />
 
                                             <span id='div_field_validation_points' style='display: none'>
-                                                <img src="http://180.151.15.18:9007/geoserver/uk_sfd/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=uk_sfd:tbl_uk_field_validation_pts_june_july2024&Format=image/gif&scale=800000&Transparent=true" />
+                                                <img src="https://ukforestgis.in/geoserver/uk_sfd/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=uk_sfd:tbl_uk_field_validation_pts_june_july2024&Format=image/gif&scale=800000&Transparent=true" />
                                             </span>
                                         </li> 
                                         <li>
                                             <asp:CheckBox ID="human_wildlife_conflict" runat="server" onclick='humanwildlifeconflict(this);' Text="Human Wildlife Conflict data" class="nav-item" />
 
                                             <span id='div_human_wildlife_conflict' style='display: none'>
-                                                <img src="http://180.151.15.18:9007/geoserver/uk_sfd/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=uk_sfd:tbl_uk_all_human_wildlife_conflict_info&Format=image/gif&scale=800000&Transparent=true" />
+                                                <img src="https://ukforestgis.in/geoserver/uk_sfd/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=uk_sfd:tbl_uk_all_human_wildlife_conflict_info&Format=image/gif&scale=800000&Transparent=true" />
                                             </span>
                                         </li> 
                                           <li>
                                             <asp:CheckBox ID="intervention_area" runat="server" onclick='interventionarea(this);' Text="Intervention area stats (LULC, FCD and SAC degradation)" class="nav-item" />
 
                                             <span id='div_intervention_area' style='display: none'>
-                                                <img src="http://180.151.15.18:9007/geoserver/uk_sfd/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=uk_sfd:tbl_uk_interventionareastats_fcd_lulc_dld_sac&Format=image/gif&scale=800000&Transparent=true" />
+                                                <img src="https://ukforestgis.in/geoserver/uk_sfd/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=uk_sfd:tbl_uk_interventionareastats_fcd_lulc_dld_sac&Format=image/gif&scale=800000&Transparent=true" />
                                             </span>
                                         </li> 
               </ul>
@@ -1249,7 +1305,7 @@
                                             <asp:CheckBox ID="cd_country" runat="server" onclick='country(this);' Text="Country" class="nav-item" />
 
                                             <span id='div_country' style='display: none'>
-                                                <img src="http://180.151.15.18:9007/geoserver/uk_sfd/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=uk_sfd:tbl_country_boundary&Format=image/gif&scale=800000&Transparent=true" />
+                                                <img src="https://ukforestgis.in/geoserver/uk_sfd/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=uk_sfd:tbl_country_boundary&Format=image/gif&scale=800000&Transparent=true" />
                                             </span>
                                         </li>
 
@@ -1279,21 +1335,21 @@
                                             <asp:CheckBox ID="longlist_landscape" runat="server" onclick='longlistlandscape(this);' Text="Longlist Landscape Boundary" class="nav-item" />
 
                                             <span id='div_longlist_landscape' style='display: none'>
-                                                <img src="http://180.151.15.18:9007/geoserver/uk_sfd/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=uk_sfd:tbl_uk_7ls_new&Format=image/gif&scale=800000&Transparent=true" />
+                                                <img src="https://ukforestgis.in/geoserver/uk_sfd/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=uk_sfd:tbl_uk_7ls_new&Format=image/gif&scale=800000&Transparent=true" />
                                             </span>
                                         </li> 
                                         <li>
                                             <asp:CheckBox ID="shortlist_landscape1" runat="server" onclick='shortlistlandscape1(this);' Text="Shortlist Landscape boundary- LS1" class="nav-item" />
 
                                             <span id='div_shortlist_landscape1' style='display: none'>
-                                                <img src="http://180.151.15.18:9007/geoserver/uk_sfd/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=uk_sfd:tbl_uk_ls_1&Format=image/gif&scale=800000&Transparent=true" />
+                                                <img src="https://ukforestgis.in/geoserver/uk_sfd/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=uk_sfd:tbl_uk_ls_1&Format=image/gif&scale=800000&Transparent=true" />
                                             </span>
                                         </li> 
                                         <li>
                                             <asp:CheckBox ID="shortlist_landscape2" runat="server" onclick='shortlistlandscape2(this);' Text="Shortlist Landscape boundary- LS2" class="nav-item" />
 
                                             <span id='div_shortlist_landscape2' style='display: none'>
-                                                <img src="http://180.151.15.18:9007/geoserver/uk_sfd/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=uk_sfd:tbl_uk_ls_2&Format=image/gif&scale=800000&Transparent=true" />
+                                                <img src="https://ukforestgis.in/geoserver/uk_sfd/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=uk_sfd:tbl_uk_ls_2&Format=image/gif&scale=800000&Transparent=true" />
                                             </span>
                                         </li> --%>
 
@@ -1302,14 +1358,14 @@
                                             <asp:CheckBox ID="area_at_landscape1" runat="server" onclick='areaatlandscape1(this);' Text="Intervention (degraded) area at landscape 1" class="nav-item" />
 
                                             <span id='div_area_at_landscape1' style='display: none'>
-                                                <img src="http://180.151.15.18:9007/geoserver/uk_sfd/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=uk_sfd:tbl_uk_intervention_l_1&Format=image/gif&scale=800000&Transparent=true" />
+                                                <img src="https://ukforestgis.in/geoserver/uk_sfd/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=uk_sfd:tbl_uk_intervention_l_1&Format=image/gif&scale=800000&Transparent=true" />
                                             </span>
                                         </li> 
                                         <li>
                                             <asp:CheckBox ID="area_at_landscape2" runat="server" onclick='areaatlandscape2(this);' Text="Intervention (degraded) area at landscape 2" class="nav-item" />
 
                                             <span id='div_area_at_landscape2' style='display: none'>
-                                                <img src="http://180.151.15.18:9007/geoserver/uk_sfd/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=uk_sfd:tbl_uk_intervention_l_2&Format=image/gif&scale=800000&Transparent=true" />
+                                                <img src="https://ukforestgis.in/geoserver/uk_sfd/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=uk_sfd:tbl_uk_intervention_l_2&Format=image/gif&scale=800000&Transparent=true" />
                                             </span>
                                         </li> --%>
                                       
@@ -1324,7 +1380,7 @@
                         <div class="iconsrow1 gettitle">
                             <div class="left-icons">
                                 <%--<img class="tool-btn" src="img/map_icons/find.png" title="Find" />--%>
-                                <img class="tool-btn" src="img/map_icons/hand.png" title="Pen" alt="Start/Stop Toggle" id="toggleImage" />
+                                <img class="tool-btn" style="display:none" src="img/map_icons/hand.png" title="Pen" alt="Start/Stop Toggle" id="toggleImage" />
                                 <%--<img class="tool-btn" src="img/map_icons/check.png" title="Check" />--%>
                                 <img class="tool-btn" src="img/map_icons/info.png" title="Information" id="info" onclick="setselectedinfo();" />
                             </div>
@@ -1341,9 +1397,9 @@
                                 <img class="tool-btn" src="img/map_icons/measure.png" id="measureLine"  title="Measure Line"  />
                                 <img class="tool-btn" src="img/map_icons/major_area.png" id="measureArea"  title="Measure Area" />
                                 <img class="tool-btn" src="img/map_icons/data-searching.png" id="querybuilder" title="Query Builder" />
-                                <img class="tool-btn" src="img/map_icons/buffer.png" title="Buffer" />
-                                <img class="tool-btn" src="img/map_icons/overlay-analysis.png" title="Overley Analysis" />
-                                <img class="tool-btn" src="img/map_icons/draw-features.png" title="Draw Feature" />
+                                <img class="tool-btn" src="img/map_icons/buffer.png" title="Buffer" style="display:none"/>
+                                <img class="tool-btn" src="img/map_icons/overlay-analysis.png" title="Overley Analysis" style="display:none"/>
+                                <img class="tool-btn" src="img/map_icons/draw-features.png" title="Draw Feature" style="display:none"/>
                                 <img class="tool-btn" src="img/map_icons/redo.png" title="Redo" id="redoBtn" />
                                 <img class="tool-btn" src="img/map_icons/undo.png" id="undoBtn" title="Undo"  />
                             </div>
@@ -1352,7 +1408,7 @@
                         <div class="iconsrow3 gettitle">
                             <div class="right-icons" style="flex-direction: row;">
                                 <img class="tool-btn" src="img/map_icons/export.png" title="Export"id="download-btn" />
-                                <img class="tool-btn" src="img/map_icons/printer.png" title="Print" />
+                                <img class="tool-btn" src="img/map_icons/printer.png" title="Print" style="display:none"/>
                             </div>
                         </div>
 

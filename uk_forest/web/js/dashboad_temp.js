@@ -1,6 +1,6 @@
 ﻿
-var geoserver_ip = "http://180.151.15.18:9007/geoserver/uk_sfd/wms?";
-var geoserver_ip_ows = "http://180.151.15.18:9007/geoserver/sbl/ows";
+var geoserver_ip = "https://ukforestgis.in/geoserver/uk_sfd/wms?";
+var geoserver_ip_ows = "https://ukforestgis.in/geoserver/sbl/ows";
 
 var format = 'image/png';
 var lastselectedlayer = [];
@@ -3505,7 +3505,7 @@ function fshowhide() {
 //    })
 //});
 
-////var geoServerURL = "http://180.151.15.18:9007/geoserver/sbl/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=sbl:" + lastselectedlayer[Number(lastselectedlayer.length) - 1] + "&outputFormat=application/json";
+////var geoServerURL = "https://ukforestgis.in/geoserver/sbl/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=sbl:" + lastselectedlayer[Number(lastselectedlayer.length) - 1] + "&outputFormat=application/json";
 ////console.log(geoServerURL);
 ////var vectorSource = new ol.source.Vector({
 ////    url: geoServerURL, // Fetch GeoJSON from GeoServer
@@ -3560,10 +3560,10 @@ function fshowhide() {
 //    }
 //    // Handle different filtertypes
 //    if (filtertype == "NA") {
-//        geoServerURL = `http://180.151.15.18:9007/geoserver/sbl/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=sbl:${lastselectedlayer}&outputFormat=application/json`;
+//        geoServerURL = `https://ukforestgis.in/geoserver/sbl/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=sbl:${lastselectedlayer}&outputFormat=application/json`;
 //    }
 //    else if (filtertype == "query") {
-//        geoServerURL = `http://180.151.15.18:9007/geoserver/sbl/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=sbl:${lastselectedlayer}&outputFormat=application/json&${cqlFilter}`;
+//        geoServerURL = `https://ukforestgis.in/geoserver/sbl/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=sbl:${lastselectedlayer}&outputFormat=application/json&${cqlFilter}`;
 //    }
 
 
@@ -5147,12 +5147,12 @@ function fshowhide() {
 //    var img1 = new Image();
 //    var img2 = new Image();
 
-//    //img1.src = "http://180.151.15.18:9007/geoserver/nrdc/wms?service=WMS&version=1.1.0&request=GetMap&layers=nrdc%3Arow_image&time=" + datefrom +"&bbox=557386.8163888006%2C2931084.918491676%2C567596.8163888006%2C2941404.918491676&width=759&height=768&srs=EPSG%3A32644&styles=&format=image%2Fvnd.jpeg-png";  // Image 1 URL
-//    //img2.src = 'http://180.151.15.18:9007/geoserver/nrdc/wms?service=WMS&version=1.1.0&request=GetMap&layers=nrdc%3Arow_image&time=2024-03-01T00:00:00.000Z&bbox=557386.8163888006%2C2931084.918491676%2C567596.8163888006%2C2941404.918491676&width=759&height=768&srs=EPSG%3A32644&styles=&format=image%2Fvnd.jpeg-png';  // Image 2 URL
+//    //img1.src = "https://ukforestgis.in/geoserver/nrdc/wms?service=WMS&version=1.1.0&request=GetMap&layers=nrdc%3Arow_image&time=" + datefrom +"&bbox=557386.8163888006%2C2931084.918491676%2C567596.8163888006%2C2941404.918491676&width=759&height=768&srs=EPSG%3A32644&styles=&format=image%2Fvnd.jpeg-png";  // Image 1 URL
+//    //img2.src = 'https://ukforestgis.in/geoserver/nrdc/wms?service=WMS&version=1.1.0&request=GetMap&layers=nrdc%3Arow_image&time=2024-03-01T00:00:00.000Z&bbox=557386.8163888006%2C2931084.918491676%2C567596.8163888006%2C2941404.918491676&width=759&height=768&srs=EPSG%3A32644&styles=&format=image%2Fvnd.jpeg-png';  // Image 2 URL
 
 
-//    img1.src = "http://180.151.15.18:9007/geoserver/nrdc/wms?service=WMS&version=1.1.0&request=GetMap&layers=nrdc%3Arow_image&time=" + dtfrm + "&bbox=557386.8163888006%2C2931084.918491676%2C567596.8163888006%2C2941404.918491676&width=1500&height=768&srs=EPSG%3A32644&styles=&format=image%2Fpng";  // Image 1 URL
-//    img2.src = "http://180.151.15.18:9007/geoserver/nrdc/wms?service=WMS&version=1.1.0&request=GetMap&layers=nrdc%3Arow_image&time=" + dtto + "&bbox=557386.8163888006%2C2931084.918491676%2C567596.8163888006%2C2941404.918491676&width=1500&height=768&srs=EPSG%3A32644&styles=&format=image%2Fpng";  // Image 2 URL
+//    img1.src = "https://ukforestgis.in/geoserver/nrdc/wms?service=WMS&version=1.1.0&request=GetMap&layers=nrdc%3Arow_image&time=" + dtfrm + "&bbox=557386.8163888006%2C2931084.918491676%2C567596.8163888006%2C2941404.918491676&width=1500&height=768&srs=EPSG%3A32644&styles=&format=image%2Fpng";  // Image 1 URL
+//    img2.src = "https://ukforestgis.in/geoserver/nrdc/wms?service=WMS&version=1.1.0&request=GetMap&layers=nrdc%3Arow_image&time=" + dtto + "&bbox=557386.8163888006%2C2931084.918491676%2C567596.8163888006%2C2941404.918491676&width=1500&height=768&srs=EPSG%3A32644&styles=&format=image%2Fpng";  // Image 2 URL
 
 
 //    img1.onload = function () {
@@ -5401,31 +5401,31 @@ function swipeIt(e) {
     this.style.top = initY + contact[0].pageY - firstY + 'px';
 }
 
-var mapElement = document.getElementById('map');
-var toggleImage = document.getElementById('toggleImage');
+//var mapElement = document.getElementById('map');
+//var toggleImage = document.getElementById('toggleImage');
 
 // Toggle start/stop on image click
-toggleImage.addEventListener('click', function () {
-    isMapActive = !isMapActive;
+//toggleImage.addEventListener('click', function () {
+//    isMapActive = !isMapActive;
 
-    if (isMapActive) {
-        // Enable interactions
-        interactions.forEach(function (interaction) {
-            map.addInteraction(interaction);
-        });
-        mapElement.classList.add('grabbable');
-        toggleImage.src = 'img/map_icons/hand.png';
-        toggleImage.style.backgroundColor = 'green';
-    } else {
-        // Disable interactions
-        map.getInteractions().clear();
-        mapElement.classList.remove('grabbable');
-        toggleImage.src = 'img/map_icons/hand.png';
+//    if (isMapActive) {
+//        // Enable interactions
+//        interactions.forEach(function (interaction) {
+//            map.addInteraction(interaction);
+//        });
+//        mapElement.classList.add('grabbable');
+//        toggleImage.src = 'img/map_icons/hand.png';
+//        toggleImage.style.backgroundColor = 'green';
+//    } else {
+//        // Disable interactions
+//        map.getInteractions().clear();
+//        mapElement.classList.remove('grabbable');
+//        toggleImage.src = 'img/map_icons/hand.png';
 
-        toggleImage.style.backgroundColor = 'white';
+//        toggleImage.style.backgroundColor = 'white';
 
-    }
-});
+//    }
+//});
 
 // Cursor handling for drag feel
 mapElement.addEventListener('mousedown', function () {

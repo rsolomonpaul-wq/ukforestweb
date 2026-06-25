@@ -62,7 +62,8 @@ namespace uk_forest.Forest
                 //    Updated_By = Session["UserId"].ToString();
                 //}
                 //else
-                if (role >= 1 && role <= 8)
+                //if (role >= 1 && role <= 8)
+                if (role >= 1 && role <= 10)
                 {
                     Updated_By = Session["UserId"].ToString();
                     user_id = Session["UserId"].ToString();

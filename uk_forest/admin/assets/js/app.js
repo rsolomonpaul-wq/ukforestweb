@@ -70,6 +70,19 @@ class App {
                 e = $(this).parent().parent().find(".dropdown-menu").not(e);
             return e.removeClass("show"), e.parent().find(".dropdown-toggle").removeClass("show"), !1;
         });
+
+
+        //const toggleBtn = document.querySelector('.dropdown-toggle');
+        //const menu = document.querySelector('.dropdown-menu');
+
+        //toggleBtn.addEventListener('click', () => {
+        //    menu.classList.toggle('show'); // add/remove "show" class
+        //});
+        //if (menu.classList.contains("show")) {
+        //    menu.classList.add("show");
+        //} else {
+        //    menu.classList.remove("show");
+        //}
     }
     initLeftSidebar() {
         var e;
@@ -533,6 +546,19 @@ clickHereBtn.addEventListener("click", function () {
     dashbordBoxs.classList.toggle("dashbordMarginLeft");
 
 });
+
+
+
+
+/*========== Responsive Toggle ============*/
+
+let resToggle = document.querySelector(".responsiveToggle");
+
+resToggle.addEventListener("click", function () {
+    addDetails.classList.toggle("addWrespon");
+});
+
+
 
 
 

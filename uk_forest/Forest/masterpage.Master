@@ -1,0 +1,434 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="masterpage.master.cs" Inherits="uk_forest.Forest.masterpage" %>
+
+<!DOCTYPE html>
+<html>
+<head runat="server">
+    <title>Forest Management</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+        integrity="sha512-dNmEQ3Rk6zzd3N5qZcZzP5rFZxVfOdMfdzj7nQ1htLvbZ7R5Mmq0Rlwk7jKbk7c0j3xM8HZR6FdR1ZP7o+qA1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" crossorigin="anonymous" />
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" crossorigin="anonymous"></script>
+
+    <style>
+        /* ---------------- GLOBAL STYLES ---------------- */
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #e8f5e9;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        /* ---------------- HEADER ---------------- */
+        .header {
+            background:#fff;
+            color: #000;
+            padding: 1rem 2rem;
+            font-size: 1.25rem;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 75px;
+            z-index: 100;
+        }
+        .header img {
+            width: 195px;
+        }
+        img.user-img {
+            width: 31px !important;
+        }
+        .header h3{
+            font-weight:600;
+        }
+        .hamburger {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        select.form-control:not([size]):not([multiple]) {
+            height: 45px;
+        }
+
+        /* ---------------- USER MENU ---------------- */
+        .user-menu {
+            position: relative;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .user-img {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid white;
+            margin-right: 5px;
+        }
+
+        .down-arrow {
+            font-size: 0.8rem;
+            margin-left: 5px;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            right: 0;
+            top: 120%;
+            background: white;
+            color: black;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+            border-radius: 8px;
+            min-width: 140px;
+            z-index: 10;
+            animation: fadeIn 0.2s ease-in-out;
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 10px 15px;
+            text-decoration: none;
+            color: #333;
+            font-size: 0.95rem;
+        }
+
+        .dropdown-menu a:hover {
+            background: #e8f5e9;
+            color: #1b5e20;
+        }
+
+        .dropdown-menu.show {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ---------------- LAYOUT ---------------- */
+        .layout-container {
+            display: flex;
+            height: calc(100vh - 75px);
+            margin-top: 75px;
+        }
+
+        /* ---------------- SIDEBAR ---------------- */
+        .sidebar {
+            width: 260px;
+            background: linear-gradient(180deg, #466f89, #114408);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            padding: 1rem 0;
+            position: fixed;
+            top: 75px;
+            bottom: 0;
+            left: 0;
+            overflow-y: auto;
+            transition: left 0.3s ease;
+            z-index: 200;
+        }
+
+        .sidebar nav a {
+            display: flex;
+            align-items: center;
+            color: #e8f5e9;
+            text-decoration: none;
+            padding: 0.8rem 5px;
+            font-weight: 400;
+            transition: background 0.2s, color 0.2s;
+            border-bottom: 1px solid #838383;
+        }
+
+        .sidebar nav a i {
+            margin-right: 12px;
+            min-width: 20px;
+            text-align: center;
+        }
+
+        .sidebar nav a:hover,
+        .sidebar nav a.active {
+            background: rgba(255, 255, 255, 0.15);
+            color: #ffffff;
+            border-left: 4px solid #a5d6a7;
+        }
+
+        /* ---------------- DROPDOWN TOGGLE ---------------- */
+        .dropdown {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .dropdown-toggle {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.8rem 1.5rem;
+            color: #e8f5e9;
+            font-weight: 600;
+            cursor: pointer;
+            border-left: 4px solid transparent;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .dropdown-toggle:hover {
+            background: rgba(255, 255, 255, 0.15);
+            border-left: 4px solid #a5d6a7;
+        }
+
+        .dropdown-toggle .arrow {
+            margin-left: auto;
+            transition: transform 0.2s ease;
+        }
+
+        /* ---------------- SUB-MENU ---------------- */
+        .dropdown-menu-sidebar {
+            max-height: 0;
+            overflow: hidden;
+            flex-direction: column;
+            background: rgba(255,255,255,0.05);
+            margin-left: 15px;
+            border-left: 2px dashed rgba(255,255,255,0.3);
+            border-radius: 0 6px 6px 0;
+            transition: max-height 0.35s ease, opacity 0.35s ease;
+            opacity: 0;
+        }
+
+        .dropdown-menu-sidebar a {
+            padding: 0.55rem 1.5rem;
+            font-size: 0.88rem;
+            color: #c8e6c9;
+            font-weight: 500;
+            border-radius: 0 6px 6px 0;
+            transition: background 0.2s, color 0.2s;
+        }
+
+        .dropdown-menu-sidebar a:hover {
+            background: rgba(255, 255, 255, 0.12);
+            color: #ffffff;
+        }
+
+        .dropdown.open .dropdown-menu-sidebar {
+            max-height: 500px;
+            opacity: 1;
+        }
+
+        .dropdown.open .arrow {
+            transform: rotate(180deg);
+        }
+
+        /* ---------------- MAIN CONTENT ---------------- */
+        .main-content {
+            flex: 1;
+            margin-left: 260px;
+            padding: 2rem;
+            overflow-y: auto;
+            height: calc(100vh - 75px - 60px);
+        }
+
+        /* ---------------- FOOTER ---------------- */
+        .footer {
+            background: #1b5e20;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            font-size: 0.9rem;
+            position: fixed;
+            bottom: 0;
+            left: 260px;
+            right: 0;
+            height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* ---------------- RESPONSIVE ---------------- */
+        @media (max-width: 1199px) {
+            .sidebar {
+                left: -260px;
+            }
+
+            .sidebar.show {
+                left: 0;
+            }
+
+            .main-content {
+                margin-left: 0;
+                padding: 2rem 1rem;
+            }
+
+            .footer {
+                left: 0;
+            }
+
+            #overlay {
+                display: none;
+                position: fixed;
+                top: 75px;
+                left: 0;
+                width: 100%;
+                height: calc(100vh - 75px);
+                background: rgba(0,0,0,0.5);
+                z-index: 150;
+            }
+
+            #overlay.show {
+                display: block;
+            }
+
+            .hamburger {
+                display: block;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .header {
+                flex-wrap: wrap;
+                height: auto;
+                padding: 0.75rem 1rem;
+            }
+
+            .header span {
+                font-size: 1rem;
+                margin-bottom: 0.5rem;
+            }
+
+            .dropdown-toggle {
+                padding: 0.6rem 1rem;
+            }
+
+            .sidebar nav a,
+            .dropdown-menu-sidebar a {
+                font-size: 0.85rem;
+                padding: 0.6rem 1rem;
+            }
+
+            .form-row {
+                flex-direction: column;
+            }
+        }
+    </style>
+
+    <asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>
+</head>
+
+<body>
+    <form id="form1" runat="server">
+        <!-- HEADER -->
+        <div class="header">
+            <a href="#!"><img src="../images/uttrakhand_logo.jpg" alt="imageLogo" /></a>
+            <h3>Forest Management</h3>
+            <span class="hamburger d-lg-none" onclick="toggleSidebar()">☰</span>
+            <div class="user-menu">
+                <img src="../web/img/user-icon1.png" alt="User" class="user-img" onclick="toggleDropdown()" />
+                <span class="down-arrow" onclick="toggleDropdown()">▼</span>
+                <div id="userDropdown" class="dropdown-menu">
+                    <a href="Profile.aspx">Profile</a>
+                    <a href="../web/indexs.aspx">Logout</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- SIDEBAR + CONTENT -->
+        <div class="layout-container">
+            <div class="sidebar">
+                <nav>
+                    <a href="dashboard.aspx" class="active"><i class="fas fa-tachometer-alt"></i>Dashboard</a>
+
+                    <div class="dropdown">
+                        <a class="dropdown-toggle" onclick="toggleSidebarDropdown(event)">
+                            <i class="fas fa-compass"></i>My Information <i class="fas fa-angle-down arrow"></i>
+                        </a>
+                        <div class="dropdown-menu-sidebar">
+                            <a href="applicant_details.aspx">Personal Details</a>
+                            <a href="addbeneficiary.aspx">Beneficiary Details</a>
+                        </div>
+                    </div>
+
+                    <div class="dropdown">
+                        <a class="dropdown-toggle" onclick="toggleSidebarDropdown(event)">
+                            <i class="fas fa-images"></i>Incident Management <i class="fas fa-angle-down arrow"></i>
+                        </a>
+                        <div class="dropdown-menu-sidebar">
+                            <a href="victimincident.aspx">Add Victim Incident</a>
+                            <a href="victimincidentlist.aspx">Victim Incident List</a>
+                        </div>
+                    </div>
+
+                   <%--  <div class="dropdown">
+                        <a class="dropdown-toggle" onclick="toggleSidebarDropdown(event)">
+                            <i class="fas fa-images"></i>RO Management <i class="fas fa-angle-down arrow"></i>
+                        </a>
+                        <div class="dropdown-menu-sidebar">
+                            <a href="incidentlistRO.aspx">Victim Incident List</a>
+                        </div>
+                    </div> 
+                    <div class="dropdown">
+                        <a class="dropdown-toggle" onclick="toggleSidebarDropdown(event)">
+                            <i class="fas fa-images"></i>DFO Management <i class="fas fa-angle-down arrow"></i>
+                        </a>
+                        <div class="dropdown-menu-sidebar">
+                            <a href="incidentlistDFO.aspx">Victim Incident List</a>
+                        </div>
+                    </div>--%>
+                </nav>
+            </div>
+
+            <div id="overlay" onclick="toggleSidebar()"></div>
+
+            <div class="main-content">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server"></asp:ContentPlaceHolder>
+            </div>
+        </div>
+
+        <!-- FOOTER -->
+        <div class="footer">
+            © 2025 Forest Department | All Rights Reserved
+        </div>
+    </form>
+
+    <script>
+        // Header user dropdown
+        function toggleDropdown() {
+            document.getElementById("userDropdown").classList.toggle("show");
+        }
+
+        document.addEventListener("click", function (event) {
+            const dropdown = document.getElementById("userDropdown");
+            const userMenu = document.querySelector(".user-menu");
+            if (!userMenu.contains(event.target)) {
+                dropdown.classList.remove("show");
+            }
+        });
+
+        // Sidebar dropdown
+        function toggleSidebarDropdown(event) {
+            event.preventDefault();
+            const parent = event.target.closest(".dropdown");
+            parent.classList.toggle("open");
+        }
+
+        // Sidebar toggle for mobile
+        function toggleSidebar() {
+            const sidebar = document.querySelector(".sidebar");
+            const overlay = document.getElementById("overlay");
+            sidebar.classList.toggle("show");
+            overlay.classList.toggle("show");
+        }
+    </script>
+</body>
+</html>

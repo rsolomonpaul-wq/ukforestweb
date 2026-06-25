@@ -1,5 +1,5 @@
 ﻿using Aspose.Zip;
-using Aspose.Zip.Rar;
+//using Aspose.Zip.Rar;
 using Aspose.Zip.Saving;
 using Npgsql;
 using System;
@@ -12,6 +12,11 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+
+using System.IO.Compression;
+using SharpCompress.Archives;
+using SharpCompress.Archives.Rar;
+using SharpCompress.Common;
 
 namespace uk_forest.Forest
 {
@@ -180,7 +185,7 @@ namespace uk_forest.Forest
             {
                 //string q = "select b.user_id, c.name, c.emp_id, b.sno, a.module_name, b.sub_module_id, b.sub_module_name, b.layer_path, b.layer_type, b.data_type, b.file_status from public.tbl_modules_map a, tbl_sub_modules_map b, tbl_user_registration c where a.module_id = b.module_id and b.user_id = c.user_id and b.is_active = true and a.module_id='" + ddllayergroupname.SelectedValue.ToString() + "' and b.user_id ='" + user_id + "' and layer_type='" + file_type + "' order by b.sno";
 
-                string q = "select b.user_id, c.name, c.emp_id, b.sno, a.module_name, b.sub_module_id, b.sub_module_name, b.layer_path, b.layer_type, b.data_type, b.file_status from public.tbl_modules_map a, tbl_sub_modules_map b, tbl_user_registration c where a.module_id = b.module_id and b.user_id = c.user_id and b.is_active = true and a.module_id='m_6' and b.user_id ='" + user_id + "' and layer_type='" + file_type + "' order by b.sno";
+                string q = "select b.user_id, c.name, c.emp_id, b.sno, c.email_id, a.module_name, b.sub_module_id, b.sub_module_name, b.layer_path, b.layer_type, b.data_type, b.file_status from public.tbl_modules_map a, tbl_sub_modules_map b, tbl_user_registration c where a.module_id = b.module_id and b.user_id = c.user_id and b.is_active = true and a.module_id='m_6' and b.user_id ='" + user_id + "' and layer_type='" + file_type + "' order by b.sno";
 
                 DataTable dt = executeGetData(q);
                 if (dt.Rows.Count == 0)
@@ -318,7 +323,188 @@ namespace uk_forest.Forest
             bindGrid(ddl_user_name.SelectedValue, ddlfiletype.SelectedItem.Text);
         }
 
-        string upload_vector_data(string user, string uname)
+
+
+
+
+        //string upload_vector_data(string user, string uname)
+        //{
+        //    try
+        //    {
+        //        if (upload_shape_file.HasFile)
+        //        {
+        //            string filename = Path.GetFileName(upload_shape_file.FileName);
+        //            string file_name = Path.GetFileNameWithoutExtension(upload_shape_file.FileName);
+        //            string fullpath = Server.MapPath("~/Files") + "/" + user + "/" + ddlfiletype.SelectedValue + "/" + file_name; //Zip File Save On ServerSide.
+        //            string file_save = Server.MapPath("~/Files") + "/" + user + "/" + ddlfiletype.SelectedValue + "/" + file_name + "/" + filename;
+        //            string filename_1 = Path.GetFileName(upload_style.FileName);
+        //            string file_save_1 = Server.MapPath("~/Files") + "/" + user + "/" + ddlfiletype.SelectedValue + "/" + file_name + "/" + filename_1;
+        //            if (Directory.Exists(fullpath))
+        //            {
+        //                Directory.Delete(fullpath, true);
+        //                Directory.CreateDirectory(fullpath);
+        //            }
+        //            else
+        //            {
+        //                Directory.CreateDirectory(fullpath);
+        //            }
+        //            upload_shape_file.SaveAs(file_save);
+        //            using (var archive = new RarArchive(file_save))
+        //            {
+        //                string pt = Server.MapPath("~/Files") + "/" + user + "/" + ddlfiletype.SelectedValue + "/" + file_name;
+        //                archive.ExtractToDirectory(pt);
+        //            }
+        //            System.IO.DirectoryInfo dir = new System.IO.DirectoryInfo(fullpath);
+        //            int count = dir.GetFiles().Length;
+        //            var firstFilename = "";
+        //            var firstFilename_1 = "";
+        //            var ext = "";
+        //            var ext_1 = "";
+        //            string file_path_1 = "";
+        //            if (upload_style.HasFile)
+        //            {
+        //                upload_style.SaveAs(file_save_1);
+        //                var shpFiles1 = new DirectoryInfo(fullpath).GetFiles("*.sld");
+        //                firstFilename_1 = shpFiles1[0].Name.Split('.')[0];
+        //                ext_1 = shpFiles1[0].Name.Split('.')[1];
+        //                file_path_1 = user + "\\" + ddlfiletype.SelectedValue + "\\" + file_name + "\\" + firstFilename_1 + "." + ext_1; ;
+        //            }
+        //            if (count > 4)
+        //            {
+        //                //GetFiles on DirectoryInfo returns a FileInfo object.
+        //                var shpFiles = new DirectoryInfo(fullpath).GetFiles("*.shp");
+        //                firstFilename = shpFiles[0].Name.Split('.')[0];
+        //                ext = shpFiles[0].Name.Split('.')[1];
+        //            }
+        //            else
+        //            {
+        //                string srcDir = fullpath + "\\" + file_name;
+        //                string destDir = fullpath;
+        //                DirectoryInfo dir1 = new DirectoryInfo(srcDir);
+        //                foreach (FileInfo file in dir1.GetFiles())
+        //                {
+        //                    file.MoveTo($@"{destDir}\{file.Name}");
+        //                }
+        //                Directory.Delete(srcDir, true);
+        //                var shpFiles = new DirectoryInfo(fullpath).GetFiles("*.shp");
+        //                firstFilename = shpFiles[0].Name.Split('.')[0];
+        //                ext = shpFiles[0].Name.Split('.')[1];
+        //            }
+        //            //FileInfo has a Name property that only contains the filename part.
+        //            string cmdpath1 = Environment.SystemDirectory;
+        //            //string path = Server.MapPath("~/Files/");
+        //            string file_path = user + "\\" + ddlfiletype.SelectedValue + "\\" + file_name + "\\" + firstFilename + "." + ext;
+        //            string table_name = firstFilename.ToLower();
+        //            string layer_name = firstFilename.ToLower();
+        //            string style_name = firstFilename_1;
+        //            //string m_id = ddllayergroupname.SelectedValue.ToString();
+        //            string m_id = "m_6";
+        //            string database_name = "doon_forest";
+        //            string sub_module_id = null;
+        //            string str = "select case when max(sno) is null then 0 else max(sno) end srno from tbl_sub_modules_map";
+        //            DataTable maxSrno = this.executeGetData(str);
+
+        //            int sno = (Convert.ToInt32(maxSrno.Rows[0]["srno"].ToString()) + 1);
+        //            string user_id = ddl_user_name.SelectedValue;
+
+        //            if (string.IsNullOrEmpty(maxSrno.Rows[0]["srno"].ToString()))
+        //                sub_module_id = "sm_1";
+        //            else
+        //                sub_module_id = "sm_" + sno;
+
+        //            string sub_module_name = fileUploadTextBox.Text;
+        //            string module_id = ddlfiletype.SelectedValue;
+
+        //            string layer_path = file_path;
+        //            string style_path = file_path_1;
+        //            string layer_type = ddlfiletype.SelectedItem.Text;
+        //            Boolean layer_publish_status = false;
+        //            string data_type = "";
+        //            string projection_sys = "4326";
+        //            string elevation_field = "";
+        //            data_type = "2D";
+
+        //            string constr = ConfigurationManager.ConnectionStrings["conStrPost"].ConnectionString;
+        //            using (NpgsqlConnection con = new NpgsqlConnection(constr))
+        //            {
+        //                NpgsqlCommand cmd = new NpgsqlCommand();
+        //                cmd.CommandType = CommandType.Text;
+        //                cmd.CommandText = "insert into tbl_sub_modules_map (sno, user_id, sub_module_id, sub_module_name, module_id, is_active, tbl_name, layer_path, style_path, layer_type, layer_publish_status,layer_name,style_name,data_type,projection_sys,elevation_field,created_by,created_date,file_status) values(@sno, @user_id, @sub_module_id,@sub_module_name,@module_id,@is_active,@tbl_name,@layer_path,@style_path,@layer_type,@layer_publish_status,@layer_name,@style_name,@data_type,@projection_sys,@elevation_field,@created_by,@created_date,@file_status)";
+        //                cmd.Parameters.Add("@sno", NpgsqlTypes.NpgsqlDbType.Integer).Value = sno;
+        //                cmd.Parameters.Add("@user_id", NpgsqlTypes.NpgsqlDbType.Varchar).Value = user_id;
+        //                cmd.Parameters.Add("@sub_module_id", NpgsqlTypes.NpgsqlDbType.Varchar).Value = sub_module_id;
+        //                cmd.Parameters.Add("@sub_module_name", NpgsqlTypes.NpgsqlDbType.Varchar).Value = sub_module_name;
+        //                cmd.Parameters.Add("@module_id", NpgsqlTypes.NpgsqlDbType.Varchar).Value = m_id;
+        //                cmd.Parameters.Add("@is_active", NpgsqlTypes.NpgsqlDbType.Boolean).Value = true;
+        //                cmd.Parameters.Add("@tbl_name", NpgsqlTypes.NpgsqlDbType.Varchar).Value = table_name;
+        //                cmd.Parameters.Add("@layer_path", NpgsqlTypes.NpgsqlDbType.Varchar).Value = layer_path;
+        //                cmd.Parameters.Add("@style_path", NpgsqlTypes.NpgsqlDbType.Varchar).Value = style_path;
+        //                cmd.Parameters.Add("@layer_type", NpgsqlTypes.NpgsqlDbType.Varchar).Value = layer_type;
+        //                cmd.Parameters.Add("@layer_publish_status", NpgsqlTypes.NpgsqlDbType.Boolean).Value = layer_publish_status;
+        //                cmd.Parameters.Add("@layer_name", NpgsqlTypes.NpgsqlDbType.Varchar).Value = layer_name;
+        //                cmd.Parameters.Add("@style_name", NpgsqlTypes.NpgsqlDbType.Varchar).Value = style_name;
+        //                cmd.Parameters.Add("@data_type", NpgsqlTypes.NpgsqlDbType.Varchar).Value = data_type;
+        //                cmd.Parameters.Add("@projection_sys", NpgsqlTypes.NpgsqlDbType.Varchar).Value = projection_sys;
+        //                cmd.Parameters.Add("@elevation_field", NpgsqlTypes.NpgsqlDbType.Varchar).Value = elevation_field;
+        //                cmd.Parameters.Add("@created_by", NpgsqlTypes.NpgsqlDbType.Varchar).Value = Session["UserId"].ToString();
+        //                cmd.Parameters.Add("@created_date", NpgsqlTypes.NpgsqlDbType.Date).Value = DateTime.Now;
+        //                //cmd.Parameters.Add("@file_status", NpgsqlTypes.NpgsqlDbType.Varchar).Value = ddl_file_status.SelectedItem.ToString(); 
+        //                cmd.Parameters.Add("@file_status", NpgsqlTypes.NpgsqlDbType.Varchar).Value = "Data Repositories";
+
+        //                cmd.Connection = con;
+        //                con.Open();
+        //                cmd.ExecuteNonQuery();
+        //                fileUploadTextBox.Text = "";
+        //            }
+        //            //if (ddl_file_status.SelectedItem.ToString() == "Map Publishing")
+        //            //{
+        //            //    //string data_upload_in_database = ConfigurationManager.AppSettings["data_upload_in_database"].ToString();
+        //            //    //ProcessStartInfo startInfotide = new ProcessStartInfo();
+        //            //    //startInfotide.Verb = "runas";
+        //            //    //startInfotide.CreateNoWindow = false;
+        //            //    //startInfotide.UseShellExecute = false;
+        //            //    //startInfotide.FileName = cmdpath1 + @"\cmd.exe";
+        //            //    //startInfotide.WorkingDirectory = cmdpath1;
+
+        //            //    //startInfotide.Arguments = string.Format("/C {0} \"{1}\" \"{2}\" \"{3}\" \"{4}\" \"{5}\"", data_upload_in_database, file_path, table_name, database_name, "Vector", uname);
+
+        //            //    //using (Process exeProcess = Process.Start(startInfotide))
+        //            //    //{
+        //            //    //    exeProcess.WaitForExit();
+        //            //    //}
+        //            //    //string data_upload_in_geoserver = ConfigurationManager.AppSettings["data_upload_in_geoserver"].ToString();
+        //            //    //ProcessStartInfo startInfotide1 = new ProcessStartInfo();
+        //            //    //startInfotide1.Verb = "runas";
+        //            //    //startInfotide1.CreateNoWindow = false;
+        //            //    //startInfotide1.UseShellExecute = false;
+        //            //    //startInfotide1.FileName = cmdpath1 + @"\cmd.exe";
+        //            //    //startInfotide1.WorkingDirectory = cmdpath1;
+
+        //            //    //startInfotide1.Arguments = string.Format("/C {0} \"{1}\" \"{2}\"", data_upload_in_geoserver, sub_module_id, uname);
+
+        //            //    //using (Process exeProcess1 = Process.Start(startInfotide1))
+        //            //    //{
+        //            //    //    exeProcess1.WaitForExit();
+        //            //    //}
+        //            //    //binddata();
+        //            //    //ScriptManager.RegisterStartupScript(this, GetType(), "Message", "alert('Data Uploaded Successfully.');", true);
+        //            //    //  ScriptManager.RegisterStartupScript(this, GetType(), "Javascript", "javascript:removeLoader(); ", true);
+        //            //}
+        //            return sub_module_id;
+        //        }
+        //        return null;
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        return null;
+        //    }
+        //}
+
+
+
+
+
+        public string upload_vector_data(string user, string uname)
         {
             try
             {
@@ -326,170 +512,282 @@ namespace uk_forest.Forest
                 {
                     string filename = Path.GetFileName(upload_shape_file.FileName);
                     string file_name = Path.GetFileNameWithoutExtension(upload_shape_file.FileName);
-                    string fullpath = Server.MapPath("~/Files") + "/" + user + "/" + ddlfiletype.SelectedValue + "/" + file_name; //Zip File Save On ServerSide.
-                    string file_save = Server.MapPath("~/Files") + "/" + user + "/" + ddlfiletype.SelectedValue + "/" + file_name + "/" + filename;
+                    string fullpath = Server.MapPath("~/Files") + "/" + user + "/" + ddlfiletype.SelectedValue + "/" + file_name;
+                    string file_save = Path.Combine(fullpath, filename);
+
                     string filename_1 = Path.GetFileName(upload_style.FileName);
-                    string file_save_1 = Server.MapPath("~/Files") + "/" + user + "/" + ddlfiletype.SelectedValue + "/" + file_name + "/" + filename_1;
+                    string file_save_1 = Path.Combine(fullpath, filename_1);
+
                     if (Directory.Exists(fullpath))
                     {
                         Directory.Delete(fullpath, true);
-                        Directory.CreateDirectory(fullpath);
+                    }
+                    Directory.CreateDirectory(fullpath);
+
+                    // Save the uploaded archive file
+                    upload_shape_file.SaveAs(file_save);
+
+                    // Extract based on file extension
+                    string extension = Path.GetExtension(upload_shape_file.FileName).ToLower();
+
+                    if (extension == ".rar")
+                    {
+                        using (var archive = RarArchive.Open(file_save))
+                        {
+                            foreach (var entry in archive.Entries.Where(entry => !entry.IsDirectory))
+                            {
+                                entry.WriteToDirectory(fullpath, new ExtractionOptions()
+                                {
+                                    ExtractFullPath = true,
+                                    Overwrite = true
+                                });
+                            }
+                        }
+                    }
+                    else if (extension == ".zip")
+                    {
+                        ZipFile.ExtractToDirectory(file_save, fullpath);
                     }
                     else
                     {
-                        Directory.CreateDirectory(fullpath);
+                        throw new Exception("Only .zip and .rar files are supported.");
                     }
-                    upload_shape_file.SaveAs(file_save);
-                    using (var archive = new RarArchive(file_save))
-                    {
-                        string pt = Server.MapPath("~/Files") + "/" + user + "/" + ddlfiletype.SelectedValue + "/" + file_name;
-                        archive.ExtractToDirectory(pt);
-                    }
-                    System.IO.DirectoryInfo dir = new System.IO.DirectoryInfo(fullpath);
+
+                    DirectoryInfo dir = new DirectoryInfo(fullpath);
                     int count = dir.GetFiles().Length;
-                    var firstFilename = "";
-                    var firstFilename_1 = "";
-                    var ext = "";
-                    var ext_1 = "";
-                    string file_path_1 = "";
+                    string firstFilename = "", firstFilename_1 = "", ext = "", ext_1 = "", file_path_1 = "";
+
                     if (upload_style.HasFile)
                     {
                         upload_style.SaveAs(file_save_1);
                         var shpFiles1 = new DirectoryInfo(fullpath).GetFiles("*.sld");
-                        firstFilename_1 = shpFiles1[0].Name.Split('.')[0];
-                        ext_1 = shpFiles1[0].Name.Split('.')[1];
-                        file_path_1 = user + "\\" + ddlfiletype.SelectedValue + "\\" + file_name + "\\" + firstFilename_1 + "." + ext_1; ;
+                        if (shpFiles1.Length > 0)
+                        {
+                            firstFilename_1 = Path.GetFileNameWithoutExtension(shpFiles1[0].Name);
+                            ext_1 = Path.GetExtension(shpFiles1[0].Name).Trim('.');
+                            file_path_1 = $"{user}\\{ddlfiletype.SelectedValue}\\{file_name}\\{firstFilename_1}.{ext_1}";
+                        }
                     }
                     if (count > 4)
                     {
-                        //GetFiles on DirectoryInfo returns a FileInfo object.
                         var shpFiles = new DirectoryInfo(fullpath).GetFiles("*.shp");
-                        firstFilename = shpFiles[0].Name.Split('.')[0];
-                        ext = shpFiles[0].Name.Split('.')[1];
+                        if (shpFiles.Length > 0)
+                        {
+                            firstFilename = Path.GetFileNameWithoutExtension(shpFiles[0].Name);
+                            ext = Path.GetExtension(shpFiles[0].Name).Trim('.');
+                        }
                     }
                     else
                     {
-                        string srcDir = fullpath + "\\" + file_name;
+                        string srcDir = Path.Combine(fullpath, file_name);
                         string destDir = fullpath;
-                        DirectoryInfo dir1 = new DirectoryInfo(srcDir);
-                        foreach (FileInfo file in dir1.GetFiles())
+                        if (Directory.Exists(srcDir))
                         {
-                            file.MoveTo($@"{destDir}\{file.Name}");
+                            foreach (FileInfo file in new DirectoryInfo(srcDir).GetFiles())
+                            {
+                                //file.MoveTo(Path.Combine(destDir, file.Name), true);
+                                file.MoveTo(Path.Combine(destDir, file.Name));
+                            }
+                            Directory.Delete(srcDir, true);
                         }
-                        Directory.Delete(srcDir, true);
+
                         var shpFiles = new DirectoryInfo(fullpath).GetFiles("*.shp");
-                        firstFilename = shpFiles[0].Name.Split('.')[0];
-                        ext = shpFiles[0].Name.Split('.')[1];
+                        if (shpFiles.Length > 0)
+                        {
+                            firstFilename = Path.GetFileNameWithoutExtension(shpFiles[0].Name);
+                            ext = Path.GetExtension(shpFiles[0].Name).Trim('.');
+                        }
                     }
-                    //FileInfo has a Name property that only contains the filename part.
-                    string cmdpath1 = Environment.SystemDirectory;
-                    //string path = Server.MapPath("~/Files/");
-                    string file_path = user + "\\" + ddlfiletype.SelectedValue + "\\" + file_name + "\\" + firstFilename + "." + ext;
+
+                    string file_path = $"{user}\\{ddlfiletype.SelectedValue}\\{file_name}\\{firstFilename}.{ext}";
                     string table_name = firstFilename.ToLower();
-                    string layer_name = firstFilename.ToLower();
+                    string layer_name = table_name;
                     string style_name = firstFilename_1;
-                    //string m_id = ddllayergroupname.SelectedValue.ToString();
                     string m_id = "m_6";
                     string database_name = "doon_forest";
-                    string sub_module_id = null;
-                    string str = "select case when max(sno) is null then 0 else max(sno) end srno from tbl_sub_modules_map";
-                    DataTable maxSrno = this.executeGetData(str);
 
-                    int sno = (Convert.ToInt32(maxSrno.Rows[0]["srno"].ToString()) + 1);
+                    DataTable maxSrno = this.executeGetData("SELECT COALESCE(MAX(sno), 0) AS srno FROM tbl_sub_modules_map");
+                    int sno = Convert.ToInt32(maxSrno.Rows[0]["srno"]) + 1;
                     string user_id = ddl_user_name.SelectedValue;
-
-                    if (string.IsNullOrEmpty(maxSrno.Rows[0]["srno"].ToString()))
-                        sub_module_id = "sm_1";
-                    else
-                        sub_module_id = "sm_" + sno;
-
+                    string sub_module_id = $"sm_{sno}";
                     string sub_module_name = fileUploadTextBox.Text;
                     string module_id = ddlfiletype.SelectedValue;
-
                     string layer_path = file_path;
                     string style_path = file_path_1;
                     string layer_type = ddlfiletype.SelectedItem.Text;
-                    Boolean layer_publish_status = false;
-                    string data_type = "";
+                    bool layer_publish_status = false;
+                    string data_type = "2D";
                     string projection_sys = "4326";
                     string elevation_field = "";
-                    data_type = "2D";
 
                     string constr = ConfigurationManager.ConnectionStrings["conStrPost"].ConnectionString;
                     using (NpgsqlConnection con = new NpgsqlConnection(constr))
                     {
-                        NpgsqlCommand cmd = new NpgsqlCommand();
-                        cmd.CommandType = CommandType.Text;
-                        cmd.CommandText = "insert into tbl_sub_modules_map (sno, user_id, sub_module_id, sub_module_name, module_id, is_active, tbl_name, layer_path, style_path, layer_type, layer_publish_status,layer_name,style_name,data_type,projection_sys,elevation_field,created_by,created_date,file_status) values(@sno, @user_id, @sub_module_id,@sub_module_name,@module_id,@is_active,@tbl_name,@layer_path,@style_path,@layer_type,@layer_publish_status,@layer_name,@style_name,@data_type,@projection_sys,@elevation_field,@created_by,@created_date,@file_status)";
-                        cmd.Parameters.Add("@sno", NpgsqlTypes.NpgsqlDbType.Integer).Value = sno;
-                        cmd.Parameters.Add("@user_id", NpgsqlTypes.NpgsqlDbType.Varchar).Value = user_id;
-                        cmd.Parameters.Add("@sub_module_id", NpgsqlTypes.NpgsqlDbType.Varchar).Value = sub_module_id;
-                        cmd.Parameters.Add("@sub_module_name", NpgsqlTypes.NpgsqlDbType.Varchar).Value = sub_module_name;
-                        cmd.Parameters.Add("@module_id", NpgsqlTypes.NpgsqlDbType.Varchar).Value = m_id;
-                        cmd.Parameters.Add("@is_active", NpgsqlTypes.NpgsqlDbType.Boolean).Value = true;
-                        cmd.Parameters.Add("@tbl_name", NpgsqlTypes.NpgsqlDbType.Varchar).Value = table_name;
-                        cmd.Parameters.Add("@layer_path", NpgsqlTypes.NpgsqlDbType.Varchar).Value = layer_path;
-                        cmd.Parameters.Add("@style_path", NpgsqlTypes.NpgsqlDbType.Varchar).Value = style_path;
-                        cmd.Parameters.Add("@layer_type", NpgsqlTypes.NpgsqlDbType.Varchar).Value = layer_type;
-                        cmd.Parameters.Add("@layer_publish_status", NpgsqlTypes.NpgsqlDbType.Boolean).Value = layer_publish_status;
-                        cmd.Parameters.Add("@layer_name", NpgsqlTypes.NpgsqlDbType.Varchar).Value = layer_name;
-                        cmd.Parameters.Add("@style_name", NpgsqlTypes.NpgsqlDbType.Varchar).Value = style_name;
-                        cmd.Parameters.Add("@data_type", NpgsqlTypes.NpgsqlDbType.Varchar).Value = data_type;
-                        cmd.Parameters.Add("@projection_sys", NpgsqlTypes.NpgsqlDbType.Varchar).Value = projection_sys;
-                        cmd.Parameters.Add("@elevation_field", NpgsqlTypes.NpgsqlDbType.Varchar).Value = elevation_field;
-                        cmd.Parameters.Add("@created_by", NpgsqlTypes.NpgsqlDbType.Varchar).Value = Session["UserId"].ToString();
-                        cmd.Parameters.Add("@created_date", NpgsqlTypes.NpgsqlDbType.Date).Value = DateTime.Now;
-                        //cmd.Parameters.Add("@file_status", NpgsqlTypes.NpgsqlDbType.Varchar).Value = ddl_file_status.SelectedItem.ToString(); 
-                        cmd.Parameters.Add("@file_status", NpgsqlTypes.NpgsqlDbType.Varchar).Value = "Data Repositories";
+                        NpgsqlCommand cmd = new NpgsqlCommand
+                        {
+                            Connection = con,
+                            CommandType = CommandType.Text,
+                            CommandText = @"INSERT INTO tbl_sub_modules_map (
+                                        sno, user_id, sub_module_id, sub_module_name, module_id,
+                                        is_active, tbl_name, layer_path, style_path, layer_type,
+                                        layer_publish_status, layer_name, style_name, data_type,
+                                        projection_sys, elevation_field, created_by, created_date, file_status
+                                    ) VALUES (
+                                        @sno, @user_id, @sub_module_id, @sub_module_name, @module_id,
+                                        @is_active, @tbl_name, @layer_path, @style_path, @layer_type,
+                                        @layer_publish_status, @layer_name, @style_name, @data_type,
+                                        @projection_sys, @elevation_field, @created_by, @created_date, @file_status
+                                    )"
+                        };
 
-                        cmd.Connection = con;
+                        cmd.Parameters.AddWithValue("@sno", sno);
+                        cmd.Parameters.AddWithValue("@user_id", user_id);
+                        cmd.Parameters.AddWithValue("@sub_module_id", sub_module_id);
+                        cmd.Parameters.AddWithValue("@sub_module_name", sub_module_name);
+                        cmd.Parameters.AddWithValue("@module_id", m_id);
+                        cmd.Parameters.AddWithValue("@is_active", true);
+                        cmd.Parameters.AddWithValue("@tbl_name", table_name);
+                        cmd.Parameters.AddWithValue("@layer_path", layer_path);
+                        cmd.Parameters.AddWithValue("@style_path", style_path);
+                        cmd.Parameters.AddWithValue("@layer_type", layer_type);
+                        cmd.Parameters.AddWithValue("@layer_publish_status", layer_publish_status);
+                        cmd.Parameters.AddWithValue("@layer_name", layer_name);
+                        cmd.Parameters.AddWithValue("@style_name", style_name);
+                        cmd.Parameters.AddWithValue("@data_type", data_type);
+                        cmd.Parameters.AddWithValue("@projection_sys", projection_sys);
+                        cmd.Parameters.AddWithValue("@elevation_field", elevation_field);
+                        cmd.Parameters.AddWithValue("@created_by", Session["UserId"].ToString());
+                        cmd.Parameters.AddWithValue("@created_date", DateTime.Now.Date);
+                        cmd.Parameters.AddWithValue("@file_status", "Data Repositories");
+
                         con.Open();
                         cmd.ExecuteNonQuery();
                         fileUploadTextBox.Text = "";
                     }
-                    //if (ddl_file_status.SelectedItem.ToString() == "Map Publishing")
-                    //{
-                    //    //string data_upload_in_database = ConfigurationManager.AppSettings["data_upload_in_database"].ToString();
-                    //    //ProcessStartInfo startInfotide = new ProcessStartInfo();
-                    //    //startInfotide.Verb = "runas";
-                    //    //startInfotide.CreateNoWindow = false;
-                    //    //startInfotide.UseShellExecute = false;
-                    //    //startInfotide.FileName = cmdpath1 + @"\cmd.exe";
-                    //    //startInfotide.WorkingDirectory = cmdpath1;
 
-                    //    //startInfotide.Arguments = string.Format("/C {0} \"{1}\" \"{2}\" \"{3}\" \"{4}\" \"{5}\"", data_upload_in_database, file_path, table_name, database_name, "Vector", uname);
-
-                    //    //using (Process exeProcess = Process.Start(startInfotide))
-                    //    //{
-                    //    //    exeProcess.WaitForExit();
-                    //    //}
-                    //    //string data_upload_in_geoserver = ConfigurationManager.AppSettings["data_upload_in_geoserver"].ToString();
-                    //    //ProcessStartInfo startInfotide1 = new ProcessStartInfo();
-                    //    //startInfotide1.Verb = "runas";
-                    //    //startInfotide1.CreateNoWindow = false;
-                    //    //startInfotide1.UseShellExecute = false;
-                    //    //startInfotide1.FileName = cmdpath1 + @"\cmd.exe";
-                    //    //startInfotide1.WorkingDirectory = cmdpath1;
-
-                    //    //startInfotide1.Arguments = string.Format("/C {0} \"{1}\" \"{2}\"", data_upload_in_geoserver, sub_module_id, uname);
-
-                    //    //using (Process exeProcess1 = Process.Start(startInfotide1))
-                    //    //{
-                    //    //    exeProcess1.WaitForExit();
-                    //    //}
-                    //    //binddata();
-                    //    //ScriptManager.RegisterStartupScript(this, GetType(), "Message", "alert('Data Uploaded Successfully.');", true);
-                    //    //  ScriptManager.RegisterStartupScript(this, GetType(), "Javascript", "javascript:removeLoader(); ", true);
-                    //}
                     return sub_module_id;
                 }
+
                 return null;
             }
             catch (Exception ex)
             {
+                // Consider logging the error for diagnostics
                 return null;
             }
         }
+
+
+
+
+        //string upload_vector_data1(string user, string uname)
+        //{
+        //    try
+        //    {
+        //        if (upload_shape_file.HasFile)
+        //        {
+        //            string filename = Path.GetFileName(upload_shape_file.FileName);
+        //            string file_name = Path.GetFileNameWithoutExtension(upload_shape_file.FileName);
+        //            string extension = Path.GetExtension(filename).ToLower();
+
+        //            string fullpath = Server.MapPath("~/Files") + "/" + user + "/" + ddlfiletype.SelectedValue + "/" + file_name;
+        //            string file_save = fullpath + "/" + filename;
+
+        //            string filename_1 = Path.GetFileName(upload_style.FileName);
+        //            string file_save_1 = fullpath + "/" + filename_1;
+
+        //            if (Directory.Exists(fullpath))
+        //            {
+        //                Directory.Delete(fullpath, true);
+        //            }
+        //            Directory.CreateDirectory(fullpath);
+
+        //            // Save uploaded archive file (ZIP or RAR)
+        //            upload_shape_file.SaveAs(file_save);
+
+        //            // === Unzip or Unrar ===
+        //            string extractPath = fullpath;
+
+        //            if (extension == ".rar")
+        //            {
+        //                //using (var archive = RarArchive.Open(file_save))
+        //                //{
+        //                //    foreach (var entry in archive.Entries.Where(entry => !entry.IsDirectory))
+        //                //    {
+        //                //        entry.WriteToDirectory(extractPath, new SharpCompress.Common.ExtractionOptions() { ExtractFullPath = true, Overwrite = true });
+        //                //    }
+        //                //}
+        //                //using (var archive = RarArchive.Open(file_save))
+        //                using (var archive = SharpCompress.Archives.Rar.RarArchive.Open(file_save))
+        //                {
+        //                    foreach (var entry in archive.Entries.Where(entry => !entry.IsDirectory))
+        //                    {
+        //                        entry.WriteToDirectory(extractPath, new ExtractionOptions()
+        //                        {
+        //                            ExtractFullPath = true,
+        //                            Overwrite = true
+        //                        });
+        //                    }
+        //                }
+        //            }
+        //            else if (extension == ".zip")
+        //            {
+        //                ZipFile.ExtractToDirectory(file_save, extractPath);
+        //            }
+        //            else
+        //            {
+        //                throw new Exception("Unsupported file format. Please upload .rar or .zip files.");
+        //            }
+
+        //            // ======= (Rest of your original logic stays same, truncated for brevity) =======
+        //            // Move nested folders up if necessary
+        //            DirectoryInfo dir = new DirectoryInfo(fullpath);
+        //            if (dir.GetFiles("*.shp", SearchOption.AllDirectories).Length > 0 && dir.GetFiles("*.shp").Length == 0)
+        //            {
+        //                string srcDir = fullpath + "/" + file_name;
+        //                if (Directory.Exists(srcDir))
+        //                {
+        //                    foreach (FileInfo file in new DirectoryInfo(srcDir).GetFiles())
+        //                    {
+        //                        file.MoveTo(Path.Combine(fullpath, file.Name));
+        //                    }
+        //                    Directory.Delete(srcDir, true);
+        //                }
+        //            }
+
+        //            // Extract layer and style filenames
+        //            var shpFiles = new DirectoryInfo(fullpath).GetFiles("*.shp");
+        //            var firstFilename = shpFiles[0].Name.Split('.')[0];
+        //            var ext = shpFiles[0].Extension.TrimStart('.');
+
+        //            string file_path = $"{user}\\{ddlfiletype.SelectedValue}\\{file_name}\\{firstFilename}.{ext}";
+        //            string file_path_1 = "";
+
+        //            if (upload_style.HasFile)
+        //            {
+        //                upload_style.SaveAs(file_save_1);
+        //                var sldFiles = new DirectoryInfo(fullpath).GetFiles("*.sld");
+        //                var styleFilename = sldFiles[0].Name.Split('.');
+        //                file_path_1 = $"{user}\\{ddlfiletype.SelectedValue}\\{file_name}\\{styleFilename[0]}.{styleFilename[1]}";
+        //            }
+
+        //            // DB insert logic (unchanged)
+        //            // ...
+
+        //            //return "sm_" + sno; // or sub_module_id;
+        //            return "sm_" + "25"; // or sub_module_id;
+        //        }
+        //        return null;
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        // Log ex.Message for debugging (optional)
+        //        return null;
+        //    }
+        //}
+
+
+
 
         string upload_kml_data(string user, string uname)
         {
@@ -948,7 +1246,10 @@ namespace uk_forest.Forest
                             Response.ContentType = "application/octet-stream";
                             Response.AppendHeader("Content-Disposition", "attachment; filename=" + Path.GetFileName(fullPath));
                             Response.TransmitFile(fullPath);
-                            Response.End(); // Ensure response ends after file is sent
+                            //Response.End(); // Ensure response ends after file is sent
+
+                            HttpContext.Current.ApplicationInstance.CompleteRequest();
+                            return;
                         }
                         else
                         {
@@ -1068,7 +1369,10 @@ namespace uk_forest.Forest
                     Response.ContentType = "application/zip";
                     Response.AppendHeader("Content-Disposition", "attachment; filename=" + zipFileName);
                     Response.TransmitFile(zipFilePath);
-                    Response.End();
+                    //Response.End();
+
+                    HttpContext.Current.ApplicationInstance.CompleteRequest();
+                    return;
 
                     // Optionally delete the ZIP file after download
                     if (System.IO.File.Exists(zipFilePath))

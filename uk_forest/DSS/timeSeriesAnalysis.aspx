@@ -337,21 +337,21 @@
                                             <asp:CheckBox ID="zone" runat="server" onclick='sfdzone(this);' Text=" Zone Boundaries" class="nav-item" />
 
                                             <span id='div_zone' style='display: none'>
-                                                <img src="http://180.151.15.18:9007/geoserver/uk_sfd/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=uk_sfd:tbl_zone_master&Format=image/gif&scale=800000&Transparent=true" />
+                                                <img src="https://ukforestgis.in/geoserver/uk_sfd/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=uk_sfd:tbl_zone_master&Format=image/gif&scale=800000&Transparent=true" />
                                             </span>
                                         </li>
                                          <li >
                                             <asp:CheckBox ID="circle" runat="server" onclick='sfdcircle(this);' Text="Circle Boundaries" class="nav-item" />
 
                                             <span id='div_circle' style='display: none'>
-                                                <img src="http://180.151.15.18:9007/geoserver/uk_sfd/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=uk_sfd:tbl_circle_master&Format=image/gif&scale=800000&Transparent=true" />
+                                                <img src="https://ukforestgis.in/geoserver/uk_sfd/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=uk_sfd:tbl_circle_master&Format=image/gif&scale=800000&Transparent=true" />
                                             </span>
                                         </li>
                                          <li >
                                             <asp:CheckBox ID="division" runat="server" onclick='sfddivision(this);' Text=" Division Boundaries" class="nav-item" />
 
                                             <span id='div_division' style='display: none'>
-                                                <img src="http://180.151.15.18:9007/geoserver/uk_sfd/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=uk_sfd:tbl_division_master&Format=image/gif&scale=800000&Transparent=true" />
+                                                <img src="https://ukforestgis.in/geoserver/uk_sfd/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=uk_sfd:tbl_division_master&Format=image/gif&scale=800000&Transparent=true" />
                                             </span>
                                         </li>
 
@@ -360,14 +360,14 @@
                                             <asp:CheckBox ID="cd_LandDetails" runat="server" onclick='LandDetails(this);' Text="Plantation AOI" class="nav-item" />
 
                                             <span id='div_LandDetails' style='display: none'>
-                                                <img src="http://180.151.15.18:9007/geoserver/uk_sfd/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=uk_sfd:tbl_plantation_area&Format=image/gif&scale=800000&Transparent=true" />
+                                                <img src="https://ukforestgis.in/geoserver/uk_sfd/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=uk_sfd:tbl_plantation_area&Format=image/gif&scale=800000&Transparent=true" />
                                             </span>
                                         </li>
                                   <li>
                                             <asp:CheckBox ID="forest_fire_points" runat="server" onclick='forestfirepoints(this);' Text="Forest Fire Points" class="nav-item" />
 
                                             <span id='div_forest_fire_points' style='display: none'>
-                                                <img src="http://180.151.15.18:9007/geoserver/uk_sfd/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=uk_sfd:tbl_uk_forest_fire_point&Format=image/gif&scale=800000&Transparent=true" />
+                                                <img src="https://ukforestgis.in/geoserver/uk_sfd/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=uk_sfd:tbl_uk_forest_fire_point&Format=image/gif&scale=800000&Transparent=true" />
                                             </span>
                                         </li> 
 
@@ -380,13 +380,13 @@
                         <%--    <ul >
                                
                                 <div id='div_LandDetails' style='display: none'>
-                                    <img src="http://180.151.15.18:9007/geoserver/nrdc/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=nrdc:view_farmer_details&Format=image/gif&scale=800000&Transparent=true" />
+                                    <img src="https://ukforestgis.in/geoserver/nrdc/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=nrdc:view_farmer_details&Format=image/gif&scale=800000&Transparent=true" />
                                 </div>
                             </ul>--%>
                          <%--   <ul id="s151">
                                 <asp:CheckBox ID="cb_apple_plant" runat="server" onclick='apple_plant(this);' Text="Thailand Image 2" class="nav-item" />
                                 <div id='div_apple_plant' style='display: none'>
-                                    <img src="http://180.151.15.18:9007/geoserver/nrdc/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=nrdc:view_farmer_details&Format=image/gif&scale=800000&Transparent=true" />
+                                    <img src="https://ukforestgis.in/geoserver/nrdc/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=nrdc:view_farmer_details&Format=image/gif&scale=800000&Transparent=true" />
                                 </div>
                             </ul>--%>
                         </li>

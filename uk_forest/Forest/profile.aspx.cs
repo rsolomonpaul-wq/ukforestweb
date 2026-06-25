@@ -44,9 +44,25 @@ namespace uk_forest
 
                     //string url = apiUrl + string.Format("TblUserRegistrations/GetTblUserRegistration?id=" + id);
 
-                    string url = (role != 1)
-    ? $"{apiUrl}TblUserRegistrations/GetTblUserRegistration?id={id}"
-    : $"{apiUrl}TblUserMasters/GetTblUserMaster?id={id}";
+                    //string url = (role != 1)
+                    //? $"{apiUrl}TblUserRegistrations/GetTblUserRegistration?id={id}"
+                    //: $"{apiUrl}TblUserMasters/GetTblUserMaster?id={id}";
+
+                    string url = "";
+
+                    if (role == 11)
+                    {
+                        url = $"{apiUrl}TblApplicantMasters/GetApplicant/{id}";
+                    }
+                    else if (role == 1)
+                    {
+                        url = $"{apiUrl}TblUserMasters/GetTblUserMaster?id={id}";
+                    }
+                    else
+                    {
+                        url = $"{apiUrl}TblUserRegistrations/GetTblUserRegistration?id={id}";
+                    }
+
 
                     HttpResponseMessage Res = client.GetAsync(url).Result;
 
@@ -58,8 +74,15 @@ namespace uk_forest
 
                         if (data != null && data.Count > 0)
                         {
-                            //txt_emp_id.Text = data.ContainsKey("empId") ? data["empId"]?.ToString() : "";
-                            txtId.Text = data.ContainsKey("userId") ? data["userId"]?.ToString() : "";
+                            if (role == 11)
+                            {
+                                txtId.Text = data.ContainsKey("applicantId") ? data["applicantId"]?.ToString() : "";
+                            }
+                            else
+                            {
+                                txtId.Text = data.ContainsKey("userId") ? data["userId"]?.ToString() : "";
+                            }
+                               
                             txtName.Text = data.ContainsKey("name") ? data["name"]?.ToString() : "";
                             txt_email_id.Text = data.ContainsKey("emailId") ? data["emailId"]?.ToString() : "";
                             txt_phone_no.Text = data.ContainsKey("mobileNo") ? data["mobileNo"]?.ToString() : "";
@@ -86,7 +109,14 @@ namespace uk_forest
         {
             try
             {
-                Response.Redirect("dashboard.aspx");
+                if(Convert.ToInt32(Session["RoleId"]) == 11)
+                {
+                    Response.Redirect("ApplicantDashboard.aspx");
+                }
+                else
+                {
+                    Response.Redirect("dashboard.aspx");
+                }
             }
             catch (Exception ex)
             {

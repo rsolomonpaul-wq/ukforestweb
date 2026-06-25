@@ -1,8 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Forest/forestmaster.Master" AutoEventWireup="true" CodeBehind="upload_data.aspx.cs" Inherits="uk_forest.Forest.upload_data" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-      <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+    <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
     <div class="card addRolesBox mb-3">
         <div class="card-header d-flex flex-row align-items-center justify-content-between">
             <h3 runat="server" id="heading_add" class="m-0 font-weight-bolder text-uppercase text-white" style="font-size: larger; font-weight: 700;">Upload Data
@@ -22,13 +23,13 @@
 
                 <div class="col-md-3">
                     <asp:Label ID="Label1" runat="server" CssClass="font-weight-bold">File Type: 
-                             </asp:Label>
+                    </asp:Label>
 
                     <asp:DropDownList ID="ddlfiletype" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddlfiletype_SelectedIndexChanged" CssClass="form-control ddl-with-icon">
                         <asp:ListItem>Vector</asp:ListItem>
                         <asp:ListItem>Raster</asp:ListItem>
                         <asp:ListItem>KML</asp:ListItem>
-                       <%-- <asp:ListItem>GeoJson</asp:ListItem>
+                        <%-- <asp:ListItem>GeoJson</asp:ListItem>
                         <asp:ListItem>Excel</asp:ListItem>
                         <asp:ListItem>PDF</asp:ListItem>
                         <asp:ListItem>Image</asp:ListItem>--%>
@@ -36,7 +37,7 @@
 
                 </div>
 
-            <%--    <div class="col-md-3">
+                <%--    <div class="col-md-3">
                     <asp:Label ID="datatype" runat="server" CssClass="font-weight-bold">Data Type 
                               <span style="color:red;">*</span>
                               </asp:Label>
@@ -70,7 +71,7 @@
 
                         </div>--%>
 
-             <%--   <div class="col-md-3">
+                <%--   <div class="col-md-3">
                     <asp:Label ID="Label6" runat="server" CssClass="font-weight-bold">File Status:</asp:Label>
                     <asp:DropDownList ID="ddl_file_status" runat="server" CssClass="form-control ddl-with-icon">
                     </asp:DropDownList>
@@ -82,12 +83,13 @@
                 </div>
 
                 <div class="col-md-3">
-                    <asp:Label ID="lbluploadstyle" runat="server" CssClass="font-weight-bold">Upload Style: <span style="color:red;">*</span></asp:Label>
+                    <%-- <asp:Label ID="lbluploadstyle" runat="server" CssClass="font-weight-bold">Upload Style: <span style="color:red;">*</span></asp:Label>--%>
+                    <asp:Label ID="lbluploadstyle" runat="server" CssClass="font-weight-bold">Upload Style:</asp:Label>
                     <asp:FileUpload ID="upload_style" runat="server"></asp:FileUpload>
 
                 </div>
                 <div class="col-md-3">
-                    <asp:Button ID="btnUploadData" OnClick="btn_uploaddata_Click" runat="server" ValidationGroup="up" Text="Upload Data" CssClass="btn-success btn-sm rounded my-4" />
+                    <asp:Button ID="btnUploadData" OnClick="btn_uploaddata_Click" runat="server" ValidationGroup="up" Text="Upload Data" CssClass="btn-success btn-sm rounded my-2" />
 
                 </div>
 
@@ -143,7 +145,7 @@
         </div>
 
         <div class="card-body">
-            <div class="table-responsive">
+            <div class="table-responsive accessRightTable">
                 <asp:Label ID="lbl_msg_alert" runat="server" ForeColor="Red" Visible="false"></asp:Label>
                 <asp:GridView ID="grid_Modules" AutoGenerateColumns="false" DataKeyNames="sno" runat="server" Width="100%" EmptyDataText="No Data Found !!!">
                     <Columns>
@@ -162,10 +164,17 @@
                         <asp:TemplateField HeaderText="User Id">
                             <ItemTemplate>
                                 <asp:Label ID="lbl_user_id" runat="server" Text='<%# Eval("user_id") %>'></asp:Label>
+                                <%--<asp:Label ID="lbl_user_id" runat="server" Text='<%# Eval("email_id") %>'></asp:Label>--%>
                             </ItemTemplate>
                         </asp:TemplateField>
 
-                           <asp:TemplateField HeaderText="User Name">
+                        <asp:TemplateField HeaderText="User Id">
+                            <ItemTemplate>
+                                <asp:Label ID="lbl_email_id" runat="server" Text='<%# Eval("email_id") %>'></asp:Label>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+
+                        <asp:TemplateField HeaderText="User Name">
                             <ItemTemplate>
                                 <asp:Label ID="lbl_user_name" runat="server" Text='<%# Eval("name") %>'></asp:Label>
                             </ItemTemplate>

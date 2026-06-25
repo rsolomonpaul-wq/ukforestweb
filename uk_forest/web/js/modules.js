@@ -1,6 +1,6 @@
 ﻿
-var geoserver_ip = "http://180.151.15.18:9007/geoserver/uk_sfd/wms?";
-var geoserver_ip_ows = "http://180.151.15.18:9007/geoserver/sbl/ows";
+var geoserver_ip = "https://ukforestgis.in/geoserver/uk_sfd/wms?";
+var geoserver_ip_ows = "https://ukforestgis.in/geoserver/sbl/ows";
 
 var format = 'image/png';
 var lastselectedlayer = [];
@@ -407,7 +407,7 @@ document.addEventListener("DOMContentLoaded", function () {
             // Access the width and height
             const widthe = recte.width;
             let myView;
-            if (widthe < 500) {
+            if (widthe < 850) {
                 document.getElementById("mapfeatures").style.display = "block";
                 myView = new ol.View({
                     center: ol.proj.fromLonLat([79.0193, 30.0668])
@@ -416,8 +416,8 @@ document.addEventListener("DOMContentLoaded", function () {
                 map.setView(myView);
 
             } else {
-                document.getElementById("mapfeatures").style.display = "none";
-                document.getElementById("layersDataid").style.display = "none";
+                document.getElementById("mapfeatures").style.display = "block";
+               // document.getElementById("layersDataid").style.display = "block";
                 myView = new ol.View({
                     center: ol.proj.fromLonLat([79.0193, 30.0668])
                     , zoom: 7
@@ -618,7 +618,7 @@ function state(checkbox) {
         layerobject.push(state_layer);
         map.addOverlay(state_layer);
         lastselectedlayer.push("tbl_uk_state_boundary");
-        lastselectedlayername.push("state Boundary");
+        lastselectedlayername.push("State ");
         lastselectedlayer_vector.push("tbl_uk_state_boundary");
         //state_zoom();
 
@@ -629,7 +629,7 @@ function state(checkbox) {
         layerobject.pop(state_layer);
         map.removeOverlay(state_layer);
         lastselectedlayer.pop("tbl_uk_state_boundary");
-        lastselectedlayername.pop("state Boundary");
+        lastselectedlayername.pop("State ");
         lastselectedlayer_vector.pop("tbl_uk_state_boundary");
 
     }
@@ -661,7 +661,7 @@ function district(checkbox) {
         layerobject.push(district_layer);
         map.addOverlay(district_layer);
         lastselectedlayer.push("tbl_uk_districts");
-        lastselectedlayername.push("district Boundary");
+        lastselectedlayername.push("District ");
         lastselectedlayer_vector.push("tbl_uk_districts");
         //district_zoom();
 
@@ -672,7 +672,7 @@ function district(checkbox) {
         layerobject.pop(district_layer);
         map.removeOverlay(district_layer);
         lastselectedlayer.pop("tbl_uk_districts");
-        lastselectedlayername.pop("district Boundary");
+        lastselectedlayername.pop("District ");
         lastselectedlayer_vector.pop("tbl_uk_districts");
 
     }
@@ -1483,7 +1483,7 @@ function sfdzone(checkbox) {
         layerobject.push(zones);
         map.addOverlay(zones);
         lastselectedlayer.push("tbl_zone_master");
-        lastselectedlayername.push("SFD Zone Boundaries");
+        lastselectedlayername.push(" Zone ");
         lastselectedlayer_vector.push("tbl_zone_master");
         //village_zoom();
     }
@@ -1493,7 +1493,7 @@ function sfdzone(checkbox) {
         layerobject.pop(zones);
         map.removeOverlay(zones);
         lastselectedlayer.pop("tbl_zone_master");
-        lastselectedlayername.pop("SFD Zone Boundaries");
+        lastselectedlayername.pop(" Zone ");
         lastselectedlayer_vector.pop("tbl_zone_master");
     }
 }
@@ -1524,7 +1524,7 @@ function sfdcircle(checkbox) {
         layerobject.push(circles);
         map.addOverlay(circles);
         lastselectedlayer.push("tbl_circle_master");
-        lastselectedlayername.push("SFD Circle Boundaries");
+        lastselectedlayername.push(" Circle ");
         lastselectedlayer_vector.push("tbl_circle_master");
         //village_zoom();
     }
@@ -1534,7 +1534,7 @@ function sfdcircle(checkbox) {
         layerobject.pop(circles);
         map.removeOverlay(circles);
         lastselectedlayer.pop("tbl_circle_master");
-        lastselectedlayername.pop("SFD Circle Boundaries");
+        lastselectedlayername.pop(" Circle ");
         lastselectedlayer_vector.pop("tbl_circle_master");
     }
 }
@@ -1566,7 +1566,7 @@ function sfddivision(checkbox) {
         layerobject.push(divisions);
         map.addOverlay(divisions);
         lastselectedlayer.push("tbl_division_master");
-        lastselectedlayername.push("SFD Division Boundaries");
+        lastselectedlayername.push(" Division ");
         lastselectedlayer_vector.push("tbl_division_master");
         //village_zoom();
     }
@@ -1576,7 +1576,7 @@ function sfddivision(checkbox) {
         layerobject.pop(divisions);
         map.removeOverlay(divisions);
         lastselectedlayer.pop("tbl_division_master");
-        lastselectedlayername.pop("SFD Division Boundaries");
+        lastselectedlayername.pop(" Division ");
         lastselectedlayer_vector.pop("tbl_division_master");
     }
 }
@@ -1606,7 +1606,7 @@ function range_fun(checkbox) {
         map.addLayer(ranges);
         layerobject.push(ranges);
         map.addOverlay(ranges);
-        lastselectedlayer.push("tbl_range_areas");
+        lastselectedlayer.push("range_master");
         lastselectedlayername.push("Range");
         lastselectedlayer_vector.push("tbl_range_areas");
         //village_zoom();
@@ -1616,7 +1616,7 @@ function range_fun(checkbox) {
         map.removeLayer(ranges);
         layerobject.pop(ranges);
         map.removeOverlay(ranges);
-        lastselectedlayer.pop("tbl_range_areas");
+        lastselectedlayer.pop("range_master");
         lastselectedlayername.pop("Range");
         lastselectedlayer_vector.pop("tbl_range_areas");
     }
@@ -1630,7 +1630,7 @@ var ranges = new ol.layer.Image({
             'FORMAT': format,
             tiled: true,
             STYLES: '',
-            layers: 'uk_sfd:tbl_range_areas',
+            layers: 'uk_sfd:range_master',
             transition: 0
         }, serverType: 'geoserver',
         crossOrigin: 'anonymous'
@@ -1946,6 +1946,12 @@ function capitalize_Words(str) {
     str = String(str);
     return str.replace(/(?:_| |\b)(\w)/g, function ($1) { return $1.toUpperCase().replace('_', ' '); });
 }
+function roundIfNumeric(value) {
+    if (!isNaN(value) && !isNaN(parseFloat(value))) {
+        return parseFloat(value).toFixed(2);
+    }
+    return value;
+}
 function showpopupinfo(result, _coordinate, fetch_layername) {
 
     var globalCollectionArray = [];
@@ -1960,7 +1966,20 @@ function showpopupinfo(result, _coordinate, fetch_layername) {
             jQuery(this).find('td').each(function (index) {
                 var headingstring = headerColumns[index];
                 //if (!headingstring.includes('fid') && !headingstring.includes('id') && !headingstring.includes('dr')) {
-                if (true) {
+                if (!headingstring.includes('fid') && !headingstring.includes('id') && !headingstring.includes('dr') && !headingstring.includes('sl_no') && !headingstring.includes('blksectnrd') && !headingstring.includes('forest_blk') && !headingstring.includes('beat') && !headingstring.includes('comprtntn') && !headingstring.includes('layer') && !headingstring.includes('map_name') && !headingstring.includes('border_col') && !headingstring.includes('closed') && !headingstring.includes('border_wid') && !headingstring.includes('border_sty') && !headingstring.includes('fill_style') && !headingstring.includes('type') && !headingstring.includes('sub_cat') && !headingstring.includes('rural__') && !headingstring.includes('state_lgd') && !headingstring.includes('shape_leng') && !headingstring.includes('district_l') && !headingstring.includes('shape_area') && !headingstring.includes('region') && !headingstring.includes('shape_le_1') && !headingstring.includes('urban__') && !headingstring.includes('total__') && !headingstring.includes('district_1') && !headingstring.includes('district_l') && !headingstring.includes('popu_cls')&& !headingstring.includes('remarks') && !headingstring.includes('agri_unirrigated_water_erosion_low_sq_km')
+                    && !headingstring.includes('forest_vegetation_degradation_low_sq_km')
+                    && !headingstring.includes('periglacial_frost_shattering_high_sq_km')
+                    && !headingstring.includes('no_apparent_degradation_sq_km')
+                    && !headingstring.includes('settlement_sq_km')
+                    && !headingstring.includes('scrub_vegetation_degradation_low_sq_km')
+                    && !headingstring.includes('scrub_vegetation_degradation_high_sq_km')
+                    && !headingstring.includes('water_body_drainage_sq_km')
+                    && !headingstring.includes('water')
+                    && !headingstring.includes('non_forest')
+                    && !headingstring.includes('scrub')
+                    && !headingstring.includes('open_forest')
+                    && !headingstring.includes('moderately_dense_forest')
+                    && !headingstring.includes('very_dense')) {
                     //CREATING JSON OBJECT
                     var CustomObject = { column: headerColumns[index], value: jQuery(this).text() };
                     rowWiseArray.push(CustomObject)
@@ -1982,7 +2001,7 @@ function showpopupinfo(result, _coordinate, fetch_layername) {
                 makeCustomHTML += '<tr><td class=\'tdpadding\' ><b>' + capt + '</b></td><td class=\'tdpadding\' > ' + dval + '</td></tr>';
             }
             else {
-                makeCustomHTML += '<tr><td class=\'tdpadding\' ><b>' + capt + '</b></td><td class=\'tdpadding\' > ' + capitalize_Words(globalCollectionArray[i].row[j].value) + '</td></tr>';
+                makeCustomHTML += '<tr><td class=\'tdpadding\' ><b>' + capt + '</b></td><td class=\'tdpadding\' > ' + roundIfNumeric(capitalize_Words(globalCollectionArray[i].row[j].value)) + '</td></tr>';
             }
         }
         makeCustomHTML += '</table></div>';
@@ -3557,7 +3576,7 @@ function fshowhide() {
 //    })
 //});
 
-////var geoServerURL = "http://180.151.15.18:9007/geoserver/sbl/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=sbl:" + lastselectedlayer[Number(lastselectedlayer.length) - 1] + "&outputFormat=application/json";
+////var geoServerURL = "https://ukforestgis.in/geoserver/sbl/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=sbl:" + lastselectedlayer[Number(lastselectedlayer.length) - 1] + "&outputFormat=application/json";
 ////console.log(geoServerURL);
 ////var vectorSource = new ol.source.Vector({
 ////    url: geoServerURL, // Fetch GeoJSON from GeoServer
@@ -3612,10 +3631,10 @@ function fshowhide() {
 //    }
 //    // Handle different filtertypes
 //    if (filtertype == "NA") {
-//        geoServerURL = `http://180.151.15.18:9007/geoserver/sbl/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=sbl:${lastselectedlayer}&outputFormat=application/json`;
+//        geoServerURL = `https://ukforestgis.in/geoserver/sbl/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=sbl:${lastselectedlayer}&outputFormat=application/json`;
 //    }
 //    else if (filtertype == "query") {
-//        geoServerURL = `http://180.151.15.18:9007/geoserver/sbl/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=sbl:${lastselectedlayer}&outputFormat=application/json&${cqlFilter}`;
+//        geoServerURL = `https://ukforestgis.in/geoserver/sbl/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=sbl:${lastselectedlayer}&outputFormat=application/json&${cqlFilter}`;
 //    }
 
 
@@ -5199,12 +5218,12 @@ function fshowhide() {
 //    var img1 = new Image();
 //    var img2 = new Image();
 
-//    //img1.src = "http://180.151.15.18:9007/geoserver/nrdc/wms?service=WMS&version=1.1.0&request=GetMap&layers=nrdc%3Arow_image&time=" + datefrom +"&bbox=557386.8163888006%2C2931084.918491676%2C567596.8163888006%2C2941404.918491676&width=759&height=768&srs=EPSG%3A32644&styles=&format=image%2Fvnd.jpeg-png";  // Image 1 URL
-//    //img2.src = 'http://180.151.15.18:9007/geoserver/nrdc/wms?service=WMS&version=1.1.0&request=GetMap&layers=nrdc%3Arow_image&time=2024-03-01T00:00:00.000Z&bbox=557386.8163888006%2C2931084.918491676%2C567596.8163888006%2C2941404.918491676&width=759&height=768&srs=EPSG%3A32644&styles=&format=image%2Fvnd.jpeg-png';  // Image 2 URL
+//    //img1.src = "https://ukforestgis.in/geoserver/nrdc/wms?service=WMS&version=1.1.0&request=GetMap&layers=nrdc%3Arow_image&time=" + datefrom +"&bbox=557386.8163888006%2C2931084.918491676%2C567596.8163888006%2C2941404.918491676&width=759&height=768&srs=EPSG%3A32644&styles=&format=image%2Fvnd.jpeg-png";  // Image 1 URL
+//    //img2.src = 'https://ukforestgis.in/geoserver/nrdc/wms?service=WMS&version=1.1.0&request=GetMap&layers=nrdc%3Arow_image&time=2024-03-01T00:00:00.000Z&bbox=557386.8163888006%2C2931084.918491676%2C567596.8163888006%2C2941404.918491676&width=759&height=768&srs=EPSG%3A32644&styles=&format=image%2Fvnd.jpeg-png';  // Image 2 URL
 
 
-//    img1.src = "http://180.151.15.18:9007/geoserver/nrdc/wms?service=WMS&version=1.1.0&request=GetMap&layers=nrdc%3Arow_image&time=" + dtfrm + "&bbox=557386.8163888006%2C2931084.918491676%2C567596.8163888006%2C2941404.918491676&width=1500&height=768&srs=EPSG%3A32644&styles=&format=image%2Fpng";  // Image 1 URL
-//    img2.src = "http://180.151.15.18:9007/geoserver/nrdc/wms?service=WMS&version=1.1.0&request=GetMap&layers=nrdc%3Arow_image&time=" + dtto + "&bbox=557386.8163888006%2C2931084.918491676%2C567596.8163888006%2C2941404.918491676&width=1500&height=768&srs=EPSG%3A32644&styles=&format=image%2Fpng";  // Image 2 URL
+//    img1.src = "https://ukforestgis.in/geoserver/nrdc/wms?service=WMS&version=1.1.0&request=GetMap&layers=nrdc%3Arow_image&time=" + dtfrm + "&bbox=557386.8163888006%2C2931084.918491676%2C567596.8163888006%2C2941404.918491676&width=1500&height=768&srs=EPSG%3A32644&styles=&format=image%2Fpng";  // Image 1 URL
+//    img2.src = "https://ukforestgis.in/geoserver/nrdc/wms?service=WMS&version=1.1.0&request=GetMap&layers=nrdc%3Arow_image&time=" + dtto + "&bbox=557386.8163888006%2C2931084.918491676%2C567596.8163888006%2C2941404.918491676&width=1500&height=768&srs=EPSG%3A32644&styles=&format=image%2Fpng";  // Image 2 URL
 
 
 //    img1.onload = function () {

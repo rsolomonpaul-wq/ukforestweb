@@ -1,5 +1,46 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Forest/forestmaster.Master" AutoEventWireup="true" CodeBehind="dashboard.aspx.cs" Inherits="uk_forest.Forest.dashboard" ClientIDMode="Static" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    
+    
+    <script>
+        window.addEventListener("load", function () {
+            debugger;
+            const startTime = new Date();
+
+            const data = {
+                page_url: window.location.href,    // Current page URL
+                page_title: document.title, // Current page title
+                visit_time: startTime
+            };
+
+            var apiBaseUrl = '<%= System.Configuration.ConfigurationManager.AppSettings["api_path"] %>';
+
+             var apiUrl = apiBaseUrl + 'TblPageVisits/PostTblPageVisit';
+
+             function sendPageVisitData() {
+                 const timeSpent = Math.floor((Date.now() - startTime) / 1000);
+
+                 data.time_spent_seconds = timeSpent;
+
+                 fetch(apiUrl, {
+                     method: "POST",
+                     headers: {
+                         "Content-Type": "application/json"
+                     },
+                     body: JSON.stringify(data)
+                 }).then(response => {
+                     if (!response.ok) {
+                         console.error("Failed to store page visit info.");
+                     }
+                 }).catch(error => {
+                     console.error("Error:", error);
+                 });
+             }
+
+             window.addEventListener("beforeunload", sendPageVisitData);
+         });
+    </script>
+
     <style>
      /*   .page-container {
   display: none;
@@ -238,7 +279,7 @@
                             <asp:CheckBox ID="cd_district" runat="server" onclick='district(this);' Text="SFD District Boundaries" class="nav-item" />
 
                             <span id='div_district' style='display: none'>
-                                <img src="http://180.151.15.18:9007/geoserver/uk_sfd/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=uk_sfd:tbl_uk_districts&Format=image/gif&scale=800000&Transparent=true" />
+                                <img src="https://ukforestgis.in/geoserver/uk_sfd/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=uk_sfd:tbl_uk_districts&Format=image/gif&scale=800000&Transparent=true" />
                             </span>
                         </li>
 
@@ -247,21 +288,21 @@
                             <asp:CheckBox ID="zone" runat="server" onclick='sfdzone(this);' Text="SFD Zone Boundaries" class="nav-item" />
 
                             <span id='div_zone' style='display: none'>
-                                <img src="http://180.151.15.18:9007/geoserver/uk_sfd/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=uk_sfd:tbl_zone_master&Format=image/gif&scale=800000&Transparent=true" />
+                                <img src="https://ukforestgis.in/geoserver/uk_sfd/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=uk_sfd:tbl_zone_master&Format=image/gif&scale=800000&Transparent=true" />
                             </span>
                         </li>
                         <li>
                             <asp:CheckBox ID="circle" runat="server" onclick='sfdcircle(this);' Text="SFD Circle Boundaries" class="nav-item" />
 
                             <span id='div_circle' style='display: none'>
-                                <img src="http://180.151.15.18:9007/geoserver/uk_sfd/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=uk_sfd:tbl_circle_master&Format=image/gif&scale=800000&Transparent=true" />
+                                <img src="https://ukforestgis.in/geoserver/uk_sfd/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=uk_sfd:tbl_circle_master&Format=image/gif&scale=800000&Transparent=true" />
                             </span>
                         </li>
                         <li>
                             <asp:CheckBox ID="division" runat="server" onclick='sfddivision(this);' Text="SFD Division Boundaries" class="nav-item" />
 
                             <span id='div_division' style='display: none'>
-                                <img src="http://180.151.15.18:9007/geoserver/uk_sfd/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=uk_sfd:tbl_division_master&Format=image/gif&scale=800000&Transparent=true" />
+                                <img src="https://ukforestgis.in/geoserver/uk_sfd/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=uk_sfd:tbl_division_master&Format=image/gif&scale=800000&Transparent=true" />
                             </span>
                         </li>
 
@@ -271,7 +312,7 @@
                             <asp:CheckBox ID="cd_forest" runat="server" onclick='forest_fun(this);' Text="Forest Area" class="nav-item" />
 
                             <span id='div_forest' style='display: none'>
-                                <img src="http://180.151.15.18:9007/geoserver/uk_sfd/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=uk_sfd:tbl_forest_data_final&Format=image/gif&scale=800000&Transparent=true" />
+                                <img src="https://ukforestgis.in/geoserver/uk_sfd/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=uk_sfd:tbl_forest_data_final&Format=image/gif&scale=800000&Transparent=true" />
                             </span>
                         </li>
                          
@@ -405,12 +446,12 @@
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="RF (Sq Km)">
                     <ItemTemplate>
-                        <%# Eval("rf_sqkm", "{0:F2}") %>
+                        <%# Eval("rf_area_sq_km", "{0:F2}") %>
                     </ItemTemplate>
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="NF (Sq Km)">
                     <ItemTemplate>
-                        <%# Eval("nf_sqkm", "{0:F2}") %>
+                        <%# Eval("nf_area_sq_km", "{0:F2}") %>
                     </ItemTemplate>
                 </asp:TemplateField>
             </Columns>
@@ -440,12 +481,12 @@
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="RF (Sq Km)">
                     <ItemTemplate>
-                        <%# Eval("rf_sqkm", "{0:F2}") %>
+                        <%# Eval("rf_area_sq_km", "{0:F2}") %>
                     </ItemTemplate>
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="NF (Sq Km)">
                     <ItemTemplate>
-                        <%# Eval("nf_sqkm", "{0:F2}") %>
+                        <%# Eval("nf_area_sq_km", "{0:F2}") %>
                     </ItemTemplate>
                 </asp:TemplateField>
             </Columns>
@@ -484,12 +525,12 @@
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="RF (Sq Km)">
                     <ItemTemplate>
-                        <%# Eval("rf_sqkm", "{0:F2}") %>
+                        <%# Eval("rf_area_sq_km", "{0:F2}") %>
                     </ItemTemplate>
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="NF (Sq Km)">
                     <ItemTemplate>
-                        <%# Eval("nf_sqkm", "{0:F2}") %>
+                        <%# Eval("nf_area_sq_km", "{0:F2}") %>
                     </ItemTemplate>
                 </asp:TemplateField>
             </Columns>

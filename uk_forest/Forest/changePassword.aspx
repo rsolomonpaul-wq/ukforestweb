@@ -38,7 +38,7 @@
                        <div class="col-md-6">
                              <div class="shadow-lg p-4 rounded mainForm bg-light">
                                      <h5 class="mb-4 font-weight-bold text-center">
-                                    <img src="../web/img/password-strenght.png"  style="width: 97px; height: 97px;" /></h5>
+                                    <img src="../web/img/user-icon1.png"  style="width: 97px; height: 97px;" /></h5>
                        
                                  <div class="form-group">
                                     <asp:Label ID="Label4" runat="server" CssClass="font-weight-bold">Existing Password <span class="text-danger">*</span></asp:Label>

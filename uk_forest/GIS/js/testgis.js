@@ -1,6 +1,6 @@
 ﻿
-var geoserver_ip = "http://180.151.15.18:9007/geoserver/uk_sfd/wms?";
-var geoserver_ip_ows = "http://180.151.15.18:9007/geoserver/sbl/ows";
+var geoserver_ip = "https://ukforestgis.in/geoserver/uk_sfd/wms?";
+var geoserver_ip_ows = "https://ukforestgis.in/geoserver/sbl/ows";
 
 var format = 'image/png';
 var lastselectedlayer = [];

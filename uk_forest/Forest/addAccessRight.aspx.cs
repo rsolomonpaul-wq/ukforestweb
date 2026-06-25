@@ -249,27 +249,27 @@ namespace uk_forest.Forest
                 ScriptManager.RegisterClientScriptBlock(this, GetType(), "alert", $"alert('An error occurred: {ex.Message}');", true);
             }
         }
-        protected void chkAll_CheckedChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                foreach (ListItem item in chkAccess.Items)
-                {
-                    item.Selected = chkAll.Checked;
-                }
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
+        //protected void chkAll_CheckedChanged(object sender, EventArgs e)
+        //{
+        //    try
+        //    {
+        //        foreach (ListItem item in chkAccess.Items)
+        //        {
+        //            item.Selected = chkAll.Checked;
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        throw ex;
+        //    }
+        //}
         protected void btnAssign_Click(object sender, EventArgs e)
         {
             string user_id = Session["userid_dataKey"].ToString();
             //var userid_supper = Session["user_id"];
             int role_id = Convert.ToInt32(Session["roleid_dataKey"]);
             try
-            {
+             {
                 delete_access_rights(ddl_module_list.SelectedValue, user_id);
                 for (var i = 0; i < ListBox1.Items.Count; i++)
                 {

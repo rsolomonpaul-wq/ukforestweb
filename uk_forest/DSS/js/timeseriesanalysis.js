@@ -1,7 +1,7 @@
 ﻿/*const { Doc } = require("codemirror");*/
 
-var geoserver_ip = "http://180.151.15.18:9007/geoserver/uk_sfd/wms?";
-var geoserver_ip_ows = "http://180.151.15.18:9007/geoserver/sbl/ows";
+var geoserver_ip = "https://ukforestgis.in/geoserver/uk_sfd/wms?";
+var geoserver_ip_ows = "https://ukforestgis.in/geoserver/sbl/ows";
 var sentinel2fcckey = document.getElementById("sentinel2fcckey").value;
 var sentinel2ncckey = document.getElementById("sentinel2ncckey").value;
 var format = 'image/png';
@@ -130,7 +130,7 @@ var layers = {
         name: 'sentinal-2',
         source: new ol.source.TileWMS({
             url: 'https://services.sentinel-hub.com/ogc/wms/' + sentinel2ncckey,
-           // url: 'https://services.sentinel-hub.com/ogc/wms/a52df360-16d7-4601-8f95-3a5205ab3889',
+           // url: 'https://services.sentinel-hub.com/ogc/wms/7b26bc88-1826-4a0c-91d1-6b6f69ef8799',
             params: { "maxcc": 50, "minZoom": 6, "maxZoom": 16, "preset": "TRUE_COLOR", "layers": "TRUE_COLOR", "time": timlapse },
             serverType: 'geoserver',
             crossOrigin: 'anonymous',
@@ -572,7 +572,7 @@ function LandDetails(checkbox) {
 var LandDetails_layer = new ol.layer.Image({
     source: new ol.source.ImageWMS({
         ratio: 1,
-        url: 'http://180.151.15.18:9007/geoserver/uk_sfd/wms?',
+        url: 'https://ukforestgis.in/geoserver/uk_sfd/wms?',
         params: {
             'FORMAT': format,
             tiled: true,

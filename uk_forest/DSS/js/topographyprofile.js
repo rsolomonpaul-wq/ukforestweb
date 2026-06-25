@@ -1,6 +1,7 @@
 ﻿
-var geoserver_ip = "http://180.151.15.18:9007/geoserver/uk_sfd/wms?";
-
+var geoserver_ip = "https://ukforestgis.in/geoserver/uk_sfd/wms?";
+var sentinel2fcckey = document.getElementById("sentinel2fcckey").value;
+var sentinel2ncckey = document.getElementById("sentinel2ncckey").value;
 var format = 'image/png';
 var lastselectedlayer = [];
 var lastselectedlayername = [];
@@ -223,7 +224,7 @@ var layers = {
         visible: false,
         name: 'sentinal-2',
         source: new ol.source.TileWMS({
-            url: 'https://services.sentinel-hub.com/ogc/wms/13d5aaea-1d0e-4581-9288-a463ce586119',
+            url: 'https://services.sentinel-hub.com/ogc/wms/' + sentinel2fcckey,
             params: { "maxcc": 50, "minZoom": 6, "maxZoom": 16, "preset": "2_FALSE_COLOR", "layers": "2_FALSE_COLOR", "time": timlapse },
             serverType: 'geoserver',
             crossOrigin: 'anonymous',
@@ -235,7 +236,7 @@ var layers = {
         visible: false,
         name: 'sentinal-2',
         source: new ol.source.TileWMS({
-            url: 'https://services.sentinel-hub.com/ogc/wms/a52df360-16d7-4601-8f95-3a5205ab3889',
+            url: 'https://services.sentinel-hub.com/ogc/wms/' + sentinel2ncckey,
             params: { "maxcc": 50, "minZoom": 6, "maxZoom": 16, "preset": "TRUE_COLOR", "layers": "TRUE_COLOR", "time": timlapse },
             serverType: 'geoserver',
             crossOrigin: 'anonymous',
@@ -854,7 +855,7 @@ function LandDetails(checkbox) {
 var LandDetails_layer = new ol.layer.Image({
     source: new ol.source.ImageWMS({
         ratio: 1,
-        url: 'http://180.151.15.18:9007/geoserver/uk_sfd/wms?',
+        url: 'https://ukforestgis.in/geoserver/uk_sfd/wms?',
         params: {
             'FORMAT': format,
             tiled: true,
@@ -896,7 +897,7 @@ function slopefn(checkbox) {
 var slope_layer = new ol.layer.Image({
     source: new ol.source.ImageWMS({
         ratio: 1,
-        url: 'http://180.151.15.18:9007/geoserver/uk_sfd/wms?',
+        url: 'https://ukforestgis.in/geoserver/uk_sfd/wms?',
         params: {
             'FORMAT': format,
             tiled: true,
@@ -935,7 +936,7 @@ function Aspect_Geofn(checkbox) {
 var Aspect_Geo_layer = new ol.layer.Image({
     source: new ol.source.ImageWMS({
         ratio: 1,
-        url: 'http://180.151.15.18:9007/geoserver/uk_sfd/wms?',
+        url: 'https://ukforestgis.in/geoserver/uk_sfd/wms?',
         params: {
             'FORMAT': format,
             tiled: true,
@@ -2422,7 +2423,7 @@ function showpopupinfo_1(result, _coordinate, fetch_layername) {
 /*===========================================AOI Bind============================================*/
 var sentinel_layer = new ol.layer.Tile({
     source: new ol.source.TileWMS({
-        url: "https://services.sentinel-hub.com/ogc/wms/13d5aaea-1d0e-4581-9288-a463ce586119",
+        url: "https://services.sentinel-hub.com/ogc/wms/" + sentinel2fcckey,
         //url: "https://services.sentinel-hub.com/ogc/wms/9b4d93bf-b7e5-4588-9394-cf70951aed63",
         params: { "maxcc": 85, "minZoom": 6, "maxZoom": 16, "preset": "2_FALSE_COLOR", "layers": "2_FALSE_COLOR", "time": timlapse },
         //params: { "maxcc": 85, "minZoom": 6, "maxZoom": 16, "preset": "2_FALSE_COLOR", "layers": "2_FALSE_COLOR" ,"time":'2024-09-27/2024-12-10' },
@@ -2433,7 +2434,7 @@ var sentinel_layer = new ol.layer.Tile({
     })
 });
 
-//var geoServerURL = "http://180.151.15.18:9007/geoserver/thailand/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=thailand:" + lastselectedlayer[Number(lastselectedlayer.length) - 1] + "&outputFormat=application/json";
+//var geoServerURL = "https://ukforestgis.in/geoserver/thailand/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=thailand:" + lastselectedlayer[Number(lastselectedlayer.length) - 1] + "&outputFormat=application/json";
 //console.log(geoServerURL);
 //var vectorSource = new ol.source.Vector({
 //    url: geoServerURL, // Fetch GeoJSON from GeoServer
@@ -2463,10 +2464,10 @@ function createGeoServerLayer(lastselectedlayer, filter) {
     //console.log(lastselectedlayer);
     var geoServerURL = null;
     if (filter == null) {
-        geoServerURL = "http://180.151.15.18:9007/geoserver/uk_sfd/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=uk_sfd:" + lastselectedlayer + "&outputFormat=application/json";
+        geoServerURL = "https://ukforestgis.in/geoserver/uk_sfd/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=uk_sfd:" + lastselectedlayer + "&outputFormat=application/json";
     }
     else {
-        geoServerURL = "http://180.151.15.18:9007/geoserver/uk_sfd/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=uk_sfd:" + lastselectedlayer + "&outputFormat=application/json&CQL_FILTER=" + filter;
+        geoServerURL = "https://ukforestgis.in/geoserver/uk_sfd/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=uk_sfd:" + lastselectedlayer + "&outputFormat=application/json&CQL_FILTER=" + filter;
         console.log(geoServerURL);
     }
 
@@ -3923,12 +3924,12 @@ function addswipelayer(datefrom, dateto) {
     var img1 = new Image();
     var img2 = new Image();
 
-    //img1.src = "http://180.151.15.18:9007/geoserver/nrdc/wms?service=WMS&version=1.1.0&request=GetMap&layers=nrdc%3Arow_image&time=" + datefrom +"&bbox=557386.8163888006%2C2931084.918491676%2C567596.8163888006%2C2941404.918491676&width=759&height=768&srs=EPSG%3A32644&styles=&format=image%2Fvnd.jpeg-png";  // Image 1 URL
-    //img2.src = 'http://180.151.15.18:9007/geoserver/nrdc/wms?service=WMS&version=1.1.0&request=GetMap&layers=nrdc%3Arow_image&time=2024-03-01T00:00:00.000Z&bbox=557386.8163888006%2C2931084.918491676%2C567596.8163888006%2C2941404.918491676&width=759&height=768&srs=EPSG%3A32644&styles=&format=image%2Fvnd.jpeg-png';  // Image 2 URL
+    //img1.src = "https://ukforestgis.in/geoserver/nrdc/wms?service=WMS&version=1.1.0&request=GetMap&layers=nrdc%3Arow_image&time=" + datefrom +"&bbox=557386.8163888006%2C2931084.918491676%2C567596.8163888006%2C2941404.918491676&width=759&height=768&srs=EPSG%3A32644&styles=&format=image%2Fvnd.jpeg-png";  // Image 1 URL
+    //img2.src = 'https://ukforestgis.in/geoserver/nrdc/wms?service=WMS&version=1.1.0&request=GetMap&layers=nrdc%3Arow_image&time=2024-03-01T00:00:00.000Z&bbox=557386.8163888006%2C2931084.918491676%2C567596.8163888006%2C2941404.918491676&width=759&height=768&srs=EPSG%3A32644&styles=&format=image%2Fvnd.jpeg-png';  // Image 2 URL
 
 
-    img1.src = "http://180.151.15.18:9007/geoserver/nrdc/wms?service=WMS&version=1.1.0&request=GetMap&layers=nrdc%3Arow_image&time=" + dtfrm + "&bbox=557386.8163888006%2C2931084.918491676%2C567596.8163888006%2C2941404.918491676&width=1500&height=768&srs=EPSG%3A32644&styles=&format=image%2Fpng";  // Image 1 URL
-    img2.src = "http://180.151.15.18:9007/geoserver/nrdc/wms?service=WMS&version=1.1.0&request=GetMap&layers=nrdc%3Arow_image&time=" + dtto + "&bbox=557386.8163888006%2C2931084.918491676%2C567596.8163888006%2C2941404.918491676&width=1500&height=768&srs=EPSG%3A32644&styles=&format=image%2Fpng";  // Image 2 URL
+    img1.src = "https://ukforestgis.in/geoserver/nrdc/wms?service=WMS&version=1.1.0&request=GetMap&layers=nrdc%3Arow_image&time=" + dtfrm + "&bbox=557386.8163888006%2C2931084.918491676%2C567596.8163888006%2C2941404.918491676&width=1500&height=768&srs=EPSG%3A32644&styles=&format=image%2Fpng";  // Image 1 URL
+    img2.src = "https://ukforestgis.in/geoserver/nrdc/wms?service=WMS&version=1.1.0&request=GetMap&layers=nrdc%3Arow_image&time=" + dtto + "&bbox=557386.8163888006%2C2931084.918491676%2C567596.8163888006%2C2941404.918491676&width=1500&height=768&srs=EPSG%3A32644&styles=&format=image%2Fpng";  // Image 2 URL
 
 
     img1.onload = function () {

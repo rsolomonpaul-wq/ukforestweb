@@ -1,0 +1,225 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="wildlife.master.cs" Inherits="uk_forest.Forest.wildlife" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+     <!-- Theme Config Js -->
+    <script src="../admin/assets/js/config.js"></script>
+
+    <!-- Vendor css -->
+    <link href="../admin/assets/css/vendor.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- App css -->
+    <link href="../admin/assets/css/app.min.css" rel="stylesheet" type="text/css" id="app_style" />
+
+    <!-- Icons css -->
+    <link href="../admin/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+
+
+    <style>
+        .page-content {
+            display: flex;
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+            flex-direction: column;
+            position: relative;
+            margin-left: 0px;
+            transition: all .25s ease-in-out;
+            min-height: calc(100vh - var(--osen-topbar-height));
+            padding: 0 .75rem;
+        }
+
+        .container-fluid {
+            margin: 5px 5px;
+            width: calc(100% - 5px);
+        }
+
+        .portal-header {
+            padding: 15px 0;
+            text-align: center;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-weight: 700;
+            font-size: 2rem;
+            user-select: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 9px;
+            color: #2d2d2d;
+        }
+
+            .portal-header .icon {
+                font-size: 2.8rem;
+                line-height: 1;
+                color: #388e3c; /* forest green */
+                text-shadow: 0 0 6px #66bb6a;
+                user-select: none;
+            }
+
+            .portal-header .highlight {
+                color: #ffffff;
+                font-weight: 900;
+                background-color: green;
+                padding: 0px 5px;
+            }
+            
+        .radio-options {
+            display: flex;
+            justify-content: center;
+            gap: 80px;
+            padding: 15px 0;
+            background-color: #f5f5f5;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .radio-option {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .radio-option input[type="radio"] {
+            margin-right: 5px;
+        }
+
+        .custom-dropdown {
+        position: relative;
+        display: inline-block;
+        width: 100%;
+    }
+    .custom-dropdown select.form-control {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        padding-right: 30px;
+        background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+        background-repeat: no-repeat;
+        background-position: right 10px center;
+        background-size: 16px;
+    }
+    </style>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+                <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+
+        <div>
+            <header id="header">
+                <div class="container-fluid">
+                    <div class="headAssets" style="display: flex; align-items: center; justify-content: space-between; gap: 15px; flex-wrap: nowrap;">
+                        <div class="logo" style="flex-shrink: 0;">
+                            <a href="indexs.aspx">
+                                <img src="../images/uttrakhand_logo.jpg" alt="logo picture" style="max-height: 60px;" /></a>
+                        </div>
+                        <div class="portal-header" style="flex-grow: 1; white-space: nowrap; margin: 0 15px; font-size: 1.5rem;">
+                            <div class="icon" aria-hidden="true"></div>
+                            Forest Management <span>Information System</span>
+                        </div>
+                        <div class="ministryLogo" style="display: flex; gap: 10px; flex-shrink: 0;">
+                            <div class="l_1">
+                                <a href="https://moef.gov.in/" target="_blank">
+                                    <img src="../images/Ministry-of-Environment.jpg" alt="picture" style="max-height: 60px;" /></a>
+                            </div>
+                            <div class="l_2">
+                                <a href="https://www.giz.de/de/html/index.html" target="_blank">
+                                    <img src="../images/gizLogo.png" alt="giz logo picture" style="max-height: 60px;" /></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </header>
+
+
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; gap: 20px; flex-wrap: wrap;">
+                <!-- Radio Options -->
+                <div class="radio-options" style="display: flex; gap: 15px; align-items: center; flex-wrap: wrap; flex-grow: 1;">
+                    <div class="radio-option" style="display: flex; align-items: center;">
+                        <input type="radio" id="option1" name="formOptions" value="AddApplicantDetails"
+                            <%= Request.Url.AbsolutePath.Contains("AddApplicantDetails") ? "checked" : "" %>
+                            onclick="redirectToPage('AddApplicantDetails.aspx')">
+                        <label for="option1" style="margin-left: 5px;">Applicant Details</label>
+                    </div>
+                    <div class="radio-option" style="display: flex; align-items: center;">
+                        <input type="radio" id="option2" name="formOptions" value="VictimIncident"
+                            <%= Request.Url.AbsolutePath.Contains("VictimIncident") ? "checked" : "" %>
+                            onclick="redirectToPage('VictimIncidentForm.aspx')">
+                        <label for="option2" style="margin-left: 5px;">Victim Incident Form</label>
+                    </div>
+                 <%--   <div class="radio-option" style="display: flex; align-items: center;">
+                        <input type="radio" id="option3" name="formOptions" value="ApplicantForm"
+                            <%= Request.Url.AbsolutePath.Contains("ApplicantForm") ? "checked" : "" %>
+                            onclick="redirectToPage('ApplicantForm.aspx')">
+                        <label for="option3" style="margin-left: 5px;">Applicant Form</label>
+                    </div>--%>
+
+                    <!-- Logout Button -->
+                    <div style="flex-shrink: 0;">
+                        <asp:LinkButton ID="lnkLogout" runat="server" CssClass="btn btn-danger" OnClick="lnkLogout_Click">
+            <i class="fas fa-sign-out-alt"></i> Logout
+                        </asp:LinkButton>
+                    </div>
+                </div>
+
+               
+            </div>
+
+            <script>
+                function redirectToPage(pageUrl) {
+                    window.location.href = pageUrl;
+                }
+            </script>
+
+            <%--<div class="radio-options">
+                <div class="radio-option">
+                    <input type="radio" id="option1" name="formOptions" value="AddApplicantDetails"
+                        <%= Request.Url.AbsolutePath.Contains("AddApplicantDetails") ? "checked" : "" %>
+                        onclick="redirectToPage('AddApplicantDetails.aspx')">
+                    <label for="option1">Applicant Details</label>
+                </div>
+                <div class="radio-option">
+                    <input type="radio" id="option2" name="formOptions" value="VictimIncident"
+                        <%= Request.Url.AbsolutePath.Contains("VictimIncident") ? "checked" : "" %>
+                        onclick="redirectToPage('VictimIncidentForm.aspx')">
+                    <label for="option2">Victim Incident Form</label>
+                </div>
+                <div class="radio-option">
+                    <input type="radio" id="option3" name="formOptions" value="ApplicantForm"
+                        <%= Request.Url.AbsolutePath.Contains("ApplicantForm") ? "checked" : "" %>
+                        onclick="redirectToPage('ApplicantForm.aspx')">
+                    <label for="option3">Applicant Form</label>
+                </div>
+            </div>--%>
+
+          <script type="text/javascript">
+              function preventBack() {
+                  window.history.forward();
+              }
+              setTimeout("preventBack()", 0);
+              window.onunload = function () { null };
+          </script>
+
+            <div class="container my-5 d-flex justify-content-center">
+                <div class="page-container">
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                    </asp:ContentPlaceHolder>
+                </div>
+            </div>
+
+        </div>
+
+         <!-- Vendor js -->
+        <script src="../admin/assets/js/vendor.min.js"></script>
+
+        <!-- App js -->
+        <script src="../admin/assets/js/app.js"></script>
+    </form>
+</body>
+</html>

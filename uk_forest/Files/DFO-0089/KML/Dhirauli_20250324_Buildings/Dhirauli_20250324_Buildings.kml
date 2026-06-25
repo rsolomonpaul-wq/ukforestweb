@@ -1,0 +1,4792 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom">
+<Document>
+	<name>Dhirauli_20250324_Buildings.shp</name>
+	<atom:link rel="app" href="https://www.google.com/earth/about/versions/#earth-pro" title="Google Earth Pro 7.3.6.10201"></atom:link>
+	<Schema name="Dhirauli_20250324_Buildings" id="S_Dhirauli_20250324_Buildings_SSSSDDDSSSSSSSS">
+		<SimpleField type="string" name="Site"><displayName>&lt;b&gt;Site&lt;/b&gt;</displayName>
+</SimpleField>
+		<SimpleField type="string" name="category"><displayName>&lt;b&gt;category&lt;/b&gt;</displayName>
+</SimpleField>
+		<SimpleField type="string" name="image_vint"><displayName>&lt;b&gt;image_vint&lt;/b&gt;</displayName>
+</SimpleField>
+		<SimpleField type="string" name="image_sour"><displayName>&lt;b&gt;image_sour&lt;/b&gt;</displayName>
+</SimpleField>
+		<SimpleField type="double" name="Area_Sqm"><displayName>&lt;b&gt;Area_Sqm&lt;/b&gt;</displayName>
+</SimpleField>
+		<SimpleField type="double" name="latitude"><displayName>&lt;b&gt;latitude&lt;/b&gt;</displayName>
+</SimpleField>
+		<SimpleField type="double" name="longitude"><displayName>&lt;b&gt;longitude&lt;/b&gt;</displayName>
+</SimpleField>
+		<SimpleField type="string" name="Region"><displayName>&lt;b&gt;Region&lt;/b&gt;</displayName>
+</SimpleField>
+		<SimpleField type="string" name="Vintage"><displayName>&lt;b&gt;Vintage&lt;/b&gt;</displayName>
+</SimpleField>
+		<SimpleField type="string" name="Grid"><displayName>&lt;b&gt;Grid&lt;/b&gt;</displayName>
+</SimpleField>
+		<SimpleField type="string" name="Type"><displayName>&lt;b&gt;Type&lt;/b&gt;</displayName>
+</SimpleField>
+		<SimpleField type="string" name="ID"><displayName>&lt;b&gt;ID&lt;/b&gt;</displayName>
+</SimpleField>
+		<SimpleField type="string" name="Build_ID"><displayName>&lt;b&gt;Build_ID&lt;/b&gt;</displayName>
+</SimpleField>
+		<SimpleField type="string" name="Remark"><displayName>&lt;b&gt;Remark&lt;/b&gt;</displayName>
+</SimpleField>
+		<SimpleField type="string" name="Village_Na"><displayName>&lt;b&gt;Village_Na&lt;/b&gt;</displayName>
+</SimpleField>
+	</Schema>
+	<Style id="falseColor">
+		<BalloonStyle>
+			<text><![CDATA[<table border="0">
+  <tr><td><b>Site</b></td><td>$[Dhirauli_20250324_Buildings/Site]</td></tr>
+  <tr><td><b>category</b></td><td>$[Dhirauli_20250324_Buildings/category]</td></tr>
+  <tr><td><b>image_vint</b></td><td>$[Dhirauli_20250324_Buildings/image_vint]</td></tr>
+  <tr><td><b>image_sour</b></td><td>$[Dhirauli_20250324_Buildings/image_sour]</td></tr>
+  <tr><td><b>Area_Sqm</b></td><td>$[Dhirauli_20250324_Buildings/Area_Sqm]</td></tr>
+  <tr><td><b>latitude</b></td><td>$[Dhirauli_20250324_Buildings/latitude]</td></tr>
+  <tr><td><b>longitude</b></td><td>$[Dhirauli_20250324_Buildings/longitude]</td></tr>
+  <tr><td><b>Region</b></td><td>$[Dhirauli_20250324_Buildings/Region]</td></tr>
+  <tr><td><b>Vintage</b></td><td>$[Dhirauli_20250324_Buildings/Vintage]</td></tr>
+  <tr><td><b>Grid</b></td><td>$[Dhirauli_20250324_Buildings/Grid]</td></tr>
+  <tr><td><b>Type</b></td><td>$[Dhirauli_20250324_Buildings/Type]</td></tr>
+  <tr><td><b>ID</b></td><td>$[Dhirauli_20250324_Buildings/ID]</td></tr>
+  <tr><td><b>Build_ID</b></td><td>$[Dhirauli_20250324_Buildings/Build_ID]</td></tr>
+  <tr><td><b>Remark</b></td><td>$[Dhirauli_20250324_Buildings/Remark]</td></tr>
+  <tr><td><b>Village_Na</b></td><td>$[Dhirauli_20250324_Buildings/Village_Na]</td></tr>
+</table>
+]]></text>
+		</BalloonStyle>
+		<PolyStyle>
+			<colorMode>random</colorMode>
+		</PolyStyle>
+	</Style>
+	<Folder id="layer 0">
+		<name>Dhirauli_20250324_Buildings</name>
+		<Placemark>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Dhirauli_20250324_Buildings_SSSSDDDSSSSSSSS">
+					<SimpleData name="Site">Dhirauli</SimpleData>
+					<SimpleData name="category">Built-Up</SimpleData>
+					<SimpleData name="image_vint">24-03-2025</SimpleData>
+					<SimpleData name="image_sour">NRSC (Skysatcollect)</SimpleData>
+					<SimpleData name="Area_Sqm">96.2596</SimpleData>
+					<SimpleData name="latitude">23.9429</SimpleData>
+					<SimpleData name="longitude">82.3965</SimpleData>
+					<SimpleData name="Region">DH</SimpleData>
+					<SimpleData name="Vintage">202503</SimpleData>
+					<SimpleData name="Grid">040</SimpleData>
+					<SimpleData name="Type">DB</SimpleData>
+					<SimpleData name="ID">00001</SimpleData>
+					<SimpleData name="Build_ID">DH202503040DB00001</SimpleData>
+					<SimpleData name="Remark">Demolish Building</SimpleData>
+					<SimpleData name="Village_Na">Basi Berdah</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Polygon>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+							82.3965360003363,23.94298340026388,0 82.39645900038272,23.94283589975715,0 82.39650599985221,23.94281500041209,0 82.39658299980577,23.94296259984429,0 82.3965360003363,23.94298340026388,0 
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Dhirauli_20250324_Buildings_SSSSDDDSSSSSSSS">
+					<SimpleData name="Site">Dhirauli</SimpleData>
+					<SimpleData name="category">Built-Up</SimpleData>
+					<SimpleData name="image_vint">24-03-2025</SimpleData>
+					<SimpleData name="image_sour">NRSC (Skysatcollect)</SimpleData>
+					<SimpleData name="Area_Sqm">91.5509</SimpleData>
+					<SimpleData name="latitude">23.9428</SimpleData>
+					<SimpleData name="longitude">82.3964</SimpleData>
+					<SimpleData name="Region">DH</SimpleData>
+					<SimpleData name="Vintage">202503</SimpleData>
+					<SimpleData name="Grid">040</SimpleData>
+					<SimpleData name="Type">DB</SimpleData>
+					<SimpleData name="ID">00002</SimpleData>
+					<SimpleData name="Build_ID">DH202503040DB00002</SimpleData>
+					<SimpleData name="Remark">Demolish Building</SimpleData>
+					<SimpleData name="Village_Na">Basi Berdah</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Polygon>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+							82.39640100040599,23.94282769973868,0 82.39636299955292,23.94275529981742,0 82.39645400015218,23.94271500029718,0 82.39649200010588,23.94278750004327,0 82.39640100040599,23.94282769973868,0 
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Dhirauli_20250324_Buildings_SSSSDDDSSSSSSSS">
+					<SimpleData name="Site">Dhirauli</SimpleData>
+					<SimpleData name="category">Built-Up</SimpleData>
+					<SimpleData name="image_vint">24-03-2025</SimpleData>
+					<SimpleData name="image_sour">NRSC (Skysatcollect)</SimpleData>
+					<SimpleData name="Area_Sqm">15.3176</SimpleData>
+					<SimpleData name="latitude">23.9428</SimpleData>
+					<SimpleData name="longitude">82.3955</SimpleData>
+					<SimpleData name="Region">DH</SimpleData>
+					<SimpleData name="Vintage">202503</SimpleData>
+					<SimpleData name="Grid">039</SimpleData>
+					<SimpleData name="Type">DB</SimpleData>
+					<SimpleData name="ID">00001</SimpleData>
+					<SimpleData name="Build_ID">DH202503039DB00001</SimpleData>
+					<SimpleData name="Remark">Demolish Building</SimpleData>
+					<SimpleData name="Village_Na">Basi Berdah</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Polygon>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+							82.39548500043259,23.94278099974349,0 82.39550999978682,23.94276900008946,0 82.39553500004041,23.94281300031984,0 82.39551099983295,23.94282399992782,0 82.39548500043259,23.94278099974349,0 
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Dhirauli_20250324_Buildings_SSSSDDDSSSSSSSS">
+					<SimpleData name="Site">Dhirauli</SimpleData>
+					<SimpleData name="category">Built-Up</SimpleData>
+					<SimpleData name="image_vint">24-03-2025</SimpleData>
+					<SimpleData name="image_sour">NRSC (Skysatcollect)</SimpleData>
+					<SimpleData name="Area_Sqm">129.645</SimpleData>
+					<SimpleData name="latitude">23.9446</SimpleData>
+					<SimpleData name="longitude">82.3962</SimpleData>
+					<SimpleData name="Region">DH</SimpleData>
+					<SimpleData name="Vintage">202503</SimpleData>
+					<SimpleData name="Grid">033</SimpleData>
+					<SimpleData name="Type">DB</SimpleData>
+					<SimpleData name="ID">00001</SimpleData>
+					<SimpleData name="Build_ID">DH202503033DB00001</SimpleData>
+					<SimpleData name="Remark">Demolish Building</SimpleData>
+					<SimpleData name="Village_Na">Basi Berdah</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Polygon>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+							82.39615883995869,23.94460979990248,0 82.39626612008556,23.94456353967575,0 82.39628591955973,23.94460242006578,0 82.39612211974018,23.9446730699064,0 82.3960749601914,23.9445793803343,0 82.39608287962135,23.94457587028033,0 82.39612968034065,23.94455571017806,0 82.39614300019947,23.94457802955257,0 82.39615883995869,23.94460979990248,0 
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Dhirauli_20250324_Buildings_SSSSDDDSSSSSSSS">
+					<SimpleData name="Site">Dhirauli</SimpleData>
+					<SimpleData name="category">Built-Up</SimpleData>
+					<SimpleData name="image_vint">24-03-2025</SimpleData>
+					<SimpleData name="image_sour">NRSC (Skysatcollect)</SimpleData>
+					<SimpleData name="Area_Sqm">16.1179</SimpleData>
+					<SimpleData name="latitude">23.943</SimpleData>
+					<SimpleData name="longitude">82.39</SimpleData>
+					<SimpleData name="Region">DH</SimpleData>
+					<SimpleData name="Vintage">202503</SimpleData>
+					<SimpleData name="Grid">039</SimpleData>
+					<SimpleData name="Type">DB</SimpleData>
+					<SimpleData name="ID">00002</SimpleData>
+					<SimpleData name="Build_ID">DH202503039DB00002</SimpleData>
+					<SimpleData name="Remark">Demolish Building</SimpleData>
+					<SimpleData name="Village_Na">Basi Berdah</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Polygon>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+							82.38993099971606,23.9430211996688,0 82.38995900010791,23.94301549976569,0 82.38997099976201,23.94306419985309,0 82.38994300026941,23.9430697999315,0 82.38993099971606,23.9430211996688,0 
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Dhirauli_20250324_Buildings_SSSSDDDSSSSSSSS">
+					<SimpleData name="Site">Dhirauli</SimpleData>
+					<SimpleData name="category">Built-Up</SimpleData>
+					<SimpleData name="image_vint">24-03-2025</SimpleData>
+					<SimpleData name="image_sour">NRSC (Skysatcollect)</SimpleData>
+					<SimpleData name="Area_Sqm">22.8244</SimpleData>
+					<SimpleData name="latitude">23.9427</SimpleData>
+					<SimpleData name="longitude">82.3902</SimpleData>
+					<SimpleData name="Region">DH</SimpleData>
+					<SimpleData name="Vintage">202503</SimpleData>
+					<SimpleData name="Grid">039</SimpleData>
+					<SimpleData name="Type">DB</SimpleData>
+					<SimpleData name="ID">00003</SimpleData>
+					<SimpleData name="Build_ID">DH202503039DB00003</SimpleData>
+					<SimpleData name="Remark">Demolish Building</SimpleData>
+					<SimpleData name="Village_Na">Basi Berdah</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Polygon>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+							82.39016843962196,23.94267560999157,0 82.39024656013082,23.94266823015487,0 82.39024943976,23.94269387971894,0 82.39017132015049,23.94270125955564,0 82.39016843962196,23.94267560999157,0 
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Dhirauli_20250324_Buildings_SSSSDDDSSSSSSSS">
+					<SimpleData name="Site">Dhirauli</SimpleData>
+					<SimpleData name="category">Built-Up</SimpleData>
+					<SimpleData name="image_vint">24-03-2025</SimpleData>
+					<SimpleData name="image_sour">NRSC (Skysatcollect)</SimpleData>
+					<SimpleData name="Area_Sqm">8.905</SimpleData>
+					<SimpleData name="latitude">23.944</SimpleData>
+					<SimpleData name="longitude">82.3913</SimpleData>
+					<SimpleData name="Region">DH</SimpleData>
+					<SimpleData name="Vintage">202503</SimpleData>
+					<SimpleData name="Grid">032</SimpleData>
+					<SimpleData name="Type">DB</SimpleData>
+					<SimpleData name="ID">00001</SimpleData>
+					<SimpleData name="Build_ID">DH202503032DB00001</SimpleData>
+					<SimpleData name="Remark">Demolish Building</SimpleData>
+					<SimpleData name="Village_Na">Basi Berdah</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Polygon>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+							82.39135000040237,23.9440392996741,0 82.39135100044849,23.94405740032892,0 82.3913080002642,23.94406060011675,0 82.39130600017195,23.94404260018604,0 82.39135000040237,23.9440392996741,0 
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Dhirauli_20250324_Buildings_SSSSDDDSSSSSSSS">
+					<SimpleData name="Site">Dhirauli</SimpleData>
+					<SimpleData name="category">Built-Up</SimpleData>
+					<SimpleData name="image_vint">24-03-2025</SimpleData>
+					<SimpleData name="image_sour">NRSC (Skysatcollect)</SimpleData>
+					<SimpleData name="Area_Sqm">107.561</SimpleData>
+					<SimpleData name="latitude">23.9361</SimpleData>
+					<SimpleData name="longitude">82.3514</SimpleData>
+					<SimpleData name="Region">DH</SimpleData>
+					<SimpleData name="Vintage">202503</SimpleData>
+					<SimpleData name="Grid">035</SimpleData>
+					<SimpleData name="Type">DB</SimpleData>
+					<SimpleData name="ID">00001</SimpleData>
+					<SimpleData name="Build_ID">DH202503035DB00001</SimpleData>
+					<SimpleData name="Remark">Demolish Building</SimpleData>
+					<SimpleData name="Village_Na">Belwar</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Polygon>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+							82.35133599965683,23.93604329965871,0 82.35147099958714,23.93602779984324,0 82.3514800000022,23.93609740017502,0 82.35134500007189,23.93611299981524,0 82.35133599965683,23.93604329965871,0 
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Dhirauli_20250324_Buildings_SSSSDDDSSSSSSSS">
+					<SimpleData name="Site">Dhirauli</SimpleData>
+					<SimpleData name="category">Built-Up</SimpleData>
+					<SimpleData name="image_vint">24-03-2025</SimpleData>
+					<SimpleData name="image_sour">NRSC (Skysatcollect)</SimpleData>
+					<SimpleData name="Area_Sqm">211.11</SimpleData>
+					<SimpleData name="latitude">23.9368</SimpleData>
+					<SimpleData name="longitude">82.3496</SimpleData>
+					<SimpleData name="Region">DH</SimpleData>
+					<SimpleData name="Vintage">202503</SimpleData>
+					<SimpleData name="Grid">035</SimpleData>
+					<SimpleData name="Type">DB</SimpleData>
+					<SimpleData name="ID">00002</SimpleData>
+					<SimpleData name="Build_ID">DH202503035DB00002</SimpleData>
+					<SimpleData name="Remark">Demolish Building</SimpleData>
+					<SimpleData name="Village_Na">Belwar</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Polygon>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+							82.34936315958232,23.93679950988963,0 82.34955900044768,23.93676324023151,0 82.34956404024842,23.93678150995892,0 82.34979804024756,23.93673822019287,0 82.34980595967751,23.93677161022181,0 82.34937396044013,23.93685116964594,0 82.34936315958232,23.93679950988963,0 
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Dhirauli_20250324_Buildings_SSSSDDDSSSSSSSS">
+					<SimpleData name="Site">Dhirauli</SimpleData>
+					<SimpleData name="category">Built-Up</SimpleData>
+					<SimpleData name="image_vint">24-03-2025</SimpleData>
+					<SimpleData name="image_sour">NRSC (Skysatcollect)</SimpleData>
+					<SimpleData name="Area_Sqm">119.313</SimpleData>
+					<SimpleData name="latitude">23.9365</SimpleData>
+					<SimpleData name="longitude">82.3497</SimpleData>
+					<SimpleData name="Region">DH</SimpleData>
+					<SimpleData name="Vintage">202503</SimpleData>
+					<SimpleData name="Grid">035</SimpleData>
+					<SimpleData name="Type">DB</SimpleData>
+					<SimpleData name="ID">00003</SimpleData>
+					<SimpleData name="Build_ID">DH202503035DB00003</SimpleData>
+					<SimpleData name="Remark">Demolish Building</SimpleData>
+					<SimpleData name="Village_Na">Belwar</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Polygon>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+							82.3497070000782,23.93663539980399,0 82.34962599994016,23.93640819957891,0 82.34966800007832,23.93639529970347,0 82.34974900021636,23.93662259975333,0 82.3497070000782,23.93663539980399,0 
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Dhirauli_20250324_Buildings_SSSSDDDSSSSSSSS">
+					<SimpleData name="Site">Dhirauli</SimpleData>
+					<SimpleData name="category">Built-Up</SimpleData>
+					<SimpleData name="image_vint">24-03-2025</SimpleData>
+					<SimpleData name="image_sour">NRSC (Skysatcollect)</SimpleData>
+					<SimpleData name="Area_Sqm">39.3329</SimpleData>
+					<SimpleData name="latitude">23.937</SimpleData>
+					<SimpleData name="longitude">82.3512</SimpleData>
+					<SimpleData name="Region">DH</SimpleData>
+					<SimpleData name="Vintage">202503</SimpleData>
+					<SimpleData name="Grid">035</SimpleData>
+					<SimpleData name="Type">DB</SimpleData>
+					<SimpleData name="ID">00004</SimpleData>
+					<SimpleData name="Build_ID">DH202503035DB00004</SimpleData>
+					<SimpleData name="Remark">Demolish Building</SimpleData>
+					<SimpleData name="Village_Na">Belwar</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Polygon>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+							82.35112499981902,23.93699750013467,0 82.35111900044171,23.93694520006107,0 82.35118499988802,23.93693890031015,0 82.35119100016469,23.93699120038379,0 82.35112499981902,23.93699750013467,0 
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Dhirauli_20250324_Buildings_SSSSDDDSSSSSSSS">
+					<SimpleData name="Site">Dhirauli</SimpleData>
+					<SimpleData name="category">Built-Up</SimpleData>
+					<SimpleData name="image_vint">24-03-2025</SimpleData>
+					<SimpleData name="image_sour">NRSC (Skysatcollect)</SimpleData>
+					<SimpleData name="Area_Sqm">27.0655</SimpleData>
+					<SimpleData name="latitude">23.9367</SimpleData>
+					<SimpleData name="longitude">82.351</SimpleData>
+					<SimpleData name="Region">DH</SimpleData>
+					<SimpleData name="Vintage">202503</SimpleData>
+					<SimpleData name="Grid">035</SimpleData>
+					<SimpleData name="Type">DB</SimpleData>
+					<SimpleData name="ID">00005</SimpleData>
+					<SimpleData name="Build_ID">DH202503035DB00005</SimpleData>
+					<SimpleData name="Remark">Demolish Building</SimpleData>
+					<SimpleData name="Village_Na">Belwar</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Polygon>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+							82.35103200002696,23.93672629967913,0 82.35103900034976,23.93676209989117,0 82.35097400005026,23.93677270020008,0 82.35096699972742,23.93673689998808,0 82.35103200002696,23.93672629967913,0 
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Dhirauli_20250324_Buildings_SSSSDDDSSSSSSSS">
+					<SimpleData name="Site">Dhirauli</SimpleData>
+					<SimpleData name="category">Built-Up</SimpleData>
+					<SimpleData name="image_vint">24-03-2025</SimpleData>
+					<SimpleData name="image_sour">NRSC (Skysatcollect)</SimpleData>
+					<SimpleData name="Area_Sqm">204.947</SimpleData>
+					<SimpleData name="latitude">23.9367</SimpleData>
+					<SimpleData name="longitude">82.351</SimpleData>
+					<SimpleData name="Region">DH</SimpleData>
+					<SimpleData name="Vintage">202503</SimpleData>
+					<SimpleData name="Grid">035</SimpleData>
+					<SimpleData name="Type">DB</SimpleData>
+					<SimpleData name="ID">00006</SimpleData>
+					<SimpleData name="Build_ID">DH202503035DB00006</SimpleData>
+					<SimpleData name="Remark">Demolish Building</SimpleData>
+					<SimpleData name="Village_Na">Belwar</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Polygon>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+							82.35107200007292,23.93671110023723,0 82.35090599961234,23.93673270015416,0 82.35088999977388,23.93662390017302,0 82.35105400014213,23.93660380032532,0 82.35107200007292,23.93671110023723,0 
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Dhirauli_20250324_Buildings_SSSSDDDSSSSSSSS">
+					<SimpleData name="Site">Dhirauli</SimpleData>
+					<SimpleData name="category">Built-Up</SimpleData>
+					<SimpleData name="image_vint">24-03-2025</SimpleData>
+					<SimpleData name="image_sour">NRSC (Skysatcollect)</SimpleData>
+					<SimpleData name="Area_Sqm">61.2424</SimpleData>
+					<SimpleData name="latitude">23.936</SimpleData>
+					<SimpleData name="longitude">82.3507</SimpleData>
+					<SimpleData name="Region">DH</SimpleData>
+					<SimpleData name="Vintage">202503</SimpleData>
+					<SimpleData name="Grid">035</SimpleData>
+					<SimpleData name="Type">DB</SimpleData>
+					<SimpleData name="ID">00007</SimpleData>
+					<SimpleData name="Build_ID">DH202503035DB00007</SimpleData>
+					<SimpleData name="Remark">Demolish Building</SimpleData>
+					<SimpleData name="Village_Na">Belwar</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Polygon>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+							82.35072100007424,23.93594519981127,0 82.35076200016637,23.93594180037394,0 82.35077499986653,23.93607170024891,0 82.35073299972832,23.93607509968625,0 82.35072100007424,23.93594519981127,0 
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Dhirauli_20250324_Buildings_SSSSDDDSSSSSSSS">
+					<SimpleData name="Site">Dhirauli</SimpleData>
+					<SimpleData name="category">Built-Up</SimpleData>
+					<SimpleData name="image_vint">24-03-2025</SimpleData>
+					<SimpleData name="image_sour">NRSC (Skysatcollect)</SimpleData>
+					<SimpleData name="Area_Sqm">50.6751</SimpleData>
+					<SimpleData name="latitude">23.9374</SimpleData>
+					<SimpleData name="longitude">82.3502</SimpleData>
+					<SimpleData name="Region">DH</SimpleData>
+					<SimpleData name="Vintage">202503</SimpleData>
+					<SimpleData name="Grid">035</SimpleData>
+					<SimpleData name="Type">DB</SimpleData>
+					<SimpleData name="ID">00008</SimpleData>
+					<SimpleData name="Build_ID">DH202503035DB00008</SimpleData>
+					<SimpleData name="Remark">Demolish Building</SimpleData>
+					<SimpleData name="Village_Na">Belwar</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Polygon>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+							82.35016499961522,23.93743549964876,0 82.35029900039872,23.93737959958902,0 82.35031300014505,23.93740719978263,0 82.35017900026082,23.93746330039119,0 82.35016499961522,23.93743549964876,0 
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Dhirauli_20250324_Buildings_SSSSDDDSSSSSSSS">
+					<SimpleData name="Site">Dhirauli</SimpleData>
+					<SimpleData name="category">Built-Up</SimpleData>
+					<SimpleData name="image_vint">24-03-2025</SimpleData>
+					<SimpleData name="image_sour">NRSC (Skysatcollect)</SimpleData>
+					<SimpleData name="Area_Sqm">27.173</SimpleData>
+					<SimpleData name="latitude">23.9373</SimpleData>
+					<SimpleData name="longitude">82.3504</SimpleData>
+					<SimpleData name="Region">DH</SimpleData>
+					<SimpleData name="Vintage">202503</SimpleData>
+					<SimpleData name="Grid">035</SimpleData>
+					<SimpleData name="Type">DB</SimpleData>
+					<SimpleData name="ID">00009</SimpleData>
+					<SimpleData name="Build_ID">DH202503035DB00009</SimpleData>
+					<SimpleData name="Remark">Demolish Building</SimpleData>
+					<SimpleData name="Village_Na">Belwar</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Polygon>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+							82.35030299968383,23.93732559979675,0 82.35038699996028,23.93729720010591,0 82.35039700042142,23.93732249983366,0 82.35031400019113,23.9373509004239,0 82.35030299968383,23.93732559979675,0 
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Dhirauli_20250324_Buildings_SSSSDDDSSSSSSSS">
+					<SimpleData name="Site">Dhirauli</SimpleData>
+					<SimpleData name="category">Built-Up</SimpleData>
+					<SimpleData name="image_vint">24-03-2025</SimpleData>
+					<SimpleData name="image_sour">NRSC (Skysatcollect)</SimpleData>
+					<SimpleData name="Area_Sqm">208.448</SimpleData>
+					<SimpleData name="latitude">23.9381</SimpleData>
+					<SimpleData name="longitude">82.3491</SimpleData>
+					<SimpleData name="Region">DH</SimpleData>
+					<SimpleData name="Vintage">202503</SimpleData>
+					<SimpleData name="Grid">035</SimpleData>
+					<SimpleData name="Type">DB</SimpleData>
+					<SimpleData name="ID">00010</SimpleData>
+					<SimpleData name="Build_ID">DH202503035DB00010</SimpleData>
+					<SimpleData name="Remark">Demolish Building</SimpleData>
+					<SimpleData name="Village_Na">Belwar</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Polygon>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+							82.34908300008057,23.93801779988172,0 82.34916100008023,23.93816180022709,0 82.3490919995963,23.93819320005626,0 82.34905799982698,23.93820879969648,0 82.34897999982728,23.93806480025052,0 82.34908300008057,23.93801779988172,0 
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Dhirauli_20250324_Buildings_SSSSDDDSSSSSSSS">
+					<SimpleData name="Site">Dhirauli</SimpleData>
+					<SimpleData name="category">Built-Up</SimpleData>
+					<SimpleData name="image_vint">24-03-2025</SimpleData>
+					<SimpleData name="image_sour">NRSC (Skysatcollect)</SimpleData>
+					<SimpleData name="Area_Sqm">35.2304</SimpleData>
+					<SimpleData name="latitude">23.938</SimpleData>
+					<SimpleData name="longitude">82.3491</SimpleData>
+					<SimpleData name="Region">DH</SimpleData>
+					<SimpleData name="Vintage">202503</SimpleData>
+					<SimpleData name="Grid">035</SimpleData>
+					<SimpleData name="Type">DB</SimpleData>
+					<SimpleData name="ID">00011</SimpleData>
+					<SimpleData name="Build_ID">DH202503035DB00011</SimpleData>
+					<SimpleData name="Remark">Demolish Building</SimpleData>
+					<SimpleData name="Village_Na">Belwar</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Polygon>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+							82.34909207963595,23.93798463018669,0 82.34908308012022,23.93795627995856,0 82.34918495981822,23.93792991003751,0 82.34919396023326,23.93795826026564,0 82.34909207963595,23.93798463018669,0 
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Dhirauli_20250324_Buildings_SSSSDDDSSSSSSSS">
+					<SimpleData name="Site">Dhirauli</SimpleData>
+					<SimpleData name="category">Built-Up</SimpleData>
+					<SimpleData name="image_vint">24-03-2025</SimpleData>
+					<SimpleData name="image_sour">NRSC (Skysatcollect)</SimpleData>
+					<SimpleData name="Area_Sqm">23.8371</SimpleData>
+					<SimpleData name="latitude">23.9479</SimpleData>
+					<SimpleData name="longitude">82.3772</SimpleData>
+					<SimpleData name="Region">DH</SimpleData>
+					<SimpleData name="Vintage">202503</SimpleData>
+					<SimpleData name="Grid">031</SimpleData>
+					<SimpleData name="Type">NB</SimpleData>
+					<SimpleData name="ID">00001</SimpleData>
+					<SimpleData name="Build_ID">DH202503031NB00001</SimpleData>
+					<SimpleData name="Remark">New Building</SimpleData>
+					<SimpleData name="Village_Na">Reserve Forest</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Polygon>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+							82.37726185785846,23.94785269973131,0 82.37727481800134,23.9478904991314,0 82.37722392004804,23.94790523963526,0 82.37721095991803,23.94786744023041,0 82.37726185785846,23.94785269973131,0 
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Dhirauli_20250324_Buildings_SSSSDDDSSSSSSSS">
+					<SimpleData name="Site">Dhirauli</SimpleData>
+					<SimpleData name="category">Built-Up</SimpleData>
+					<SimpleData name="image_vint">24-03-2025</SimpleData>
+					<SimpleData name="image_sour">NRSC (Skysatcollect)</SimpleData>
+					<SimpleData name="Area_Sqm">26.2664</SimpleData>
+					<SimpleData name="latitude">23.9479</SimpleData>
+					<SimpleData name="longitude">82.3769</SimpleData>
+					<SimpleData name="Region">DH</SimpleData>
+					<SimpleData name="Vintage">202503</SimpleData>
+					<SimpleData name="Grid">031</SimpleData>
+					<SimpleData name="Type">NB</SimpleData>
+					<SimpleData name="ID">00002</SimpleData>
+					<SimpleData name="Build_ID">DH202503031NB00002</SimpleData>
+					<SimpleData name="Remark">New Building</SimpleData>
+					<SimpleData name="Village_Na">Reserve Forest</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Polygon>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+							82.37694687872376,23.94795616703056,0 82.3768924940474,23.9479760084095,0 82.37687650477073,23.94793898975544,0 82.37693088943455,23.94791914838265,0 82.37694687872376,23.94795616703056,0 
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Dhirauli_20250324_Buildings_SSSSDDDSSSSSSSS">
+					<SimpleData name="Site">Dhirauli</SimpleData>
+					<SimpleData name="category">Built-Up</SimpleData>
+					<SimpleData name="image_vint">24-03-2025</SimpleData>
+					<SimpleData name="image_sour">NRSC (Skysatcollect)</SimpleData>
+					<SimpleData name="Area_Sqm">13.5948</SimpleData>
+					<SimpleData name="latitude">23.9498</SimpleData>
+					<SimpleData name="longitude">82.3834</SimpleData>
+					<SimpleData name="Region">DH</SimpleData>
+					<SimpleData name="Vintage">202503</SimpleData>
+					<SimpleData name="Grid">031</SimpleData>
+					<SimpleData name="Type">DB</SimpleData>
+					<SimpleData name="ID">00003</SimpleData>
+					<SimpleData name="Build_ID">DH202503031DB00003</SimpleData>
+					<SimpleData name="Remark">Demolish Building</SimpleData>
+					<SimpleData name="Village_Na">Basi Berdah</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Polygon>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+							82.38335599957988,23.949834399638,0 82.38338199987959,23.94982359967952,0 82.38340099985642,23.94986209965636,0 82.38337499955675,23.94987289961477,0 82.38335599957988,23.949834399638,0 
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Dhirauli_20250324_Buildings_SSSSDDDSSSSSSSS">
+					<SimpleData name="Site">Dhirauli</SimpleData>
+					<SimpleData name="category">Built-Up</SimpleData>
+					<SimpleData name="image_vint">24-03-2025</SimpleData>
+					<SimpleData name="image_sour">NRSC (Skysatcollect)</SimpleData>
+					<SimpleData name="Area_Sqm">392.634</SimpleData>
+					<SimpleData name="latitude">23.9484</SimpleData>
+					<SimpleData name="longitude">82.3604</SimpleData>
+					<SimpleData name="Region">DH</SimpleData>
+					<SimpleData name="Vintage">202503</SimpleData>
+					<SimpleData name="Grid">029</SimpleData>
+					<SimpleData name="Type">DB</SimpleData>
+					<SimpleData name="ID">00001</SimpleData>
+					<SimpleData name="Build_ID">DH202503029DB00001</SimpleData>
+					<SimpleData name="Remark">Demolish Building</SimpleData>
+					<SimpleData name="Village_Na">Amraikoh</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Polygon>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+							82.36053503986041,23.9483285100529,0 82.36056888044966,23.94846171043973,0 82.36031903979206,23.94851660955407,0 82.36028952044516,23.94838241991287,0 82.36053503986041,23.9483285100529,0 
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Dhirauli_20250324_Buildings_SSSSDDDSSSSSSSS">
+					<SimpleData name="Site">Dhirauli</SimpleData>
+					<SimpleData name="category">Built-Up</SimpleData>
+					<SimpleData name="image_vint">24-03-2025</SimpleData>
+					<SimpleData name="image_sour">NRSC (Skysatcollect)</SimpleData>
+					<SimpleData name="Area_Sqm">149.806</SimpleData>
+					<SimpleData name="latitude">23.9486</SimpleData>
+					<SimpleData name="longitude">82.3597</SimpleData>
+					<SimpleData name="Region">DH</SimpleData>
+					<SimpleData name="Vintage">202503</SimpleData>
+					<SimpleData name="Grid">029</SimpleData>
+					<SimpleData name="Type">DB</SimpleData>
+					<SimpleData name="ID">00002</SimpleData>
+					<SimpleData name="Build_ID">DH202503029DB00002</SimpleData>
+					<SimpleData name="Remark">Demolish Building</SimpleData>
+					<SimpleData name="Village_Na">Amraikoh</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Polygon>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+							82.35970199964771,23.94868103979833,0 82.35964115961202,23.94859040971977,0 82.35974699992425,23.94852956968408,0 82.35980783996003,23.94862010983034,0 82.35970199964771,23.94868103979833,0 
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Dhirauli_20250324_Buildings_SSSSDDDSSSSSSSS">
+					<SimpleData name="Site">Dhirauli</SimpleData>
+					<SimpleData name="category">Built-Up</SimpleData>
+					<SimpleData name="image_vint">24-03-2025</SimpleData>
+					<SimpleData name="image_sour">NRSC (Skysatcollect)</SimpleData>
+					<SimpleData name="Area_Sqm">228.695</SimpleData>
+					<SimpleData name="latitude">23.9489</SimpleData>
+					<SimpleData name="longitude">82.3604</SimpleData>
+					<SimpleData name="Region">DH</SimpleData>
+					<SimpleData name="Vintage">202503</SimpleData>
+					<SimpleData name="Grid">029</SimpleData>
+					<SimpleData name="Type">DB</SimpleData>
+					<SimpleData name="ID">00003</SimpleData>
+					<SimpleData name="Build_ID">DH202503029DB00003</SimpleData>
+					<SimpleData name="Remark">Demolish Building</SimpleData>
+					<SimpleData name="Village_Na">Amraikoh</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Polygon>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+							82.36037484002701,23.94895842039494,0 82.36027800012978,23.94879218970793,0 82.36037232012664,23.94874574961683,0 82.36047024010968,23.94891161967568,0 82.36037484002701,23.94895842039494,0 
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Dhirauli_20250324_Buildings_SSSSDDDSSSSSSSS">
+					<SimpleData name="Site">Dhirauli</SimpleData>
+					<SimpleData name="category">Built-Up</SimpleData>
+					<SimpleData name="image_vint">24-03-2025</SimpleData>
+					<SimpleData name="image_sour">NRSC (Skysatcollect)</SimpleData>
+					<SimpleData name="Area_Sqm">184.356</SimpleData>
+					<SimpleData name="latitude">23.9485</SimpleData>
+					<SimpleData name="longitude">82.3602</SimpleData>
+					<SimpleData name="Region">DH</SimpleData>
+					<SimpleData name="Vintage">202503</SimpleData>
+					<SimpleData name="Grid">029</SimpleData>
+					<SimpleData name="Type">DB</SimpleData>
+					<SimpleData name="ID">00004</SimpleData>
+					<SimpleData name="Build_ID">DH202503029DB00004</SimpleData>
+					<SimpleData name="Remark">Demolish Building</SimpleData>
+					<SimpleData name="Village_Na">Amraikoh</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Polygon>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+							82.36020492032098,23.94854172042421,0 82.36017107973173,23.94840852003733,0 82.36028952044516,23.94838241991287,0 82.36031903979206,23.94851660955407,0 82.36020492032098,23.94854172042421,0 
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Dhirauli_20250324_Buildings_SSSSDDDSSSSSSSS">
+					<SimpleData name="Site">Dhirauli</SimpleData>
+					<SimpleData name="category">Built-Up</SimpleData>
+					<SimpleData name="image_vint">24-03-2025</SimpleData>
+					<SimpleData name="image_sour">NRSC (Skysatcollect)</SimpleData>
+					<SimpleData name="Area_Sqm">61.0879</SimpleData>
+					<SimpleData name="latitude">23.9486</SimpleData>
+					<SimpleData name="longitude">82.3596</SimpleData>
+					<SimpleData name="Region">DH</SimpleData>
+					<SimpleData name="Vintage">202503</SimpleData>
+					<SimpleData name="Grid">029</SimpleData>
+					<SimpleData name="Type">DB</SimpleData>
+					<SimpleData name="ID">00005</SimpleData>
+					<SimpleData name="Build_ID">DH202503029DB00005</SimpleData>
+					<SimpleData name="Remark">Demolish Building</SimpleData>
+					<SimpleData name="Village_Na">Amraikoh</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Polygon>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+							82.35964100043203,23.94859039982724,0 82.35968699985534,23.94865859991462,0 82.35965200003994,23.94867940033425,0 82.35958799978653,23.94858820008549,0 82.35964599976326,23.94855280007181,0 82.35966399969401,23.94857740012709,0 82.35964100043203,23.94859039982724,0 
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Dhirauli_20250324_Buildings_SSSSDDDSSSSSSSS">
+					<SimpleData name="Site">Dhirauli</SimpleData>
+					<SimpleData name="category">Built-Up</SimpleData>
+					<SimpleData name="image_vint">24-03-2025</SimpleData>
+					<SimpleData name="image_sour">NRSC (Skysatcollect)</SimpleData>
+					<SimpleData name="Area_Sqm">318.135</SimpleData>
+					<SimpleData name="latitude">23.9484</SimpleData>
+					<SimpleData name="longitude">82.3603</SimpleData>
+					<SimpleData name="Region">DH</SimpleData>
+					<SimpleData name="Vintage">202503</SimpleData>
+					<SimpleData name="Grid">029</SimpleData>
+					<SimpleData name="Type">DB</SimpleData>
+					<SimpleData name="ID">00006</SimpleData>
+					<SimpleData name="Build_ID">DH202503029DB00006</SimpleData>
+					<SimpleData name="Remark">Demolish Building</SimpleData>
+					<SimpleData name="Village_Na">Amraikoh</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Polygon>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+							82.36017099969207,23.94840850025224,0 82.36020200022234,23.94852829984133,0 82.36020400031451,23.94853780027944,0 82.36015799999188,23.94854650032089,0 82.36011799994589,23.94836719978663,0 82.36054699994429,23.94828640019737,0 82.36058499989799,23.94845739998918,0 82.36056900005946,23.94846169964793,0 82.36053500029021,23.94832850016029,0 82.36028999978386,23.94838240012785,0 82.36017099969207,23.94840850025224,0 
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Dhirauli_20250324_Buildings_SSSSDDDSSSSSSSS">
+					<SimpleData name="Site">Dhirauli</SimpleData>
+					<SimpleData name="category">Built-Up</SimpleData>
+					<SimpleData name="image_vint">24-03-2025</SimpleData>
+					<SimpleData name="image_sour">NRSC (Skysatcollect)</SimpleData>
+					<SimpleData name="Area_Sqm">53.0844</SimpleData>
+					<SimpleData name="latitude">23.9489</SimpleData>
+					<SimpleData name="longitude">82.3603</SimpleData>
+					<SimpleData name="Region">DH</SimpleData>
+					<SimpleData name="Vintage">202503</SimpleData>
+					<SimpleData name="Grid">029</SimpleData>
+					<SimpleData name="Type">DB</SimpleData>
+					<SimpleData name="ID">00007</SimpleData>
+					<SimpleData name="Build_ID">DH202503029DB00007</SimpleData>
+					<SimpleData name="Remark">Demolish Building</SimpleData>
+					<SimpleData name="Village_Na">Amraikoh</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Polygon>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+							82.36032599964534,23.9489494001948,0 82.36026300033734,23.94884199955881,0 82.36029700010666,23.94882520022297,0 82.36036000031395,23.94893259995967,0 82.36032599964534,23.9489494001948,0 
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Dhirauli_20250324_Buildings_SSSSDDDSSSSSSSS">
+					<SimpleData name="Site">Dhirauli</SimpleData>
+					<SimpleData name="category">Built-Up</SimpleData>
+					<SimpleData name="image_vint">24-03-2025</SimpleData>
+					<SimpleData name="image_sour">NRSC (Skysatcollect)</SimpleData>
+					<SimpleData name="Area_Sqm">169.315</SimpleData>
+					<SimpleData name="latitude">23.9488</SimpleData>
+					<SimpleData name="longitude">82.36</SimpleData>
+					<SimpleData name="Region">DH</SimpleData>
+					<SimpleData name="Vintage">202503</SimpleData>
+					<SimpleData name="Grid">029</SimpleData>
+					<SimpleData name="Type">DB</SimpleData>
+					<SimpleData name="ID">00008</SimpleData>
+					<SimpleData name="Build_ID">DH202503029DB00008</SimpleData>
+					<SimpleData name="Remark">Demolish Building</SimpleData>
+					<SimpleData name="Village_Na">Amraikoh</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Polygon>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+							82.35995899980814,23.94881960014461,0 82.35997599969276,23.94882129986325,0 82.35998700020008,23.94872699965145,0 82.36006400015368,23.94873480037092,0 82.36005299964638,23.94882899985861,0 82.36004300008456,23.94891140024113,0 82.35995000029241,23.94889929986295,0 82.35995899980814,23.94881960014461,0 
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Dhirauli_20250324_Buildings_SSSSDDDSSSSSSSS">
+					<SimpleData name="Site">Dhirauli</SimpleData>
+					<SimpleData name="category">Built-Up</SimpleData>
+					<SimpleData name="image_vint">24-03-2025</SimpleData>
+					<SimpleData name="image_sour">NRSC (Skysatcollect)</SimpleData>
+					<SimpleData name="Area_Sqm">186.232</SimpleData>
+					<SimpleData name="latitude">23.9479</SimpleData>
+					<SimpleData name="longitude">82.3592</SimpleData>
+					<SimpleData name="Region">DH</SimpleData>
+					<SimpleData name="Vintage">202503</SimpleData>
+					<SimpleData name="Grid">029</SimpleData>
+					<SimpleData name="Type">DB</SimpleData>
+					<SimpleData name="ID">00009</SimpleData>
+					<SimpleData name="Build_ID">DH202503029DB00009</SimpleData>
+					<SimpleData name="Remark">Demolish Building</SimpleData>
+					<SimpleData name="Village_Na">Amraikoh</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Polygon>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+							82.35914299994967,23.94793790031402,0 82.35912700011113,23.9478229004067,0 82.35926900036425,23.94780710021771,0 82.35928400015665,23.94792219994973,0 82.35914299994967,23.94793790031402,0 
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Dhirauli_20250324_Buildings_SSSSDDDSSSSSSSS">
+					<SimpleData name="Site">Dhirauli</SimpleData>
+					<SimpleData name="category">Built-Up</SimpleData>
+					<SimpleData name="image_vint">24-03-2025</SimpleData>
+					<SimpleData name="image_sour">NRSC (Skysatcollect)</SimpleData>
+					<SimpleData name="Area_Sqm">135.955</SimpleData>
+					<SimpleData name="latitude">23.9478</SimpleData>
+					<SimpleData name="longitude">82.3593</SimpleData>
+					<SimpleData name="Region">DH</SimpleData>
+					<SimpleData name="Vintage">202503</SimpleData>
+					<SimpleData name="Grid">029</SimpleData>
+					<SimpleData name="Type">DB</SimpleData>
+					<SimpleData name="ID">00010</SimpleData>
+					<SimpleData name="Build_ID">DH202503029DB00010</SimpleData>
+					<SimpleData name="Remark">Demolish Building</SimpleData>
+					<SimpleData name="Village_Na">Amraikoh</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Polygon>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+							82.35939299978729,23.94779339994563,0 82.35940500034064,23.94788930005133,0 82.35928100001831,23.94790310014811,0 82.35926900036425,23.94780710021771,0 82.35939299978729,23.94779339994563,0 
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Dhirauli_20250324_Buildings_SSSSDDDSSSSSSSS">
+					<SimpleData name="Site">Dhirauli</SimpleData>
+					<SimpleData name="category">Built-Up</SimpleData>
+					<SimpleData name="image_vint">24-03-2025</SimpleData>
+					<SimpleData name="image_sour">NRSC (Skysatcollect)</SimpleData>
+					<SimpleData name="Area_Sqm">112.819</SimpleData>
+					<SimpleData name="latitude">23.9481</SimpleData>
+					<SimpleData name="longitude">82.3589</SimpleData>
+					<SimpleData name="Region">DH</SimpleData>
+					<SimpleData name="Vintage">202503</SimpleData>
+					<SimpleData name="Grid">029</SimpleData>
+					<SimpleData name="Type">DB</SimpleData>
+					<SimpleData name="ID">00011</SimpleData>
+					<SimpleData name="Build_ID">DH202503029DB00011</SimpleData>
+					<SimpleData name="Remark">Demolish Building</SimpleData>
+					<SimpleData name="Village_Na">Amraikoh</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Polygon>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+							82.35893999958147,23.94813540042856,0 82.35886699981232,23.94814539999038,0 82.35884599974328,23.94801130028144,0 82.35888199960476,23.94800520018002,0 82.35891800036558,23.94799939955284,0 82.35891800036558,23.94800139964502,0 82.35893999958147,23.94813540042856,0 
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Dhirauli_20250324_Buildings_SSSSDDDSSSSSSSS">
+					<SimpleData name="Site">Dhirauli</SimpleData>
+					<SimpleData name="category">Built-Up</SimpleData>
+					<SimpleData name="image_vint">24-03-2025</SimpleData>
+					<SimpleData name="image_sour">NRSC (Skysatcollect)</SimpleData>
+					<SimpleData name="Area_Sqm">88.0827</SimpleData>
+					<SimpleData name="latitude">23.9481</SimpleData>
+					<SimpleData name="longitude">82.3591</SimpleData>
+					<SimpleData name="Region">DH</SimpleData>
+					<SimpleData name="Vintage">202503</SimpleData>
+					<SimpleData name="Grid">029</SimpleData>
+					<SimpleData name="Type">DB</SimpleData>
+					<SimpleData name="ID">00012</SimpleData>
+					<SimpleData name="Build_ID">DH202503029DB00012</SimpleData>
+					<SimpleData name="Remark">Demolish Building</SimpleData>
+					<SimpleData name="Village_Na">Amraikoh</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Polygon>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+							82.35916600011096,23.9481093003041,0 82.35917200038767,23.94815739964445,0 82.35901200020378,23.94817600032233,0 82.35900599992713,23.94812780025795,0 82.35916600011096,23.9481093003041,0 
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Dhirauli_20250324_Buildings_SSSSDDDSSSSSSSS">
+					<SimpleData name="Site">Dhirauli</SimpleData>
+					<SimpleData name="category">Built-Up</SimpleData>
+					<SimpleData name="image_vint">24-03-2025</SimpleData>
+					<SimpleData name="image_sour">NRSC (Skysatcollect)</SimpleData>
+					<SimpleData name="Area_Sqm">281.516</SimpleData>
+					<SimpleData name="latitude">23.948</SimpleData>
+					<SimpleData name="longitude">82.3592</SimpleData>
+					<SimpleData name="Region">DH</SimpleData>
+					<SimpleData name="Vintage">202503</SimpleData>
+					<SimpleData name="Grid">029</SimpleData>
+					<SimpleData name="Type">DB</SimpleData>
+					<SimpleData name="ID">00013</SimpleData>
+					<SimpleData name="Build_ID">DH202503029DB00013</SimpleData>
+					<SimpleData name="Remark">Demolish Building</SimpleData>
+					<SimpleData name="Village_Na">Amraikoh</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Polygon>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+							82.35916900024934,23.94813069967222,0 82.35916600011096,23.9481093003041,0 82.35914299994967,23.94793800013877,0 82.35914299994967,23.94793790031402,0 82.35928400015665,23.94792219994973,0 82.35930300013352,23.94808199958478,0 82.35916900024934,23.94813069967222,0 
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Dhirauli_20250324_Buildings_SSSSDDDSSSSSSSS">
+					<SimpleData name="Site">Dhirauli</SimpleData>
+					<SimpleData name="category">Built-Up</SimpleData>
+					<SimpleData name="image_vint">24-03-2025</SimpleData>
+					<SimpleData name="image_sour">NRSC (Skysatcollect)</SimpleData>
+					<SimpleData name="Area_Sqm">578.401</SimpleData>
+					<SimpleData name="latitude">23.9474</SimpleData>
+					<SimpleData name="longitude">82.3578</SimpleData>
+					<SimpleData name="Region">DH</SimpleData>
+					<SimpleData name="Vintage">202503</SimpleData>
+					<SimpleData name="Grid">029</SimpleData>
+					<SimpleData name="Type">DB</SimpleData>
+					<SimpleData name="ID">00014</SimpleData>
+					<SimpleData name="Build_ID">DH202503029DB00014</SimpleData>
+					<SimpleData name="Remark">Demolish Building</SimpleData>
+					<SimpleData name="Village_Na">Amraikoh</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Polygon>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+							82.35792799967759,23.94748230016817,0 82.35788799963167,23.94748630035263,0 82.35785599995461,23.94748940031576,0 82.35782200018532,23.9474928995778,0 82.35778200013937,23.94749689976226,0 82.35774700032397,23.94750049974841,0 82.35770800032414,23.94750440010813,0 82.35767799984001,23.94750740024647,0 82.35764199997851,23.9475111000574,0 82.35761200039366,23.94751410019574,0 82.35756199988656,23.94737760019628,0 82.35762800023218,23.947370900247,0 82.35766600018593,23.94736699988733,0 82.35769899990909,23.9473637002747,0 82.35773199963224,23.94736039976284,0 82.35776800039309,23.94735679977661,0 82.35780300020849,23.94735329961525,0 82.35784700043888,23.94734890013175,0 82.35787599997757,23.94734589999349,0 82.35790999974688,23.94734249965676,0 82.35794100027711,23.94733929986897,0 82.35795800016177,23.94747920020508,0 82.35792799967759,23.94748230016817,0 
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Dhirauli_20250324_Buildings_SSSSDDDSSSSSSSS">
+					<SimpleData name="Site">Dhirauli</SimpleData>
+					<SimpleData name="category">Built-Up</SimpleData>
+					<SimpleData name="image_vint">24-03-2025</SimpleData>
+					<SimpleData name="image_sour">NRSC (Skysatcollect)</SimpleData>
+					<SimpleData name="Area_Sqm">686.549</SimpleData>
+					<SimpleData name="latitude">23.948</SimpleData>
+					<SimpleData name="longitude">82.3578</SimpleData>
+					<SimpleData name="Region">DH</SimpleData>
+					<SimpleData name="Vintage">202503</SimpleData>
+					<SimpleData name="Grid">029</SimpleData>
+					<SimpleData name="Type">DB</SimpleData>
+					<SimpleData name="ID">00015</SimpleData>
+					<SimpleData name="Build_ID">DH202503029DB00015</SimpleData>
+					<SimpleData name="Remark">Demolish Building</SimpleData>
+					<SimpleData name="Village_Na">Amraikoh</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Polygon>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+							82.35769199958628,23.94804770034125,0 82.35773099958611,23.94820530023459,0 82.35768900034726,23.94821419992553,0 82.35765000034739,23.94805650020749,0 82.35763599970183,23.94801109973262,0 82.35771000041639,23.94799269960357,0 82.3576850001628,23.94790679995901,0 82.35803900029981,23.94781809982561,0 82.35807800029967,23.94794949976978,0 82.35769199958628,23.94804770034125,0 
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Dhirauli_20250324_Buildings_SSSSDDDSSSSSSSS">
+					<SimpleData name="Site">Dhirauli</SimpleData>
+					<SimpleData name="category">Built-Up</SimpleData>
+					<SimpleData name="image_vint">24-03-2025</SimpleData>
+					<SimpleData name="image_sour">NRSC (Skysatcollect)</SimpleData>
+					<SimpleData name="Area_Sqm">227.245</SimpleData>
+					<SimpleData name="latitude">23.9475</SimpleData>
+					<SimpleData name="longitude">82.3556</SimpleData>
+					<SimpleData name="Region">DH</SimpleData>
+					<SimpleData name="Vintage">202503</SimpleData>
+					<SimpleData name="Grid">028</SimpleData>
+					<SimpleData name="Type">DB</SimpleData>
+					<SimpleData name="ID">00001</SimpleData>
+					<SimpleData name="Build_ID">DH202503028DB00001</SimpleData>
+					<SimpleData name="Remark">Demolish Building</SimpleData>
+					<SimpleData name="Village_Na">Amraikoh</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Polygon>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+							82.35545699994077,23.94742749997931,0 82.35562899977866,23.94740740013156,0 82.3556449996172,23.94752270041244,0 82.35547299977929,23.94754290008493,0 82.35545699994077,23.94742749997931,0 
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Dhirauli_20250324_Buildings_SSSSDDDSSSSSSSS">
+					<SimpleData name="Site">Dhirauli</SimpleData>
+					<SimpleData name="category">Built-Up</SimpleData>
+					<SimpleData name="image_vint">24-03-2025</SimpleData>
+					<SimpleData name="image_sour">NRSC (Skysatcollect)</SimpleData>
+					<SimpleData name="Area_Sqm">108.93</SimpleData>
+					<SimpleData name="latitude">23.946</SimpleData>
+					<SimpleData name="longitude">82.3495</SimpleData>
+					<SimpleData name="Region">DH</SimpleData>
+					<SimpleData name="Vintage">202503</SimpleData>
+					<SimpleData name="Grid">028</SimpleData>
+					<SimpleData name="Type">DB</SimpleData>
+					<SimpleData name="ID">00002</SimpleData>
+					<SimpleData name="Build_ID">DH202503028DB00002</SimpleData>
+					<SimpleData name="Remark">Demolish Building</SimpleData>
+					<SimpleData name="Village_Na">Amraikoh</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Polygon>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+							82.34956799996343,23.9460209998694,0 82.34947007998038,23.94607662023999,0 82.34938295995579,23.94594737956807,0 82.34947800030965,23.94589346970805,0 82.34949492015461,23.94591749959314,0 82.34942652041774,23.94595997996923,0 82.34948052021002,23.94603594030657,0 82.34955000003264,23.94599553016974,0 82.34956799996343,23.9460209998694,0 
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Dhirauli_20250324_Buildings_SSSSDDDSSSSSSSS">
+					<SimpleData name="Site">Dhirauli</SimpleData>
+					<SimpleData name="category">Built-Up</SimpleData>
+					<SimpleData name="image_vint">24-03-2025</SimpleData>
+					<SimpleData name="image_sour">NRSC (Skysatcollect)</SimpleData>
+					<SimpleData name="Area_Sqm">113.055</SimpleData>
+					<SimpleData name="latitude">23.9476</SimpleData>
+					<SimpleData name="longitude">82.3502</SimpleData>
+					<SimpleData name="Region">DH</SimpleData>
+					<SimpleData name="Vintage">202503</SimpleData>
+					<SimpleData name="Grid">028</SimpleData>
+					<SimpleData name="Type">DB</SimpleData>
+					<SimpleData name="ID">00003</SimpleData>
+					<SimpleData name="Build_ID">DH202503028DB00003</SimpleData>
+					<SimpleData name="Remark">Demolish Building</SimpleData>
+					<SimpleData name="Village_Na">Amraikoh</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Polygon>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+							82.35016999984576,23.94752800011732,0 82.35024299961492,23.94751100023262,0 82.35027800032964,23.94764099993238,0 82.35020499966117,23.94765699977091,0 82.35016999984576,23.94752800011732,0 
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Dhirauli_20250324_Buildings_SSSSDDDSSSSSSSS">
+					<SimpleData name="Site">Dhirauli</SimpleData>
+					<SimpleData name="category">Built-Up</SimpleData>
+					<SimpleData name="image_vint">24-03-2025</SimpleData>
+					<SimpleData name="image_sour">NRSC (Skysatcollect)</SimpleData>
+					<SimpleData name="Area_Sqm">335.743</SimpleData>
+					<SimpleData name="latitude">23.9484</SimpleData>
+					<SimpleData name="longitude">82.3518</SimpleData>
+					<SimpleData name="Region">DH</SimpleData>
+					<SimpleData name="Vintage">202503</SimpleData>
+					<SimpleData name="Grid">028</SimpleData>
+					<SimpleData name="Type">DB</SimpleData>
+					<SimpleData name="ID">00004</SimpleData>
+					<SimpleData name="Build_ID">DH202503028DB00004</SimpleData>
+					<SimpleData name="Remark">Demolish Building</SimpleData>
+					<SimpleData name="Village_Na">Amraikoh</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Polygon>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+							82.3519009996316,23.94827239955173,0 82.3519300000696,23.94839980021079,0 82.35170599963237,23.94844330041815,0 82.35167700009367,23.94831599958387,0 82.3519009996316,23.94827239955173,0 
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Dhirauli_20250324_Buildings_SSSSDDDSSSSSSSS">
+					<SimpleData name="Site">Dhirauli</SimpleData>
+					<SimpleData name="category">Built-Up</SimpleData>
+					<SimpleData name="image_vint">24-03-2025</SimpleData>
+					<SimpleData name="image_sour">NRSC (Skysatcollect)</SimpleData>
+					<SimpleData name="Area_Sqm">112.373</SimpleData>
+					<SimpleData name="latitude">23.9484</SimpleData>
+					<SimpleData name="longitude">82.3548</SimpleData>
+					<SimpleData name="Region">DH</SimpleData>
+					<SimpleData name="Vintage">202503</SimpleData>
+					<SimpleData name="Grid">028</SimpleData>
+					<SimpleData name="Type">DB</SimpleData>
+					<SimpleData name="ID">00005</SimpleData>
+					<SimpleData name="Build_ID">DH202503028DB00005</SimpleData>
+					<SimpleData name="Remark">Demolish Building</SimpleData>
+					<SimpleData name="Village_Na">Amraikoh</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Polygon>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+							82.35480400040444,23.94852219973991,0 82.35478200028928,23.9483805996851,0 82.35485099987392,23.94837150034466,0 82.35487299998913,23.94851310039946,0 82.35480400040444,23.94852219973991,0 
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Dhirauli_20250324_Buildings_SSSSDDDSSSSSSSS">
+					<SimpleData name="Site">Dhirauli</SimpleData>
+					<SimpleData name="category">Built-Up</SimpleData>
+					<SimpleData name="image_vint">24-03-2025</SimpleData>
+					<SimpleData name="image_sour">NRSC (Skysatcollect)</SimpleData>
+					<SimpleData name="Area_Sqm">125.658</SimpleData>
+					<SimpleData name="latitude">23.948</SimpleData>
+					<SimpleData name="longitude">82.3547</SimpleData>
+					<SimpleData name="Region">DH</SimpleData>
+					<SimpleData name="Vintage">202503</SimpleData>
+					<SimpleData name="Grid">028</SimpleData>
+					<SimpleData name="Type">DB</SimpleData>
+					<SimpleData name="ID">00006</SimpleData>
+					<SimpleData name="Build_ID">DH202503028DB00006</SimpleData>
+					<SimpleData name="Remark">Demolish Building</SimpleData>
+					<SimpleData name="Village_Na">Amraikoh</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Polygon>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+							82.35470988005709,23.94809243981438,0 82.35467891999633,23.94789911974874,0 82.35473867994632,23.94789173991204,0 82.35476316039171,23.9480863199279,0 82.35470988005709,23.94809243981438,0 
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Dhirauli_20250324_Buildings_SSSSDDDSSSSSSSS">
+					<SimpleData name="Site">Dhirauli</SimpleData>
+					<SimpleData name="category">Built-Up</SimpleData>
+					<SimpleData name="image_vint">24-03-2025</SimpleData>
+					<SimpleData name="image_sour">NRSC (Skysatcollect)</SimpleData>
+					<SimpleData name="Area_Sqm">130.958</SimpleData>
+					<SimpleData name="latitude">23.9496</SimpleData>
+					<SimpleData name="longitude">82.3569</SimpleData>
+					<SimpleData name="Region">DH</SimpleData>
+					<SimpleData name="Vintage">202503</SimpleData>
+					<SimpleData name="Grid">029</SimpleData>
+					<SimpleData name="Type">DB</SimpleData>
+					<SimpleData name="ID">00016</SimpleData>
+					<SimpleData name="Build_ID">DH202503029DB00016</SimpleData>
+					<SimpleData name="Remark">Demolish Building</SimpleData>
+					<SimpleData name="Village_Na">Amraikoh</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Polygon>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+							82.35689799984301,23.94968759970311,0 82.35686700021206,23.94957509991112,0 82.35696500023477,23.94955219957449,0 82.35699399977345,23.94966530011366,0 82.35689799984301,23.94968759970311,0 
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Dhirauli_20250324_Buildings_SSSSDDDSSSSSSSS">
+					<SimpleData name="Site">Dhirauli</SimpleData>
+					<SimpleData name="category">Built-Up</SimpleData>
+					<SimpleData name="image_vint">24-03-2025</SimpleData>
+					<SimpleData name="image_sour">NRSC (Skysatcollect)</SimpleData>
+					<SimpleData name="Area_Sqm">70.0923</SimpleData>
+					<SimpleData name="latitude">23.9495</SimpleData>
+					<SimpleData name="longitude">82.3571</SimpleData>
+					<SimpleData name="Region">DH</SimpleData>
+					<SimpleData name="Vintage">202503</SimpleData>
+					<SimpleData name="Grid">029</SimpleData>
+					<SimpleData name="Type">DB</SimpleData>
+					<SimpleData name="ID">00017</SimpleData>
+					<SimpleData name="Build_ID">DH202503029DB00017</SimpleData>
+					<SimpleData name="Remark">Demolish Building</SimpleData>
+					<SimpleData name="Village_Na">Amraikoh</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Polygon>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+							82.35705399984236,23.94951500001741,0 82.35704200018837,23.94946989991608,0 82.35711800009578,23.94945230018369,0 82.35712500041859,23.94948119989759,0 82.35713399993432,23.94951319957466,0 82.35697799993495,23.94954939998497,0 82.35697299970433,23.94953430036781,0 82.35705399984236,23.94951500001741,0 
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Dhirauli_20250324_Buildings_SSSSDDDSSSSSSSS">
+					<SimpleData name="Site">Dhirauli</SimpleData>
+					<SimpleData name="category">Built-Up</SimpleData>
+					<SimpleData name="image_vint">24-03-2025</SimpleData>
+					<SimpleData name="image_sour">NRSC (Skysatcollect)</SimpleData>
+					<SimpleData name="Area_Sqm">46.8442</SimpleData>
+					<SimpleData name="latitude">23.9504</SimpleData>
+					<SimpleData name="longitude">82.3556</SimpleData>
+					<SimpleData name="Region">DH</SimpleData>
+					<SimpleData name="Vintage">202503</SimpleData>
+					<SimpleData name="Grid">028</SimpleData>
+					<SimpleData name="Type">DB</SimpleData>
+					<SimpleData name="ID">00007</SimpleData>
+					<SimpleData name="Build_ID">DH202503028DB00007</SimpleData>
+					<SimpleData name="Remark">Demolish Building</SimpleData>
+					<SimpleData name="Village_Na">Amraikoh</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Polygon>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+							82.35565199993999,23.95040990009697,0 82.35564200037817,23.95045879983387,0 82.35556000019402,23.95044460043813,0 82.35556999975587,23.95039559997712,0 82.35565199993999,23.95040990009697,0 
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Dhirauli_20250324_Buildings_SSSSDDDSSSSSSSS">
+					<SimpleData name="Site">Dhirauli</SimpleData>
+					<SimpleData name="category">Built-Up</SimpleData>
+					<SimpleData name="image_vint">24-03-2025</SimpleData>
+					<SimpleData name="image_sour">NRSC (Skysatcollect)</SimpleData>
+					<SimpleData name="Area_Sqm">77.2724</SimpleData>
+					<SimpleData name="latitude">23.9501</SimpleData>
+					<SimpleData name="longitude">82.3531</SimpleData>
+					<SimpleData name="Region">DH</SimpleData>
+					<SimpleData name="Vintage">202503</SimpleData>
+					<SimpleData name="Grid">028</SimpleData>
+					<SimpleData name="Type">DB</SimpleData>
+					<SimpleData name="ID">00008</SimpleData>
+					<SimpleData name="Build_ID">DH202503028DB00008</SimpleData>
+					<SimpleData name="Remark">Demolish Building</SimpleData>
+					<SimpleData name="Village_Na">Amraikoh</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Polygon>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+							82.35301899992709,23.95003759965565,0 82.35308100008825,23.95002829976636,0 82.35310000006513,23.95013690009801,0 82.35303899995006,23.95014610016256,0 82.35301899992709,23.95003759965565,0 
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Dhirauli_20250324_Buildings_SSSSDDDSSSSSSSS">
+					<SimpleData name="Site">Dhirauli</SimpleData>
+					<SimpleData name="category">Built-Up</SimpleData>
+					<SimpleData name="image_vint">24-03-2025</SimpleData>
+					<SimpleData name="image_sour">NRSC (Skysatcollect)</SimpleData>
+					<SimpleData name="Area_Sqm">28.9787</SimpleData>
+					<SimpleData name="latitude">23.9501</SimpleData>
+					<SimpleData name="longitude">82.3531</SimpleData>
+					<SimpleData name="Region">DH</SimpleData>
+					<SimpleData name="Vintage">202503</SimpleData>
+					<SimpleData name="Grid">028</SimpleData>
+					<SimpleData name="Type">DB</SimpleData>
+					<SimpleData name="ID">00009</SimpleData>
+					<SimpleData name="Build_ID">DH202503028DB00009</SimpleData>
+					<SimpleData name="Remark">Demolish Building</SimpleData>
+					<SimpleData name="Village_Na">Amraikoh</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Polygon>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+							82.35315099971903,23.95008579972007,0 82.35315900008796,23.95012820005656,0 82.35310000006513,23.95013690009801,0 82.35309199969616,23.95009449976152,0 82.35315099971903,23.95008579972007,0 
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Dhirauli_20250324_Buildings_SSSSDDDSSSSSSSS">
+					<SimpleData name="Site">Dhirauli</SimpleData>
+					<SimpleData name="category">Built-Up</SimpleData>
+					<SimpleData name="image_vint">24-03-2025</SimpleData>
+					<SimpleData name="image_sour">NRSC (Skysatcollect)</SimpleData>
+					<SimpleData name="Area_Sqm">38.3184</SimpleData>
+					<SimpleData name="latitude">23.9508</SimpleData>
+					<SimpleData name="longitude">82.3522</SimpleData>
+					<SimpleData name="Region">DH</SimpleData>
+					<SimpleData name="Vintage">202503</SimpleData>
+					<SimpleData name="Grid">028</SimpleData>
+					<SimpleData name="Type">DB</SimpleData>
+					<SimpleData name="ID">00010</SimpleData>
+					<SimpleData name="Build_ID">DH202503028DB00010</SimpleData>
+					<SimpleData name="Remark">Demolish Building</SimpleData>
+					<SimpleData name="Village_Na">Amraikoh</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Polygon>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+							82.35223399969948,23.95079570026151,0 82.35221799986094,23.95072409983748,0 82.35226300013748,23.95071539979603,0 82.35228000002219,23.95078690039531,0 82.35223399969948,23.95079570026151,0 
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Dhirauli_20250324_Buildings_SSSSDDDSSSSSSSS">
+					<SimpleData name="Site">Dhirauli</SimpleData>
+					<SimpleData name="category">Built-Up</SimpleData>
+					<SimpleData name="image_vint">24-03-2025</SimpleData>
+					<SimpleData name="image_sour">NRSC (Skysatcollect)</SimpleData>
+					<SimpleData name="Area_Sqm">21.2951</SimpleData>
+					<SimpleData name="latitude">23.9508</SimpleData>
+					<SimpleData name="longitude">82.3523</SimpleData>
+					<SimpleData name="Region">DH</SimpleData>
+					<SimpleData name="Vintage">202503</SimpleData>
+					<SimpleData name="Grid">028</SimpleData>
+					<SimpleData name="Type">DB</SimpleData>
+					<SimpleData name="ID">00011</SimpleData>
+					<SimpleData name="Build_ID">DH202503028DB00011</SimpleData>
+					<SimpleData name="Remark">Demolish Building</SimpleData>
+					<SimpleData name="Village_Na">Amraikoh</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Polygon>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+							82.35226100004532,23.95079050038146,0 82.35227699988384,23.95085740004914,0 82.35225000043732,23.95086259992923,0 82.35223399969948,23.95079570026151,0 82.35226100004532,23.95079050038146,0 
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Dhirauli_20250324_Buildings_SSSSDDDSSSSSSSS">
+					<SimpleData name="Site">Dhirauli</SimpleData>
+					<SimpleData name="category">Built-Up</SimpleData>
+					<SimpleData name="image_vint">24-03-2025</SimpleData>
+					<SimpleData name="image_sour">NRSC (Skysatcollect)</SimpleData>
+					<SimpleData name="Area_Sqm">70.9366</SimpleData>
+					<SimpleData name="latitude">23.9508</SimpleData>
+					<SimpleData name="longitude">82.3511</SimpleData>
+					<SimpleData name="Region">DH</SimpleData>
+					<SimpleData name="Vintage">202503</SimpleData>
+					<SimpleData name="Grid">028</SimpleData>
+					<SimpleData name="Type">DB</SimpleData>
+					<SimpleData name="ID">00012</SimpleData>
+					<SimpleData name="Build_ID">DH202503028DB00012</SimpleData>
+					<SimpleData name="Remark">Demolish Building</SimpleData>
+					<SimpleData name="Village_Na">Amraikoh</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Polygon>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+							82.35109008004332,23.95087506003614,0 82.35105011956755,23.95079432969469,0 82.35109511984409,23.95077579017073,0 82.35111708038916,23.95082168976933,0 82.35116388020906,23.95080242988836,0 82.35118115978287,23.95083725973193,0 82.35109008004332,23.95087506003614,0 
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Dhirauli_20250324_Buildings_SSSSDDDSSSSSSSS">
+					<SimpleData name="Site">Dhirauli</SimpleData>
+					<SimpleData name="category">Built-Up</SimpleData>
+					<SimpleData name="image_vint">24-03-2025</SimpleData>
+					<SimpleData name="image_sour">NRSC (Skysatcollect)</SimpleData>
+					<SimpleData name="Area_Sqm">30.0406</SimpleData>
+					<SimpleData name="latitude">23.952</SimpleData>
+					<SimpleData name="longitude">82.3534</SimpleData>
+					<SimpleData name="Region">DH</SimpleData>
+					<SimpleData name="Vintage">202503</SimpleData>
+					<SimpleData name="Grid">028</SimpleData>
+					<SimpleData name="Type">DB</SimpleData>
+					<SimpleData name="ID">00013</SimpleData>
+					<SimpleData name="Build_ID">DH202503028DB00013</SimpleData>
+					<SimpleData name="Remark">Demolish Building</SimpleData>
+					<SimpleData name="Village_Na">Amraikoh</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Polygon>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+							82.35343511983507,23.95194696018422,0 82.35345882651409,23.95199701784012,0 82.35341405883004,23.95201492489376,0 82.3533903521643,23.95196486723039,0 82.35343511983507,23.95194696018422,0 
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Dhirauli_20250324_Buildings_SSSSDDDSSSSSSSS">
+					<SimpleData name="Site">Dhirauli</SimpleData>
+					<SimpleData name="category">Built-Up</SimpleData>
+					<SimpleData name="image_vint">24-03-2025</SimpleData>
+					<SimpleData name="image_sour">NRSC (Skysatcollect)</SimpleData>
+					<SimpleData name="Area_Sqm">28.8548</SimpleData>
+					<SimpleData name="latitude">23.9526</SimpleData>
+					<SimpleData name="longitude">82.3521</SimpleData>
+					<SimpleData name="Region">DH</SimpleData>
+					<SimpleData name="Vintage">202503</SimpleData>
+					<SimpleData name="Grid">028</SimpleData>
+					<SimpleData name="Type">NB</SimpleData>
+					<SimpleData name="ID">00014</SimpleData>
+					<SimpleData name="Build_ID">DH202503028NB00014</SimpleData>
+					<SimpleData name="Remark">New Building</SimpleData>
+					<SimpleData name="Village_Na">Amraikoh</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Polygon>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+							82.35209186400409,23.95262828143803,0 82.35205652019683,23.95257659694919,0 82.35209203123169,23.95255608666232,0 82.35212737504661,23.95260777114273,0 82.35209186400409,23.95262828143803,0 
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Dhirauli_20250324_Buildings_SSSSDDDSSSSSSSS">
+					<SimpleData name="Site">Dhirauli</SimpleData>
+					<SimpleData name="category">Built-Up</SimpleData>
+					<SimpleData name="image_vint">24-03-2025</SimpleData>
+					<SimpleData name="image_sour">NRSC (Skysatcollect)</SimpleData>
+					<SimpleData name="Area_Sqm">17.6412</SimpleData>
+					<SimpleData name="latitude">23.9535</SimpleData>
+					<SimpleData name="longitude">82.3502</SimpleData>
+					<SimpleData name="Region">DH</SimpleData>
+					<SimpleData name="Vintage">202503</SimpleData>
+					<SimpleData name="Grid">022</SimpleData>
+					<SimpleData name="Type">DB</SimpleData>
+					<SimpleData name="ID">00001</SimpleData>
+					<SimpleData name="Build_ID">DH202503022DB00001</SimpleData>
+					<SimpleData name="Remark">Demolish Building</SimpleData>
+					<SimpleData name="Village_Na">Aamdand</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Polygon>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+							82.35013554031809,23.95351237273729,0 82.35017309440146,23.95348888403142,0 82.35019419027354,23.95351737088162,0 82.35015663618627,23.95354085959276,0 82.35013554031809,23.95351237273729,0 
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Dhirauli_20250324_Buildings_SSSSDDDSSSSSSSS">
+					<SimpleData name="Site">Dhirauli</SimpleData>
+					<SimpleData name="category">Built-Up</SimpleData>
+					<SimpleData name="image_vint">24-03-2025</SimpleData>
+					<SimpleData name="image_sour">NRSC (Skysatcollect)</SimpleData>
+					<SimpleData name="Area_Sqm">32.2702</SimpleData>
+					<SimpleData name="latitude">23.9595</SimpleData>
+					<SimpleData name="longitude">82.3451</SimpleData>
+					<SimpleData name="Region">DH</SimpleData>
+					<SimpleData name="Vintage">202503</SimpleData>
+					<SimpleData name="Grid">021</SimpleData>
+					<SimpleData name="Type">DB</SimpleData>
+					<SimpleData name="ID">00001</SimpleData>
+					<SimpleData name="Build_ID">DH202503021DB00001</SimpleData>
+					<SimpleData name="Remark">Demolish Building</SimpleData>
+					<SimpleData name="Village_Na">Dhirauli</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Polygon>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+							82.34513000034941,23.95949299970231,0 82.34516900034924,23.95950200011736,0 82.34515100041854,23.95957099970204,0 82.34511200041867,23.95956300023244,0 82.34513000034941,23.95949299970231,0 
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Dhirauli_20250324_Buildings_SSSSDDDSSSSSSSS">
+					<SimpleData name="Site">Dhirauli</SimpleData>
+					<SimpleData name="category">Built-Up</SimpleData>
+					<SimpleData name="image_vint">24-03-2025</SimpleData>
+					<SimpleData name="image_sour">NRSC (Skysatcollect)</SimpleData>
+					<SimpleData name="Area_Sqm">22.4901</SimpleData>
+					<SimpleData name="latitude">23.9639</SimpleData>
+					<SimpleData name="longitude">82.3496</SimpleData>
+					<SimpleData name="Region">DH</SimpleData>
+					<SimpleData name="Vintage">202503</SimpleData>
+					<SimpleData name="Grid">017</SimpleData>
+					<SimpleData name="Type">DB</SimpleData>
+					<SimpleData name="ID">00001</SimpleData>
+					<SimpleData name="Build_ID">DH202503017DB00001</SimpleData>
+					<SimpleData name="Remark">Demolish Building</SimpleData>
+					<SimpleData name="Village_Na">Dhirauli</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Polygon>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+							82.34961000010162,23.96388919972696,0 82.3496320002168,23.96387739972239,0 82.34967600044722,23.96394580035854,0 82.34965500037818,23.96395760036312,0 82.34961000010162,23.96388919972696,0 
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Dhirauli_20250324_Buildings_SSSSDDDSSSSSSSS">
+					<SimpleData name="Site">Dhirauli</SimpleData>
+					<SimpleData name="category">Built-Up</SimpleData>
+					<SimpleData name="image_vint">24-03-2025</SimpleData>
+					<SimpleData name="image_sour">NRSC (Skysatcollect)</SimpleData>
+					<SimpleData name="Area_Sqm">15.6983</SimpleData>
+					<SimpleData name="latitude">23.9606</SimpleData>
+					<SimpleData name="longitude">82.3456</SimpleData>
+					<SimpleData name="Region">DH</SimpleData>
+					<SimpleData name="Vintage">202503</SimpleData>
+					<SimpleData name="Grid">021</SimpleData>
+					<SimpleData name="Type">DB</SimpleData>
+					<SimpleData name="ID">00002</SimpleData>
+					<SimpleData name="Build_ID">DH202503021DB00002</SimpleData>
+					<SimpleData name="Remark">Demolish Building</SimpleData>
+					<SimpleData name="Village_Na">Dhirauli</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Polygon>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+							82.34566000000002,23.96061899999999,0 82.34565299999997,23.96064699999999,0 82.34560599999999,23.960636,0 82.34561300000001,23.960608,0 82.34566000000002,23.96061899999999,0 
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Dhirauli_20250324_Buildings_SSSSDDDSSSSSSSS">
+					<SimpleData name="Site">Dhirauli</SimpleData>
+					<SimpleData name="category">Built-Up</SimpleData>
+					<SimpleData name="image_vint">24-03-2025</SimpleData>
+					<SimpleData name="image_sour">NRSC (Skysatcollect)</SimpleData>
+					<SimpleData name="Area_Sqm">30.1162</SimpleData>
+					<SimpleData name="latitude">23.9637</SimpleData>
+					<SimpleData name="longitude">82.3457</SimpleData>
+					<SimpleData name="Region">DH</SimpleData>
+					<SimpleData name="Vintage">202503</SimpleData>
+					<SimpleData name="Grid">016</SimpleData>
+					<SimpleData name="Type">DB</SimpleData>
+					<SimpleData name="ID">00001</SimpleData>
+					<SimpleData name="Build_ID">DH202503016DB00001</SimpleData>
+					<SimpleData name="Remark">Demolish Building</SimpleData>
+					<SimpleData name="Village_Na">Dhirauli</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Polygon>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+							82.34568900004747,23.96368649973233,0 82.34569500032414,23.96372620030404,0 82.34562899997856,23.96373440032251,0 82.34562299970183,23.96369459992597,0 82.34568900004747,23.96368649973233,0 
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Dhirauli_20250324_Buildings_SSSSDDDSSSSSSSS">
+					<SimpleData name="Site">Dhirauli</SimpleData>
+					<SimpleData name="category">Built-Up</SimpleData>
+					<SimpleData name="image_vint">24-03-2025</SimpleData>
+					<SimpleData name="image_sour">NRSC (Skysatcollect)</SimpleData>
+					<SimpleData name="Area_Sqm">48.5025</SimpleData>
+					<SimpleData name="latitude">23.9635</SimpleData>
+					<SimpleData name="longitude">82.3456</SimpleData>
+					<SimpleData name="Region">DH</SimpleData>
+					<SimpleData name="Vintage">202503</SimpleData>
+					<SimpleData name="Grid">016</SimpleData>
+					<SimpleData name="Type">DB</SimpleData>
+					<SimpleData name="ID">00002</SimpleData>
+					<SimpleData name="Build_ID">DH202503016DB00002</SimpleData>
+					<SimpleData name="Remark">Demolish Building</SimpleData>
+					<SimpleData name="Village_Na">Dhirauli</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Polygon>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+							82.34560499977106,23.96357499998642,0 82.34556499972514,23.96357800012476,0 82.34555700025557,23.96347099968704,0 82.34559700030148,23.96346800044803,0 82.34560499977106,23.96357499998642,0 
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Dhirauli_20250324_Buildings_SSSSDDDSSSSSSSS">
+					<SimpleData name="Site">Dhirauli</SimpleData>
+					<SimpleData name="category">Built-Up</SimpleData>
+					<SimpleData name="image_vint">24-03-2025</SimpleData>
+					<SimpleData name="image_sour">NRSC (Skysatcollect)</SimpleData>
+					<SimpleData name="Area_Sqm">72.2224</SimpleData>
+					<SimpleData name="latitude">23.9641</SimpleData>
+					<SimpleData name="longitude">82.3462</SimpleData>
+					<SimpleData name="Region">DH</SimpleData>
+					<SimpleData name="Vintage">202503</SimpleData>
+					<SimpleData name="Grid">016</SimpleData>
+					<SimpleData name="Type">NB</SimpleData>
+					<SimpleData name="ID">00003</SimpleData>
+					<SimpleData name="Build_ID">DH202503016NB00003</SimpleData>
+					<SimpleData name="Remark">New Building</SimpleData>
+					<SimpleData name="Village_Na">Dhirauli</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Polygon>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+							82.34616847974729,23.9641233942762,0 82.34613828903788,23.96402043855529,0 82.34619632366434,23.96400606754091,0 82.34622651441532,23.96410902324871,0 82.34616847974729,23.9641233942762,0 
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Dhirauli_20250324_Buildings_SSSSDDDSSSSSSSS">
+					<SimpleData name="Site">Dhirauli</SimpleData>
+					<SimpleData name="category">Built-Up</SimpleData>
+					<SimpleData name="image_vint">24-03-2025</SimpleData>
+					<SimpleData name="image_sour">NRSC (Skysatcollect)</SimpleData>
+					<SimpleData name="Area_Sqm">49.6617</SimpleData>
+					<SimpleData name="latitude">23.9683</SimpleData>
+					<SimpleData name="longitude">82.3553</SimpleData>
+					<SimpleData name="Region">DH</SimpleData>
+					<SimpleData name="Vintage">202503</SimpleData>
+					<SimpleData name="Grid">017</SimpleData>
+					<SimpleData name="Type">DB</SimpleData>
+					<SimpleData name="ID">00002</SimpleData>
+					<SimpleData name="Build_ID">DH202503017DB00002</SimpleData>
+					<SimpleData name="Remark">Demolish Building</SimpleData>
+					<SimpleData name="Village_Na">Dhirauli</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Polygon>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+							82.35525999984928,23.96827399994532,0 82.35532500014882,23.96824799964564,0 82.35535199959527,23.96830499957622,0 82.35528700019505,23.96833099987589,0 82.35525999984928,23.96827399994532,0 
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Dhirauli_20250324_Buildings_SSSSDDDSSSSSSSS">
+					<SimpleData name="Site">Dhirauli</SimpleData>
+					<SimpleData name="category">Built-Up</SimpleData>
+					<SimpleData name="image_vint">24-03-2025</SimpleData>
+					<SimpleData name="image_sour">NRSC (Skysatcollect)</SimpleData>
+					<SimpleData name="Area_Sqm">20.8789</SimpleData>
+					<SimpleData name="latitude">23.9685</SimpleData>
+					<SimpleData name="longitude">82.3428</SimpleData>
+					<SimpleData name="Region">DH</SimpleData>
+					<SimpleData name="Vintage">202503</SimpleData>
+					<SimpleData name="Grid">016</SimpleData>
+					<SimpleData name="Type">DB</SimpleData>
+					<SimpleData name="ID">00004</SimpleData>
+					<SimpleData name="Build_ID">DH202503016DB00004</SimpleData>
+					<SimpleData name="Remark">Demolish Building</SimpleData>
+					<SimpleData name="Village_Na">Dhirauli</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Polygon>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+							82.34282195956592,23.96852271015515,0 82.34285688024103,23.96851047038207,0 82.34287596025752,23.96855690957388,0 82.34284103958248,23.96856906031406,0 82.34282195956592,23.96852271015515,0 
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Dhirauli_20250324_Buildings_SSSSDDDSSSSSSSS">
+					<SimpleData name="Site">Dhirauli</SimpleData>
+					<SimpleData name="category">Built-Up</SimpleData>
+					<SimpleData name="image_vint">24-03-2025</SimpleData>
+					<SimpleData name="image_sour">NRSC (Skysatcollect)</SimpleData>
+					<SimpleData name="Area_Sqm">33.9984</SimpleData>
+					<SimpleData name="latitude">23.9666</SimpleData>
+					<SimpleData name="longitude">82.3437</SimpleData>
+					<SimpleData name="Region">DH</SimpleData>
+					<SimpleData name="Vintage">202503</SimpleData>
+					<SimpleData name="Grid">016</SimpleData>
+					<SimpleData name="Type">DB</SimpleData>
+					<SimpleData name="ID">00005</SimpleData>
+					<SimpleData name="Build_ID">DH202503016DB00005</SimpleData>
+					<SimpleData name="Remark">Demolish Building</SimpleData>
+					<SimpleData name="Village_Na">Dhirauli</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Polygon>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+							82.34375399984735,23.96653339989666,0 82.34376799959368,23.96658100011323,0 82.34370899957081,23.96659590008089,0 82.34369499982456,23.96654829986432,0 82.34375399984735,23.96653339989666,0 
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Dhirauli_20250324_Buildings_SSSSDDDSSSSSSSS">
+					<SimpleData name="Site">Dhirauli</SimpleData>
+					<SimpleData name="category">Built-Up</SimpleData>
+					<SimpleData name="image_vint">24-03-2025</SimpleData>
+					<SimpleData name="image_sour">NRSC (Skysatcollect)</SimpleData>
+					<SimpleData name="Area_Sqm">51.8627</SimpleData>
+					<SimpleData name="latitude">23.9682</SimpleData>
+					<SimpleData name="longitude">82.3447</SimpleData>
+					<SimpleData name="Region">DH</SimpleData>
+					<SimpleData name="Vintage">202503</SimpleData>
+					<SimpleData name="Grid">016</SimpleData>
+					<SimpleData name="Type">DB</SimpleData>
+					<SimpleData name="ID">00006</SimpleData>
+					<SimpleData name="Build_ID">DH202503016DB00006</SimpleData>
+					<SimpleData name="Remark">Demolish Building</SimpleData>
+					<SimpleData name="Village_Na">Dhirauli</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Polygon>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+							82.3447030004433,23.96826069987156,0 82.34464699965945,23.96828420005595,0 82.34461299989022,23.96821709983949,0 82.34466799972857,23.9681920995859,0 82.3447030004433,23.96826069987156,0 
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Dhirauli_20250324_Buildings_SSSSDDDSSSSSSSS">
+					<SimpleData name="Site">Dhirauli</SimpleData>
+					<SimpleData name="category">Built-Up</SimpleData>
+					<SimpleData name="image_vint">24-03-2025</SimpleData>
+					<SimpleData name="image_sour">NRSC (Skysatcollect)</SimpleData>
+					<SimpleData name="Area_Sqm">28.8252</SimpleData>
+					<SimpleData name="latitude">23.9685</SimpleData>
+					<SimpleData name="longitude">82.3449</SimpleData>
+					<SimpleData name="Region">DH</SimpleData>
+					<SimpleData name="Vintage">202503</SimpleData>
+					<SimpleData name="Grid">016</SimpleData>
+					<SimpleData name="Type">DB</SimpleData>
+					<SimpleData name="ID">00007</SimpleData>
+					<SimpleData name="Build_ID">DH202503016DB00007</SimpleData>
+					<SimpleData name="Remark">Demolish Building</SimpleData>
+					<SimpleData name="Village_Na">Dhirauli</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Polygon>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+							82.34483700032744,23.96843800031364,0 82.34486599986614,23.96842299962191,0 82.34490699995827,23.96849000001367,0 82.34487800041957,23.96850499980604,0 82.34483700032744,23.96843800031364,0 
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Dhirauli_20250324_Buildings_SSSSDDDSSSSSSSS">
+					<SimpleData name="Site">Dhirauli</SimpleData>
+					<SimpleData name="category">Built-Up</SimpleData>
+					<SimpleData name="image_vint">24-03-2025</SimpleData>
+					<SimpleData name="image_sour">NRSC (Skysatcollect)</SimpleData>
+					<SimpleData name="Area_Sqm">23.5741</SimpleData>
+					<SimpleData name="latitude">23.9671</SimpleData>
+					<SimpleData name="longitude">82.334</SimpleData>
+					<SimpleData name="Region">DH</SimpleData>
+					<SimpleData name="Vintage">202503</SimpleData>
+					<SimpleData name="Grid">015</SimpleData>
+					<SimpleData name="Type">DB</SimpleData>
+					<SimpleData name="ID">00001</SimpleData>
+					<SimpleData name="Build_ID">DH202503015DB00001</SimpleData>
+					<SimpleData name="Remark">Demolish Building</SimpleData>
+					<SimpleData name="Village_Na">Jhalari</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Polygon>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+							82.33403287374846,23.96704563997989,0 82.33404808782718,23.96707487344598,0 82.3339898469963,23.96710046810565,0 82.33397463292714,23.96707123463337,0 82.33403287374846,23.96704563997989,0 
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Dhirauli_20250324_Buildings_SSSSDDDSSSSSSSS">
+					<SimpleData name="Site">Dhirauli</SimpleData>
+					<SimpleData name="category">Built-Up</SimpleData>
+					<SimpleData name="image_vint">24-03-2025</SimpleData>
+					<SimpleData name="image_sour">NRSC (Skysatcollect)</SimpleData>
+					<SimpleData name="Area_Sqm">23.9766</SimpleData>
+					<SimpleData name="latitude">23.9716</SimpleData>
+					<SimpleData name="longitude">82.3439</SimpleData>
+					<SimpleData name="Region">DH</SimpleData>
+					<SimpleData name="Vintage">202503</SimpleData>
+					<SimpleData name="Grid">011</SimpleData>
+					<SimpleData name="Type">NB</SimpleData>
+					<SimpleData name="ID">00001</SimpleData>
+					<SimpleData name="Build_ID">DH202503011NB00001</SimpleData>
+					<SimpleData name="Remark">New Building</SimpleData>
+					<SimpleData name="Village_Na">Dhirauli</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Polygon>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+							82.34385736193552,23.97162736384839,0 82.34388298486726,23.97159240811441,0 82.34392485809138,23.97161832437167,0 82.3438992351666,23.97165328011225,0 82.34385736193552,23.97162736384839,0 
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Dhirauli_20250324_Buildings_SSSSDDDSSSSSSSS">
+					<SimpleData name="Site">Dhirauli</SimpleData>
+					<SimpleData name="category">Built-Up</SimpleData>
+					<SimpleData name="image_vint">24-03-2025</SimpleData>
+					<SimpleData name="image_sour">NRSC (Skysatcollect)</SimpleData>
+					<SimpleData name="Area_Sqm">59.9288</SimpleData>
+					<SimpleData name="latitude">23.9754</SimpleData>
+					<SimpleData name="longitude">82.3497</SimpleData>
+					<SimpleData name="Region">DH</SimpleData>
+					<SimpleData name="Vintage">202503</SimpleData>
+					<SimpleData name="Grid">012</SimpleData>
+					<SimpleData name="Type">NB</SimpleData>
+					<SimpleData name="ID">00001</SimpleData>
+					<SimpleData name="Build_ID">DH202503012NB00001</SimpleData>
+					<SimpleData name="Remark">New Building</SimpleData>
+					<SimpleData name="Village_Na">Dhirauli</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Polygon>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+							82.34961373596549,23.97542131870727,0 82.34967564680018,23.97539616499076,0 82.34971022461552,23.97546802071258,0 82.34964831375464,23.97549317444408,0 82.34961373596549,23.97542131870727,0 
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Dhirauli_20250324_Buildings_SSSSDDDSSSSSSSS">
+					<SimpleData name="Site">Dhirauli</SimpleData>
+					<SimpleData name="category">Built-Up</SimpleData>
+					<SimpleData name="image_vint">24-03-2025</SimpleData>
+					<SimpleData name="image_sour">NRSC (Skysatcollect)</SimpleData>
+					<SimpleData name="Area_Sqm">109.05</SimpleData>
+					<SimpleData name="latitude">23.9771</SimpleData>
+					<SimpleData name="longitude">82.3315</SimpleData>
+					<SimpleData name="Region">DH</SimpleData>
+					<SimpleData name="Vintage">202503</SimpleData>
+					<SimpleData name="Grid">010</SimpleData>
+					<SimpleData name="Type">NB</SimpleData>
+					<SimpleData name="ID">00001</SimpleData>
+					<SimpleData name="Build_ID">DH202503010NB00001</SimpleData>
+					<SimpleData name="Remark">New Building</SimpleData>
+					<SimpleData name="Village_Na">Jhalari</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Polygon>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+							82.33154980922075,23.97721774144644,0 82.33142839660347,23.97704317649662,0 82.33146776011004,23.9770200617766,0 82.3315891727555,23.97719462669432,0 82.33154980922075,23.97721774144644,0 
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Dhirauli_20250324_Buildings_SSSSDDDSSSSSSSS">
+					<SimpleData name="Site">Dhirauli</SimpleData>
+					<SimpleData name="category">Built-Up</SimpleData>
+					<SimpleData name="image_vint">24-03-2025</SimpleData>
+					<SimpleData name="image_sour">NRSC (Skysatcollect)</SimpleData>
+					<SimpleData name="Area_Sqm">111.86</SimpleData>
+					<SimpleData name="latitude">23.9815</SimpleData>
+					<SimpleData name="longitude">82.3482</SimpleData>
+					<SimpleData name="Region">DH</SimpleData>
+					<SimpleData name="Vintage">202503</SimpleData>
+					<SimpleData name="Grid">007</SimpleData>
+					<SimpleData name="Type">NB</SimpleData>
+					<SimpleData name="ID">00001</SimpleData>
+					<SimpleData name="Build_ID">DH202503007NB00001</SimpleData>
+					<SimpleData name="Remark">New Building</SimpleData>
+					<SimpleData name="Village_Na">Dhirauli</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Polygon>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+							82.3482818791317,23.98154139906881,0 82.3481809198138,23.9815608302683,0 82.34816903976953,23.98150871995163,0 82.34815944446957,23.9814666313426,0 82.3482005039739,23.98145872880913,0 82.34826040371878,23.98144720016013,0 82.34826999904946,23.98148928876162,0 82.3482818791317,23.98154139906881,0 
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Dhirauli_20250324_Buildings_SSSSDDDSSSSSSSS">
+					<SimpleData name="Site">Dhirauli</SimpleData>
+					<SimpleData name="category">Built-Up</SimpleData>
+					<SimpleData name="image_vint">24-03-2025</SimpleData>
+					<SimpleData name="image_sour">NRSC (Skysatcollect)</SimpleData>
+					<SimpleData name="Area_Sqm">14.876</SimpleData>
+					<SimpleData name="latitude">23.98</SimpleData>
+					<SimpleData name="longitude">82.3392</SimpleData>
+					<SimpleData name="Region">DH</SimpleData>
+					<SimpleData name="Vintage">202503</SimpleData>
+					<SimpleData name="Grid">011</SimpleData>
+					<SimpleData name="Type">NB</SimpleData>
+					<SimpleData name="ID">00002</SimpleData>
+					<SimpleData name="Build_ID">DH202503011NB00002</SimpleData>
+					<SimpleData name="Remark">New Building</SimpleData>
+					<SimpleData name="Village_Na">Dhirauli</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Polygon>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+							82.33922547487315,23.98001720551648,0 82.3392171677765,23.97996829608065,0 82.3392435193722,23.97996451746847,0 82.3392518264784,23.9800134269025,0 82.33922547487315,23.98001720551648,0 
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Dhirauli_20250324_Buildings_SSSSDDDSSSSSSSS">
+					<SimpleData name="Site">Dhirauli</SimpleData>
+					<SimpleData name="category">Built-Up</SimpleData>
+					<SimpleData name="image_vint">24-03-2025</SimpleData>
+					<SimpleData name="image_sour">NRSC (Skysatcollect)</SimpleData>
+					<SimpleData name="Area_Sqm">103.579</SimpleData>
+					<SimpleData name="latitude">23.9787</SimpleData>
+					<SimpleData name="longitude">82.3365</SimpleData>
+					<SimpleData name="Region">DH</SimpleData>
+					<SimpleData name="Vintage">202503</SimpleData>
+					<SimpleData name="Grid">010</SimpleData>
+					<SimpleData name="Type">NB</SimpleData>
+					<SimpleData name="ID">00002</SimpleData>
+					<SimpleData name="Build_ID">DH202503010NB00002</SimpleData>
+					<SimpleData name="Remark">New Building</SimpleData>
+					<SimpleData name="Village_Na">Dhirauli</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Polygon>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+							82.33642756244956,23.97875288451514,0 82.33638759818126,23.97866004738408,0 82.33647321969487,23.97862892944977,0 82.33651318401256,23.97872176655661,0 82.33642756244956,23.97875288451514,0 
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Dhirauli_20250324_Buildings_SSSSDDDSSSSSSSS">
+					<SimpleData name="Site">Dhirauli</SimpleData>
+					<SimpleData name="category">Built-Up</SimpleData>
+					<SimpleData name="image_vint">24-03-2025</SimpleData>
+					<SimpleData name="image_sour">NRSC (Skysatcollect)</SimpleData>
+					<SimpleData name="Area_Sqm">25.2017</SimpleData>
+					<SimpleData name="latitude">23.9786</SimpleData>
+					<SimpleData name="longitude">82.3356</SimpleData>
+					<SimpleData name="Region">DH</SimpleData>
+					<SimpleData name="Vintage">202503</SimpleData>
+					<SimpleData name="Grid">010</SimpleData>
+					<SimpleData name="Type">NB</SimpleData>
+					<SimpleData name="ID">00003</SimpleData>
+					<SimpleData name="Build_ID">DH202503010NB00003</SimpleData>
+					<SimpleData name="Remark">New Building</SimpleData>
+					<SimpleData name="Village_Na">Dhirauli</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Polygon>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+							82.33559266113339,23.9786143868897,0 82.33557656727231,23.97856673967076,0 82.3356193840916,23.97855452967731,0 82.33563547796643,23.97860217689124,0 82.33559266113339,23.9786143868897,0 
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Dhirauli_20250324_Buildings_SSSSDDDSSSSSSSS">
+					<SimpleData name="Site">Dhirauli</SimpleData>
+					<SimpleData name="category">Built-Up</SimpleData>
+					<SimpleData name="image_vint">24-03-2025</SimpleData>
+					<SimpleData name="image_sour">NRSC (Skysatcollect)</SimpleData>
+					<SimpleData name="Area_Sqm">156.803</SimpleData>
+					<SimpleData name="latitude">23.9784</SimpleData>
+					<SimpleData name="longitude">82.3359</SimpleData>
+					<SimpleData name="Region">DH</SimpleData>
+					<SimpleData name="Vintage">202503</SimpleData>
+					<SimpleData name="Grid">010</SimpleData>
+					<SimpleData name="Type">NB</SimpleData>
+					<SimpleData name="ID">00004</SimpleData>
+					<SimpleData name="Build_ID">DH202503010NB00004</SimpleData>
+					<SimpleData name="Remark">New Building</SimpleData>
+					<SimpleData name="Village_Na">Dhirauli</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Polygon>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+							82.3358874154826,23.97841096283593,0 82.33591797024336,23.97847112389435,0 82.33586079269327,23.97849564092415,0 82.33583023795205,23.97843547985367,0 82.33579089298689,23.97835801108459,0 82.33589399980845,23.97831380014192,0 82.33593334481905,23.97839126888282,0 82.3358874154826,23.97841096283593,0 
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Dhirauli_20250324_Buildings_SSSSDDDSSSSSSSS">
+					<SimpleData name="Site">Dhirauli</SimpleData>
+					<SimpleData name="category">Built-Up</SimpleData>
+					<SimpleData name="image_vint">24-03-2025</SimpleData>
+					<SimpleData name="image_sour">NRSC (Skysatcollect)</SimpleData>
+					<SimpleData name="Area_Sqm">24.2282</SimpleData>
+					<SimpleData name="latitude">23.979</SimpleData>
+					<SimpleData name="longitude">82.336</SimpleData>
+					<SimpleData name="Region">DH</SimpleData>
+					<SimpleData name="Vintage">202503</SimpleData>
+					<SimpleData name="Grid">010</SimpleData>
+					<SimpleData name="Type">NB</SimpleData>
+					<SimpleData name="ID">00005</SimpleData>
+					<SimpleData name="Build_ID">DH202503010NB00005</SimpleData>
+					<SimpleData name="Remark">New Building</SimpleData>
+					<SimpleData name="Village_Na">Dhirauli</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Polygon>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+							82.33606160232591,23.9789997114498,0 82.3360197135808,23.97901516819744,0 82.33600039404938,23.97897096523111,0 82.33604228278307,23.97895550848918,0 82.33606160232591,23.9789997114498,0 
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Dhirauli_20250324_Buildings_SSSSDDDSSSSSSSS">
+					<SimpleData name="Site">Dhirauli</SimpleData>
+					<SimpleData name="category">Built-Up</SimpleData>
+					<SimpleData name="image_vint">24-03-2025</SimpleData>
+					<SimpleData name="image_sour">NRSC (Skysatcollect)</SimpleData>
+					<SimpleData name="Area_Sqm">15.2911</SimpleData>
+					<SimpleData name="latitude">23.979</SimpleData>
+					<SimpleData name="longitude">82.3373</SimpleData>
+					<SimpleData name="Region">DH</SimpleData>
+					<SimpleData name="Vintage">202503</SimpleData>
+					<SimpleData name="Grid">010</SimpleData>
+					<SimpleData name="Type">NB</SimpleData>
+					<SimpleData name="ID">00006</SimpleData>
+					<SimpleData name="Build_ID">DH202503010NB00006</SimpleData>
+					<SimpleData name="Remark">New Building</SimpleData>
+					<SimpleData name="Village_Na">Dhirauli</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Polygon>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+							82.33726645778559,23.97902458432227,0 82.33731067689449,23.97900054413971,0 82.33732531485337,23.97902327562285,0 82.33728109573984,23.97904731580981,0 82.33726645778559,23.97902458432227,0 
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Dhirauli_20250324_Buildings_SSSSDDDSSSSSSSS">
+					<SimpleData name="Site">Dhirauli</SimpleData>
+					<SimpleData name="category">Built-Up</SimpleData>
+					<SimpleData name="image_vint">24-03-2025</SimpleData>
+					<SimpleData name="image_sour">NRSC (Skysatcollect)</SimpleData>
+					<SimpleData name="Area_Sqm">35.148</SimpleData>
+					<SimpleData name="latitude">23.979</SimpleData>
+					<SimpleData name="longitude">82.3268</SimpleData>
+					<SimpleData name="Region">DH</SimpleData>
+					<SimpleData name="Vintage">202503</SimpleData>
+					<SimpleData name="Grid">009</SimpleData>
+					<SimpleData name="Type">NB</SimpleData>
+					<SimpleData name="ID">00001</SimpleData>
+					<SimpleData name="Build_ID">DH202503009NB00001</SimpleData>
+					<SimpleData name="Remark">New Building</SimpleData>
+					<SimpleData name="Village_Na">Jhalari</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Polygon>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+							82.32690389127931,23.97899049098776,0 82.32680535137604,23.9790343688292,0 82.32679183074877,23.97900873347324,0 82.32689037063803,23.978964855641,0 82.32690389127931,23.97899049098776,0 
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Dhirauli_20250324_Buildings_SSSSDDDSSSSSSSS">
+					<SimpleData name="Site">Dhirauli</SimpleData>
+					<SimpleData name="category">Built-Up</SimpleData>
+					<SimpleData name="image_vint">24-03-2025</SimpleData>
+					<SimpleData name="image_sour">NRSC (Skysatcollect)</SimpleData>
+					<SimpleData name="Area_Sqm">14.5089</SimpleData>
+					<SimpleData name="latitude">23.9792</SimpleData>
+					<SimpleData name="longitude">82.3269</SimpleData>
+					<SimpleData name="Region">DH</SimpleData>
+					<SimpleData name="Vintage">202503</SimpleData>
+					<SimpleData name="Grid">009</SimpleData>
+					<SimpleData name="Type">NB</SimpleData>
+					<SimpleData name="ID">00002</SimpleData>
+					<SimpleData name="Build_ID">DH202503009NB00002</SimpleData>
+					<SimpleData name="Remark">New Building</SimpleData>
+					<SimpleData name="Village_Na">Jhalari</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Polygon>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+							82.32684352353419,23.97919848168602,0 82.32688512304559,23.97917928011501,0 82.32689863620658,23.97920399634459,0 82.32685703668962,23.97922319791945,0 82.32684352353419,23.97919848168602,0 
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Dhirauli_20250324_Buildings_SSSSDDDSSSSSSSS">
+					<SimpleData name="Site">Dhirauli</SimpleData>
+					<SimpleData name="category">Built-Up</SimpleData>
+					<SimpleData name="image_vint">24-03-2025</SimpleData>
+					<SimpleData name="image_sour">NRSC (Skysatcollect)</SimpleData>
+					<SimpleData name="Area_Sqm">418.142</SimpleData>
+					<SimpleData name="latitude">23.9814</SimpleData>
+					<SimpleData name="longitude">82.3287</SimpleData>
+					<SimpleData name="Region">DH</SimpleData>
+					<SimpleData name="Vintage">202503</SimpleData>
+					<SimpleData name="Grid">005</SimpleData>
+					<SimpleData name="Type">DB</SimpleData>
+					<SimpleData name="ID">00001</SimpleData>
+					<SimpleData name="Build_ID">DH202503005DB00001</SimpleData>
+					<SimpleData name="Remark">Demolish Building</SimpleData>
+					<SimpleData name="Village_Na">Dhirauli</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Polygon>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+							82.32886295975796,23.98140819013604,0 82.32860916028471,23.98149054015649,0 82.32856811972313,23.98136192990931,0 82.32882084000994,23.98127202018777,0 82.32886295975796,23.98140819013604,0 
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Dhirauli_20250324_Buildings_SSSSDDDSSSSSSSS">
+					<SimpleData name="Site">Dhirauli</SimpleData>
+					<SimpleData name="category">Built-Up</SimpleData>
+					<SimpleData name="image_vint">24-03-2025</SimpleData>
+					<SimpleData name="image_sour">NRSC (Skysatcollect)</SimpleData>
+					<SimpleData name="Area_Sqm">69.0079</SimpleData>
+					<SimpleData name="latitude">23.9812</SimpleData>
+					<SimpleData name="longitude">82.325</SimpleData>
+					<SimpleData name="Region">DH</SimpleData>
+					<SimpleData name="Vintage">202503</SimpleData>
+					<SimpleData name="Grid">004</SimpleData>
+					<SimpleData name="Type">DB</SimpleData>
+					<SimpleData name="ID">00001</SimpleData>
+					<SimpleData name="Build_ID">DH202503004DB00001</SimpleData>
+					<SimpleData name="Remark">Demolish Building</SimpleData>
+					<SimpleData name="Village_Na">Phatpani</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Polygon>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+							82.32490300017351,23.98114499994193,0 82.32497399985037,23.98112599996513,0 82.32499900010396,23.981206000057,0 82.32492899957386,23.98122500003387,0 82.32490300017351,23.98114499994193,0 
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Dhirauli_20250324_Buildings_SSSSDDDSSSSSSSS">
+					<SimpleData name="Site">Dhirauli</SimpleData>
+					<SimpleData name="category">Built-Up</SimpleData>
+					<SimpleData name="image_vint">24-03-2025</SimpleData>
+					<SimpleData name="image_sour">NRSC (Skysatcollect)</SimpleData>
+					<SimpleData name="Area_Sqm">134.404</SimpleData>
+					<SimpleData name="latitude">23.9834</SimpleData>
+					<SimpleData name="longitude">82.3284</SimpleData>
+					<SimpleData name="Region">DH</SimpleData>
+					<SimpleData name="Vintage">202503</SimpleData>
+					<SimpleData name="Grid">005</SimpleData>
+					<SimpleData name="Type">DB</SimpleData>
+					<SimpleData name="ID">00002</SimpleData>
+					<SimpleData name="Build_ID">DH202503005DB00002</SimpleData>
+					<SimpleData name="Remark">Demolish Building</SimpleData>
+					<SimpleData name="Village_Na">Dhirauli</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Polygon>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+							82.32833700025252,23.98346954958022,0 82.32832907992325,23.98345092012404,0 82.32829524023332,23.98337802017964,0 82.32840648007517,23.98333679975365,0 82.32844859982323,23.9834291403427,0 82.32833700025252,23.98346954958022,0 
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Dhirauli_20250324_Buildings_SSSSDDDSSSSSSSS">
+					<SimpleData name="Site">Dhirauli</SimpleData>
+					<SimpleData name="category">Built-Up</SimpleData>
+					<SimpleData name="image_vint">24-03-2025</SimpleData>
+					<SimpleData name="image_sour">NRSC (Skysatcollect)</SimpleData>
+					<SimpleData name="Area_Sqm">107.996</SimpleData>
+					<SimpleData name="latitude">23.9842</SimpleData>
+					<SimpleData name="longitude">82.333</SimpleData>
+					<SimpleData name="Region">DH</SimpleData>
+					<SimpleData name="Vintage">202503</SimpleData>
+					<SimpleData name="Grid">005</SimpleData>
+					<SimpleData name="Type">DB</SimpleData>
+					<SimpleData name="ID">00003</SimpleData>
+					<SimpleData name="Build_ID">DH202503005DB00003</SimpleData>
+					<SimpleData name="Remark">Demolish Building</SimpleData>
+					<SimpleData name="Village_Na">Dhirauli</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Polygon>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+							82.33300599972729,23.98411569987981,0 82.33303900034976,23.98417770004101,0 82.33299800025772,23.98419600034532,0 82.33303600021138,23.98426959996225,0 82.33301099995788,23.98428059957019,0 82.33300200044215,23.98426249981469,0 82.33298699975042,23.98426900011439,0 82.33292400044245,23.9841500998474,0 82.33300599972729,23.98411569987981,0 
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Dhirauli_20250324_Buildings_SSSSDDDSSSSSSSS">
+					<SimpleData name="Site">Dhirauli</SimpleData>
+					<SimpleData name="category">Built-Up</SimpleData>
+					<SimpleData name="image_vint">24-03-2025</SimpleData>
+					<SimpleData name="image_sour">NRSC (Skysatcollect)</SimpleData>
+					<SimpleData name="Area_Sqm">42.5515</SimpleData>
+					<SimpleData name="latitude">23.9826</SimpleData>
+					<SimpleData name="longitude">82.334</SimpleData>
+					<SimpleData name="Region">DH</SimpleData>
+					<SimpleData name="Vintage">202503</SimpleData>
+					<SimpleData name="Grid">005</SimpleData>
+					<SimpleData name="Type">DB</SimpleData>
+					<SimpleData name="ID">00004</SimpleData>
+					<SimpleData name="Build_ID">DH202503005DB00004</SimpleData>
+					<SimpleData name="Remark">Demolish Building</SimpleData>
+					<SimpleData name="Village_Na">Dhirauli</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Polygon>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+							82.33402700004622,23.98259000002867,0 82.33405000020751,23.98262699993625,0 82.33397100016168,23.9826669999822,0 82.33394900004647,23.98263100012071,0 82.33402700004622,23.98259000002867,0 
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Dhirauli_20250324_Buildings_SSSSDDDSSSSSSSS">
+					<SimpleData name="Site">Dhirauli</SimpleData>
+					<SimpleData name="category">Built-Up</SimpleData>
+					<SimpleData name="image_vint">24-03-2025</SimpleData>
+					<SimpleData name="image_sour">NRSC (Skysatcollect)</SimpleData>
+					<SimpleData name="Area_Sqm">18.7866</SimpleData>
+					<SimpleData name="latitude">23.9823</SimpleData>
+					<SimpleData name="longitude">82.3346</SimpleData>
+					<SimpleData name="Region">DH</SimpleData>
+					<SimpleData name="Vintage">202503</SimpleData>
+					<SimpleData name="Grid">005</SimpleData>
+					<SimpleData name="Type">NB</SimpleData>
+					<SimpleData name="ID">00005</SimpleData>
+					<SimpleData name="Build_ID">DH202503005NB00005</SimpleData>
+					<SimpleData name="Remark">New Building</SimpleData>
+					<SimpleData name="Village_Na">Dhirauli</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Polygon>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+							82.33457903989097,23.98230126009527,0 82.33463162781015,23.98227988158958,0 82.33464439596389,23.98230639644949,0 82.33459180803652,23.98232777495989,0 82.33457903989097,23.98230126009527,0 
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Dhirauli_20250324_Buildings_SSSSDDDSSSSSSSS">
+					<SimpleData name="Site">Dhirauli</SimpleData>
+					<SimpleData name="category">Built-Up</SimpleData>
+					<SimpleData name="image_vint">24-03-2025</SimpleData>
+					<SimpleData name="image_sour">NRSC (Skysatcollect)</SimpleData>
+					<SimpleData name="Area_Sqm">19.2631</SimpleData>
+					<SimpleData name="latitude">23.9854</SimpleData>
+					<SimpleData name="longitude">82.3491</SimpleData>
+					<SimpleData name="Region">DH</SimpleData>
+					<SimpleData name="Vintage">202503</SimpleData>
+					<SimpleData name="Grid">007</SimpleData>
+					<SimpleData name="Type">DB</SimpleData>
+					<SimpleData name="ID">00002</SimpleData>
+					<SimpleData name="Build_ID">DH202503007DB00002</SimpleData>
+					<SimpleData name="Remark">Demolish Building</SimpleData>
+					<SimpleData name="Village_Na">Dhirauli</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Polygon>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+							82.34908992036371,23.98533038988575,0 82.3491100795667,23.98535964033529,0 82.34906795981868,23.98538376015255,0 82.34904816034451,23.98535441977083,0 82.34908992036371,23.98533038988575,0 
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Dhirauli_20250324_Buildings_SSSSDDDSSSSSSSS">
+					<SimpleData name="Site">Dhirauli</SimpleData>
+					<SimpleData name="category">Built-Up</SimpleData>
+					<SimpleData name="image_vint">24-03-2025</SimpleData>
+					<SimpleData name="image_sour">NRSC (Skysatcollect)</SimpleData>
+					<SimpleData name="Area_Sqm">32.7846</SimpleData>
+					<SimpleData name="latitude">23.9866</SimpleData>
+					<SimpleData name="longitude">82.3383</SimpleData>
+					<SimpleData name="Region">DH</SimpleData>
+					<SimpleData name="Vintage">202503</SimpleData>
+					<SimpleData name="Grid">006</SimpleData>
+					<SimpleData name="Type">DB</SimpleData>
+					<SimpleData name="ID">00001</SimpleData>
+					<SimpleData name="Build_ID">DH202503006DB00001</SimpleData>
+					<SimpleData name="Remark">Demolish Building</SimpleData>
+					<SimpleData name="Village_Na">Dhirauli</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Polygon>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+							82.338307919575,23.98656222007052,0 82.33833743982113,23.98660568970098,0 82.33828955991545,23.98663331957221,0 82.33825967994044,23.98658984994175,0 82.338307919575,23.98656222007052,0 
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Dhirauli_20250324_Buildings_SSSSDDDSSSSSSSS">
+					<SimpleData name="Site">Dhirauli</SimpleData>
+					<SimpleData name="category">Built-Up</SimpleData>
+					<SimpleData name="image_vint">24-03-2025</SimpleData>
+					<SimpleData name="image_sour">NRSC (Skysatcollect)</SimpleData>
+					<SimpleData name="Area_Sqm">18.8004</SimpleData>
+					<SimpleData name="latitude">23.9879</SimpleData>
+					<SimpleData name="longitude">82.3293</SimpleData>
+					<SimpleData name="Region">DH</SimpleData>
+					<SimpleData name="Vintage">202503</SimpleData>
+					<SimpleData name="Grid">005</SimpleData>
+					<SimpleData name="Type">NB</SimpleData>
+					<SimpleData name="ID">00006</SimpleData>
+					<SimpleData name="Build_ID">DH202503005NB00006</SimpleData>
+					<SimpleData name="Remark">New Building</SimpleData>
+					<SimpleData name="Village_Na">Phatpani</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Polygon>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+							82.32924122654624,23.98784364969989,0 82.32928797451918,23.98783751004011,0 82.32929341679773,23.98787248954308,0 82.32924666881264,23.98787862920498,0 82.32924122654624,23.98784364969989,0 
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Dhirauli_20250324_Buildings_SSSSDDDSSSSSSSS">
+					<SimpleData name="Site">Dhirauli</SimpleData>
+					<SimpleData name="category">Built-Up</SimpleData>
+					<SimpleData name="image_vint">24-03-2025</SimpleData>
+					<SimpleData name="image_sour">NRSC (Skysatcollect)</SimpleData>
+					<SimpleData name="Area_Sqm">27.4446</SimpleData>
+					<SimpleData name="latitude">23.988</SimpleData>
+					<SimpleData name="longitude">82.3309</SimpleData>
+					<SimpleData name="Region">DH</SimpleData>
+					<SimpleData name="Vintage">202503</SimpleData>
+					<SimpleData name="Grid">005</SimpleData>
+					<SimpleData name="Type">NB</SimpleData>
+					<SimpleData name="ID">00007</SimpleData>
+					<SimpleData name="Build_ID">DH202503005NB00007</SimpleData>
+					<SimpleData name="Remark">New Building</SimpleData>
+					<SimpleData name="Village_Na">Phatpani</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Polygon>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+							82.33085867922328,23.98795577071288,0 82.33091786475144,23.98794522176733,0 82.33092623947691,23.98798488523767,0 82.33086705393168,23.98799543418719,0 82.33085867922328,23.98795577071288,0 
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Dhirauli_20250324_Buildings_SSSSDDDSSSSSSSS">
+					<SimpleData name="Site">Dhirauli</SimpleData>
+					<SimpleData name="category">Built-Up</SimpleData>
+					<SimpleData name="image_vint">24-03-2025</SimpleData>
+					<SimpleData name="image_sour">NRSC (Skysatcollect)</SimpleData>
+					<SimpleData name="Area_Sqm">304.049</SimpleData>
+					<SimpleData name="latitude">23.9881</SimpleData>
+					<SimpleData name="longitude">82.3331</SimpleData>
+					<SimpleData name="Region">DH</SimpleData>
+					<SimpleData name="Vintage">202503</SimpleData>
+					<SimpleData name="Grid">005</SimpleData>
+					<SimpleData name="Type">DB</SimpleData>
+					<SimpleData name="ID">00008</SimpleData>
+					<SimpleData name="Build_ID">DH202503005DB00008</SimpleData>
+					<SimpleData name="Remark">Demolish Building</SimpleData>
+					<SimpleData name="Village_Na">Dhirauli</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Polygon>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+							82.332991999981,23.9880957997815,0 82.3331710001417,23.98802699984635,0 82.33322900011844,23.98815539965214,0 82.33304999995771,23.9882243003114,0 82.332991999981,23.9880957997815,0 
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Dhirauli_20250324_Buildings_SSSSDDDSSSSSSSS">
+					<SimpleData name="Site">Dhirauli</SimpleData>
+					<SimpleData name="category">Built-Up</SimpleData>
+					<SimpleData name="image_vint">24-03-2025</SimpleData>
+					<SimpleData name="image_sour">NRSC (Skysatcollect)</SimpleData>
+					<SimpleData name="Area_Sqm">38.4261</SimpleData>
+					<SimpleData name="latitude">23.9871</SimpleData>
+					<SimpleData name="longitude">82.3339</SimpleData>
+					<SimpleData name="Region">DH</SimpleData>
+					<SimpleData name="Vintage">202503</SimpleData>
+					<SimpleData name="Grid">005</SimpleData>
+					<SimpleData name="Type">DB</SimpleData>
+					<SimpleData name="ID">00009</SimpleData>
+					<SimpleData name="Build_ID">DH202503005DB00009</SimpleData>
+					<SimpleData name="Remark">Demolish Building</SimpleData>
+					<SimpleData name="Village_Na">Dhirauli</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Polygon>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+							82.33389216019521,23.9870855697434,0 82.3338788403364,23.98705380029281,0 82.33397316033324,23.98702158028187,0 82.3339861195639,23.98705325980028,0 82.33389216019521,23.9870855697434,0 
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Dhirauli_20250324_Buildings_SSSSDDDSSSSSSSS">
+					<SimpleData name="Site">Dhirauli</SimpleData>
+					<SimpleData name="category">Built-Up</SimpleData>
+					<SimpleData name="image_vint">24-03-2025</SimpleData>
+					<SimpleData name="image_sour">NRSC (Skysatcollect)</SimpleData>
+					<SimpleData name="Area_Sqm">78.662</SimpleData>
+					<SimpleData name="latitude">23.9866</SimpleData>
+					<SimpleData name="longitude">82.3344</SimpleData>
+					<SimpleData name="Region">DH</SimpleData>
+					<SimpleData name="Vintage">202503</SimpleData>
+					<SimpleData name="Grid">005</SimpleData>
+					<SimpleData name="Type">DB</SimpleData>
+					<SimpleData name="ID">00010</SimpleData>
+					<SimpleData name="Build_ID">DH202503005DB00010</SimpleData>
+					<SimpleData name="Remark">Demolish Building</SimpleData>
+					<SimpleData name="Village_Na">Dhirauli</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Polygon>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+							82.33451603968365,23.98665366043828,0 82.3343720402376,23.98668290998846,0 82.33435223986413,23.98660694965116,0 82.33440479984182,23.98659848972868,0 82.3344130798999,23.98664150969807,0 82.33451495959787,23.98662504041345,0 82.33451603968365,23.98665366043828,0 
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Dhirauli_20250324_Buildings_SSSSDDDSSSSSSSS">
+					<SimpleData name="Site">Dhirauli</SimpleData>
+					<SimpleData name="category">Built-Up</SimpleData>
+					<SimpleData name="image_vint">24-03-2025</SimpleData>
+					<SimpleData name="image_sour">NRSC (Skysatcollect)</SimpleData>
+					<SimpleData name="Area_Sqm">158.736</SimpleData>
+					<SimpleData name="latitude">23.9888</SimpleData>
+					<SimpleData name="longitude">82.3374</SimpleData>
+					<SimpleData name="Region">DH</SimpleData>
+					<SimpleData name="Vintage">202503</SimpleData>
+					<SimpleData name="Grid">005</SimpleData>
+					<SimpleData name="Type">DB</SimpleData>
+					<SimpleData name="ID">00011</SimpleData>
+					<SimpleData name="Build_ID">DH202503005DB00011</SimpleData>
+					<SimpleData name="Remark">Demolish Building</SimpleData>
+					<SimpleData name="Village_Na">Dhirauli</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Polygon>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+							82.33730859118724,23.98869223285587,0 82.33743500956444,23.98870327458216,0 82.33742358161942,23.98881372117684,0 82.33729716313434,23.98880267944607,0 82.33730859118724,23.98869223285587,0 
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Dhirauli_20250324_Buildings_SSSSDDDSSSSSSSS">
+					<SimpleData name="Site">Dhirauli</SimpleData>
+					<SimpleData name="category">Built-Up</SimpleData>
+					<SimpleData name="image_vint">24-03-2025</SimpleData>
+					<SimpleData name="image_sour">NRSC (Skysatcollect)</SimpleData>
+					<SimpleData name="Area_Sqm">32.9722</SimpleData>
+					<SimpleData name="latitude">23.9954</SimpleData>
+					<SimpleData name="longitude">82.344</SimpleData>
+					<SimpleData name="Region">DH</SimpleData>
+					<SimpleData name="Vintage">202503</SimpleData>
+					<SimpleData name="Grid">002</SimpleData>
+					<SimpleData name="Type">NB</SimpleData>
+					<SimpleData name="ID">00001</SimpleData>
+					<SimpleData name="Build_ID">DH202503002NB00001</SimpleData>
+					<SimpleData name="Remark">New Building</SimpleData>
+					<SimpleData name="Village_Na">Dhirauli</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Polygon>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+							82.34401573622053,23.9954073741146,0 82.34396533330721,23.99542259585399,0 82.34394658385781,23.99537019436133,0 82.34399698675355,23.99535497262881,0 82.34401573622053,23.9954073741146,0 
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Dhirauli_20250324_Buildings_SSSSDDDSSSSSSSS">
+					<SimpleData name="Site">Dhirauli</SimpleData>
+					<SimpleData name="category">Built-Up</SimpleData>
+					<SimpleData name="image_vint">24-03-2025</SimpleData>
+					<SimpleData name="image_sour">NRSC (Skysatcollect)</SimpleData>
+					<SimpleData name="Area_Sqm">166.549</SimpleData>
+					<SimpleData name="latitude">23.995</SimpleData>
+					<SimpleData name="longitude">82.344</SimpleData>
+					<SimpleData name="Region">DH</SimpleData>
+					<SimpleData name="Vintage">202503</SimpleData>
+					<SimpleData name="Grid">002</SimpleData>
+					<SimpleData name="Type">NB</SimpleData>
+					<SimpleData name="ID">00002</SimpleData>
+					<SimpleData name="Build_ID">DH202503002NB00002</SimpleData>
+					<SimpleData name="Remark">New Building</SimpleData>
+					<SimpleData name="Village_Na">Dhirauli</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Polygon>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+							82.34392703634876,23.99502124290704,0 82.34409106357305,23.9949725678088,0 82.34411975577741,23.99505417682359,0 82.34395572846364,23.99510285195611,0 82.34392703634876,23.99502124290704,0 
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Dhirauli_20250324_Buildings_SSSSDDDSSSSSSSS">
+					<SimpleData name="Site">Dhirauli</SimpleData>
+					<SimpleData name="category">Built-Up</SimpleData>
+					<SimpleData name="image_vint">24-03-2025</SimpleData>
+					<SimpleData name="image_sour">NRSC (Skysatcollect)</SimpleData>
+					<SimpleData name="Area_Sqm">301.762</SimpleData>
+					<SimpleData name="latitude">23.9955</SimpleData>
+					<SimpleData name="longitude">82.3423</SimpleData>
+					<SimpleData name="Region">DH</SimpleData>
+					<SimpleData name="Vintage">202503</SimpleData>
+					<SimpleData name="Grid">002</SimpleData>
+					<SimpleData name="Type">DB</SimpleData>
+					<SimpleData name="ID">00003</SimpleData>
+					<SimpleData name="Build_ID">DH202503002DB00003</SimpleData>
+					<SimpleData name="Remark">Demolish Building</SimpleData>
+					<SimpleData name="Village_Na">Dhirauli</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Polygon>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+							82.34234604013785,23.99545395023976,0 82.34234639986666,23.99560289955432,0 82.3421663996598,23.99560326018245,0 82.3421663996598,23.99545430996857,0 82.34234604013785,23.99545395023976,0 
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Dhirauli_20250324_Buildings_SSSSDDDSSSSSSSS">
+					<SimpleData name="Site">Dhirauli</SimpleData>
+					<SimpleData name="category">Built-Up</SimpleData>
+					<SimpleData name="image_vint">24-03-2025</SimpleData>
+					<SimpleData name="image_sour">NRSC (Skysatcollect)</SimpleData>
+					<SimpleData name="Area_Sqm">19.5663</SimpleData>
+					<SimpleData name="latitude">23.9959</SimpleData>
+					<SimpleData name="longitude">82.3418</SimpleData>
+					<SimpleData name="Region">DH</SimpleData>
+					<SimpleData name="Vintage">202503</SimpleData>
+					<SimpleData name="Grid">002</SimpleData>
+					<SimpleData name="Type">NB</SimpleData>
+					<SimpleData name="ID">00004</SimpleData>
+					<SimpleData name="Build_ID">DH202503002NB00004</SimpleData>
+					<SimpleData name="Remark">New Building</SimpleData>
+					<SimpleData name="Village_Na">Dhirauli</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Polygon>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+							82.3417939385064,23.99583636917356,0 82.34184984985039,23.99583587987344,0 82.34185017189007,23.99586693870091,0 82.34179426053265,23.99586742800179,0 82.3417939385064,23.99583636917356,0 
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Dhirauli_20250324_Buildings_SSSSDDDSSSSSSSS">
+					<SimpleData name="Site">Dhirauli</SimpleData>
+					<SimpleData name="category">Built-Up</SimpleData>
+					<SimpleData name="image_vint">24-03-2025</SimpleData>
+					<SimpleData name="image_sour">NRSC (Skysatcollect)</SimpleData>
+					<SimpleData name="Area_Sqm">14.4154</SimpleData>
+					<SimpleData name="latitude">23.9946</SimpleData>
+					<SimpleData name="longitude">82.3391</SimpleData>
+					<SimpleData name="Region">DH</SimpleData>
+					<SimpleData name="Vintage">202503</SimpleData>
+					<SimpleData name="Grid">002</SimpleData>
+					<SimpleData name="Type">DB</SimpleData>
+					<SimpleData name="ID">00005</SimpleData>
+					<SimpleData name="Build_ID">DH202503002DB00005</SimpleData>
+					<SimpleData name="Remark">Demolish Building</SimpleData>
+					<SimpleData name="Village_Na">Dhirauli</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Polygon>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+							82.33905375216061,23.99453430137306,0 82.33908049940136,23.99454723337921,0 82.3390590407828,23.99458469478786,0 82.33903229353602,23.99457176277836,0 82.33905375216061,23.99453430137306,0 
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Dhirauli_20250324_Buildings_SSSSDDDSSSSSSSS">
+					<SimpleData name="Site">Dhirauli</SimpleData>
+					<SimpleData name="category">Built-Up</SimpleData>
+					<SimpleData name="image_vint">24-03-2025</SimpleData>
+					<SimpleData name="image_sour">NRSC (Skysatcollect)</SimpleData>
+					<SimpleData name="Area_Sqm">37.1974</SimpleData>
+					<SimpleData name="latitude">23.9946</SimpleData>
+					<SimpleData name="longitude">82.3386</SimpleData>
+					<SimpleData name="Region">DH</SimpleData>
+					<SimpleData name="Vintage">202503</SimpleData>
+					<SimpleData name="Grid">002</SimpleData>
+					<SimpleData name="Type">NB</SimpleData>
+					<SimpleData name="ID">00006</SimpleData>
+					<SimpleData name="Build_ID">DH202503002NB00006</SimpleData>
+					<SimpleData name="Remark">New Building</SimpleData>
+					<SimpleData name="Village_Na">Dhirauli</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Polygon>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+							82.3385556838664,23.9946048413247,0 82.33854190320551,23.99456281014812,0 82.33861392019645,23.99454288034979,0 82.33862770087796,23.99458491151906,0 82.3385556838664,23.9946048413247,0 
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Dhirauli_20250324_Buildings_SSSSDDDSSSSSSSS">
+					<SimpleData name="Site">Dhirauli</SimpleData>
+					<SimpleData name="category">Built-Up</SimpleData>
+					<SimpleData name="image_vint">24-03-2025</SimpleData>
+					<SimpleData name="image_sour">NRSC (Skysatcollect)</SimpleData>
+					<SimpleData name="Area_Sqm">27.8006</SimpleData>
+					<SimpleData name="latitude">23.9669</SimpleData>
+					<SimpleData name="longitude">82.354</SimpleData>
+					<SimpleData name="Region">DH</SimpleData>
+					<SimpleData name="Vintage">202503</SimpleData>
+					<SimpleData name="Grid">017</SimpleData>
+					<SimpleData name="Type">NB</SimpleData>
+					<SimpleData name="ID">00003</SimpleData>
+					<SimpleData name="Build_ID">DH202503017NB00003</SimpleData>
+					<SimpleData name="Remark">New Building</SimpleData>
+					<SimpleData name="Village_Na">Dhirauli</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Polygon>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+							82.35403350781611,23.96685274899815,0 82.35404150664299,23.96687909626755,0 82.35395463353457,23.96690136695065,0 82.35394663472347,23.96687501967613,0 82.35403350781611,23.96685274899815,0 
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Dhirauli_20250324_Buildings_SSSSDDDSSSSSSSS">
+					<SimpleData name="Site">Dhirauli</SimpleData>
+					<SimpleData name="category">Built-Up</SimpleData>
+					<SimpleData name="image_vint">24-03-2025</SimpleData>
+					<SimpleData name="image_sour">NRSC (Skysatcollect)</SimpleData>
+					<SimpleData name="Area_Sqm">75.7816</SimpleData>
+					<SimpleData name="latitude">23.9671</SimpleData>
+					<SimpleData name="longitude">82.3534</SimpleData>
+					<SimpleData name="Region">DH</SimpleData>
+					<SimpleData name="Vintage">202503</SimpleData>
+					<SimpleData name="Grid">017</SimpleData>
+					<SimpleData name="Type">DB</SimpleData>
+					<SimpleData name="ID">00004</SimpleData>
+					<SimpleData name="Build_ID">DH202503017DB00004</SimpleData>
+					<SimpleData name="Remark">Demolish Building</SimpleData>
+					<SimpleData name="Village_Na">Dhirauli</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Polygon>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+							82.35338599976426,23.96717460032773,0 82.35337600020243,23.96713329986205,0 82.35342000043282,23.96712469964535,0 82.35341400015614,23.96709599958086,0 82.35346799994842,23.96708509979767,0 82.35347500027122,23.96711470008353,0 82.35349500029417,23.96711079972381,0 82.3535039998099,23.96715119996804,0 82.35338599976426,23.96717460032773,0 
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Dhirauli_20250324_Buildings_SSSSDDDSSSSSSSS">
+					<SimpleData name="Site">Dhirauli</SimpleData>
+					<SimpleData name="category">Built-Up</SimpleData>
+					<SimpleData name="image_vint">24-03-2025</SimpleData>
+					<SimpleData name="image_sour">NRSC (Skysatcollect)</SimpleData>
+					<SimpleData name="Area_Sqm">30.3475</SimpleData>
+					<SimpleData name="latitude">23.9671</SimpleData>
+					<SimpleData name="longitude">82.3534</SimpleData>
+					<SimpleData name="Region">DH</SimpleData>
+					<SimpleData name="Vintage">202503</SimpleData>
+					<SimpleData name="Grid">017</SimpleData>
+					<SimpleData name="Type">DB</SimpleData>
+					<SimpleData name="ID">00005</SimpleData>
+					<SimpleData name="Build_ID">DH202503017DB00005</SimpleData>
+					<SimpleData name="Remark">Demolish Building</SimpleData>
+					<SimpleData name="Village_Na">Dhirauli</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Polygon>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+							82.3533619995568,23.9670750004111,0 82.35340599978726,23.96706599999604,0 82.35342000043282,23.96712500001887,0 82.35337600020243,23.96713300038784,0 82.3533619995568,23.9670750004111,0 
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Dhirauli_20250324_Buildings_SSSSDDDSSSSSSSS">
+					<SimpleData name="Site">Dhirauli</SimpleData>
+					<SimpleData name="category">Built-Up</SimpleData>
+					<SimpleData name="image_vint">24-03-2025</SimpleData>
+					<SimpleData name="image_sour">NRSC (Skysatcollect)</SimpleData>
+					<SimpleData name="Area_Sqm">23.8315</SimpleData>
+					<SimpleData name="latitude">23.9782</SimpleData>
+					<SimpleData name="longitude">82.3358</SimpleData>
+					<SimpleData name="Region">DH</SimpleData>
+					<SimpleData name="Vintage">202503</SimpleData>
+					<SimpleData name="Grid">010</SimpleData>
+					<SimpleData name="Type">DB</SimpleData>
+					<SimpleData name="ID">00007</SimpleData>
+					<SimpleData name="Build_ID">DH202503010DB00007</SimpleData>
+					<SimpleData name="Remark">Demolish Building</SimpleData>
+					<SimpleData name="Village_Na">Dhirauli</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Polygon>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+							82.33574400008568,23.97813999986123,0 82.33579699983187,23.97812600011495,0 82.3358080003391,23.97816300002261,0 82.33575499969366,23.97817699976889,0 82.33574400008568,23.97813999986123,0 
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Dhirauli_20250324_Buildings_SSSSDDDSSSSSSSS">
+					<SimpleData name="Site">Dhirauli</SimpleData>
+					<SimpleData name="category">Built-Up</SimpleData>
+					<SimpleData name="image_vint">24-03-2025</SimpleData>
+					<SimpleData name="image_sour">NRSC (Skysatcollect)</SimpleData>
+					<SimpleData name="Area_Sqm">38.0569</SimpleData>
+					<SimpleData name="latitude">23.9781</SimpleData>
+					<SimpleData name="longitude">82.3359</SimpleData>
+					<SimpleData name="Region">DH</SimpleData>
+					<SimpleData name="Vintage">202503</SimpleData>
+					<SimpleData name="Grid">010</SimpleData>
+					<SimpleData name="Type">DB</SimpleData>
+					<SimpleData name="ID">00008</SimpleData>
+					<SimpleData name="Build_ID">DH202503010DB00008</SimpleData>
+					<SimpleData name="Remark">Demolish Building</SimpleData>
+					<SimpleData name="Village_Na">Dhirauli</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Polygon>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+							82.33590300022342,23.97802700004617,0 82.33593399985436,23.97801300029989,0 82.33598000017703,23.97809999981532,0 82.33594799960065,23.97811399956156,0 82.33590300022342,23.97802700004617,0 
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Dhirauli_20250324_Buildings_SSSSDDDSSSSSSSS">
+					<SimpleData name="Site">Dhirauli</SimpleData>
+					<SimpleData name="category">Built-Up</SimpleData>
+					<SimpleData name="image_vint">24-03-2025</SimpleData>
+					<SimpleData name="image_sour">NRSC (Skysatcollect)</SimpleData>
+					<SimpleData name="Area_Sqm">235.033</SimpleData>
+					<SimpleData name="latitude">23.9485</SimpleData>
+					<SimpleData name="longitude">82.36</SimpleData>
+					<SimpleData name="Region">DH</SimpleData>
+					<SimpleData name="Vintage">202503</SimpleData>
+					<SimpleData name="Grid">029</SimpleData>
+					<SimpleData name="Type">DB</SimpleData>
+					<SimpleData name="ID">00018</SimpleData>
+					<SimpleData name="Build_ID">DH202503029DB00018</SimpleData>
+					<SimpleData name="Remark">Demolish Building</SimpleData>
+					<SimpleData name="Village_Na">Amraikoh</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Polygon>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+							82.36007299966941,23.94859349979033,0 82.36007099957716,23.94862500034365,0 82.35991100029258,23.94861440003466,0 82.359926000085,23.94841539985101,0 82.36008600026889,23.94842590033521,0 82.36008400017664,23.9484513997125,0 82.36004500017681,23.94844740042736,0 82.36003599976176,23.94852169971684,0 82.35996099990039,23.94851420027026,0 82.35995300043079,23.94858119976273,0 82.36007299966941,23.94859349979033,0 
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Dhirauli_20250324_Buildings_SSSSDDDSSSSSSSS">
+					<SimpleData name="Site">Dhirauli</SimpleData>
+					<SimpleData name="category">Built-Up</SimpleData>
+					<SimpleData name="image_vint">24-03-2025</SimpleData>
+					<SimpleData name="image_sour">NRSC (Skysatcollect)</SimpleData>
+					<SimpleData name="Area_Sqm">87.6654</SimpleData>
+					<SimpleData name="latitude">23.9476</SimpleData>
+					<SimpleData name="longitude">82.3499</SimpleData>
+					<SimpleData name="Region">DH</SimpleData>
+					<SimpleData name="Vintage">202503</SimpleData>
+					<SimpleData name="Grid">028</SimpleData>
+					<SimpleData name="Type">NB</SimpleData>
+					<SimpleData name="ID">00015</SimpleData>
+					<SimpleData name="Build_ID">DH202503028NB00015</SimpleData>
+					<SimpleData name="Remark">New Building</SimpleData>
+					<SimpleData name="Village_Na">Amraikoh</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Polygon>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+							82.34995799133738,23.94751434607566,0 82.34999570189005,23.94763092730325,0 82.34993440008226,23.94764767660376,0 82.34989668957819,23.94753109535914,0 82.34995799133738,23.94751434607566,0 
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ffffffff</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Dhirauli_20250324_Buildings_SSSSDDDSSSSSSSS">
+					<SimpleData name="Site">Dhirauli</SimpleData>
+					<SimpleData name="category">Built-Up</SimpleData>
+					<SimpleData name="image_vint">24-03-2025</SimpleData>
+					<SimpleData name="image_sour">NRSC (Skysatcollect)</SimpleData>
+					<SimpleData name="Area_Sqm">126.606</SimpleData>
+					<SimpleData name="latitude">23.9503</SimpleData>
+					<SimpleData name="longitude">82.3533</SimpleData>
+					<SimpleData name="Region">DH</SimpleData>
+					<SimpleData name="Vintage">202503</SimpleData>
+					<SimpleData name="Grid">028</SimpleData>
+					<SimpleData name="Type">DB</SimpleData>
+					<SimpleData name="ID">00016</SimpleData>
+					<SimpleData name="Build_ID">DH202503028DB00016</SimpleData>
+					<SimpleData name="Remark">Demolish Building</SimpleData>
+					<SimpleData name="Village_Na">Amraikoh</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Polygon>
+				<outerBoundaryIs>
+					<LinearRing>
+						<coordinates>
+							82.3534310000408,23.95021359967801,0 82.35343900040972,23.9502493000653,0 82.3531369999727,23.95030579997285,0 82.35312899960383,23.95027009958557,0 82.3534310000408,23.95021359967801,0 
+						</coordinates>
+					</LinearRing>
+				</outerBoundaryIs>
+			</Polygon>
+		</Placemark>
+	</Folder>
+</Document>
+</kml>

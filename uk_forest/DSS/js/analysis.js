@@ -1,7 +1,11 @@
 ﻿
+// updated on 23-03-2026 for backup ///////////////////////////
+var geoserver_ip = "https://ukforestgis.in/geoserver/uk_sfd/wms?";
+//var sentinel2fcckey = "db40fc95-957e-4bdb-b62f-5770724febe8";
+//var sentinel2ncckey = "de33a4ff-705e-4a5c-a163-a29bf59d8848";
 
-var geoserver_ip = "http://180.151.15.18:9007/geoserver/uk_sfd/wms?";
-
+var sentinel2fcckey = document.getElementById("sentinel2fcckey").value;
+var sentinel2ncckey = document.getElementById("sentinel2ncckey").value;
 var format = 'image/png';
 var lastselectedlayer = [];
 var lastselectedlayername = [];
@@ -13,2275 +17,16 @@ var zcount = 0;
 var layerobject = [];
 var type;
 var baselayer = 0;
-//var overlay = new ol.Overlay(({
-//    element: container,
-//    autoPan: true,
-//    autoPanAnimation: {
-//        duration: 250
-//    }
-//}));
+var cliplayer;
+var filter = "";
 
-//var containerEdit = document.getElementById('myModel3');
-//var contentEdit = document.getElementById('editableGridid');
-//var closerEdit = document.getElementById('popup-closer-edit');
-
-//// Update the TIME parameter dynamically
-
-
-
-//window.onload = function () {
-
-//    //let checkFleg = document.getElementById("setfleg");
-//    //console.log(checkFleg);
-//    checkFleg = "";
-//    if (checkFleg != "1") {
-//        map1.addOverlay(divisions);
-//        map1.addLayer(divisions);
-//        layerobject.push(divisions);
-
-
-//        lastselectedlayer.push("tbl_division_master");
-//        lastselectedlayername.push("Divisions Boundary");
-//        lastselectedlayer_vector.push("tbl_division_master");
-
-//        //jQuery('#div_division').css('display', 'block');
-//        //var div_country = document.getElementById("division");
-//        //div_country.checked = true;
-//    } else {
-//        clientQuery();
-//        lastselectedlayer = [];
-//        lastselectedlayer_vector = [];
-//    }
-
-//    /* document.getElementById("setfleg").value = "0";*/
-//}
-//var count = 0;
-//var timlapse;
-//var time_range;
-//if (count == 0) {
-
-//    ////--------------------------------for sentinel and Ortho Image----------------------------------
-//    var cTime = new Date();
-//    var syear = cTime.getFullYear();
-//    var smonth = cTime.getMonth() + 1;
-//    if (smonth < 10) {
-//        smonth = "0" + smonth;
-//    }
-//    var sday = cTime.getDate();
-//    if (sday < 10) {
-//        sday = "0" + sday;
-//    }
-
-//    var sto_date = syear + "-" + smonth + "-" + sday;
-//    var sfrom_date = new Date(sto_date);
-//    sfrom_date.setDate(sfrom_date.getDate() - 14);
-//    timlapse = sfrom_date.toISOString().slice(0, 10) + "/" + sto_date;
-//    time_range = syear + '-' + smonth + '-01T00:00:00.000Z';
-
-//}
-
-//function setDateVariable() {
-//    count = 0;
-//    // Get the date input value
-//    selectedDate = document.getElementById("time").value;
-//    var year = selectedDate.split("-")[0]; // First part is the year (YYYY)
-//    var month = selectedDate.split("-")[1]; // Second part is the month (MM)
-//    var day = selectedDate.split("-")[2]; // Second part is the day (DD)
-//    time_range = year + '-' + month + '-' + day + 'T00:00:00.000Z';
-
-
-//    const wmsSource = CropGrowth_layer.getSource();
-//    wmsSource.updateParams({ 'time': time_range });
-
-//    const wmsSource_CropHealth_layer = CropHealth_layer.getSource();
-//    wmsSource_CropHealth_layer.updateParams({ 'time': time_range });
-
-//    const wmsSource_CropHarvesting_layer = CropHarvesting_layer.getSource();
-//    wmsSource_CropHarvesting_layer.updateParams({ 'time': time_range });
-
-//    const wmsSource_VegetationMoisture_layer = VegetationMoisture_layer.getSource();
-//    wmsSource_VegetationMoisture_layer.updateParams({ 'time': time_range });
-
-//    const wmsSource_NitrogenContent_layer = NitrogenContent_layer.getSource();
-//    wmsSource_NitrogenContent_layer.updateParams({ 'time': time_range });
-
-//    const wmsSource_SoilMoisture_layer = SoilMoisture_layer.getSource();
-//    wmsSource_SoilMoisture_layer.updateParams({ 'time': time_range });
-
-//    const wmsSource_base = layers['basemap_ortho'].getSource();
-//    wmsSource_base.updateParams({ 'time': time_range });
-
-
-
-//    /*   var cTime = new Date();*/
-
-//    var cTime = new Date(selectedDate);
-//    var syear = cTime.getFullYear();
-//    var smonth = cTime.getMonth() + 1;
-//    if (smonth < 10) {
-//        smonth = "0" + smonth;
-//    }
-//    var sday = cTime.getDate();
-//    if (sday < 10) {
-//        sday = "0" + sday;
-//    }
-
-//    var sto_date = syear + "-" + smonth + "-" + sday;
-//    var sfrom_date = new Date(sto_date);
-//    sfrom_date.setDate(sfrom_date.getDate() - 14);
-//    timlapse = sfrom_date.toISOString().slice(0, 10) + "/" + sto_date;
-
-//    const wmsSource_sentinal1 = layers['sentinel1'].getSource();
-//    wmsSource_sentinal1.updateParams({ 'time': timlapse });
-
-//    const wmsSource_sentinal2 = layers['sentinel2fcc'].getSource();
-//    wmsSource_sentinal2.updateParams({ 'time': timlapse });
-
-//    sentinel_layer.getSource().updateParams({ 'time': timlapse });
-
-//    if (selectedLayerId == "sentinel2fcc")
-//        zoomInOutOnce();
-//}
-//function zoomInOutOnce() {
-//    var view = map.getView();
-//    var currentZoom = view.getZoom();
-
-//    // Zoom in (increase zoom level)
-//    view.setZoom(currentZoom + 0.2);
-//    console.log('Zoomed In to', currentZoom + 1);
-
-//    // After 10 seconds, zoom out (decrease zoom level)
-//    setTimeout(function () {
-//        view.setZoom(currentZoom);
-//        console.log('Zoomed Out to', currentZoom);
-//    }, 2000); // 10 seconds delay
-//}
-
-//// Call the function to zoom in and then zoom out after 10 seconds
-
-
-
-//var layers = {
-//    'osm': new ol.layer.Tile({
-//        title: 'OpenStreetMap',
-//        visible: true,
-//        source: new ol.source.OSM()
-//    }),
-//    'hybrid': new ol.layer.Tile({
-//        title: 'Google Hybrid',
-//        visible: false,
-//        source: new ol.source.XYZ({
-//            url: 'http://mt0.google.com/vt/lyrs=y&hl=en&x={x}&y={y}&z={z}'
-//        })
-//    }),
-//    'none': new ol.layer.Tile({
-//        title: 'None',
-//        visible: false,
-//        source: new ol.source.XYZ({
-//            url: ''
-//        })
-//    }),
-//    'satellite': new ol.layer.Tile({
-//        title: 'Google Satellite',
-//        visible: false,
-//        source: new ol.source.XYZ({
-//            url: 'http://mt0.google.com/vt/lyrs=s&hl=en&x={x}&y={y}&z={z}'
-//        })
-//    }),
-//    'terrain': new ol.layer.Tile({
-//        title: 'Google Terrain',
-//        visible: false,
-//        source: new ol.source.XYZ({
-//            url: 'http://mt0.google.com/vt/lyrs=t&hl=en&x={x}&y={y}&z={z}'
-//        })
-//    }),
-//    'roadmap': new ol.layer.Tile({
-//        title: 'Google Roadmap',
-//        visible: false,
-//        source: new ol.source.XYZ({
-//            url: 'http://mt0.google.com/vt/lyrs=r&hl=en&x={x}&y={y}&z={z}'
-//        })
-//    }),
-//    'Planet': new ol.layer.Tile({
-//        title: 'Planet',
-//        visible: false,
-//        source: new ol.source.XYZ({
-//            url: 'https://tiles.planet.com/basemaps/v1/planet-tiles/global_quarterly_2018q2_mosaic/gmap/{z}/{x}/{y}.png?api_key=56af6cee0fe14ca8b049c6ed15e93b16'
-//        })
-//    }),
-//    'sentinel1': new ol.layer.Tile({
-//        visible: false,
-//        name: 'sentinal-1',
-//        source: new ol.source.TileWMS({
-//            url: 'https://services.sentinel-hub.com/ogc/wms/09aed6ae-a461-40c6-941a-a765f8bc4c03',
-//            params: { "maxcc": 50, "minZoom": 6, "maxZoom": 16, "preset": "SENTINE1", "layers": "SENTINE1", "time": timlapse },
-//            serverType: 'geoserver',
-//            crossOrigin: 'anonymous',
-//            transition: 0
-//        })
-//    }),
-//    'sentinel2fcc': new ol.layer.Tile({
-//        visible: false,
-//        name: 'sentinal-2',
-//        source: new ol.source.TileWMS({
-//            url: 'https://services.sentinel-hub.com/ogc/wms/967ab5c7-7ef9-4b2f-874b-a1e7f3d05097',
-//            params: { "maxcc": 50, "minZoom": 6, "maxZoom": 16, "preset": "2_FALSE_COLOR", "layers": "2_FALSE_COLOR", "time": timlapse },
-//            serverType: 'geoserver',
-//            crossOrigin: 'anonymous',
-//            transition: 0
-//        })
-//    })
-//    ,
-//    'sentinel2ncc': new ol.layer.Tile({
-//        visible: false,
-//        name: 'sentinal-2',
-//        source: new ol.source.TileWMS({
-//            url: 'https://services.sentinel-hub.com/ogc/wms/25c39243-2e48-441d-b34c-c9628cbeade6',
-//            params: { "maxcc": 50, "minZoom": 6, "maxZoom": 16, "preset": "TRUE_COLOR", "layers": "TRUE_COLOR", "time": timlapse },
-//            serverType: 'geoserver',
-//            crossOrigin: 'anonymous',
-//            transition: 0
-//        })
-//    })
-//    ,
-//    'basemap_ortho': new ol.layer.Tile({
-//        type: 'base',
-//        visible: false,
-//        source: new ol.source.TileWMS({
-//            url: geoserver_ip,
-//            params: {
-//                'FORMAT': format,
-//                'VERSION': '1.3.0',
-//                tiled: true,
-//                STYLES: '',
-//                // LAYERS: 'nrdc:Apple_farm_Image'
-//                //himcha image
-//                LAYERS: 'nrdc:row_image'
-//                //sultanpur
-//            },
-//            serverType: 'geoserver',
-//            //Set initial time
-//            time: time_range,
-
-
-//        })
-//    })
-//};
-
-//var selectedLayerId;
-
-//let lastCheckedRadio = null;
-
-//document.querySelectorAll('.layer-switcher div label input[type="radio"]').forEach(function (radio) {
-//    radio.addEventListener('click', function (e) {
-//        if (this === lastCheckedRadio) {
-//            this.checked = false;
-//            lastCheckedRadio = null;
-
-//            // Hide all layers
-//            Object.keys(layers).forEach(function (layerId) {
-//                layers[layerId].setVisible(false);
-//            });
-//        } else {
-//            lastCheckedRadio = this;
-
-//            // Show selected layer only
-//            var selectedLayerId = this.value;
-//            document.getElementById("layerswid").value = selectedLayerId;
-//            //if (selectedLayerId == "sentinel2") {
-//            //    document.getElementById("divstatus").style.display = "block";
-//            //} else {
-//            //    document.getElementById("divstatus").style.display = "none";
-//            //}
-//            Object.keys(layers).forEach(function (layerId) {
-//                layers[layerId].setVisible(layerId === selectedLayerId);
-//            });
-//        }
-//    });
-//});
-
-
-//var map = new ol.Map({
-//    target: 'map',
-//    layers: Object.values(layers),
-//    view: new ol.View({
-//        //India
-//        //center: ol.proj.fromLonLat([78.9629, 20.5937]),
-//        //zoom: 10
-//        //Himchal Apple Form
-//        //center: ol.proj.fromLonLat([77.15663978, 32.09981638]),
-//        //zoom: 22.5
-//        // sultanpur
-//        center: ol.proj.fromLonLat([79.0193, 30.0668]),
-//        zoom: 8,
-//        minZoom: 3,
-//        maxZoom: 18
-
-
-//    })
-//});
-
-///*document.getElementById("osm").checked = true;*/
-
-
-
-///*================================Client Query==============================*/
-//var selectedLayer;
-//var queryBuilderLayer;
-//function clientQuery() {
-
-//    document.getElementById('cd_country').checked = false;
-//    removeAllLayers();
-//    cd_country
-//    jQuery('#div_country').css('display', 'none');
-//    layerobject = [];
-//    lastselectedlayer = [];
-//    lastselectedlayername = [];
-//    lastselectedlayer_vector = [];
-//    lastselectedlayer_vector_filter = [];
-
-//    selectedLayer = document.getElementById("ddllayer").value;
-//    let splt = selectedLayer.split("_");
-//    let getid = "ddl" + splt[1];
-//    let createid = splt[1] + "_name";
-//    let dropdown = document.getElementById(getid);
-
-//    let selectedText = dropdown.options[dropdown.selectedIndex].text;
-//    //alert(selectedLayer);
-
-
-//    if (selectedText != "All") {
-
-//        queryBuilderLayer = new ol.layer.Image({
-//            source: new ol.source.ImageWMS({
-//                ratio: 1,
-//                url: geoserver_ip,
-//                params: {
-//                    'FORMAT': format,
-//                    tiled: true,
-//                    STYLES: '',
-//                    layers: 'thailand:' + selectedLayer,
-//                    CQL_FILTER: `${createid}='${selectedText}'`,
-//                    transition: 0
-//                }
-
-//            })
-//        });
-
-//        lastselectedlayer_vector_filter.push(`${createid}='${selectedText}'`);
-//    } else {
-
-//        queryBuilderLayer = new ol.layer.Image({
-//            source: new ol.source.ImageWMS({
-//                ratio: 1,
-//                url: geoserver_ip,
-//                params: {
-//                    'FORMAT': format,
-//                    tiled: true,
-//                    STYLES: '',
-//                    layers: 'thailand:' + selectedLayer,
-//                    transition: 0
-//                }
-
-//            })
-//        });
-//    }
-
-//    map.addLayer(queryBuilderLayer);
-//    map.addOverlay(queryBuilderLayer);
-
-//    layerobject.push(queryBuilderLayer);
-//    lastselectedlayer.push(selectedLayer);
-//    lastselectedlayername.push(selectedLayer);
-//    lastselectedlayer_vector.push(selectedLayer);
-
-//}
-
-//function removeAllLayers() {
-//    map.getLayers().forEach(function (layer) {
-//        // Check if the layer is not a base layer (e.g., Tile Layer) and remove it
-//        if (!(layer instanceof ol.layer.Tile)) {  // Check if it's NOT a base layer
-//            map.removeLayer(layer);  // Remove the non-base layer
-//        }
-//    });
-
-//    // Optionally, remove all overlays (e.g., markers, popups)
-//    map.getOverlays().clear();
-//}
-
-
-
-///*================================Client Query==============================*/
-
-///*================================Country==============================*/
-//function country(checkbox) {
-
-//    if (checkbox.checked) {
-//        jQuery('#div_country').css('display', 'block');
-//        map.addLayer(country_layer);
-//        layerobject.push(country_layer);
-//        map.addOverlay(country_layer);
-//        lastselectedlayer.push("tbl_country_master");
-//        lastselectedlayername.push("Country Boundary");
-//        lastselectedlayer_vector.push("tbl_country_master");
-//        //country_zoom();
-
-//    }
-//    else {
-//        jQuery('#div_country').css('display', 'none');
-//        map.removeLayer(country_layer);
-//        layerobject.pop(country_layer);
-//        map.removeOverlay(country_layer);
-//        lastselectedlayer.pop("tbl_country_master");
-//        lastselectedlayername.pop("Country Boundary");
-//        lastselectedlayer_vector.pop("tbl_country_master");
-
-//    }
-//}
-//var country_layer = new ol.layer.Image({
-//    source: new ol.source.ImageWMS({
-//        ratio: 1,
-//        url: geoserver_ip,
-//        params: {
-//            'FORMAT': format,
-//            tiled: true,
-//            STYLES: '',
-//            layers: 'thailand:tbl_country_master',
-//            transition: 0
-//        }
-
-//    })
-//});
-
-
-///*================================State==============================*/
-
-//function state(checkbox) {
-
-//    if (checkbox.checked) {
-//        jQuery('#div_state').css('display', 'block');
-//        map.addLayer(state_layer);
-//        layerobject.push(state_layer);
-//        map.addOverlay(state_layer);
-//        lastselectedlayer.push("tbl_province_master");
-//        lastselectedlayername.push("state Boundary");
-//        lastselectedlayer_vector.push("tbl_province_master");
-//        //state_zoom();
-
-//    }
-//    else {
-//        jQuery('#div_state').css('display', 'none');
-//        map.removeLayer(state_layer);
-//        layerobject.pop(state_layer);
-//        map.removeOverlay(state_layer);
-//        lastselectedlayer.pop("tbl_province_master");
-//        lastselectedlayername.pop("state Boundary");
-//        lastselectedlayer_vector.pop("tbl_province_master");
-
-//    }
-//}
-//var state_layer = new ol.layer.Image({
-//    source: new ol.source.ImageWMS({
-//        ratio: 1,
-//        url: geoserver_ip,
-//        params: {
-//            'FORMAT': format,
-//            tiled: true,
-//            STYLES: '',
-//            layers: 'thailand:tbl_province_master',
-//            transition: 0
-//        }
-
-//    })
-//});
-
-
-///*================================District==============================*/
-
-//function district(checkbox) {
-
-//    if (checkbox.checked) {
-//        jQuery('#div_district').css('display', 'block');
-//        map.addLayer(district_layer);
-//        layerobject.push(district_layer);
-//        map.addOverlay(district_layer);
-//        lastselectedlayer.push("tbl_district_master");
-//        lastselectedlayername.push("district Boundary");
-//        lastselectedlayer_vector.push("tbl_district_master");
-//        //district_zoom();
-
-//    }
-//    else {
-//        jQuery('#div_district').css('display', 'none');
-//        map.removeLayer(district_layer);
-//        layerobject.pop(district_layer);
-//        map.removeOverlay(district_layer);
-//        lastselectedlayer.pop("tbl_district_master");
-//        lastselectedlayername.pop("district Boundary");
-//        lastselectedlayer_vector.pop("tbl_district_master");
-
-//    }
-//}
-//var district_layer = new ol.layer.Image({
-//    source: new ol.source.ImageWMS({
-//        ratio: 1,
-//        url: geoserver_ip,
-//        params: {
-//            'FORMAT': format,
-//            tiled: true,
-//            STYLES: '',
-//            layers: 'thailand:tbl_district_master',
-//            transition: 0
-//        }
-
-//    })
-//});
-
-
-///*================================Tehsil==============================*/
-
-//function tehsil(checkbox) {
-
-//    if (checkbox.checked) {
-//        jQuery('#div_tehsil').css('display', 'block');
-//        map.addLayer(tehsil_layer);
-//        layerobject.push(tehsil_layer);
-//        map.addOverlay(tehsil_layer);
-//        lastselectedlayer.push("tbl_tehsil_master");
-//        lastselectedlayername.push("tehsil Boundary");
-//        lastselectedlayer_vector.push("tbl_tehsil_master");
-//        //tehsil_zoom();
-//    }
-//    else {
-//        jQuery('#div_tehsil').css('display', 'none');
-//        map.removeLayer(tehsil_layer);
-//        layerobject.pop(tehsil_layer);
-//        map.removeOverlay(tehsil_layer);
-//        lastselectedlayer.pop("tbl_tehsil_master");
-//        lastselectedlayername.pop("tehsil Boundary");
-//        lastselectedlayer_vector.pop("tbl_tehsil_master");
-//    }
-//}
-//var tehsil_layer = new ol.layer.Image({
-//    source: new ol.source.ImageWMS({
-//        ratio: 1,
-//        url: geoserver_ip,
-//        params: {
-//            'FORMAT': format,
-//            tiled: true,
-//            STYLES: '',
-//            layers: 'thailand:tbl_tehsil_master',
-//            transition: 0
-//        }
-
-//    })
-//});
-
-
-
-///*================================Village==============================*/
-
-
-//function village(checkbox) {
-
-//    if (checkbox.checked) {
-//        jQuery('#div_village').css('display', 'block');
-//        map.addLayer(village_layer);
-//        layerobject.push(village_layer);
-//        map.addOverlay(village_layer);
-//        lastselectedlayer.push("tbl_village_master");
-//        lastselectedlayername.push("village Boundary");
-//        lastselectedlayer_vector.push("tbl_village_master");
-//        //village_zoom();
-//    }
-//    else {
-//        jQuery('#div_village').css('display', 'none');
-//        map.removeLayer(village_layer);
-//        layerobject.pop(village_layer);
-//        map.removeOverlay(village_layer);
-//        lastselectedlayer.pop("tbl_village_master");
-//        lastselectedlayername.pop("village Boundary");
-//        lastselectedlayer_vector.pop("tbl_village_master");
-//    }
-//}
-
-//var village_layer = new ol.layer.Image({
-//    source: new ol.source.ImageWMS({
-//        ratio: 1,
-//        url: geoserver_ip,
-//        params: {
-//            'FORMAT': format,
-//            tiled: true,
-//            STYLES: '',
-//            layers: 'thailand:tbl_village_master',
-//            transition: 0
-//        }
-
-//    })
-//});
-
-///*================================Land Details==============================*/
-
-
-//function sfdzone(checkbox) {
-
-//    if (checkbox.checked) {
-//       // jQuery('#div_zone').css('display', 'block');
-//        map1.addLayer(zones);
-//        layerobject.push(zones);
-//        map1.addOverlay(zones);
-//        lastselectedlayer.push("tbl_zone_master");
-//        lastselectedlayername.push("SFD Zone Boundaries");
-//        lastselectedlayer_vector.push("tbl_zone_master");
-//        //village_zoom();
-//    }
-//    else {
-//        //jQuery('#div_zone').css('display', 'none');
-//        map1.removeLayer(zones);
-//        layerobject.pop(zones);
-//        map1.removeOverlay(zones);
-//        lastselectedlayer.pop("tbl_zone_master");
-//        lastselectedlayername.pop("SFD Zone Boundaries");
-//        lastselectedlayer_vector.pop("tbl_zone_master");
-//    }
-//}
-
-//var zones = new ol.layer.Image({
-//    source: new ol.source.ImageWMS({
-//        ratio: 1,
-//        url: geoserver_ip,
-//        params: {
-//            'FORMAT': format,
-//            tiled: true,
-//            STYLES: '',
-//            layers: 'uk_sfd:tbl_zone_master',
-//            transition: 0
-//        }, serverType: 'geoserver',
-//        crossOrigin: 'anonymous'
-
-//    })
-//});
-
-
-
-//function sfdcircle(checkbox) {
-
-//    if (checkbox.checked) {
-//       // jQuery('#div_circle').css('display', 'block');
-//        map1.addLayer(circles);
-//        layerobject.push(circles);
-//        map1.addOverlay(circles);
-//        lastselectedlayer.push("tbl_circle_master");
-//        lastselectedlayername.push("SFD Circle Boundaries");
-//        lastselectedlayer_vector.push("tbl_circle_master");
-//        //village_zoom();
-//    }
-//    else {
-//       // jQuery('#div_circle').css('display', 'none');
-//        map1.removeLayer(circles);
-//        layerobject.pop(circles);
-//        map1.removeOverlay(circles);
-//        lastselectedlayer.pop("tbl_circle_master");
-//        lastselectedlayername.pop("SFD Circle Boundaries");
-//        lastselectedlayer_vector.pop("tbl_circle_master");
-//    }
-//}
-
-//var circles = new ol.layer.Image({
-//    source: new ol.source.ImageWMS({
-//        ratio: 1,
-//        url: geoserver_ip,
-//        params: {
-//            'FORMAT': format,
-//            tiled: true,
-//            STYLES: '',
-//            layers: 'uk_sfd:tbl_circle_master',
-//            transition: 0
-//        }, serverType: 'geoserver',
-//        crossOrigin: 'anonymous'
-
-//    })
-//});
-
-
-
-
-//function sfddivision(checkbox) {
-
-//    if (checkbox.checked) {
-//        //jQuery('#div_division').css('display', 'block');
-//        map1.addLayer(divisions);
-//        layerobject.push(divisions);
-//        map1.addOverlay(divisions);
-//        lastselectedlayer.push("tbl_division_master");
-//        lastselectedlayername.push("SFD Division Boundaries");
-//        lastselectedlayer_vector.push("tbl_division_master");
-//        //village_zoom();
-//    }
-//    else {
-//       // jQuery('#div_division').css('display', 'none');
-//        map.removeLayer(divisions);
-//        layerobject.pop(divisions);
-//        map.removeOverlay(divisions);
-//        lastselectedlayer.pop("tbl_division_master");
-//        lastselectedlayername.pop("SFD Division Boundaries");
-//        lastselectedlayer_vector.pop("tbl_division_master");
-//    }
-//}
-
-//var divisions = new ol.layer.Image({
-//    source: new ol.source.ImageWMS({
-//        ratio: 1,
-//        url: geoserver_ip,
-//        params: {
-//            'FORMAT': format,
-//            tiled: true,
-//            STYLES: '',
-//            layers: 'uk_sfd:tbl_division_master',
-//            transition: 0
-//        }, serverType: 'geoserver',
-//        crossOrigin: 'anonymous'
-
-//    })
-//});
-
-
-//function LandDetails(checkbox) {
-
-//    if (checkbox.checked) {
-//        jQuery('#div_LandDetails').css('display', 'block');
-//        map.addLayer(LandDetails_layer);
-//        layerobject.push(LandDetails_layer);
-//        map.addOverlay(LandDetails_layer);
-//        lastselectedlayer.push("tbl_plantation_area");
-//        lastselectedlayername.push("Land Details");
-//        lastselectedlayer_vector.push("tbl_plantation_area");
-//        //thailandvil_zoom();
-//    }
-//    else {
-//        jQuery('#div_LandDetails').css('display', 'none');
-//        map.removeLayer(LandDetails_layer);
-//        layerobject.pop(LandDetails_layer);
-//        map.removeOverlay(LandDetails_layer);
-//        lastselectedlayer.pop("tbl_plantation_area");
-//        lastselectedlayername.pop("Thailand Data");
-//        lastselectedlayer_vector.pop("tbl_plantation_area");
-//        // country_zoom();
-//    }
-//}
-//var LandDetails_layer = new ol.layer.Image({
-//    source: new ol.source.ImageWMS({
-//        ratio: 1,
-//        url: 'http://180.151.15.18:9007/geoserver/uk_sfd/wms?',
-//        params: {
-//            'FORMAT': format,
-//            tiled: true,
-//            STYLES: '',
-//            //layers: 'nrdc:view_farmer_details',
-//            //layers: 'nrdc:tbl_apple_land',
-//            layers: 'uk_sfd:tbl_plantation_area',
-//            transition: 0
-//        }
-//    })
-//});
-
-//function apple_plant(checkbox) {
-
-//    if (checkbox.checked) {
-//        jQuery('#div_apple_plant').css('display', 'block');
-//        map.addLayer(apple_plant_layer);
-//        layerobject.push(apple_plant_layer);
-//        map.addOverlay(apple_plant_layer);
-//        lastselectedlayer.push("tbl_apple_plant");
-//        lastselectedlayername.push("Apple Plants");
-//        lastselectedlayer_vector.push("thai_brm_20240402");
-//        thailandvil1_zoom();
-//    }
-//    else {
-//        jQuery('#div_apple_plant').css('display', 'none');
-//        map.removeLayer(apple_plant_layer);
-//        layerobject.pop(apple_plant_layer);
-//        map.removeOverlay(apple_plant_layer);
-//        lastselectedlayer.pop("tbl_apple_plant");
-//        lastselectedlayername.pop("Apple Plants");
-//        lastselectedlayer_vector.pop("thai_brm_20240402");
-//        country_zoom();
-//    }
-//}
-//var apple_plant_layer = new ol.layer.Image({
-//    source: new ol.source.ImageWMS({
-//        ratio: 1,
-//        url: geoserver_ip,
-//        params: {
-//            'FORMAT': format,
-//            tiled: true,
-//            STYLES: '',
-//            layers: 'thailand:thai_brm_20240402',
-//            transition: 0
-//        }
-//    })
-//});
-
-
-
-///////------------------------------------Layer Zoom----------------------------------------------
-
-
-//function country_zoom() {
-//    //map.getView().fit(countryExtents, map.getSize());
-//    //map.getView().setZoom(4);
-//    myView = new ol.View({
-//        center: ol.proj.transform([103.37, 14.38], "EPSG:4326", "EPSG:3857"), zoom: 6.2
-//    });
-//    map.setView(myView);
-//}
-
-//function state_zoom() {
-//    myView = new ol.View({
-//        center: ol.proj.transform([24.050785278571425, -2.135673349472742], "EPSG:4326", "EPSG:3857"), zoom: 5
-//    });
-//    map.setView(myView);
-//}
-
-//function district_zoom() {
-//    myView = new ol.View({
-//        center: ol.proj.transform([24.050785278571425, -2.135673349472742], "EPSG:4326", "EPSG:3857"), zoom: 5
-//    });
-//    map.setView(myView);
-//}
-
-//function tehsil_zoom() {
-//    myView = new ol.View({
-//        center: ol.proj.transform([24.050785278571425, -2.135673349472742], "EPSG:4326", "EPSG:3857"), zoom: 5
-//    });
-//    map.setView(myView);
-//}
-
-//function village_zoom() {
-//    myView = new ol.View({
-//        center: ol.proj.transform([24.050785278571425, -2.135673349472742], "EPSG:4326", "EPSG:3857"), zoom: 5
-//    });
-//    map.setView(myView);
-//}
-
-//function thailandvil_zoom() {
-//    myView = new ol.View({
-//        center: ol.proj.transform([103.385172, 18.228022], "EPSG:4326", "EPSG:3857"), zoom: 12.5
-//    });
-//    map.setView(myView);
-//}
-
-//function thailandvil1_zoom() {
-//    myView = new ol.View({
-//        center: ol.proj.transform([102.855172, 14.528022], "EPSG:4326", "EPSG:3857"), zoom: 13
-//    });
-//    map.setView(myView);
-//}
-
-//function LandDetails_zoom() {
-//    myView = new ol.View({
-//        center: ol.proj.transform([24.050785278571425, -2.135673349472742], "EPSG:4326", "EPSG:3857"), zoom: 5
-//    });
-//    map.setView(myView);
-//}
-
-//function CropGrowth_zoom() {
-//    myView = new ol.View({
-//        center: ol.proj.transform([24.050785278571425, -2.135673349472742], "EPSG:4326", "EPSG:3857"), zoom: 5
-//    });
-//    map.setView(myView);
-//}
-
-//function CropHealth_zoom() {
-//    myView = new ol.View({
-//        center: ol.proj.transform([24.050785278571425, -2.135673349472742], "EPSG:4326", "EPSG:3857"), zoom: 5
-//    });
-//    map.setView(myView);
-//}
-
-//function CropHarvesting_zoom() {
-//    myView = new ol.View({
-//        center: ol.proj.transform([24.050785278571425, -2.135673349472742], "EPSG:4326", "EPSG:3857"), zoom: 5
-//    });
-//    map.setView(myView);
-//}
-
-//function VegetationMoisture_zoom() {
-//    myView = new ol.View({
-//        center: ol.proj.transform([24.050785278571425, -2.135673349472742], "EPSG:4326", "EPSG:3857"), zoom: 5
-//    });
-//    map.setView(myView);
-//}
-
-//function NitrogenContent_zoom() {
-//    myView = new ol.View({
-//        center: ol.proj.transform([24.050785278571425, -2.135673349472742], "EPSG:4326", "EPSG:3857"), zoom: 5
-//    });
-//    map.setView(myView);
-//}
-
-//function SoilMoisture_zoom() {
-//    myView = new ol.View({
-//        center: ol.proj.transform([24.050785278571425, -2.135673349472742], "EPSG:4326", "EPSG:3857"), zoom: 5
-//    });
-//    map.setView(myView);
-//}
-
-//function CropHealthChange_zoom() {
-//    myView = new ol.View({
-//        center: ol.proj.transform([24.050785278571425, -2.135673349472742], "EPSG:4326", "EPSG:3857"), zoom: 5
-//    });
-//    map.setView(myView);
-//}
-
-//function CropGrowthChange_zoom() {
-//    myView = new ol.View({
-//        center: ol.proj.transform([24.050785278571425, -2.135673349472742], "EPSG:4326", "EPSG:3857"), zoom: 5
-//    });
-//    map.setView(myView);
-//}
-
-//function Weed_zoom() {
-//    myView = new ol.View({
-//        center: ol.proj.transform([24.050785278571425, -2.135673349472742], "EPSG:4326", "EPSG:3857"), zoom: 5
-//    });
-//    map.setView(myView);
-//}
-
-
-
-////************************************************************  top icon click    *******************************************
-
-//function reload() {
-//    location.reload();
-//}
-
-//function fit_to_map() {
-//    map.setView(
-//        new ol.View({
-//            center: ol.proj.fromLonLat([86.65087, 24.51577]),
-//            extent: map.getView().calculateExtent(map.getSize()),
-//            zoom: 8
-//        })
-//    );
-//}
-
-//function previous() {
-
-//    undoInteraction.undo();
-//}
-
-//function next() {
-
-//    undoInteraction.redo();
-//}
-
-//var checkpan = "0";
-//function selectpan() {
-//    jQuery('#pan').toggleClass('iconenable');
-//    if (checkpan == 0) {
-//        jQuery('#map').css('cursor', 'grabbing');
-//        checkpan = "1";
-//    }
-//    else if (checkpan == 1) {
-//        jQuery('#map').css('cursor', 'default');
-//        checkpan = "0";
-//    }
-//}
-
-////************************************************************  INFO    *******************************************
-//var infoselected = "0";
-//function setselectedinfo() {
-
-//    if (pdetailsselected == "0") {
-//        if (buffersselected == "0") {
-//            jQuery('#info').toggleClass('iconenable');
-//            if (infoselected == 0) {
-//                infoselected = "1";
-//                map.on('singleclick', featureInfo_2);
-//            } else {
-//                map.un('singleclick', featureInfo_2);
-//                infoselected = "0";
-//            }
-//        }
-//        else {
-
-//            alert("Buffer Area is already selected , first unselect after that click.")
-//        }
-//    }
-//    else {
-//        alert("Edit Property Details Control is already selected , first unselect after that click.")
-//    }
-//}
-//var rowWiseArray_1 = [];
-//var featureInfo_2 = function (evt) {
-
-//    if (infoselected == 1) {
-//        var _CustomObject = new ol.layer.Image();
-//        for (i = 0; i < lastselectedlayer.length; i++) {
-//            fetch_layername = lastselectedlayer[i];
-//            console.log(lastselectedlayer[i]);
-//            if (lastselectedlayer[i] == lastselectedlayer[i]) {
-//                var _CustomObject = new ol.layer.Image({
-//                    source: new ol.source.ImageWMS({
-//                        ratio: 1,
-//                        url: geoserver_ip,
-//                        serverType: 'geoserver',
-//                        crossOrigin: 'anonymous',
-//                        params: {
-//                            'FORMAT': format,
-//                            tiled: true,
-//                            STYLES: '',
-//                            LAYERS: 'nrdc:' + lastselectedlayer[i],
-//                            transition: 0,
-//                        }
-//                    })
-//                });
-//            }
-//        }
-//        var view = map.getView();
-//        var viewResolution = view.getResolution();
-//        var source;
-//        if (_CustomObject.get('visible')) {
-//            source = _CustomObject.getSource();
-//        } else {
-//        }
-//        try {
-//            var counter = document.getElementById('hidden1').value;
-//            console.log('counter=', counter);
-//            url = source.getGetFeatureInfoUrl(evt.coordinate, viewResolution, view.getProjection(), { 'INFO_FORMAT': 'text/html', 'FEATURE_COUNT': parseInt(counter) });
-//        } catch (e) {
-//        }
-//        if (url) {
-//            console.log(url);
-//            var _coordinate = evt.coordinate;
-//            overlay.setPosition(evt.coordinate);
-//            fetch(url)
-//                .then(response => response.text())
-//                .then(contents => showpopupinfo(contents, _coordinate, fetch_layername));
-//        }
-
-//    }
-//    else {
-//        var coord = ol.proj.toLonLat(evt.coordinate);
-//        var _coordinate = evt.coordinate;
-//    }
-//}
-//function capitalize_Words(str) {
-//    str = String(str);
-//    return str.replace(/(?:_| |\b)(\w)/g, function ($1) { return $1.toUpperCase().replace('_', ' '); });
-//}
-//function showpopupinfo(result, _coordinate, fetch_layername) {
-
-//    var globalCollectionArray = [];
-//    var headerColumns = [];
-//    jQuery(result).find('tr').each(function (indexno) {
-//        if (indexno == 0) {
-//            jQuery(this).find('th').each(function () {
-//                headerColumns.push(jQuery(this).text());
-//            });
-//        } else {
-//            var rowWiseArray = [];
-//            jQuery(this).find('td').each(function (index) {
-//                var headingstring = headerColumns[index];
-//                //if (!headingstring.includes('fid') && !headingstring.includes('id') && !headingstring.includes('dr')) {
-//                if (true) {
-//                    //CREATING JSON OBJECT
-//                    var CustomObject = { column: headerColumns[index], value: jQuery(this).text() };
-//                    rowWiseArray.push(CustomObject)
-//                }
-//            });
-//            globalCollectionArray.push({ row: rowWiseArray });
-//        }
-//    });
-//    var makeCustomHTML = '<div class=\'info-table-heading\'><span>' + lastselectedlayername[Number(lastselectedlayername.length) - 1] + '</span></div>';
-//    makeCustomHTML += ' <div style=\'overflow-y: auto; max-height: 250px;\'>';
-//    for (var i in globalCollectionArray) {
-//        makeCustomHTML += '<div class=\'layer-info-popup\'><table >';
-//        for (var j in globalCollectionArray[i].row) {
-//            var capt = capitalize_Words(globalCollectionArray[i].row[j].column);
-//            var val = capitalize_Words(globalCollectionArray[i].row[j].value)
-//            var re = /^[-+]?[0-9]+\.[0-9]+jQuery/;
-//            if (val.match(re)) {
-//                dval = parseFloat(val).toFixed(2);
-//                makeCustomHTML += '<tr><td class=\'tdpadding\' ><b>' + capt + '</b></td><td class=\'tdpadding\' > ' + dval + '</td></tr>';
-//            }
-//            else {
-//                makeCustomHTML += '<tr><td class=\'tdpadding\' ><b>' + capt + '</b></td><td class=\'tdpadding\' > ' + capitalize_Words(globalCollectionArray[i].row[j].value) + '</td></tr>';
-//            }
-//        }
-//        makeCustomHTML += '</table></div>';
-//    }
-//    makeCustomHTML += '</div>';
-//    if (Number(globalCollectionArray.length) > 0) {
-//        document.getElementById("infodiv").innerHTML = makeCustomHTML;
-//        overlay.setPosition(_coordinate);
-//        jQuery('#div').css({
-//            position: 'absolute',
-//            display: 'block'
-//        });
-
-//    } else {
-//        document.getElementById("infodiv").innerHTML = 'No record found ....';
-//        overlay.setPosition(_coordinate);
-//        jQuery('#div').css({
-//            position: 'absolute',
-//            display: 'block'
-//        });
-//    }
-//}
-//function closeclick() {
-//    jQuery('#div').css('display', 'none');
-//}
-////************************************************************  INFO END   *******************************************
-/////-------------------Layer Swipe Start---------------------------------------
-
-//function swipetool() {
-//    jQuery('#layerswipe').toggleClass('iconenable');
-//    if (jQuery('#swipediv').is(':visible')) {
-//        jQuery('#swipediv').hide();
-
-//    } else {
-//        jQuery('#swipediv').show();
-
-//    }
-
-//}
-
-
-
-/////-------------------Layer Swipe End---------------------------------------
-
-///////--------------------------------Attribute Update Start ------------------------------------------------///
-//var pdetailsselected = "0";
-//function personeldetailsinfo() {
-//    if (infoselected == "0") {
-//        if (buffersselected == "0") {
-//            jQuery('#pdetails').toggleClass('iconenable');
-//            if (pdetailsselected == 0) {
-//                pdetailsselected = "1";
-//                map.on('singleclick', featureInfo_3);
-//            } else {
-//                map.un('singleclick', featureInfo_3);
-//                pdetailsselected = "0";
-//            }
-//        }
-//        else {
-
-//            alert("Buffer Area is already selected , first unselect after that click.")
-//        }
-//    }
-//    else {
-
-//        alert("Information Control is already selected , first unselect after that click.")
-//    }
-
-//}
-//var coord_marker;
-//var pdetails_popups = function (evt) {
-
-//    var ltlg = ol.proj.toLonLat(evt.coordinate);
-//    var lon = (ltlg[0]).toFixed(5);
-//    var lat = (ltlg[1]).toFixed(5);
-//    document.getElementById('HiddenField1').value = lat;
-//    document.getElementById('HiddenField2').value = lon;
-
-
-//    coord_marker = evt.coordinate;
-
-//    var buildingstblnm = lastselectedlayer[lastselectedlayer.length - 1];
-//    // if (buildingstblnm == "village_boundary" ) {
-//    add_marker('add');
-//    document.getElementById('tblnam').value = buildingstblnm;
-//    jQuery('#myModal3').css('display', 'block');
-//    jQuery('#myModal3').css('opacity', '1');
-//    jQuery('#btnattribute').trigger('click');
-
-//    //}
-//    //else {
-//    //    document.getElementById('tblnam').value = "NA";
-//    //    jQuery('#myModal3').css('display', 'none');
-//    //    alert('First Check Polygon Layers after that click on map.')
-
-//    //}
-
-
-//}
-
-//function clg() {
-//    var mymodelpop = document.getElementById("myModal3");
-//    mymodelpop.css.display = "none";
-//    //jQuery('#myModal3').css('display', 'none');
-//    //add_marker('remove');
-//}
-
-
-//function add_marker(type) {
-
-//    const feature = new ol.Feature(new ol.geom.Point(coord_marker));
-//    var pinLayer = new ol.layer.Vector({
-//        source: new ol.source.Vector({
-//            features: [feature]
-//        }),
-//        style: new ol.style.Style({
-//            image: new ol.style.Icon({
-//                src: '..\images\marker.jpg'
-
-//            })
-//        })
-//    });
-
-//    if (type == 'add') {
-//        map.addLayer(pinLayer);
-//    }
-//    else {
-//        map.removeLayer(pinLayer);
-//        coord_marker = null;
-//    }
-//}
-////*************************************************** Attribute Update End *****************************************
-
-///////-------------------------------- Buffer Update Start------------------------------------------------///
-
-//var buffersselected = "0";
-//function bufferdetailsinfo() {
-//    if (infoselected == "0") {
-//        if (pdetailsselected == "0") {
-//            jQuery('#bdetails').toggleClass('iconenable');
-//            if (buffersselected == 0) {
-//                buffersselected = "1";
-//                map.on('singleclick', buffer_popups);
-//            } else {
-//                map.un('singleclick', buffer_popups);
-//                buffersselected = "0";
-//            }
-//        }
-//        else {
-//            alert("Edit Property Details Control is already selected , first unselect after that click.")
-//        }
-//    }
-//    else {
-
-//        alert("Information Control is already selected , first unselect after that click.")
-//    }
-
-//}
-//var buffer_popups = function (evt) {
-
-//    var ltlg = ol.proj.toLonLat(evt.coordinate);
-//    var lon = (ltlg[0]).toFixed(5);
-//    var lat = (ltlg[1]).toFixed(5);
-//    document.getElementById('txtlat1').value = lat;
-//    document.getElementById('txtlong1').value = lon;
-
-//    var buildingstblnm = lastselectedlayer[lastselectedlayer.length - 1];
-//    if (buildingstblnm == "village_boundary") {
-//        document.getElementById('tblnam_buffer').value = buildingstblnm;
-//        jQuery('#myModal4').css('display', 'block');
-//        jQuery('#myModal4').css('opacity', '1');
-
-//    }
-//    else {
-//        document.getElementById('tblnam_buffer').value = "NA";
-//        jQuery('#myModal4').css('display', 'none');
-//        alert('First Check Building Layers after that click on building.')
-
-//    }
-
-
-//}
-//function clg1() {
-//    jQuery('#myModal4').css('display', 'none');
-//}
-///////-------------------------------- Buffer Update Start------------------------------------------------///
-
-//////////////////////////////////////////// Download Polygon----------------------------------------------
-//var cord_buffer;
-//var download_ply = "0";
-//function download_ploygon() {
-//    if (download_ply == "0") {
-
-//        var numFeatures = vector.getSource().getFeatures().length;
-//        if (numFeatures != 0) {
-//            if (numFeatures == 1) {
-//                jQuery('#download').toggleClass('iconenable');
-//                jQuery('#myModal5').css('display', 'block');
-//                jQuery('#myModal5').css('opacity', '1');
-//                download_ply = "1";
-//                print_ploygon();
-//            } else {
-//                alert('Polygon is More one, Please only one Polygon at time')
-//            }
-//        }
-//        else {
-//            alert('First Create Polygon on Map')
-//        }
-//    }
-//    else {
-//        download_ply = "0";
-//        jQuery('#download').toggleClass('iconenable');
-//        jQuery('#myModal5').css('display', 'none');
-//        vector.getSource().clear()
-//    }
-//}
-
-//function clg2() {
-
-//    download_ply = "0";
-//    jQuery('#download').toggleClass('iconenable');
-//    jQuery('#myModal5').css('display', 'none');
-//    vector.getSource().clear()
-//    jQuery("#typeDrow").val("Select").change();
-//    // jQuery('#ImageButton1').hide();
-//    jQuery('#ImageButton2').hide();
-//}
-//function clg3() {
-
-//    vector.getSource().clear()
-//    jQuery("#typeDrow").val("Select").change();
-//    //jQuery('#ImageButton1').hide();
-//    jQuery('#ImageButton2').hide();
-//}
-//function clear_ploygon() {
-
-//    vector.getSource().clear()
-//}
-//function print_ploygon() {
-//    var cc;
-//    var features = vector.getSource().getFeatures();
-//    features.forEach(function (feature) {
-//        cc = feature.getGeometry().getCoordinates();
-//    });
-//    for (var i = 0; i < cc.length; i++) {
-//        var cube = cc[i];
-//        for (var j = 0; j < cube.length; j++) {
-//            if (Math.abs(cc[i][j][0]) > 180 || Math.abs(cc[i][j][1]) > 180) {
-//                var x = cc[i][j][0];
-//                var y = cc[i][j][1];
-//                x = (x * 180) / 20037508.34;
-//                y = (y * 180) / 20037508.34;
-//                y = (Math.atan(Math.pow(Math.E, y * (Math.PI / 180))) * 360) / Math.PI - 90;
-//                if (j == 0)
-//                    cord_buffer = x + ' ' + y;
-//                else
-//                    cord_buffer = cord_buffer + ',' + x + ' ' + y;;
-//            }
-//        }
-//    }
-//    document.getElementById('hdf_strlatlong').value = cord_buffer;
-//    //console.log(cord_buffer);
-//    //console.log(cc);
-//}
-
-
-
-////*************************************************** Paid, Un-Paid Filter Data *****************************************
-
-
-
-
-
-
-///////-------------------------Query Builder---------------------------------
-
-
-//var areasel = [];
-//var select = null;  // ref to currently selected interaction
-//var selectSingleClick = new ol.interaction.Select();
-//var selectClick = new ol.interaction.Select({
-//    condition: ol.events.condition.click
-//});
-//// select interaction working on "pointermove"
-//var selectPointerMove = new ol.interaction.Select({
-//    condition: ol.events.condition.pointerMove
-//});
-//var selectAltClick = new ol.interaction.Select({
-//    condition: function (mapBrowserEvent) {
-//        return ol.events.condition.click(mapBrowserEvent) &&
-//            ol.events.condition.altKeyOnly(mapBrowserEvent);
-//    }
-//});
-
-
-
-////*************************************************** map control End *****************************************
-////***********************************************************************  Query Builder ****************************************
-
-//var map, geojson, layer_name, layerSwitcher, featureOverlay;
-//var container, content, closer;
-
-
-//function addRowHandlers() {
-//    var table2 = jQuery('#table_data');
-//    var table = document.getElementById("table");
-//    var rows = table.getElementsByTagName("tr");
-//    //var rows = document.getElementById("table").rows;
-//    //var heads = table.getElementsByTagName('th');
-//    //var col_no;
-//    //for (var i = 0; i < heads.length; i++) {
-//    //    // Take each cell
-//    //    var head = heads[i];
-//    //    //alert(head.innerHTML);
-//    //    if (head.innerHTML == 'id') {
-//    //        col_no = i + 1;
-//    //        //alert(col_no);
-//    //    }
-//    //}
-//    //for (i = 0; i < rows.length; i++) {
-//    //    rows[i].onclick = function () {
-//    //        return function () {
-//    //            featureOverlay.getSource().clear();
-
-//    //            jQuery(function () {
-//    //                jQuery("#table td").each(function () {
-//    //                    jQuery(this).parent("tr").css("background-color", "white");
-//    //                });
-//    //            });
-//    //            var cell = this.cells[col_no - 1];
-//    //            var id = cell.innerHTML;
-//    //            jQuery(document).ready(function () {
-//    //                jQuery("#table td:nth-child(" + col_no + ")").each(function () {
-//    //                    if (jQuery(this).text() == id) {
-//    //                        jQuery(this).parent("tr").css("background-color", "grey");
-//    //                    }
-//    //                });
-//    //            });
-//    //            var features = geojson.getSource().getFeatures();
-//    //            //alert(features.length);
-//    //            for (i = 0; i < features.length; i++) {
-//    //                if (features[i].getId() == id) {
-//    //                    featureOverlay.getSource().addFeature(features[i]);
-//    //                    featureOverlay.getSource().on('addfeature', function () {
-//    //                        map.getView().fit(
-//    //                            featureOverlay.getSource().getExtent(),
-//    //                            {
-//    //                                duration: 1590,
-//    //                                size: map.getSize(),
-//    //                                zoom: 1
-//    //                            }
-//    //                        );
-//    //                    });
-//    //                }
-//    //            }
-//    //            //alert("id:" + id);
-//    //        };
-//    //    }(rows[i]);
-//    //}
-//}
-//function highlight(evt) {
-//    featureOverlay.getSource().clear();
-//    var feature = map.forEachFeatureAtPixel(evt.pixel,
-//        function (feature, layer) {
-//            return feature;
-//        });
-//    if (feature) {
-
-
-
-
-
-//        var geometry = feature.getGeometry();
-//        var coord = geometry.getCoordinates();
-//        var coordinate = evt.coordinate;
-//        jQuery(function () {
-//            jQuery("#table td").each(function () {
-//                jQuery(this).parent("tr").css("background-color", "white");
-//            });
-//        });
-
-
-
-
-//        featureOverlay.getSource().addFeature(feature);
-
-
-
-
-
-
-//    }
-//    var table = document.getElementById('table');
-//    var cells = table.getElementsByTagName('td');
-//    var rows = document.getElementById("table").rows;
-//    var heads = table.getElementsByTagName('th');
-//    var col_no;
-//    for (var i = 0; i < heads.length; i++) {
-//        // Take each cell
-//        var head = heads[i];
-//        //alert(head.innerHTML);
-//        if (head.innerHTML == 'id') {
-//            col_no = i + 1;
-//            //alert(col_no);
-//        }
-//    }
-//    var row_no = findRowNumber(col_no, feature.getId());
-//    //alert(row_no);
-//    var rows = document.querySelectorAll('#table tr');
-//    rows[row_no].scrollIntoView({
-//        behavior: 'smooth',
-//        block: 'center'
-//    });
-//    jQuery(document).ready(function () {
-//        jQuery("#table td:nth-child(" + col_no + ")").each(function () {
-//            if (jQuery(this).text() == feature.getId()) {
-//                jQuery(this).parent("tr").css("background-color", "grey");
-//            }
-//        });
-//    });
-//};
-
-
-////*********************************************************************** End  Query Builder ****************************************
-
-
-
-////************************************************************  top icon click End    *******************************************
-
-////**************************************  measure draw  *********************************
-
-//var source = new ol.source.Vector();
-//var styleFunction = function (feature) {
-//    var geometry = feature.getGeometry();
-//    var styles = [
-//        new ol.style.Style({
-//            stroke: new ol.style.Stroke({
-//                color: '#1d2be2',
-//                width: 2
-//            })
-//        })
-//    ];
-//    return styles;
-//};
-//var vector = new ol.layer.Vector({
-//    name: 'vectordraw',
-//    source: source,
-//    style: styleFunction
-//});
-//var coord = null;
-//var wgs84Sphere = new ol.Sphere(6378137);
-//var getlat = function (evt) {
-
-//    coord = evt.coordinate;
-//    w_latitute = latitute = coord[1];
-//    w_longitute = longitute = coord[0];
-//    var lt = document.getElementById('lt');
-//    lt.value = latitute;
-//    var lg = document.getElementById('lg');
-//    lg.value = longitute;
-//}
-//function typeDraw() {
-
-//    map.un('click', getlat);
-//    var value_measure = jQuery('#measure option:selected').val();
-//    var value_draw = jQuery('#typeDrow option:selected').val();
-//    if (value_measure == 'Select' && value_draw == 'Select') {
-//        jQuery('.UndoRedoCls').hide();
-//    } else {
-//        jQuery('.UndoRedoCls').show();
-//    }
-//    map.removeInteraction(draw);
-//    DrawaddInteraction();
-//}
-//function DrawaddInteraction() {
-
-//    var value_draw = jQuery('#typeDrow option:selected').val();
-//    if (value_draw !== 'None' && value_draw !== 'Select') {
-//        draw = new ol.interaction.Draw({
-//            source: source,
-//            type: /** @type {ol.geom.GeometryType} */ (value_draw)
-//        });
-//        map.addInteraction(draw);
-//        map.addLayer(vector);
-//    }
-//}
-//var draw;
-//function measureLine() {
-//    map.un('click', getlat);
-//    var typeSelect = document.getElementById('measure').value;
-//    var value_measure = jQuery('#measure option:selected').val();
-//    var value_draw = jQuery('#typeDrow option:selected').val();
-//    if (value_measure == 'Select' && value_draw == 'Select') {
-//        jQuery('.UndoRedoCls').hide();
-//    } else {
-//        jQuery('.UndoRedoCls').show();
-//    }
-//    map.removeInteraction(draw);
-//    addInteraction();
-//    map.on('pointermove', pointerMoveHandler);
-//    map.getViewport().addEventListener('mouseout', function () {
-//        helpTooltipElement.classList.add('hidden');
-//    });
-//}
-//var sketch;
-//var helpTooltip;
-//var measureTooltipElement;
-//var measureTooltip;
-//var continuePolygonMsg = 'Click to continue drawing the polygon';
-//var continueLineMsg = 'Click to continue drawing the line';
-//var pointerMoveHandler = function (evt) {
-//    if (evt.dragging) {
-//        return;
-//    }
-//    var helpMsg = 'Click to start drawing';
-//    if (sketch) {
-//        var geom = (sketch.getGeometry());
-//        if (geom instanceof ol.geom.Polygon) {
-//            helpMsg = continuePolygonMsg;
-//        } else if (geom instanceof ol.geom.LineString) {
-//            helpMsg = continueLineMsg;
-//        }
-//    }
-//};
-//var formatLength = function (line) {
-//    var length;
-//    if (true) {
-//        var coordinates = line.getCoordinates();
-//        length = 0;
-//        var sourceProj = map.getView().getProjection();
-//        for (var i = 0, ii = coordinates.length - 1; i < ii; ++i) {
-//            var c1 = ol.proj.transform(coordinates[i], sourceProj, 'EPSG:4326');
-//            var c2 = ol.proj.transform(coordinates[i + 1], sourceProj, 'EPSG:4326');
-//            length += wgs84Sphere.haversineDistance(c1, c2);
-//        }
-//    } else {
-//        length = Math.round(line.getLength() * 100) / 100;
-//    }
-//    var output;
-//    if (length > 100) {
-//        output = (Math.round(length / 1000 * 100) / 100) +
-//            ' ' + 'km';
-//    } else {
-//        output = (Math.round(length * 100) / 100) +
-//            ' ' + 'm';
-//    }
-//    return output;
-//};
-//var formatArea = function (polygon) {
-//    var area;
-//    if (true) {
-//        var sourceProj = map.getView().getProjection();
-//        var geom = /** @type {ol.geom.Polygon} */(polygon.clone().transform(
-//            sourceProj, 'EPSG:4326'));
-//        var coordinates = geom.getLinearRing(0).getCoordinates();
-//        area = Math.abs(wgs84Sphere.geodesicArea(coordinates));
-//    } else {
-//        area = polygon.getArea();
-//    }
-//    var output;
-//    if (area > 10000) {
-//        output = (Math.round(area / 1000000 * 100) / 100) +
-//            ' ' + 'km<sup>2</sup>';
-//    } else {
-//        output = (Math.round(area * 100) / 100) +
-//            ' ' + 'm<sup>2</sup>';
-//    }
-//    return output;
-//};
-//function addInteraction() {
-
-//    var value_measure = jQuery('#measure option:selected').val();
-//    if (value_measure != 'Select') {
-//        var type = (value_measure == 'area' ? 'Polygon' : 'LineString');
-//        draw = new ol.interaction.Draw({
-//            source: source,
-//            type: /** @type {ol.geom.GeometryType} */ (type),
-//            style: new ol.style.Style({
-//                fill: new ol.style.Fill({
-//                    color: 'rgba(255, 255, 255, 0.2)'
-//                }),
-//                stroke: new ol.style.Stroke({
-//                    color: '#e21d1d',//'rgba(0, 0, 0, 0.5)',
-//                    lineDash: [10, 10],
-//                    width: 2
-//                }),
-//                image: new ol.style.Circle({
-//                    radius: 5,
-//                    stroke: new ol.style.Stroke({
-//                        color: 'rgba(0, 0, 0, 0.7)'
-//                    }),
-//                    fill: new ol.style.Fill({
-//                        color: 'rgba(255, 255, 255, 0.2)'
-//                    })
-//                })
-//            })
-//        });
-//        map.addInteraction(draw);
-//        createMeasureTooltip();
-//        createHelpTooltip();
-//        var listener;
-//        draw.on('drawstart',
-//            function (evt) {
-//                sketch = evt.feature;
-//                var tooltipCoord = evt.coordinate;
-//                listener = sketch.getGeometry().on('change', function (evt) {
-//                    var geom = evt.target;
-//                    var output;
-//                    if (geom instanceof ol.geom.Polygon) {
-//                        output = formatArea(geom);
-//                        tooltipCoord = geom.getInteriorPoint().getCoordinates();
-//                    } else if (geom instanceof ol.geom.LineString) {
-//                        output = formatLength(geom);
-//                        tooltipCoord = geom.getLastCoordinate();
-//                    }
-//                    measureTooltipElement.innerHTML = output;
-//                    measureTooltip.setPosition(tooltipCoord);
-//                });
-//            }, this);
-//        draw.on('drawend',
-//            function () {
-//                measureTooltipElement.className = 'tooltip tooltip-static';
-//                measureTooltip.setOffset([0, -7]);
-//                sketch = null;
-//                measureTooltipElement = null;
-//                createMeasureTooltip();
-//                ol.Observable.unByKey(listener);
-//            }, this);
-//    }
-//}
-//var helpTooltipElement;
-//function createHelpTooltip() {
-//    if (helpTooltipElement) {
-//        helpTooltipElement.parentNode.removeChild(helpTooltipElement);
-//    }
-//    helpTooltipElement = document.createElement('div');
-//    helpTooltipElement.className = 'tooltip hidden';
-//    helpTooltip = new ol.Overlay({
-//        element: helpTooltipElement,
-//        offset: [15, 0],
-//        positioning: 'center-left'
-//    });
-//    map.addOverlay(helpTooltip);
-//}
-//function createMeasureTooltip() {
-//    if (measureTooltipElement) {
-//        measureTooltipElement.parentNode.removeChild(measureTooltipElement);
-//    }
-//    measureTooltipElement = document.createElement('div');
-//    measureTooltipElement.className = 'tooltip tooltip-measure';
-//    measureTooltip = new ol.Overlay({
-//        element: measureTooltipElement,
-//        offset: [0, -15],
-//        positioning: 'bottom-center'
-//    });
-//    map.addOverlay(measureTooltip);
-//    map.addLayer(vector);
-//}
-////var undoInteraction = new ol.interaction.UndoRedo();
-////var mapExtents = map.getView().calculateExtent(map.getSize());
-
-////map.addInteraction(undoInteraction);
-////undoInteraction.on('undo', function (e) {
-////    if (e.action.type === 'addfeature') {
-////        jQuery('.ol-overlay-container').find('.tooltip-static').hide();
-////    }
-////});
-////undoInteraction.on('redo', function (e) {
-
-////    if (e.action.type === 'addfeature') {
-////        jQuery('.ol-overlay-container').find('.tooltip-static').show();
-////    }
-////});
-
-
-
-
-////**************************************  measure draw  End *********************************
-
-
-
-////*********************************************  table div show hide & export Table   *****************************************
-
-//var sohideselected = "0";
-//var div = document.getElementById('table_data');
-//var imgids = document.getElementById('shimg');
-//function showhide() {
-//    jQuery('#button').toggleClass('showhideheight');
-
-//    if (sohideselected == 0) {
-//        div.style.display = 'none';
-//        imgids.style.transform = 'rotate(-90deg)';
-//        sohideselected = "1";
-
-//    } else {
-//        div.style.display = 'block';
-//        imgids.style.transform = 'rotate(90deg)';
-//        sohideselected = "0";
-//    }
-//}
-
-
-
-//var pfiltersohideselected = "0";
-//var div2 = document.getElementById('griddiv');
-//var imgids2 = document.getElementById('shimg2');
-//function fshowhide() {
-//    jQuery('#pfilterbutton').toggleClass('showhideheight');
-
-//    if (pfiltersohideselected == 0) {
-//        div2.style.display = 'none';
-//        imgids2.style.transform = 'rotate(-90deg)';
-//        pfiltersohideselected = "1";
-
-//    } else {
-//        div2.style.display = 'block';
-//        imgids2.style.transform = 'rotate(90deg)';
-//        pfiltersohideselected = "0";
-//    }
-//}
-
-
-
-/////------------------------------------------- Query Builder-----------------------------------
-
-//var url;
-//function popQueruyBuilder() {
-
-//    var itm = document.getElementById("QueryBuilderpop");
-//    itm.classList.toggle("popdisplay");
-//}
-//function hidequeryBuilder() {
-//    document.getElementById("QueryBuilderpop").classList.remove("popdisplay");
-//    document.getElementById("QueryBuilderpop").removeAttribute("style");
-//    document.getElementById("queryTableid").style.display = "none";
-//    document.getElementById("btntoggle").style.display = "none";
-//    map.removeOverlay(cad_data11);
-//    map.removeLayer(cad_data11);
-
-//}
-//function clearControl() {
-//    document.getElementById("queryTableid").style.display = "none";
-//    document.getElementById("btntoggle").style.display = "none";
-
-//    map.removeOverlay(cad_data11);
-//    map.removeLayer(cad_data11);
-//    let exp = document.getElementById("btnexport");
-//    exp.setAttribute("style", "display:none")
-//}
-
-
-//function funQueryData() {
-//    var ele = document.getElementById("queryTableid");
-//    var elebtn = document.getElementById("btntoggle");
-//    ele.classList.toggle("queryTabledisplay");
-//    elebtn.classList.toggle("queryTable1toggle");
-
-//}
-//var newSelectedParcelInfo;
-//var operator;
-//var val;
-//var lbl;
-
-
-
-
-//jQuery(document).ready(function () {
-//    function getColumnIndex(headerName) {
-//        var index = -1;
-//        jQuery('#queryData tbody tr').first().find('th, td').each(function (i) {
-//            if (jQuery(this).text() === headerName) {
-//                index = i;
-//            }
-//        });
-//        return index;
-//    }
-//    var kidColumnIndex = getColumnIndex('kid');
-//    jQuery('#queryData tbody').on('click', 'tr', function () {
-//        jQuery('tr').removeClass('filterselectedrow');
-//        jQuery(this).addClass('filterselectedrow');
-//        var $row = jQuery(this);
-//        var kid = $row.find('td').eq(kidColumnIndex).text();
-
-
-//        map.removeLayer(newSelectedParcelInfo);
-//        map.removeOverlay(newSelectedParcelInfo);
-//        newSelectedParcelInfo = new ol.layer.Image({
-//            source: new ol.source.ImageWMS({
-//                ratio: 1,
-//                url: geoserver_ip,
-//                params: {
-//                    'FORMAT': format,
-//                    tiled: true,
-//                    STYLES: '',
-//                    LAYERS: 'nrdc:cadastral_deoghar_parcel_boundary',
-//                    CQL_FILTER: 'id=' + "\'" + kid + "\'",
-//                    transition: 0
-//                }
-
-//            })
-//        });
-
-
-//        map.addLayer(newSelectedParcelInfo);
-//        map.addOverlay(newSelectedParcelInfo);
-
-//    });
-//});
-
-////update parcel start ==================================================================================================================================
-//var editselected = 1;
-
-//function updateParceldata() {
-//    if (jQuery('#updatedata').hasClass('i_select') && editselected == 1) {
-//        editselected = 0;
-//        map.on('singleclick', featureInfo_3);
-//        // map.on('pointermove', featureInfo_1);
-//        map.on('click', getlat);
-//        // jQuery('#infoli').removeClass('i_select').find('img').attr('src', 'images/prop5.png');
-//        jQuery('#updatedata').removeClass('i_select').find('img').css({ opacity: 1 });
-
-//        map.on('click', getlat);
-
-//    } else {
-//        map.on('singleclick', featureInfo_3);
-//        //map.un('pointermove', featureInfo_1);
-//        map.un('click', getlat);
-//        editselected = 1;
-//        //jQuery('#infoli').addClass('i_select').find('img').attr('src', 'images/prop5-1.png');
-//        jQuery('#updatedata').addClass('i_select').find('img').css({ opacity: 0.5 });
-
-//        map.un('click', getlat);
-//    }
-//}
-//var featureInfo_3 = function (evt) {
-//    var ltlg = ol.proj.toLonLat(evt.coordinate);
-//    var lon = (ltlg[0]).toFixed(5);
-//    var lat = (ltlg[1]).toFixed(5);
-//    document.getElementById('HiddenField1').value = lat;
-//    document.getElementById('HiddenField2').value = lon;
-
-
-//    coord_marker = evt.coordinate;
-
-//    var buildingstblnm = lastselectedlayer[lastselectedlayer.length - 1];
-//    if (buildingstblnm != "") {
-//        add_marker('add');
-//        document.getElementById('tblnam').value = buildingstblnm;
-//        jQuery('#myModal3').css('display', 'block');
-//        jQuery('#myModal3').css('opacity', '1');
-//        jQuery('#btnattribute').trigger('click');
-
-//    }
-//    else {
-//        document.getElementById('tblnam').value = "NA";
-//        jQuery('#myModal3').css('display', 'none');
-//        alert('First Check Polygon Layers after that click on map.')
-
-//    }
-
-//    if (editselected == 1) {
-
-//        var _CustomObject = new ol.layer.Image();
-//        var number_array = Number(lastselectedlayer.length);
-//        for (i = 0; i < lastselectedlayer.length; i++) {
-//            fetch_layername = lastselectedlayer[i];
-//            var _CustomObject = new ol.layer.Image({
-
-//                source: new ol.source.ImageWMS({
-//                    ratio: 1,
-//                    url: geoserver_ip,
-//                    params: {
-//                        'FORMAT': format,
-//                        tiled: true,
-//                        STYLES: '',
-//                        LAYERS: 'nrdc:' + lastselectedlayer[i],
-//                        transition: 0,
-
-//                    }
-//                })
-//            });
-
-
-//        }
-
-//        var view = map.getView();
-//        var viewResolution = view.getResolution();
-
-//        var source;
-//        if (_CustomObject.get('visible')) {
-//            source = _CustomObject.getSource();
-//        } else {
-//        }
-//        try {
-
-//            url = source.getGetFeatureInfoUrl(evt.coordinate, viewResolution, view.getProjection(), { 'INFO_FORMAT': 'text/html', 'FEATURE_COUNT': 500 });
-//        } catch (e) {
-
-//        }
-
-//        if (url) {
-
-//            var _coordinate = evt.coordinate;
-//            contentEdit.innerHTML = "<div class=\'loader\'><img style='height:100px;width:100px' src='../images/loader1.gif'></img><span style='text-align:center;font-size:15px;padding-left:5px'>Please Wait...</span></div";
-
-//            overlay.setPosition(evt.coordinate);
-
-//            console.log(url);
-//            fetch(url) // https://cors-anywhere.herokuapp.com/https://example.com
-//                .then(response => response.text())
-//                .then(contents => showpopupinfo_1(contents, _coordinate, fetch_layername))
-
-//            var coord = ol.proj.toLonLat(evt.coordinate);
-//            var lon = (coord[0]).toFixed(2);
-//            var lat = (coord[1]).toFixed(2);
-
-//            coord1 = lon + ',' + lat;
-
-//        }
-//    }
-
-//}
-//var newSelectedParcel;
-//function showpopupinfo_1(result, _coordinate, fetch_layername) {
-//    var infoDt = document.getElementById("infoDt");
-//    if (lastselectedlayer.length < 1) {
-//        alert("Initial layer not selected");
-//    }
-
-
-
-//    var globalCollectionArray = [];
-//    var headerColumns = [];
-//    var dtm = infoDt.innerHTML;
-//    var dtmm = dtm.split(" ");
-
-//    var arr1 = dtmm[0].split("-");
-//    var fina = arr1[0] + '/' + arr1[1] + '/' + arr1[2] + ' ' + dtmm[1] + ' ' + dtmm[2];
-//    //var fina = dtmm[0].replaceAll("-","/")+' '+dtmm[1]+' '+dtmm[2];
-//    //var fina = dtmm[0].substring(1)+'/'+dtmm[1].substring(1)+'/'+dtmm[2].substring(2) +" 12:00 Am";
-//    //var fina = infoDt.innerHTML;;
-
-//    //var parcelid = document.getElementById('parcelid');
-//    jQuery(result).find('tr').each(function (indexno) {
-
-//        if (indexno == 0) {
-
-//            jQuery(this).find('th').each(function () {
-//                headerColumns.push(jQuery(this).text());
-//            });
-
-//        } else {
-
-//            var rowWiseArray = [];
-
-
-//            jQuery(this).find('td').each(function (index) {
-
-//                var headingstring = headerColumns[index];
-
-//                //parcelid.innerHTML = headingstring.id;
-//                if (!headingstring.includes('fid')) {
-
-//                    var CustomObject = { column: headerColumns[index], value: jQuery(this).text() };
-//                    rowWiseArray.push(CustomObject)
-//                }
-//            });
-
-//            globalCollectionArray.push({ row: rowWiseArray });
-//        }
-
-//    });
-
-
-
-
-//    var makeCustomHTML = '<div class=\'edit-table-heading\' style="background-color: #113d6a;color:#ffffff;text-align: center;"><span>' + fetch_layername + '</span></div>';
-//    makeCustomHTML += ' <div style=\'overflow-y: auto; max-height: 200px;\'>';
-
-//    for (var i in globalCollectionArray) {
-
-//        makeCustomHTML += '<div class=\'layer-edit-popup\'><table id=\'tbleditable\'>';
-
-//        for (var j in globalCollectionArray[i].row) {
-
-//            var capt = (globalCollectionArray[i].row[j].column);
-//            var setid = capt;
-//            var val = (globalCollectionArray[i].row[j].value)
-
-
-//            var re = /^[-+]?[0-9]+\.[0-9]+$/;
-//            if (val.match(re)) {
-
-//                dval = parseFloat(val).toFixed(2);
-
-
-//                if (fetch_layername != 'Rainfall Catchment') {
-
-//                    makeCustomHTML += '<tr><td class=\'tdpadding\' ><b>' + capt + '</b></td><td class=\'tdpadding\' >&nbsp&nbsp:&nbsp&nbsp</td><td class=\'tdpadding\' > ' + dval + '</td></tr>';
-
-
-//                }
-//                else {
-
-//                    if (val === fina) {
-
-//                        makeCustomHTML += '<tr><td class=\'tdpadding\' ><b>Date</b></td><td class=\'tdpadding\' >&nbsp&nbsp:&nbsp&nbsp</td><td class=\'tdpadding\' > ' + dval + '</td></tr>';
-//                        makeCustomHTML += '<tr><td class=\'tdpadding\' ><b>Name</b></td><td class=\'tdpadding\' >&nbsp&nbsp:&nbsp&nbsp</td><td class=\'tdpadding\' > ' + dval + '</td></tr>';
-//                        makeCustomHTML += '<tr><td class=\'tdpadding\' ><b>Value(mm)</b></td><td class=\'tdpadding\' >&nbsp&nbsp:&nbsp&nbsp</td><td class=\'tdpadding\' > ' + dval + '</td></tr>'
-
-//                    }
-//                }
-//            }
-//            else {
-//                if (fetch_layername != 'Rainfall Catchment') {
-//                    if (capt == "kid") {
-//                        makeCustomHTML += '<tr><td class=\'tdpadding\'><b>' + capt + '</b></td><td class=\'tdpadding\' >&nbsp&nbsp:&nbsp&nbsp</td><td class=\'\' id=\'selectedParcelId\'> ' + (globalCollectionArray[i].row[j].value) + '</td></tr>';
-//                    } else {
-//                        makeCustomHTML += '<tr><td class=\'tdpadding\' ><b>' + capt + '</b></td><td class=\'tdpadding\' >&nbsp&nbsp:&nbsp&nbsp</td><td class=\'editable\' id=\'' + setid + '\'> ' + (globalCollectionArray[i].row[j].value) + '</td></tr>';
-//                    }
-
-
-//                }
-//                else {
-
-//                    if (val === fina) {
-
-
-//                        makeCustomHTML += '<tr><td class=\'tdpadding\' ><b>Date</b></td><td class=\'tdpadding\' >&nbsp&nbsp:&nbsp&nbsp</td><td class=\'tdpadding\' > ' + (globalCollectionArray[i].row[0].value) + '</td></tr>';
-//                        makeCustomHTML += '<tr><td class=\'tdpadding\' ><b>Name</b></td><td class=\'tdpadding\' >&nbsp&nbsp:&nbsp&nbsp</td><td class=\'tdpadding\' > ' + (globalCollectionArray[i].row[1].value) + '</td></tr>';
-//                        makeCustomHTML += '<tr><td class=\'tdpadding\' ><b>Value(mm)</b></td><td class=\'tdpadding\' >&nbsp&nbsp:&nbsp&nbsp</td><td class=\'tdpadding\' > ' + (globalCollectionArray[i].row[2].value) + '</td></tr>';
-//                        //break;
-
-
-//                    }
-//                }
-//            }
-//        }
-
-//        makeCustomHTML += '</table></div>';
-//    }
-
-//    makeCustomHTML += '</div>';
-//    var selectedParcelId;
-//    let idValue;
-
-
-//    if (Number(globalCollectionArray.length) > 0) {
-//        $("#myModel3").css("display", "block");
-
-//        contentEdit.innerHTML = makeCustomHTML;
-
-//        // contentEdit.innerHTML = "Data for update";
-//        overlay.setPosition(_coordinate);
-//        let latitute = _coordinate[1];
-//        let longitute = _coordinate[0];
-//        //document.getElementById('hf_letForCenter').Value = latitute;
-//        //document.getElementById('hf_longForCenter').Value = longitute;
-//        document.getElementById('txtlt').value = _coordinate[1];
-//        document.getElementById('txtlg').value = _coordinate[0];
-
-//        //var cityextent = [86.632800, 24.503953, 86.668452, 24.527984];
-//        //var cityextent = [longitute - 0.001101234, latitute - 0.001101234, longitute + 0.001101234, latitute + 0.001101234];
-//        // map.getView().fit(cityextent, map.getSize());
-
-//        selectedParcelId = document.getElementById('selectedParcelId');
-//        idValue = document.getElementById("parcelid");
-//        if (selectedParcelId.innerHTML == "") {
-//            idValue.value = "0";
-//        } else {
-
-//            idValue.value = selectedParcelId.innerHTML;
-//            document.getElementById("parcelidforupdate").value = idValue.value;
-//            document.getElementById("parcelidlayer").value = fetch_layername;
-
-//            console.log(document.getElementById("parcelidforupdate").value);
-//        }
-
-//        //var txt = document.getElementById("btnTest");
-//        //txt.click();
-
-
-
-//        map.removeLayer(newSelectedParcel);
-//        map.removeOverlay(newSelectedParcel);
-
-//        newSelectedParcel = new ol.layer.Image({
-//            source: new ol.source.ImageWMS({
-//                ratio: 1,
-//                url: geoserver_ip,
-//                params: {
-//                    crossOrigin: 'anonymous',
-//                    'FORMAT': format,
-//                    tiled: true,
-//                    STYLES: '',
-//                    LAYERS: 'nrdc:cadastral_deoghar_parcel_boundary',
-//                    CQL_FILTER: 'id=' + "\'" + idValue.value + "\'",
-//                    transition: 0
-//                }
-
-//            })
-//        });
-
-
-//        // if (flag != idValue.value) {
-//        map.addLayer(newSelectedParcel);
-//        map.addOverlay(newSelectedParcel);
-
-
-
-//        // }
-
-
-
-
-
-//    }
-//}
-////update parcel end
-
-
-////document.getElementById('convertBtn').addEventListener('click', function (event) {
-////    // Get all table cells with the class 'editable'
-////    event.preventDefault();
-////    var cells = document.querySelectorAll('#tbleditable .editable');
-
-////    // Iterate through each cell
-////    cells.forEach(function (cell) {
-////        // Check if the cell already contains an input to avoid duplication
-////        if (cell.querySelector('input') === null) {
-////            // Create a new input field
-////            var input = document.createElement('input');
-////            input.type = 'text'; // You can adjust the input type if needed
-////            input.value = cell.innerHTML; // Set the initial value of the input field
-
-////            // Set the ID and runat="server" attribute
-////            input.id = cell.id; // Use a sanitized version of the label text as the ID
-////            input.setAttribute('runat', 'server'); // Add runat="server" attribute
-
-////            // Clear the cell and append the new input field
-////            cell.removeAttribute('id');
-////            cell.innerHTML = '';
-////            cell.appendChild(input);
-////        }
-////    });
-////});
-
-
-///*===========================================AOI Bind============================================*/
-
-
-//var geoServerURL = "http://180.151.15.18:9007/geoserver/thailand/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=thailand:" + lastselectedlayer[Number(lastselectedlayer.length) - 1] + "&outputFormat=application/json";
-//console.log(geoServerURL);
-//var vectorSource = new ol.source.Vector({
-//    url: geoServerURL, // Fetch GeoJSON from GeoServer
-//    format: new ol.format.GeoJSON()
-//});
-//var style_vector = new ol.style.Style({
-//    fill: new ol.style.Fill({
-//        color: 'black'
-//    })
-//});
+var checkrunningtime = 0;
 
 var style_raster = new ol.style.Style({
     fill: new ol.style.Fill({
         color: [0, 0, 0, 1]
     })
 });
-//var cliplayer = new ol.layer.Image({
-//    source: new ol.source.ImageVector({
-//        source: vectorSource,
-//        style: style_vector
-//    })
-//});
 
 var sentinel_layer;
 function callsentinel() {
@@ -2290,12 +35,12 @@ function callsentinel() {
         var dt2 = document.getElementById("dual-range2").value;
         date = dt2;
     }
-     sentinel_layer = new ol.layer.Tile({
+    sentinel_layer = new ol.layer.Tile({
         source: new ol.source.TileWMS({
-            url: "https://services.sentinel-hub.com/ogc/wms/13d5aaea-1d0e-4581-9288-a463ce586119",
+            url: "https://services.sentinel-hub.com/ogc/wms/" + sentinel2fcckey,
             //url: "https://services.sentinel-hub.com/ogc/wms/9b4d93bf-b7e5-4588-9394-cf70951aed63",
-            params: { "maxcc": 85, "minZoom": 6, "maxZoom": 16, "preset": "2_FALSE_COLOR", "layers": "2_FALSE_COLOR", "time": date },
-            //params: { "maxcc": 85, "minupdateDualLayer(2, this.value)Zoom": 6, "maxZoom": 16, "preset": "2_FALSE_COLOR", "layers": "2_FALSE_COLOR" ,"time":'2024-09-27/2024-12-10' },
+            params: { "maxcc": 85, "minZoom": 6, "maxZoom": 16, "preset": "CLOUDFREEFALSECOLOR", "layers": "CLOUDFREEFALSECOLOR", "time": date },
+
             serverType: 'geoserver',
             crossOrigin: 'anonymous',
             transition: 0
@@ -2305,15 +50,15 @@ function callsentinel() {
 }
 
 function createGeoServerLayer(lastselectedlayer, filter) {
-    // Construct GeoServer URL
-    //console.log(lastselectedlayer);
+    //alert("called createGeoServerLayer");
     var geoServerURL = null;
-    if (filter == null) {
-        geoServerURL = "http://180.151.15.18:9007/geoserver/uk_sfd/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=uk_sfd:" + lastselectedlayer + "&outputFormat=application/json";
+    //filter = "beat ILIKE 'Kimoli'";
+    if (filter == null || filter == "") {
+        geoServerURL = "https://ukforestgis.in/geoserver/uk_sfd/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=uk_sfd:" + lastselectedlayer + "&outputFormat=application/json";
     }
     else {
-        geoServerURL = "http://180.151.15.18:9007/geoserver/uk_sfd/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=uk_sfd:" + lastselectedlayer + "&outputFormat=application/json&CQL_FILTER=" + filter;
-        console.log(geoServerURL);
+        geoServerURL = "https://ukforestgis.in/geoserver/uk_sfd/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=uk_sfd:" + lastselectedlayer + "&outputFormat=application/json&CQL_FILTER=" + filter;
+        // console.log(geoServerURL);
     }
 
     var vectorSource = new ol.source.Vector({
@@ -2328,1879 +73,87 @@ function createGeoServerLayer(lastselectedlayer, filter) {
     });
 
 
-    var cliplayer = new ol.layer.Image({
+    cliplayer = new ol.layer.Image({
         source: new ol.source.ImageVector({
             source: vectorSource,
             style: style_vector
         })
     });
+    vectorSource.once('change', function (e) {
+        const state = vectorSource.getState();
+        console.log("Vector source state:", state);
 
-    //var cliplayer = new ol.layer.Vector({
-    //    source: new ol.source.Vector({
-    //        source: vectorSource,
-    //        // style: style_vector,
-    //        zIndex: 1000 // always on top
-    //    }),
-        
-    //});
+        if (state === 'ready') {
+            const features = vectorSource.getFeatures();
+            console.log("Features loaded:", features.length);
+
+            if (features.length === 0) {
+                alert("No features loaded from GeoServer.");
+                return;
+            }
+
+            features.forEach(feature => {
+                const geometry = feature.getGeometry();
+                const type = geometry.getType();
+                let rawCoords = geometry.getCoordinates();
+                let transformedCoords = [];
+
+                if (type === 'Polygon') {
+                    rawCoords[0].forEach(coord => {
+                        const [lon, lat] = ol.proj.transform(coord, 'EPSG:3857', 'EPSG:4326');
+                        transformedCoords.push([+lon.toFixed(14), +lat.toFixed(14)]);
+                    });
+                } else if (type === 'MultiPolygon') {
+                    rawCoords.forEach(polygon => {
+                        polygon[0].forEach(coord => {
+                            const [lon, lat] = ol.proj.transform(coord, 'EPSG:3857', 'EPSG:4326');
+                            transformedCoords.push([+lon.toFixed(14), +lat.toFixed(14)]);
+                        });
+                    });
+                }
+
+                const prettyCoords = transformedCoords.map(c => `[${c[0]}, ${c[1]}]`).join(',\n');
+                //console.log("---------------------------------------------------------------------------");
+                //console.log(transformedCoords);
+                const startDate = "2022-01-01";
+                const endDate = "2025-09-15";
+                // You can call your function here
+                fetchNdviForPolygon(startDate, endDate, transformedCoords);
+            });
+        } else {
+            alert("Vector source failed to load or is not ready. State: " + state);
+        }
+    });
+
+
+
+
 
     return cliplayer;
 }
 
+var dragPan;
 
-///*================================Crop Growth Calculation (LAI)==============================*/
 
-///*==========Ortho Image NDVI =======*/
-//var CropGrowth_layer = new ol.layer.Image({
-//    source: new ol.source.ImageWMS({
-//        ratio: 1,
-//        url: geoserver_ip,
-//        params: {
-//            'FORMAT': format,
-//            tiled: true,
-//            STYLES: '',
-//            //layers: 'nrdc:Apple_NDVI',
-//            layers: 'nrdc:Crop_Growth',
-//            transition: 0,
-//            time: time_range
-
-//        }
-//    })
-//});
-
-///*===========Sentinel NDVI======*/
-
-var LAILayer;
-function callLai() {
-
-
-    var enableNDVI = document.getElementById("ndvi-toggle").checked;
-
-    if (enableNDVI) {
-        const ndviRaster = new ol.source.Raster({
-            sources: [sentinelSource],
-            operation: function (pixels) {
-                const pixel = pixels[0];
-                const nir = pixel[0] / 255;
-                const red = pixel[1] / 255;
-                const ndvi = (nir - red) / (nir + red);
-                if (ndvi >= 0.67) return [20, 90, 33, 255];
-                else if (ndvi >= 0.46) return [50, 255, 90, 255];
-                else if (ndvi >= 0.30) return [221, 137, 50, 255];
-                else return [255, 0, 0, 255];
-            }
-        });
-        return new ol.layer.Image({ source: ndviRaster });
-    } else {
-        return new ol.layer.Tile({ source: sentinelSource });
-    }
-
-
-
-
-
-
-    //var LAI_raster = new ol.source.Raster({
-    //    sources: [sentinel_layer.getSource()],
-    //    style: style_raster,
-    //    operation: function (pixels, data) {
-    //        var pixel = pixels[0];
-    //        var value = sentinel_lai(pixel);
-    //        //  summarize(value, data.counts);
-
-    //        //if (ndvi >= 0.67) return [20, 90, 33, 255];
-    //        //else if (ndvi >= 0.46) return [50, 255, 90, 255];
-    //        //else if (ndvi >= 0.30) return [221, 137, 50, 255];
-    //        if (value <= 0.2599) {
-    //            pixel[0] = 221;
-    //            pixel[1] = 221;
-    //            pixel[2] = 221;
-    //            pixel[3] = 255;
-    //        }
-
-    //        else if (value >= 0.26 && value <= 0.4999) { //pre
-    //            pixel[0] = 254;
-    //            pixel[1] = 227;
-    //            pixel[2] = 80;
-    //            pixel[3] = 255;
-    //        }
-
-    //        else if (value >= 0.50 && value <= 1.5999) { //eme
-    //            pixel[0] = 223;
-    //            pixel[1] = 254;
-    //            pixel[2] = 177;
-    //            pixel[3] = 255;
-    //        }
-    //        else if (value >= 1.60 && value <= 3.999) { //vege
-    //            pixel[0] = 53;
-    //            pixel[1] = 254;
-    //            pixel[2] = 104;
-    //            pixel[3] = 255;
-    //        }
-    //        else if (value >= 4.0) { //repro
-    //            pixel[0] = 22;
-    //            pixel[1] = 191;
-    //            pixel[2] = 30;
-    //            pixel[3] = 255;
-    //        } else {
-    //            pixel[3] = 0;
-    //        }
-    //        //if (ndvi >= 0.87) {
-    //        //    pixel[0] = 20;
-    //        //    pixel[1] = 90;
-    //        //    pixel[2] = 33;
-    //        //    pixel[3] = 255;
-    //        //} else if (ndvi >= 0.46) {
-    //        //    pixel[0] = 50;
-    //        //    pixel[1] = 255;
-    //        //    pixel[2] = 90;
-    //        //    pixel[3] = 255;
-    //        //} else if (ndvi >= 0.30) {
-    //        //    pixel[0] = 221;
-    //        //    pixel[1] = 137;
-    //        //    pixel[2] = 50;
-    //        //    pixel[3] = 255;
-    //        //} else {
-    //        //    pixel[0] = 221;
-    //        //    pixel[1] = 221;
-    //        //    pixel[2] = 221;
-    //        //    pixel[3] = 255;
-    //        //}
-
-    //        return pixel;
-    //    },
-    //    lib: {
-    //        sentinel_lai: sentinel_lai,
-    //    }
-
-    //});
-    //LAI_raster.set('threshold', 0.1);
-
-    //function sentinel_lai(pixel) {
-
-    //    var nir = pixel[0] / 255;
-    //    var r = pixel[1] / 255;
-    //    var g = pixel[2] / 255;
-    //    var b = pixel[3] / 255;
-    //    var G = 2.5;
-    //    var C1 = 2.4;
-    //    var C2 = 7.5;
-    //    var L = 1.0;
-
-    //    var evi = (G * ((nir - r) / (nir + C1 * r + L)));
-    //    var lai = (3.618 * evi - 0.118); // LAI = (3.618*EVI - 0.118);
-
-    //    return lai;
-
-
-    //};
-
-    // LAILayer = new ol.layer.Image({
-    //    title: 'NDVI1',
-    //    source: LAI_raster
-    //});
-
-
-
-
-
-}
-
-
-
-
-
-
-
-var cliplayer;
-function CropGrowth(checkbox) {
-    selectedLayerId = "sentinel2fcc";
-    if (checkbox.checked) {
-        if (selectedLayerId == "sentinel2fcc") {
-
-            refreshLayers();
-            callLai();
-            map1.addLayer(LAILayer);
-            map2.addLayer(LAILayer);
-            const mode = document.querySelector('input[name="mode"]:checked').value;
-            if (mode === 'dual') {
-                refreshLayers();
-                callLai();
-                //map1.addLayer(LAILayer);
-                map2.addLayer(LAILayer);
-            }
-            
-        }
-        else if (selectedLayerId == 'basemap_ortho') {
-            map1.addLayer(CropGrowth_layer);
-            map1.addLayer(CropGrowth_layer);
-        }
-            
-         cliplayer = createGeoServerLayer(lastselectedlayer_vector[lastselectedlayer_vector.length - 1], lastselectedlayer_vector_filter[0]);
-        cliplayer.on('postcompose', function (e) {
-            e.context.globalCompositeOperation = 'source-over';
-        });
-        cliplayer.on('precompose', function (e) {
-            e.context.globalCompositeOperation = 'destination-in';
-        });
-
-        jQuery('#div_CropGrowth').css('display', 'block');
-
-        map1.addLayer(cliplayer);
-        map2.addLayer(cliplayer);
-        layerobject.push(cliplayer);
-        //map1.addOverlay(cliplayer);
-        //map2.addOverlay(cliplayer);
-        lastselectedlayer.push("Crop_Growth");
-        lastselectedlayername.push("Crop Growth");
-
-
-    }
-    else {
-        //jQuery('#div_CropGrowth').css('display', 'none');
-        if (selectedLayerId == "sentinel2fcc") {
-            map1.removeLayer(LAILayer);
-            map2.removeLayer(LAILayer);
-        }
-
-        else if (selectedLayerId == 'basemap_ortho') {
-            map2.removeLayer(CropGrowth_layer);
-            map1.removeLayer(CropGrowth_layer);
-        }
-           
-        map1.removeLayer(cliplayer);
-        map2.removeLayer(cliplayer);
-        layerobject.pop(cliplayer);
-        map1.removeOverlay(cliplayer);
-        map2.removeOverlay(cliplayer);
-        lastselectedlayer.pop("Apple_NDVI");
-        lastselectedlayername.pop("Crop Growth");
-    }
-}
-
-///*================================Crop Health Calculation (NDVI)==============================*/
-
-///*==========Ortho Image NDVI =======*/
-//var CropHealth_layer = new ol.layer.Image({
-//    source: new ol.source.ImageWMS({
-//        ratio: 1,
-//        url: geoserver_ip,
-//        params: {
-//            'FORMAT': format,
-//            tiled: true,
-//            STYLES: '',
-//            //layers: 'nrdc:Apple_NDVI',
-//            layers: 'nrdc:Crop_Health',
-//            transition: 0,
-//            time: time_range
-//            //time: '2024-10-01T00:00:00.000Z'
-
-//        }
-//    })
-//});
-
-///*===========Sentinel NDVI======*/
-
-//var ndvi_raster = new ol.source.Raster({
-//    sources: [sentinel_layer.getSource()],
-//    style: style_raster,
-//    operation: function (pixels, data) {
-//        var pixel = pixels[0];
-//        var value = sentinel_ndvi(pixel);
-//        //  summarize(value, data.counts);
-//        //if (value <= 0.2499) {
-//        //    pixel[0] = 192;
-//        //    pixel[1] = 192;
-//        //    pixel[2] = 192;
-//        //    pixel[3] = 255;
-//        //}
-
-//        //else if (value >= 0.25 && value <= 0.3499) {
-//        //    pixel[0] = 255;
-//        //    pixel[1] = 0;
-//        //    pixel[2] = 0;
-//        //    pixel[3] = 255;
-//        //}
-
-
-//        //else if (value >= 0.35 && value <= 0.4999) {
-
-
-//        //    pixel[0] = 255;
-//        //    pixel[1] = 159;
-//        //    pixel[2] = 159;
-//        //    pixel[3] = 255;
-//        //}
-
-//        //else if (value >= 0.50 && value <= 0.5999) {
-//        //    pixel[0] = 150;
-//        //    pixel[1] = 237;
-//        //    pixel[2] = 150;
-//        //    pixel[3] = 255;
-//        //}
-//        //else if (value >= 0.60 && value <= 0.6999) {
-//        //    pixel[0] = 0;
-//        //    pixel[1] = 223;
-//        //    pixel[2] = 0;
-//        //    pixel[3] = 255;
-//        //}
-//        //else if (value >= 0.70 && value <= 1.0) {
-//        //    pixel[0] = 0;
-//        //    pixel[1] = 106;
-//        //    pixel[2] = 0;
-//        //    pixel[3] = 255;
-//        //}
-//        //else {
-//        //    pixel[3] = 0;
-//        //}
-//        if (value >= 0.67) {
-//            pixel[0] = 20;
-//            pixel[1] = 90;
-//            pixel[2] = 33;
-//            pixel[3] = 255;
-//        } else if (value >= 0.46 && value < 0.67) {
-//            pixel[0] = 50;
-//            pixel[1] = 255;
-//            pixel[2] = 90;
-//            pixel[3] = 255;
-//        } else if (value >= 0.30 && value < 0.46) {
-//            pixel[0] = 221;
-//            pixel[1] = 137;
-//            pixel[2] = 50;
-//            pixel[3] = 255;
-//        } else if (value < 0.30) {
-//            pixel[0] = 255;
-//            pixel[1] = 0;
-//            pixel[2] = 0;
-//            pixel[3] = 255;
-//        } else {
-//            pixel[3] = 0;
-//        }
-//        return pixel;
-//    },
-//    lib: {
-//        sentinel_ndvi: sentinel_ndvi,
-//    }
-
-//});
-//ndvi_raster.set('threshold', 0.1);
-
-//function sentinel_ndvi(pixel) {
-//    var nir = pixel[0] / 255;
-//    var r = pixel[1] / 255;
-//    var g = pixel[2] / 255;
-//    //  var b = pixel[3] / 255;
-//    return (nir - r) / (nir + r);
-//};
-
-//var NDVILayer = new ol.layer.Image({
-//    title: 'NDVI1',
-//    source: ndvi_raster
-//});
-
-//function CropHealth(checkbox) {
-//    selectedLayerId = document.getElementById("layerswid").value;
-//    if (checkbox.checked) {
-//        console.log("Selected Date:", time_range);
-//        if (selectedLayerId == "sentinel2fcc") {
-
-//            map.addLayer(NDVILayer);
-//        }
-//        else if (selectedLayerId == 'basemap_ortho')
-//            map.addLayer(CropHealth_layer);
-//        var cliplayer = createGeoServerLayer(lastselectedlayer_vector[lastselectedlayer_vector.length - 1], lastselectedlayer_vector_filter[0]);
-//        cliplayer.on('postcompose', function (e) {
-//            e.context.globalCompositeOperation = 'source-over';
-//        });
-//        cliplayer.on('precompose', function (e) {
-//            e.context.globalCompositeOperation = 'destination-in';
-//        });
-
-//        jQuery('#div_CropHealth').css('display', 'block');
-
-//        console.log(cliplayer);
-//        map.addLayer(cliplayer);
-//        layerobject.push(cliplayer);
-//        map.addOverlay(cliplayer);
-//        lastselectedlayer.push("Crop_Health");
-//        lastselectedlayername.push("Crop Health");
-//    }
-//    else {
-//        jQuery('#div_CropHealth').css('display', 'none');
-//        if (selectedLayerId == "sentinel2fcc")
-//            map.removeLayer(NDVILayer);
-//        else if (selectedLayerId == 'basemap_ortho')
-//            map.removeLayer(CropHealth_layer);
-//        map.removeLayer(cliplayer);
-//        layerobject.pop(cliplayer);
-//        map.removeOverlay(cliplayer);
-//        lastselectedlayer.pop("Apple_NDVI");
-//        lastselectedlayername.pop("Crop Health");
-//    }
-
-//}
-
-
-///*================================Crop Harvesting Calculation ==============================*/
-
-///*==========Ortho Image Harvesting =======*/
-//var CropHarvesting_layer = new ol.layer.Image({
-//    source: new ol.source.ImageWMS({
-//        ratio: 1,
-//        url: geoserver_ip,
-//        params: {
-//            'FORMAT': format,
-//            tiled: true,
-//            STYLES: '',
-//            //layers: 'nrdc:Apple_NDVI',
-//            layers: 'nrdc:Crop_Harvesting',
-//            transition: 0,
-//            time: time_range
-//        }
-//    })
-//});
-
-///*===========Sentinel Harvesting======*/
-
-//var CropHarvesting_raster = new ol.source.Raster({
-//    sources: [sentinel_layer.getSource()],
-//    style: style_raster,
-//    operation: function (pixels, data) {
-//        var pixel = pixels[0];
-//        var value = sentinel_CropHarvesting(pixel);
-//        //  summarize(value, data.counts);
-//        if (value <= -0.10) { // water
-//            pixel[0] = 0;
-//            pixel[1] = 128;
-//            pixel[2] = 255;
-//            pixel[3] = 255;
-//        }
-
-//        //if (value <= 0.1749) {
-//        //    pixel[0] = 192;
-//        //    pixel[1] = 192;
-//        //    pixel[2] = 192;
-//        //    pixel[3] = 255;
-//        //}
-
-
-//        else if (value >= -0.010 && value <= 0.039) { // cloud
-//            pixel[0] = 150;
-//            pixel[1] = 23;
-//            pixel[2] = 153;
-//            pixel[3] = 255;
-//        }
-
-//        else if (value >= -0.040 && value <= 0.06499) { // shadow
-//            pixel[0] = 11;
-//            pixel[1] = 244;
-//            pixel[2] = 239;
-//            pixel[3] = 255;
-//        }
-
-//        else if (value >= 0.065 && value <= 0.179) { //fallow land
-//            pixel[0] = 192;
-//            pixel[1] = 192;
-//            pixel[2] = 192;
-//            pixel[3] = 255;
-//        }
-
-//        else if (value >= 0.18 && value <= 0.3499) { // priority 1
-//            pixel[0] = 255;
-//            pixel[1] = 0;
-//            pixel[2] = 0;
-//            pixel[3] = 255;
-//        }
-
-
-//        //else if (value >= 0.1750 && value <= 0.3499) { // priority 1
-//        //    pixel[0] = 255;
-//        //    pixel[1] = 0;
-//        //    pixel[2] = 0;
-//        //    pixel[3] = 255;
-//        //}
-
-
-//        else if (value >= 0.35 && value <= 0.4999) {
-
-
-//            pixel[0] = 255;
-//            pixel[1] = 159;
-//            pixel[2] = 159;
-//            pixel[3] = 255;
-//        }
-
-//        else if (value >= 0.50 && value <= 0.5999) {
-//            pixel[0] = 150;
-//            pixel[1] = 237;
-//            pixel[2] = 150;
-//            pixel[3] = 255;
-//        }
-//        else if (value >= 0.60 && value <= 0.6999) {
-//            pixel[0] = 0;
-//            pixel[1] = 223;
-//            pixel[2] = 0;
-//            pixel[3] = 255;
-//        }
-//        else if (value >= 0.70 && value <= 1.0) {
-//            pixel[0] = 0;
-//            pixel[1] = 106;
-//            pixel[2] = 0;
-//            pixel[3] = 255;
-//        }
-//        else {
-//            pixel[3] = 0;
-//        }
-//        return pixel;
-//    },
-//    lib: {
-//        sentinel_CropHarvesting: sentinel_CropHarvesting,
-//    }
-
-//});
-//CropHarvesting_raster.set('threshold', 0.1);
-
-//function sentinel_CropHarvesting(pixel) {
-//    var nir = pixel[0] / 255;
-//    var r = pixel[1] / 255;
-//    var g = pixel[2] / 255;
-//    //  var b = pixel[3] / 255;
-//    return (nir - r) / (nir + r);
-//};
-
-//var CropHarvestingLayer = new ol.layer.Image({
-//    title: 'NDVI1',
-//    source: CropHarvesting_raster
-//});
-
-//function CropHarvesting(checkbox) {
-
-//    if (checkbox.checked) {
-
-//        if (selectedLayerId == "sentinel2fcc")
-//            map.addLayer(CropHarvestingLayer);
-//        else if (selectedLayerId == 'basemap_ortho')
-//            map.addLayer(CropHarvesting_layer);
-//        var cliplayer = createGeoServerLayer(lastselectedlayer_vector[lastselectedlayer_vector.length - 1], lastselectedlayer_vector_filter[0]);
-//        cliplayer.on('postcompose', function (e) {
-//            e.context.globalCompositeOperation = 'source-over';
-//        });
-//        cliplayer.on('precompose', function (e) {
-//            e.context.globalCompositeOperation = 'destination-in';
-//        });
-
-//        jQuery('#div_CropHarvesting').css('display', 'block');
-//        map.addLayer(cliplayer);
-//        layerobject.push(cliplayer);
-//        map.addOverlay(cliplayer);
-//        lastselectedlayer.push("Crop_Harvesting");
-//        lastselectedlayername.push("Crop Harvesting");
-//    }
-//    else {
-//        jQuery('#div_CropHarvesting').css('display', 'none');
-//        if (selectedLayerId == "sentinel2fcc")
-//            map.removeLayer(CropHarvestingLayer);
-//        else if (selectedLayerId == 'basemap_ortho')
-//            map.removeLayer(CropHarvesting_layer);
-//        map.removeLayer(cliplayer);
-//        layerobject.pop(cliplayer);
-//        map.removeOverlay(cliplayer);
-//        //lastselectedlayer.pop("");
-//        lastselectedlayername.pop("Crop Harvesting");
-//    }
-
-//}
-
-
-///*================================Crop VegetationMoisture Calculation ==============================*/
-
-///*==========Ortho Image VegetationMoisture =======*/
-//var VegetationMoisture_layer = new ol.layer.Image({
-//    source: new ol.source.ImageWMS({
-//        ratio: 1,
-//        url: geoserver_ip,
-//        params: {
-//            'FORMAT': format,
-//            tiled: true,
-//            STYLES: '',
-//            //layers: 'nrdc:Apple_NDVI',
-//            layers: 'nrdc:Vegetation_Moisture',
-//            transition: 0,
-//            time: time_range
-//        }
-//    })
-//});
-
-///*===========Sentinel VegetationMoisture======*/
-
-//var VegetationMoisture_raster = new ol.source.Raster({
-//    sources: [sentinel_layer.getSource()],
-//    style: style_raster,
-//    operation: function (pixels, data) {
-//        var pixel = pixels[0];
-//        var value = sentinel_VegetationMoisture(pixel);
-//        //  summarize(value, data.counts);
-
-//        if (value < -0.5499) { //e mois
-
-//            pixel[0] = 31;
-//            pixel[1] = 152;
-//            pixel[2] = 101;
-//            pixel[3] = 255;
-//        }
-
-//        else if (value >= -0.55 && value < -0.4499) { //v good m
-//            pixel[0] = 92;
-//            pixel[1] = 222;
-//            pixel[2] = 167;
-//            pixel[3] = 255;
-//        }
-
-//        else if (value >= -0.45 && value < -0.2999) {// normal m
-//            pixel[0] = 239;
-//            pixel[1] = 232;
-//            pixel[2] = 86;
-//            pixel[3] = 255;
-//        }
-
-
-
-//        else if (value >= -0.30 && value < -0.1499) { // dry land
-
-
-
-//            pixel[0] = 241;
-//            pixel[1] = 39;
-//            pixel[2] = 166;
-//            pixel[3] = 255;
-//        }
-
-//        else if (value >= -0.15 && value < -0.05) {// builtup
-
-
-
-
-//            pixel[0] = 252;
-//            pixel[1] = 205;
-//            pixel[2] = 226;
-//            pixel[3] = 255;
-//        }
-
-//        else if (value >= -0.05 && value <= 0.099) { // l b
-//            pixel[0] = 175;
-//            pixel[1] = 240;
-//            pixel[2] = 245;
-//            pixel[3] = 255;
-//        }
-
-
-//        else if (value >= 0.10 && value <= 0.1499) { //bl
-//            pixel[0] = 109;
-//            pixel[1] = 188;
-//            pixel[2] = 252;
-//            pixel[3] = 255;
-//        }
-//        else if (value >= 0.15 && value <= 1.0) { //d bl
-//            pixel[0] = 0;
-//            pixel[1] = 0;
-//            pixel[2] = 155;
-//            pixel[3] = 255;
-//        }
-//        else {
-//            pixel[3] = 0;
-//        }
-//        return pixel;
-//    },
-//    lib: {
-//        sentinel_VegetationMoisture: sentinel_VegetationMoisture,
-//    }
-
-//});
-//VegetationMoisture_raster.set('threshold', 0.1);
-
-//function sentinel_VegetationMoisture(pixel) {
-//    var nir = pixel[0] / 255;
-//    var r = pixel[1] / 255;
-//    var g = pixel[2] / 255;
-//    var b = pixel[3] / 255;
-//    //return (nir - r) / (nir + r);
-//    return (g - nir) / (g + nir);
-
-//};
-
-//var VegetationMoistureLayer = new ol.layer.Image({
-//    title: 'NDVI1',
-//    source: VegetationMoisture_raster
-//});
-
-//function VegetationMoisture(checkbox) {
-
-//    if (checkbox.checked) {
-
-//        if (selectedLayerId == "sentinel2fcc")
-//            map.addLayer(VegetationMoistureLayer);
-//        else if (selectedLayerId == 'basemap_ortho')
-//            map.addLayer(VegetationMoisture_layer);
-//        var cliplayer = createGeoServerLayer(lastselectedlayer_vector[lastselectedlayer_vector.length - 1], lastselectedlayer_vector_filter[0]);
-//        cliplayer.on('postcompose', function (e) {
-//            e.context.globalCompositeOperation = 'source-over';
-//        });
-//        cliplayer.on('precompose', function (e) {
-//            e.context.globalCompositeOperation = 'destination-in';
-//        });
-
-//        jQuery('#div_VegetationMoisture').css('display', 'block');
-//        map.addLayer(cliplayer);
-//        layerobject.push(cliplayer);
-//        map.addOverlay(cliplayer);
-//        lastselectedlayer.push("Vegetation_Moisture");
-//        lastselectedlayername.push("Vegetation Moisture");
-//    }
-//    else {
-//        jQuery('#div_VegetationMoisture').css('display', 'none');
-//        if (selectedLayerId == "sentinel2fcc")
-//            map.removeLayer(VegetationMoistureLayer);
-//        else if (selectedLayerId == 'basemap_ortho')
-//            map.removeLayer(VegetationMoisture_layer);
-//        map.removeLayer(cliplayer);
-//        layerobject.pop(cliplayer);
-//        map.removeOverlay(cliplayer);
-//        //lastselectedlayer.pop("");
-//        lastselectedlayername.pop("Vegetation Moistureg");
-//    }
-
-//}
-
-
-
-///*================================Crop NitrogenContent Calculation ==============================*/
-
-///*==========Ortho Image NitrogenContent =======*/
-//var NitrogenContent_layer = new ol.layer.Image({
-//    source: new ol.source.ImageWMS({
-//        ratio: 1,
-//        url: geoserver_ip,
-//        params: {
-//            'FORMAT': format,
-//            tiled: true,
-//            STYLES: '',
-//            //layers: 'nrdc:Apple_NDVI',
-//            layers: 'nrdc:Nitrogen_Content',
-//            transition: 0,
-//            time: time_range
-//        }
-//    })
-//});
-
-///*===========Sentinel NitrogenContent======*/
-
-//var NitrogenContent_raster = new ol.source.Raster({
-//    sources: [sentinel_layer.getSource()],
-//    style: style_raster,
-//    operation: function (pixels, data) {
-//        var pixel = pixels[0];
-//        var value = sentinel_NitrogenContent(pixel);
-//        //  summarize(value, data.counts);
-//        if (value <= 0) {
-//            pixel[0] = 192;
-//            pixel[1] = 192;
-//            pixel[2] = 192;
-//            pixel[3] = 255;
-//        }
-
-//        else if (value >= 0 && value <= 0.099) {
-//            pixel[0] = 255;
-//            pixel[1] = 0;
-//            pixel[2] = 0;
-//            pixel[3] = 255;
-//        }
-
-
-//        else if (value >= 0.10 && value <= 0.1999) {
-
-//            pixel[0] = 255;
-//            pixel[1] = 159;
-//            pixel[2] = 159;
-//            pixel[3] = 255;
-//        }
-
-//        else if (value >= 0.20 && value <= 0.2799) { //normal
-//            pixel[0] = 255;
-//            pixel[1] = 255;
-//            pixel[2] = 127;
-//            pixel[3] = 255;
-//        }
-//        else if (value >= 0.28 && value <= 0.4199) { //above  normal
-//            pixel[0] = 0;
-//            pixel[1] = 223;
-//            pixel[2] = 0;
-//            pixel[3] = 255;
-//        }
-//        else if (value >= 0.42 && value <= 1.0) {
-//            pixel[0] = 0;
-//            pixel[1] = 106;
-//            pixel[2] = 0;
-//            pixel[3] = 255;
-//        }
-//        else {
-//            pixel[3] = 0;
-//        }
-//        return pixel;
-//    },
-//    lib: {
-//        sentinel_NitrogenContent: sentinel_NitrogenContent,
-//    }
-
-//});
-//NitrogenContent_raster.set('threshold', 0.1);
-
-//function sentinel_NitrogenContent(pixel) {
-//    var nir = pixel[0] / 255;
-//    var r = pixel[1] / 255;
-//    var g = pixel[2] / 255;
-//    var b = pixel[3] / 255;
-//    return (nir - g) / (nir + g);
-
-
-//};
-
-//var NitrogenContentLayer = new ol.layer.Image({
-//    title: 'NDVI1',
-//    source: NitrogenContent_raster
-//});
-
-//function NitrogenContent(checkbox) {
-
-//    if (checkbox.checked) {
-
-//        if (selectedLayerId == "sentinel2")
-//            map.addLayer(NitrogenContentLayer);
-//        else if (selectedLayerId == 'basemap_ortho')
-//            map.addLayer(NitrogenContent_layer);
-//        var cliplayer = createGeoServerLayer(lastselectedlayer_vector[lastselectedlayer_vector.length - 1], lastselectedlayer_vector_filter[0]);
-//        cliplayer.on('postcompose', function (e) {
-//            e.context.globalCompositeOperation = 'source-over';
-//        });
-//        cliplayer.on('precompose', function (e) {
-//            e.context.globalCompositeOperation = 'destination-in';
-//        });
-
-//        jQuery('#div_NitrogenContent').css('display', 'block');
-//        map.addLayer(cliplayer);
-//        layerobject.push(cliplayer);
-//        map.addOverlay(cliplayer);
-//        lastselectedlayer.push("Nitrogen_Content");
-//        lastselectedlayername.push("Nitrogen Content");
-//    }
-//    else {
-//        jQuery('#div_NitrogenContent').css('display', 'none');
-//        if (selectedLayerId == "sentinel2")
-//            map.removeLayer(NitrogenContentLayer);
-//        else if (selectedLayerId == 'basemap_ortho')
-//            map.removeLayer(NitrogenContent_layer);
-//        map.removeLayer(cliplayer);
-//        layerobject.pop(cliplayer);
-//        map.removeOverlay(cliplayer);
-//        //lastselectedlayer.pop("");
-//        lastselectedlayername.pop("Nitrogen Content");
-//    }
-
-//}
-
-
-///*================================Crop SoilMoisture Calculation ==============================*/
-
-///*==========Ortho Image SoilMoisture =======*/
-//var SoilMoisture_layer = new ol.layer.Image({
-//    source: new ol.source.ImageWMS({
-//        ratio: 1,
-//        url: geoserver_ip,
-//        params: {
-//            'FORMAT': format,
-//            tiled: true,
-//            STYLES: '',
-//            //layers: 'nrdc:Apple_NDVI',
-//            layers: 'nrdc:Soil_Moisture',
-//            transition: 0,
-//            time: time_range
-//        }
-//    })
-//});
-
-///*===========Sentinel SoilMoisture======*/
-
-//var SoilMoisture_raster = new ol.source.Raster({
-//    sources: [sentinel_layer.getSource()],
-//    style: style_raster,
-//    operation: function (pixels, data) {
-//        var pixel = pixels[0];
-//        var value = sentinel_SoilMoisture(pixel);
-//        //  summarize(value, data.counts);
-//        if (value < -0.5499) { //e mois
-
-//            pixel[0] = 31;
-//            pixel[1] = 152;
-//            pixel[2] = 101;
-//            pixel[3] = 255;
-//        }
-
-//        else if (value >= -0.55 && value < -0.4499) { //v good m
-//            pixel[0] = 92;
-//            pixel[1] = 222;
-//            pixel[2] = 167;
-//            pixel[3] = 255;
-//        }
-
-//        else if (value >= -0.45 && value < -0.2999) {// normal m
-//            pixel[0] = 239;
-//            pixel[1] = 232;
-//            pixel[2] = 86;
-//            pixel[3] = 255;
-//        }
-
-
-
-//        else if (value >= -0.30 && value < -0.1499) { // dry land
-
-
-
-//            pixel[0] = 241;
-//            pixel[1] = 39;
-//            pixel[2] = 166;
-//            pixel[3] = 255;
-//        }
-
-//        else if (value >= -0.15 && value < -0.05) {// builtup
-
-
-
-
-//            pixel[0] = 252;
-//            pixel[1] = 205;
-//            pixel[2] = 226;
-//            pixel[3] = 255;
-//        }
-
-//        else if (value >= -0.05 && value <= 0.099) { // l b
-//            pixel[0] = 175;
-//            pixel[1] = 240;
-//            pixel[2] = 245;
-//            pixel[3] = 255;
-//        }
-
-
-//        else if (value >= 0.10 && value <= 0.1499) { //bl
-//            pixel[0] = 109;
-//            pixel[1] = 188;
-//            pixel[2] = 252;
-//            pixel[3] = 255;
-//        }
-//        else if (value >= 0.15 && value <= 1.0) { //d bl
-//            pixel[0] = 0;
-//            pixel[1] = 0;
-//            pixel[2] = 155;
-//            pixel[3] = 255;
-//        }
-//        else {
-//            pixel[3] = 0;
-//        }
-//        return pixel;
-//    },
-//    lib: {
-//        sentinel_SoilMoisture: sentinel_SoilMoisture,
-//    }
-
-//});
-//SoilMoisture_raster.set('threshold', 0.1);
-
-//function sentinel_SoilMoisture(pixel) {
-//    var nir = pixel[0] / 255;
-//    var r = pixel[1] / 255;
-//    var g = pixel[2] / 255;
-//    var b = pixel[3] / 255;
-//    //return (nir - r) / (nir + r);
-//    return (g - nir) / (g + nir);
-
-
-//};
-
-//var SoilMoistureLayer = new ol.layer.Image({
-//    title: 'NDVI1',
-//    source: SoilMoisture_raster
-//});
-
-//function SoilMoisture(checkbox) {
-
-//    if (checkbox.checked) {
-
-//        if (selectedLayerId == "sentinel2")
-//            map.addLayer(SoilMoistureLayer);
-//        else if (selectedLayerId == 'basemap_ortho')
-//            map.addLayer(SoilMoisture_layer);
-//        var cliplayer = createGeoServerLayer(lastselectedlayer_vector[lastselectedlayer_vector.length - 1], lastselectedlayer_vector_filter[0]);
-//        cliplayer.on('postcompose', function (e) {
-//            e.context.globalCompositeOperation = 'source-over';
-//        });
-//        cliplayer.on('precompose', function (e) {
-//            e.context.globalCompositeOperation = 'destination-in';
-//        });
-
-//        jQuery('#div_SoilMoisture').css('display', 'block');
-//        map.addLayer(cliplayer);
-//        layerobject.push(cliplayer);
-//        map.addOverlay(cliplayer);
-//        lastselectedlayer.push("Soil_Moisture");
-//        lastselectedlayername.push("Soil Moisture");
-//    }
-//    else {
-//        jQuery('#div_SoilMoisture').css('display', 'none');
-//        if (selectedLayerId == "sentinel2")
-//            map.removeLayer(SoilMoistureLayer);
-//        else if (selectedLayerId == 'basemap_ortho')
-//            map.removeLayer(SoilMoisture_layer);
-//        map.removeLayer(cliplayer);
-//        layerobject.pop(cliplayer);
-//        map.removeOverlay(cliplayer);
-//        //lastselectedlayer.pop("");
-//        lastselectedlayername.pop("Soil Moisture");
-//    }
-
-//}
-
-
-
-///*================================Crop EnhancedVegetation Calculation ==============================*/
-
-///*==========Ortho Image EnhancedVegetation =======*/
-//var EnhancedVegetation_layer = new ol.layer.Image({
-//    source: new ol.source.ImageWMS({
-//        ratio: 1,
-//        url: geoserver_ip,
-//        params: {
-//            'FORMAT': format,
-//            tiled: true,
-//            STYLES: '',
-//            /*layers: 'nrdc:Apple_NDVI',*/
-//            transition: 0
-//        }
-//    })
-//});
-
-///*===========Sentinel SoilMoisture======*/
-
-//var EnhancedVegetation_raster = new ol.source.Raster({
-//    sources: [sentinel_layer.getSource()],
-//    style: style_raster,
-//    operation: function (pixels, data) {
-//        var pixel = pixels[0];
-//        var value = sentinel_EnhancedVegetation(pixel);
-//        //  summarize(value, data.counts);
-//        if (value <= 0.099) {
-//            pixel[0] = 192;
-//            pixel[1] = 192;
-//            pixel[2] = 192;
-//            pixel[3] = 255;
-//        }
-
-//        else if (value >= 0.1 && value <= 0.1499) {
-//            pixel[0] = 255;
-//            pixel[1] = 0;
-//            pixel[2] = 0;
-//            pixel[3] = 255;
-//        }
-
-
-//        else if (value >= 0.15 && value <= 0.2999) {
-
-
-//            pixel[0] = 255;
-//            pixel[1] = 159;
-//            pixel[2] = 159;
-//            pixel[3] = 255;
-//        }
-
-//        else if (value >= 0.30 && value <= 0.4999) {
-//            pixel[0] = 150;
-//            pixel[1] = 237;
-//            pixel[2] = 150;
-//            pixel[3] = 255;
-//        }
-//        else if (value >= 0.50 && value <= 0.5999) {
-//            pixel[0] = 0;
-//            pixel[1] = 223;
-//            pixel[2] = 0;
-//            pixel[3] = 255;
-//        }
-//        else if (value >= 0.60 && value <= 1.0) {
-//            pixel[0] = 0;
-//            pixel[1] = 106;
-//            pixel[2] = 0;
-//            pixel[3] = 255;
-//        }
-//        else {
-//            pixel[3] = 0;
-//        }
-//        return pixel;
-
-//    },
-//    lib: {
-//        sentinel_EnhancedVegetation: sentinel_EnhancedVegetation,
-//    }
-
-//});
-//EnhancedVegetation_raster.set('threshold', 0.1);
-
-//function sentinel_EnhancedVegetation(pixel) {
-//    var nir = pixel[0] / 255;
-//    var r = pixel[1] / 255;
-//    var g = pixel[2] / 255;
-//    var b = pixel[3] / 255;
-
-//    var G = 2.5;
-//    var C1 = 6.0;
-//    var C2 = 7.5;
-//    var L = 1.0;
-//    var value = (G * ((nir - r) / (nir + C1 * r + L)));
-
-//    //  var value = 2.5 * (nir - r) / ((nir + 6.0 * r - 7.5 * b) + 1.0);
-
-//    return value;
-
-
-
-//};
-
-//var EnhancedVegetationLayer = new ol.layer.Image({
-//    title: 'NDVI1',
-//    source: EnhancedVegetation_raster
-//});
-
-//function EnhancedVegetation(checkbox) {
-
-//    if (checkbox.checked) {
-
-//        if (selectedLayerId == "sentinel2")
-//            map.addLayer(EnhancedVegetationLayer);
-//        else if (selectedLayerId == 'basemap_ortho')
-//            map.addLayer(EnhancedVegetation_layer);
-//        var cliplayer = createGeoServerLayer(lastselectedlayer_vector[lastselectedlayer_vector.length - 1], lastselectedlayer_vector_filter[0]);
-//        cliplayer.on('postcompose', function (e) {
-//            e.context.globalCompositeOperation = 'source-over';
-//        });
-//        cliplayer.on('precompose', function (e) {
-//            e.context.globalCompositeOperation = 'destination-in';
-//        });
-
-//        jQuery('#div_EnhancedVegetation').css('display', 'block');
-//        map.addLayer(cliplayer);
-//        layerobject.push(cliplayer);
-//        map.addOverlay(cliplayer);
-//        //lastselectedlayer.push("");
-//        lastselectedlayername.push("Enhanced Vegetation");
-//    }
-//    else {
-//        jQuery('#div_EnhancedVegetation').css('display', 'none');
-//        if (selectedLayerId == "sentinel2")
-//            map.removeLayer(EnhancedVegetationLayer);
-//        else if (selectedLayerId == 'basemap_ortho')
-//            map.removeLayer(EnhancedVegetation_layer);
-//        map.removeLayer(cliplayer);
-//        layerobject.pop(cliplayer);
-//        map.removeOverlay(cliplayer);
-//        //lastselectedlayer.pop("");
-//        lastselectedlayername.pop("Enhanced Vegetation");
-//    }
-
-//}
-
-///*================================Crop Weed Calculation ==============================*/
-
-///*==========Ortho Image Weed =======*/
-//var Weed_layer = new ol.layer.Image({
-//    source: new ol.source.ImageWMS({
-//        ratio: 1,
-//        url: geoserver_ip,
-//        params: {
-//            'FORMAT': format,
-//            tiled: true,
-//            STYLES: '',
-//            /*layers: 'nrdc:Apple_NDVI',*/
-//            transition: 0
-//        }
-//    })
-//});
-
-///*===========Sentinel SoilMoisture======*/
-
-//var Weed_raster = new ol.source.Raster({
-//    sources: [sentinel_layer.getSource()],
-//    style: style_raster,
-//    operation: function (pixels, data) {
-//        var pixel = pixels[0];
-//        var value = sentinel_Weed(pixel);
-//        //  summarize(value, data.counts);
-//        if (value < -2.00) { //cloud
-
-//            pixel[0] = 249;
-//            pixel[1] = 81;
-//            pixel[2] = 244;
-//            pixel[3] = 255;
-//        }
-
-//        //else if (value >= -0.55 && value < -0.4499) { //disease
-//        //    pixel[0] = 241;
-//        //    pixel[1] = 39;
-//        //    pixel[2] = 166;
-//        //    pixel[3] = 255;
-//        //}
-
-//        else if (value >= -1.995 && value < -0.25) {// no weed green
-//            pixel[0] = 70;
-//            pixel[1] = 255;
-//            pixel[2] = 70;
-//            pixel[3] = 255;
-//        }
-
-//        else if (value >= -0.2511 && value < 0.15) {// weed
-
-//            pixel[0] = 239;
-//            pixel[1] = 13;
-//            pixel[2] = 1;
-//            pixel[3] = 255;
-
-
-//        }
-
-
-//        else {
-//            pixel[3] = 0;
-//        }
-//        return pixel;
-//    },
-//    lib: {
-//        sentinel_Weed: sentinel_Weed,
-//    }
-
-//});
-//Weed_raster.set('threshold', 0.1);
-
-//function sentinel_Weed(pixel) {
-//    var nir = pixel[0] / 255;
-//    var r = pixel[1] / 255;
-//    var g = pixel[2] / 255;
-//    var b = pixel[3] / 255;
-
-
-//    var sivi = (nir - b) / (nir - r);
-//    return sivi;
-
-
-
-
-//};
-
-//var WeedLayer = new ol.layer.Image({
-//    title: 'NDVI1',
-//    source: Weed_raster
-//});
-
-//function Weed(checkbox) {
-
-//    if (checkbox.checked) {
-
-//        if (selectedLayerId == "sentinel2")
-//            map.addLayer(WeedLayer);
-//        else if (selectedLayerId == 'basemap_ortho')
-//            map.addLayer(Weed_layer);
-//        var cliplayer = createGeoServerLayer(lastselectedlayer_vector[lastselectedlayer_vector.length - 1], lastselectedlayer_vector_filter[0]);
-//        cliplayer.on('postcompose', function (e) {
-//            e.context.globalCompositeOperation = 'source-over';
-//        });
-//        cliplayer.on('precompose', function (e) {
-//            e.context.globalCompositeOperation = 'destination-in';
-//        });
-
-//        jQuery('#div_Weed').css('display', 'block');
-//        map.addLayer(cliplayer);
-//        layerobject.push(cliplayer);
-//        map.addOverlay(cliplayer);
-//        lastselectedlayer.push("Apple_NDVI");
-//        lastselectedlayername.push("Weed");
-//    }
-//    else {
-//        jQuery('#div_Weed').css('display', 'none');
-//        if (selectedLayerId == "sentinel2")
-//            map.removeLayer(WeedLayer);
-//        else if (selectedLayerId == 'basemap_ortho')
-//            map.removeLayer(Weed_layer);
-//        map.removeLayer(cliplayer);
-//        layerobject.pop(cliplayer);
-//        map.removeOverlay(cliplayer);
-//        lastselectedlayer.pop("Apple_NDVI");
-//        lastselectedlayername.pop("Weed");
-//    }
-
-//}
-
-
-///*------------------------*/
-
-
-///*-------Map Icon Start-----------------*/
-
-//function popweatherforecaste() {
-
-//    var itm = document.getElementById("divweatherforecaste");
-//    itm.classList.toggle("popdisplay");
-//    getLegendDetails();
-
-//}
-//function hideweatherforecaste() {
-//    document.getElementById("divweatherforecaste").classList.remove("popdisplay");
-//    document.getElementById("divweatherforecaste").removeAttribute("style");
-//}
-//function getLegendDetails() {
-
-
-//    var t = this;
-//    var outer_html = '';
-//    var coordinates = null;
-//    var content;
-//    coordinates = ol.proj.transform(map.getView().getCenter(), 'EPSG:3857', 'EPSG:4326');
-//    var lng = coordinates[0];
-//    var lat = coordinates[1];
-//    var url = "https://api.openweathermap.org/data/2.5/forecast?lat=" +
-//        lat +
-//        "&lon=" +
-//        lng +
-//        "&units=metric&appid=664b8f290440bf70621e5e66cb4ceb45";
-
-//    // var url = "https://api.openweathermap.org/data/2.5/forecast?lat=43.654&lon=-79.3873&appid=f8b91bb131ede97fc2a11e09d7f2af1f";
-
-//    fetch(url)
-//        .then(response => response.json())
-//        .then(data => {
-//            let forecast = null;
-//            //var forecastsArr = myJson.list;
-
-//            var forecastElement = '';
-//            content = "<div className='container' id = 'moveable' style='font-size: 15px;margin: 0 0 10px 10px;background: #fff;width:100%; border-radius: 5px;'><table className='table' style='width: 100%;'>" +
-//                '<thead style="padding: 10px 10px 10px 10px;cursor: move;font-weight: normal;font-size: 14px;border-bottom: 2px solid #e4e4e4;color: #707070;background: linear-gradient(to right, #f9f3b1 0%, #ffffff 90%, #ffffff 100%);border-radius: 5px 5px 0 0; "><tr><th colspan="6" style="color: #2196F3;font-size: 15px;height: 35px;padding: 0px 2px 4px 15px;"> Location: ' + data.city.name + '</th> </tr> <tr><th>Date</th>' +
-
-//                '   <th>Status</th>' +
-//                '    <th>Forecast</th>' +
-//                ' <th>Temp</th>' +
-//                ' <th>Humidity</th>' +
-//                ' <th>Wind</th>' +
-//                ' <th>Pressure</th>' +
-
-//                '  </tr>' +
-//                '   </thead>' +
-//                ' <tbody>';
-
-//            for (var index = 0; index < data.list.length; index += 8) {
-
-//                //  for (let index = 0; index < 6; index++) {
-//                forecast = data.list[index];
-//                var imageurl = "https://openweathermap.org/img/w/" + forecast.weather[0].icon + ".png";
-//                forecastElement += '<tr key =' + forecast.dt + ' ><td >' + forecast.dt_txt.substring(0, 10) + '</td>'
-
-//                    + '<td> <img src="' + imageurl + '" /></td>'
-//                    + '<td>' + forecast.weather[0].description + '</td>'
-//                    + '<td>' + parseInt(forecast.main.temp) + '<span>&#8451;</span></td>'
-//                    + '<td>' + forecast.main.humidity + ' % </td>'
-//                    + '<td>' + forecast.wind.speed.toFixed(0) + ' mtr/sec </td>'
-//                    + '<td>' + forecast.main.pressure + ' hPa </td>'
-
-//            }
-
-//            outer_html += content + forecastElement;
-
-//            outer_html += "</tbody></table></div>";
-//            document.getElementById('divweatherforecaste_data').innerHTML = outer_html;
-//        }
-//        )
-//        .catch(error => console.error('Error:', error));
-//}
-
-//var pressure = new ol.layer.Tile({
-//    source: new ol.source.XYZ({
-//        url: "http://tile.openweathermap.org/map/pressure_new/{z}/{x}/{y}.png?appid=664b8f290440bf70621e5e66cb4ceb45",
-//        crossOrigin: 'anonymous'
-
-//    })
-
-//});
-
-
-//var pressure_val = 0;
-//function pressure_value() {
-//    if (pressure_val == 0) {
-//        pressure_val = 1;
-//        map.addLayer(pressure);
-//        jQuery('#div_map_pressure').css('display', 'block');
-//    }
-//    else {
-//        map.removeLayer(pressure);
-//        jQuery('#div_map_pressure').css('display', 'none');
-//        pressure_val = 0;
-//    }
-//}
-
-//var wind = new ol.layer.Tile({
-//    source: new ol.source.XYZ({
-//        url: "http://tile.openweathermap.org/map/wind_new/{z}/{x}/{y}.png?appid=664b8f290440bf70621e5e66cb4ceb45",
-//        crossOrigin: 'anonymous'
-
-//    })
-
-//});
-
-
-//var wind_val = 0;
-//function wind_speed() {
-//    if (wind_val == 0) {
-//        wind_val = 1;
-//        map.addLayer(wind);
-//        jQuery('#div_map_wind_speed').css('display', 'block');
-//    }
-//    else {
-//        map.removeLayer(wind);
-//        jQuery('#div_map_wind_speed').css('display', 'none');
-//        wind_val = 0;
-//    }
-//}
-
-//var precipitation = new ol.layer.Tile({
-//    source: new ol.source.XYZ({
-//        url: "http://tile.openweathermap.org/map/precipitation_new/{z}/{x}/{y}.png?appid=664b8f290440bf70621e5e66cb4ceb45",
-//        crossOrigin: 'anonymous'
-
-//    })
-
-//});
-
-
-//var precipitation_val = 0;
-//function precipitation_value() {
-//    if (precipitation_val == 0) {
-//        precipitation_val = 1;
-//        map.addLayer(precipitation);
-//        jQuery('#div_map_precipitation').css('display', 'block');
-//    }
-//    else {
-//        map.removeLayer(precipitation);
-//        jQuery('#div_map_precipitation').css('display', 'none');
-//        precipitation_val = 0;
-//    }
-//}
-
-
-//var temp_v = new ol.layer.Tile({
-//    source: new ol.source.XYZ({
-//        //url: "http://tile.openweathermap.org/map/temp_new/{z}/{x}/{y}.png?appid=664b8f290440bf70621e5e66cb4ceb455",
-//        url: "http://tile.openweathermap.org/map/temp_new/{z}/{x}/{y}.png?appid=d22d9a6a3ff2aa523d5917bbccc89211",
-//        crossOrigin: 'anonymous'
-
-//    })
-
-//});
-
-
-//var temp_val = 0;
-//function temp_value() {
-//    if (temp_val == 0) {
-//        temp_val = 1;
-//        map.addLayer(temp_v);
-//        jQuery('#div_map_temperature').css('display', 'block');
-//    }
-//    else {
-//        map.removeLayer(temp_v);
-//        jQuery('#div_map_temperature').css('display', 'none');
-//        temp_val = 0;
-//    }
-//}
-///*-------Map Icon End-----------------*/
-
-
-
-//function myfunSwipe() {
-//    document.getElementById("divSwipe").style.display = "block";
-//    var swipeFrom = document.getElementById("ddlmonthfrom");
-//    var swipeTo = document.getElementById("ddlmonthto");
-//    // alert(swipeFrom.value + " -- " + swipeTo.value);
-//    document.getElementById("swipedatefrom").innerHTML = swipeFrom.value;
-//    document.getElementById("swipedateto").innerHTML = swipeTo.value;
-
-//    var rangeValue = document.getElementById('txtDateRange1').value;
-//    var selectedDate11 = dates[rangeValue];
-
-//    document.getElementById("rangeSelecetedDate").innerHTML = selectedDate11;
-//    // document.getElementById('<%= hfSelectedDate.ClientID %>').value = selectedDate;
-
-
-
-//    addswipelayer(swipeFrom.value, swipeTo.value);
-
-
-
-//    //layerobject
-
-//}
-//function addswipelayer(datefrom, dateto) {
-//    var dtfrm = datefrom.split(" ");
-//    var dtto = dateto.split(" ");
-//    dtfrm = dtfrm[0];
-//    dtto = dtto[0];
-
-//    var dtfrmday = dtfrm.split("-")[0];
-//    var dtfrmmonth = dtfrm.split("-")[1];
-//    var dtfrmyear = dtfrm.split("-")[2];
-//    var dttoday = dtto.split("-")[0];
-//    var dttomonth = dtto.split("-")[1];
-//    var dttoyear = dtto.split("-")[2];
-//    dtfrm = dtfrmyear + "-" + dtfrmmonth + "-" + dtfrmday;
-//    dtto = dttoyear + "-" + dttomonth + "-" + dttoday;
-//    dtfrm = dtfrm + 'T00:00:00.000Z';
-//    dtto = dtto + 'T00:00:00.000Z';
-
-//    var canvas1 = document.getElementById('canvas1');
-//    var canvas2 = document.getElementById('canvas2');
-//    var swipeRange = document.getElementById('swiperange');
-//    var ctx1 = canvas1.getContext('2d');
-//    var ctx2 = canvas2.getContext('2d');
-
-//    // Load your raster images
-//    var img1 = new Image();
-//    var img2 = new Image();
-
-//    //img1.src = "http://180.151.15.18:9007/geoserver/nrdc/wms?service=WMS&version=1.1.0&request=GetMap&layers=nrdc%3Arow_image&time=" + datefrom +"&bbox=557386.8163888006%2C2931084.918491676%2C567596.8163888006%2C2941404.918491676&width=759&height=768&srs=EPSG%3A32644&styles=&format=image%2Fvnd.jpeg-png";  // Image 1 URL
-//    //img2.src = 'http://180.151.15.18:9007/geoserver/nrdc/wms?service=WMS&version=1.1.0&request=GetMap&layers=nrdc%3Arow_image&time=2024-03-01T00:00:00.000Z&bbox=557386.8163888006%2C2931084.918491676%2C567596.8163888006%2C2941404.918491676&width=759&height=768&srs=EPSG%3A32644&styles=&format=image%2Fvnd.jpeg-png';  // Image 2 URL
-
-
-//    img1.src = "http://180.151.15.18:9007/geoserver/nrdc/wms?service=WMS&version=1.1.0&request=GetMap&layers=nrdc%3Arow_image&time=" + dtfrm + "&bbox=557386.8163888006%2C2931084.918491676%2C567596.8163888006%2C2941404.918491676&width=1500&height=768&srs=EPSG%3A32644&styles=&format=image%2Fpng";  // Image 1 URL
-//    img2.src = "http://180.151.15.18:9007/geoserver/nrdc/wms?service=WMS&version=1.1.0&request=GetMap&layers=nrdc%3Arow_image&time=" + dtto + "&bbox=557386.8163888006%2C2931084.918491676%2C567596.8163888006%2C2941404.918491676&width=1500&height=768&srs=EPSG%3A32644&styles=&format=image%2Fpng";  // Image 2 URL
-
-
-//    img1.onload = function () {
-//        // Resize canvas to match image1 dimensions (if needed)
-//        canvas1.width = img1.width;
-//        canvas1.height = img1.height;
-//        ctx1.drawImage(img1, 0, 0, canvas1.width, canvas1.height);
-//    };
-
-//    img2.onload = function () {
-//        // Resize canvas to match image2 dimensions (if needed)
-//        canvas2.width = img2.width;
-//        canvas2.height = img2.height;
-//        ctx2.drawImage(img2, 0, 0, canvas2.width, canvas2.height);
-//        // Initially apply the swipe effect
-//        updateSwipeEffect(swipeRange.value);
-//    };
-
-//    // Event listener for the range input (slider)
-//    swipeRange.addEventListener('input', function () {
-//        updateSwipeEffect(swipeRange.value);
-//    });
-
-//    // Function to update the swipe effect
-//    function updateSwipeEffect(value) {
-//        var width = canvas1.width * (value / 100);
-
-//        // Clear the canvas2 context
-//        ctx2.clearRect(0, 0, canvas2.width, canvas2.height);
-
-//        // Clip canvas2 context based on the range value
-//        ctx2.save();
-//        ctx2.beginPath();
-//        ctx2.rect(width, 0, canvas2.width - width, canvas2.height);
-//        ctx2.clip();
-
-//        // Draw image2 on canvas2 with the clipping applied
-//        ctx2.drawImage(img2, 0, 0, canvas2.width, canvas2.height);
-//        ctx2.restore();
-//    }
-
-//    // Enable high-quality rendering
-//    ctx1.imageSmoothingEnabled = true;
-//    ctx2.imageSmoothingEnabled = true;
-//};
-
-//function myfunClear() {
-//    document.getElementById("divSwipe").style.display = "none";
-//    document.getElementById("swipedatefrom").innerHTML = "";
-//    document.getElementById("swipedateto").innerHTML = "";
-//}
-
-//var dateData = "2024-03-23,2024-04-02";
-
-////var dateDat1a = document.getElementById("txtDateRange1");
-
-//var dates = dateData.split(',');
-
-////dateDat1a.max = dates.length - 1;
-
-//function updateDateValue() {
-
-//    var rangeValue = "2024-03-23";
-//    var selectedDate11 = dates[rangeValue];
-//    var selectedDate11t = dates[rangeValue];
-
-
-//    var selectedDatet = selectedDate11t.split(" ");
-//    selectedDatet = selectedDatet[0];
-//    var datearray = selectedDatet.split("-");
-//    var dayt = datearray[0];
-//    var montht = datearray[1];
-//    var yeart = datearray[2];
-
-//    selectedDate11t = dayt + "-" + montht + "-" + yeart;
-
-//    document.getElementById("rangeSelecetedDate").innerHTML = selectedDate11t;
-//    // document.getElementById('<%= hfSelectedDate.ClientID %>').value = selectedDate;
-
-//    var selectedDate = selectedDate11.split(" ");
-//    selectedDate = selectedDate[0];
-//    count = 0;
-//    // Get the date input value
-//    // selectedDate = document.getElementById("time").value;
-//    //var year = selectedDate.split("-")[0]; // First part is the year (YYYY)
-//    //var month = selectedDate.split("-")[1]; // Second part is the month (MM)
-//    //var day = selectedDate.split("-")[2]; // Second part is the day (DD)
-//    //time_range = year + '-' + month + '-01T00:00:00.000Z';
-
-
-//    var day = selectedDate.split("-")[2]; // First part is the year (YYYY)
-//    var month = selectedDate.split("-")[1]; // Second part is the month (MM)
-//    var year = selectedDate.split("-")[0]; // Second part is the day (DD)
-//    time_range = year + '-' + month + '-' + day + 'T00:00:00.000Z';
-
-//    const wmsSource = CropGrowth_layer.getSource();
-//    wmsSource.updateParams({ 'time': time_range });
-
-//    const wmsSource_CropHealth_layer = CropHealth_layer.getSource();
-//    wmsSource_CropHealth_layer.updateParams({ 'time': time_range });
-
-//    const wmsSource_CropHarvesting_layer = CropHarvesting_layer.getSource();
-//    wmsSource_CropHarvesting_layer.updateParams({ 'time': time_range });
-
-//    const wmsSource_VegetationMoisture_layer = VegetationMoisture_layer.getSource();
-//    wmsSource_VegetationMoisture_layer.updateParams({ 'time': time_range });
-
-//    const wmsSource_NitrogenContent_layer = NitrogenContent_layer.getSource();
-//    wmsSource_NitrogenContent_layer.updateParams({ 'time': time_range });
-
-//    const wmsSource_SoilMoisture_layer = SoilMoisture_layer.getSource();
-//    wmsSource_SoilMoisture_layer.updateParams({ 'time': time_range });
-
-//    const wmsSource_base = layers['basemap_ortho'].getSource();
-//    wmsSource_base.updateParams({ 'time': time_range });
-
-
-
-//    /*   var cTime = new Date();*/
-
-//    var cTime = new Date(selectedDate);
-//    var syear = cTime.getFullYear();
-//    var smonth = cTime.getMonth() + 1;
-//    if (smonth < 10) {
-//        smonth = "0" + smonth;
-//    }
-//    var sday = cTime.getDate();
-//    if (sday < 10) {
-//        sday = "0" + sday;
-//    }
-
-//    var sto_date = syear + "-" + smonth + "-" + sday;
-//    var sfrom_date = new Date(sto_date);
-//    sfrom_date.setDate(sfrom_date.getDate() - 14);
-//    timlapse = sfrom_date.toISOString().slice(0, 10) + "/" + sto_date;
-
-//    const wmsSource_sentinal1 = layers['sentinal1'].getSource();
-//    wmsSource_sentinal1.updateParams({ 'time': timlapse });
-
-//    const wmsSource_sentinal2 = layers["sentinel2"].getSource();
-//    wmsSource_sentinal2.updateParams({ 'time': timlapse });
-
-//    sentinel_layer.getSource().updateParams({ 'time': timlapse });
-
-//    if (selectedLayerId == "sentinel2")
-//        zoomInOutOnce();
-//}
-
-//function icnTimeSeries() {
-//    var itm = document.getElementById("btntimeseries");
-//    var itms = document.getElementById("inptrangetimeseries");
-
-
-//    if (itm.style.backgroundColor == "rgb(201, 50, 255)") {
-//        itms.style.display = "none";
-//        itm.style.backgroundColor = "";
-//    } else {
-//        itm.style.backgroundColor = "#c932ff";
-//        itms.style.display = "block";
-//    }
-
-
-
-//}
-
-
-//const currentDate = new Date();
-
-//// Format the date as YYYY-MM-DD
-//const formattedDate = currentDate.toISOString().split('T')[0];
-
-//// Set the input field value to the current date
-////const dateInput = document.getElementById("time");
-////dateInput.value = formattedDate;
-
-////flatpickr("#time", {
-////    dateFormat: "Y-m-d",
-////    onDayCreate: function (dObj, dStr, fp, dayElem) {
-////        const dateStr = dayElem.dateObj.toLocaleDateString('en-CA');
-////        if (dates.includes(dateStr)) {
-////            dayElem.classList.add("highlighted");
-////        } else {
-////            /* dayElem.classList.add("highlightedRed");*/
-////        }
-////    }
-////});
-
-
-
-
-
-
-
-////document.getElementById("cd_Weed").disabled = true;
-////document.getElementById("cd_EnhancedVegetation").disabled = true;
-
-
-
-
-
-
-
-
-
-
-
-
-//var checkbox = document.getElementById('addMarkerCheckbox');
-//var vectorSource = new ol.source.Vector();
-//var vectorLayer = new ol.layer.Vector({
-//    source: vectorSource
-//});
-//var selectedMarkers = [];
-
-//map.on('click', function (event) {
-//    var checkbox = document.getElementById("addMarkerCheckbox"); // Make sure this exists
-//    var table = document.querySelector("#markerTable1"); // Corrected
-
-//    if (checkbox && checkbox.checked) {
-//        var coordinates = event.coordinate;
-//        var lonLat = ol.proj.toLonLat(coordinates);
-//        var timestamp = new Date().toLocaleString();
-
-//        console.log(`Marker added at: Latitude = ${lonLat[1].toFixed(6)}, Longitude = ${lonLat[0].toFixed(6)}, Time = ${timestamp}`);
-
-//        // Marker Style
-//        var defaultStyle = new ol.style.Style({
-//            image: new ol.style.Icon({
-//                src: 'https://static.vecteezy.com/system/resources/thumbnails/014/488/954/small_2x/location-pin-collection-red-pointer-icon-for-pin-on-the-map-to-show-the-location-png.png',
-//                scale: 0.09,
-//            })
-//        });
-
-//        // Add Marker to Map
-//        var marker = new ol.Feature({
-//            geometry: new ol.geom.Point(coordinates),
-//        });
-//        marker.setStyle(defaultStyle);
-//        marker.set('defaultStyle', defaultStyle);
-//        vectorSource.addFeature(marker);
-
-//        // Add to Table
-//        var row = table.insertRow(-1); // Insert at the end
-//        //var cell1 = row.insertCell(0);
-//        //var cell2 = row.insertCell(1);
-//        //var cell3 = row.insertCell(2);
-//        document.getElementById("hf_lat_cord").value = lonLat[1].toFixed(6); // Latitude
-//        document.getElementById("hf_long_cord").value = lonLat[0].toFixed(6); // Longitude
-//        document.getElementById("hf_timestamp_cord").value = timestamp;
-//        //cell1.textContent = lonLat[1].toFixed(6); // Latitude
-//        //cell2.textContent = lonLat[0].toFixed(6); // Longitude
-//        //cell3.textContent = timestamp; // Timestamp
-
-//        row.onclick = function () {
-//            if (!selectedMarkers.includes(marker)) {
-//                selectedMarkers.push(marker);
-//                marker.setStyle(new ol.style.Style({
-//                    image: new ol.style.Icon({
-//                        src: 'https://openlayers.org/en/v3.20.1/examples/data/icon.png',
-//                        scale: 1.0
-//                    })
-//                }));
-//            } else {
-//                selectedMarkers = selectedMarkers.filter(m => m !== marker);
-//                marker.setStyle(marker.get('defaultStyle'));
-//            }
-//            vectorLayer.refresh(); // Optional refresh
-//        };
-
-//        // Trigger button click if needed
-//        var btnts = document.getElementById("btnaddcord");
-//        if (btnts) btnts.click();
-//    }
-//});
-
-
-/////////////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////////////////
-
-
-
-window.onload = function () {
-     
-        
-
-    map1.addLayer(zones);
-   // map1.addOverlay(zones);
-
-    layerobject.push(zones);
-
-     
-
-        lastselectedlayer.push("tbl_division_master");
-        lastselectedlayername.push("Divisions Boundary");
-        lastselectedlayer_vector.push("tbl_division_master");
- 
-}
-
-const view = new ol.View({
-    center: ol.proj.fromLonLat([79.0193, 30.0668]),
-    zoom: 8
+const sharedView = new ol.View({
+    center: ol.proj.fromLonLat([79.2593, 29.9968]),
+    zoom: 8.2
 });
 
 const map1 = new ol.Map({
     target: 'map1',
     layers: [new ol.layer.Tile({ source: new ol.source.OSM() })],
-    view
+    view: sharedView
 });
 
 const map2 = new ol.Map({
     target: 'map2',
     layers: [new ol.layer.Tile({ source: new ol.source.OSM() })],
-    view: new ol.View({
-        center: ol.proj.fromLonLat([79.0193, 30.0668]),
-        zoom: 8
-    })
+
+    view: sharedView
 });
 
-var geoserver_ip = "http://180.151.15.18:9007/geoserver/uk_sfd/wms?";
+var geoserver_ip = "https://ukforestgis.in/geoserver/uk_sfd/wms?";
 
 var format = 'image/png';
 var lastselectedlayer = [];
@@ -4209,7 +162,20 @@ var lastselectedlayer_vector = [];
 var lastselectedlayer_vector_filter = [];
 var layerobject = [];
 
+window.onload = function () {
 
+    map1.addLayer(zones);
+    map1.addOverlay(zones);
+
+    layerobject.push(zones);
+
+    document.getElementById("zonecheck").checked = true;
+
+    lastselectedlayer.push("tbl_zone_master");
+    lastselectedlayername.push("Zone Boundary");
+    lastselectedlayer_vector.push("tbl_zone_master");
+
+}
 function sfdzone(checkbox) {
 
     if (checkbox.checked) {
@@ -4217,8 +183,8 @@ function sfdzone(checkbox) {
         map1.addLayer(zones);
         map2.addLayer(zones);
         layerobject.push(zones);
-         //map1.addOverlay(zones);
-         //map2.addOverlay(zones);
+        map1.addOverlay(zones);
+        map2.addOverlay(zones);
         lastselectedlayer.push("tbl_zone_master");
         lastselectedlayername.push("SFD Zone Boundaries");
         lastselectedlayer_vector.push("tbl_zone_master");
@@ -4229,11 +195,11 @@ function sfdzone(checkbox) {
         map1.removeLayer(zones);
         map2.removeLayer(zones);
         layerobject.pop(zones);
-         map1.removeOverlay(zones);
-         map2.removeOverlay(zones);
-         lastselectedlayer.pop("tbl_zone_master");
-         lastselectedlayername.pop("SFD Zone Boundaries");
-         lastselectedlayer_vector.pop("tbl_zone_master");
+        map1.removeOverlay(zones);
+        map2.removeOverlay(zones);
+        lastselectedlayer.pop("tbl_zone_master");
+        lastselectedlayername.pop("SFD Zone Boundaries");
+        lastselectedlayer_vector.pop("tbl_zone_master");
     }
 }
 
@@ -4252,10 +218,6 @@ var zones = new ol.layer.Image({
 
     })
 });
-
-
-
-
 function sfdcircle(checkbox) {
 
     if (checkbox.checked) {
@@ -4263,10 +225,10 @@ function sfdcircle(checkbox) {
         map1.addLayer(circles);
         map2.addLayer(circles);
         layerobject.push(circles);
-         //map1.addOverlay(circles);
-         //map2.addOverlay(circles);
-         lastselectedlayer.push("tbl_circle_master");
-         lastselectedlayername.push("SFD Circle Boundaries");
+        map1.addOverlay(circles);
+        map2.addOverlay(circles);
+        lastselectedlayer.push("tbl_circle_master");
+        lastselectedlayername.push("SFD Circle Boundaries");
         lastselectedlayer_vector.push("tbl_circle_master");
         //village_zoom();
     }
@@ -4275,10 +237,10 @@ function sfdcircle(checkbox) {
         map1.removeLayer(circles);
         map2.removeLayer(circles);
         layerobject.pop(circles);
-        //map1.removeOverlay(circles);
-        //map2.removeOverlay(circles);
+        map1.removeOverlay(circles);
+        map2.removeOverlay(circles);
         lastselectedlayer.pop("tbl_circle_master");
-         lastselectedlayername.pop("SFD Circle Boundaries");
+        lastselectedlayername.pop("SFD Circle Boundaries");
         lastselectedlayer_vector.pop("tbl_circle_master");
     }
 }
@@ -4298,10 +260,6 @@ var circles = new ol.layer.Image({
 
     })
 });
-
-
-
-
 function sfddivision(checkbox) {
 
     if (checkbox.checked) {
@@ -4309,10 +267,10 @@ function sfddivision(checkbox) {
         map1.addLayer(divisions);
         map2.addLayer(divisions);
         layerobject.push(divisions);
-         //map1.addOverlay(divisions);
-         //map2.addOverlay(divisions);
+        map1.addOverlay(divisions);
+        map2.addOverlay(divisions);
         lastselectedlayer.push("tbl_division_master");
-       lastselectedlayername.push("sfd division boundaries");
+        lastselectedlayername.push("sfd division boundaries");
         lastselectedlayer_vector.push("tbl_division_master");
         //village_zoom();
     }
@@ -4321,10 +279,10 @@ function sfddivision(checkbox) {
         map1.removeLayer(divisions);
         map2.removeLayer(divisions);
         layerobject.pop(divisions);
-        //map1.removeOverlay(divisions);
-        //map2.removeOverlay(divisions);
+        map1.removeOverlay(divisions);
+        map2.removeOverlay(divisions);
         lastselectedlayer.pop("tbl_division_master");
-       lastselectedlayername.pop("SFD Division Boundaries");
+        lastselectedlayername.pop("SFD Division Boundaries");
         lastselectedlayer_vector.pop("tbl_division_master");
     }
 }
@@ -4338,14 +296,13 @@ var divisions = new ol.layer.Image({
             tiled: true,
             STYLES: '',
             layers: 'uk_sfd:tbl_division_master',
+            //CQL_FILTER: "division ILIKE 'Garhwal'",
             transition: 0
         }, serverType: 'geoserver',
         crossOrigin: 'anonymous'
 
     })
 });
-
-
 
 function sfdplantation(checkbox) {
 
@@ -4354,20 +311,20 @@ function sfdplantation(checkbox) {
         map1.addLayer(plantation_layer);
         map2.addLayer(plantation_layer);
         layerobject.push(plantation_layer);
-        //map1.addOverlay(plantation_layer);
-        //map2.addOverlay(plantation_layer);
+        map1.addOverlay(plantation_layer);
+        map2.addOverlay(plantation_layer);
         lastselectedlayer.push("tbl_plantation_area");
         lastselectedlayername.push("Plantation");
         lastselectedlayer_vector.push("tbl_plantation_area");
         //thailandvil_zoom();
     }
     else {
-       // jQuery('#div_LandDetails').css('display', 'none');
+        // jQuery('#div_LandDetails').css('display', 'none');
         map1.removeLayer(plantation_layer);
         map2.removeLayer(plantation_layer);
         layerobject.pop(plantation_layer);
-        //map1.removeOverlay(plantation_layer);
-        //map2.removeOverlay(plantation_layer);
+        map1.removeOverlay(plantation_layer);
+        map2.removeOverlay(plantation_layer);
         lastselectedlayer.pop("tbl_plantation_area");
         lastselectedlayername.pop("Plantation");
         lastselectedlayer_vector.pop("tbl_plantation_area");
@@ -4377,7 +334,7 @@ function sfdplantation(checkbox) {
 var plantation_layer = new ol.layer.Image({
     source: new ol.source.ImageWMS({
         ratio: 1,
-     url: geoserver_ip,
+        url: geoserver_ip,
         params: {
             'FORMAT': format,
             tiled: true,
@@ -4390,84 +347,1091 @@ var plantation_layer = new ol.layer.Image({
 });
 
 
+function sfdforest(checkbox) {
+
+    if (checkbox.checked) {
+
+        map1.addLayer(forest_layer);
+        map2.addLayer(forest_layer);
+        map1.addOverlay(forest_layer);
+        map2.addOverlay(forest_layer);
+        layerobject.push(forest_layer);
+
+        lastselectedlayer.push("tbl_forest_data_final");
+        lastselectedlayername.push("Forest");
+        lastselectedlayer_vector.push("tbl_forest_data_final");
+
+    }
+    else {
+
+        map1.removeLayer(forest_layer);
+        map2.removeLayer(forest_layer);
+        layerobject.pop(forest_layer);
+        map1.removeOverlay(forest_layer);
+        map2.removeOverlay(forest_layer);
+        lastselectedlayer.pop("tbl_forest_data_final");
+        lastselectedlayername.pop("Forest");
+        lastselectedlayer_vector.pop("tbl_forest_data_final");
+
+    }
+}
+var forest_layer = new ol.layer.Image({
+    source: new ol.source.ImageWMS({
+        ratio: 1,
+        url: geoserver_ip,
+        params: {
+            'FORMAT': format,
+            tiled: true,
+            STYLES: '',
+            layers: 'uk_sfd:tbl_forest_data_final',
+            //layers: 'uk_sfd:tbl_2024',
+            CQL_FILTER: "name='Reserve Forest'",
+            transition: 0
+        }, serverType: 'geoserver',
+        crossOrigin: 'anonymous'
+    })
+});
+
+function firepoints(checkbox) {
+
+    if (checkbox.checked) {
+
+        map1.addLayer(forestfire_layer);
+        map2.addLayer(forestfire_layer);
+        map1.addOverlay(forestfire_layer);
+        map2.addOverlay(forestfire_layer);
+        layerobject.push(forestfire_layer);
+
+
+    }
+    else {
+
+        map1.removeLayer(forestfire_layer);
+        map2.removeLayer(forestfire_layer);
+        layerobject.pop(forestfire_layer);
+        map1.removeOverlay(forestfire_layer);
+        map2.removeOverlay(forestfire_layer);
+
+    }
+}
+var forestfire_layer = new ol.layer.Image({
+    source: new ol.source.ImageWMS({
+        ratio: 1,
+        url: geoserver_ip,
+        params: {
+            'FORMAT': format,
+            tiled: true,
+            STYLES: '',
+            //layers: 'uk_sfd:tbl_fire_polygon',
+            layers: 'uk_sfd:uk_density_recode_color_final',
+
+            transition: 0
+        }, serverType: 'geoserver',
+        crossOrigin: 'anonymous'
+    })
+});
+
+
+
+function soilfuntion(checkbox) {
+
+    if (checkbox.checked) {
+
+        map1.addLayer(soil_layer);
+        map2.addLayer(soil_layer);
+        map1.addOverlay(soil_layer);
+        map2.addOverlay(soil_layer);
+        layerobject.push(soil_layer);
+
+
+    }
+    else {
+
+        map1.removeLayer(soil_layer);
+        map2.removeLayer(soil_layer);
+        layerobject.pop(soil_layer);
+        map1.removeOverlay(soil_layer);
+        map2.removeOverlay(soil_layer);
+
+    }
+}
+
+function clearPolygons() {
+    try {
+        const layers = map1.getLayers().getArray();
+
+        //console.log("All layers on map:", layers);
+
+        if (vectorLayerforsoil) {
+            const index = layers.indexOf(vectorLayerforsoil);
+            if (index !== -1) {
+                map1.removeLayer(vectorLayerforsoil);
+                //console.log("Removed vectorLayerforsoil.");
+            } else {
+                alert("Layer exists but is not on the map.");
+            }
+        } else {
+            alert("vectorLayerforsoil is not defined.");
+        }
+
+        document.getElementById('info').innerHTML =
+            "Draw a polygon or upload a shapefile to get slope values...";
+    } catch (e) {
+        alert("Error: " + e.message);
+    }
+}
+
+
+
+const soil_layer = new ol.layer.Image({
+    source: new ol.source.ImageWMS({
+        url: 'https://ukforestgis.in/geoserver/uk_sfd/wms',
+        params: {
+            'LAYERS': 'uk_sfd:GCS_Soil_Type_Uttaranchal',
+            'FORMAT': 'image/png',
+            'VERSION': '1.3.0',
+            'SLD_BODY': `
+        <StyledLayerDescriptor version="1.0.0">
+          <NamedLayer>
+            <Name>uk_sfd:GCS_Soil_Type_Uttaranchal</Name>
+            <UserStyle>
+              <FeatureTypeStyle>
+                <Rule>
+                  <RasterSymbolizer>
+                    <ColorMap type="values">
+                      <ColorMapEntry color="#A0522D" quantity="1" label="Loamy"/>
+                      <ColorMapEntry color="#C2B280" quantity="2" label="Sandy"/>
+                      <ColorMapEntry color="#FFFFFF" quantity="3" label="Snow"/>
+                      <ColorMapEntry color="#808080" quantity="4" label="Clay"/>
+                    </ColorMap>
+                  </RasterSymbolizer>
+                </Rule>
+              </FeatureTypeStyle>
+            </UserStyle>
+          </NamedLayer>
+        </StyledLayerDescriptor>
+      `
+        },
+        ratio: 1,
+        crossOrigin: 'anonymous'
+    })
+});
+
+
+
+
+
+function slop_fun(checkbox) {
+
+    if (checkbox.checked) {
+        jQuery('#div_slope').css('display', 'block');
+
+        layerobject.push(sloplayer);
+        map1.addLayer(sloplayer);
+        map2.addLayer(sloplayer);
+        //map1.addOverlay(sloplayer);
+        //map2.addOverlay(sloplayer);
+        lastselectedlayer.push("Slop");
+        lastselectedlayername.push("Slop");
+        lastselectedlayer_vector.push("Slope_Geo");
+
+        //village_zoom();
+    }
+    else {
+        jQuery('#div_slope').css('display', 'none');
+
+        layerobject.pop(sloplayer);
+        map1.removeLayer(sloplayer);
+        map2.removeLayer(sloplayer);
+        //map1.removeOverlay(sloplayer);
+        //map2.removeOverlay(sloplayer);
+        lastselectedlayer.pop("Slop");
+        lastselectedlayername.pop("Slop");
+        lastselectedlayer_vector.pop("Slope_Geo");
+
+    }
+}
+
+const slopeSLD = `
+    <?xml version="1.0" encoding="UTF-8"?>
+    <StyledLayerDescriptor version="1.0.0"
+      xsi:schemaLocation="http://www.opengis.net/sld StyledLayerDescriptor.xsd"
+      xmlns="http://www.opengis.net/sld"
+      xmlns:ogc="http://www.opengis.net/ogc"
+      xmlns:xlink="http://www.w3.org/1999/xlink"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+      <NamedLayer>
+        <Name>uk_sfd:srtm_slop_GCS</Name>
+        <UserStyle>
+          <Title>Slope Classification</Title>
+          <FeatureTypeStyle>
+            <Rule>
+              <RasterSymbolizer>
+                <ColorMap type="intervals" extended="true">
+                  <ColorMapEntry color="#6BBE44" quantity="10" label="5 - 10"/>
+                  <ColorMapEntry color="#E5F94E" quantity="20" label="10 - 20"/>
+                  <ColorMapEntry color="#FDC84E" quantity="30" label="20 - 30"/>
+                  <ColorMapEntry color="#F57C20" quantity="45" label="30 - 45"/>
+                  <ColorMapEntry color="#FF0000" quantity="88" label="45 - 88"/>
+                </ColorMap>
+              </RasterSymbolizer>
+            </Rule>
+          </FeatureTypeStyle>
+        </UserStyle>
+      </NamedLayer>
+    </StyledLayerDescriptor>
+    `;
+
+// WMS Layer with SLD
+const sloplayer = new ol.layer.Image({
+    source: new ol.source.ImageWMS({
+        url: geoserver_ip,
+        params: {
+            'LAYERS': 'uk_sfd:srtm_slop_GCS',
+            'FORMAT': 'image/png',
+            'VERSION': '1.1.0',
+            'SRS': 'EPSG:4326',
+            'SLD_BODY': slopeSLD
+            // Add 'SLD_BODY' if needed
+        },
+        ratio: 1,
+        crossOrigin: 'anonymous'
+    })
+});
+
+
+
+function dtm_fun(checkbox) {
+
+    if (checkbox.checked) {
+        jQuery('#div_dtm').css('display', 'block');
+
+        layerobject.push(dtmlayer);
+        map1.addLayer(dtmlayer);
+        map2.addLayer(dtmlayer);
+        //map1.addOverlay(dtmlayer);
+        //map2.addOverlay(dtmlayer);
+        lastselectedlayer.push("Uttaranchal_SRTM_GEO");
+        lastselectedlayername.push("Uttaranchal_SRTM_GEO");
+        lastselectedlayer_vector.push("Uttaranchal_SRTM_GEO");
+        //village_zoom();
+    }
+    else {
+        jQuery('#div_dtm').css('display', 'none');
+
+        layerobject.pop(dtmlayer);
+        map1.removeLayer(dtmlayer);
+        map2.removeLayer(dtmlayer);
+        //map1.removeOverlay(dtmlayer);
+        //map2.removeOverlay(dtmlayer);
+        lastselectedlayer.pop("Uttaranchal_SRTM_GEO");
+        lastselectedlayername.pop("Uttaranchal_SRTM_GEO");
+        lastselectedlayer_vector.pop("Uttaranchal_SRTM_GEO");
+    }
+}
+
+
+
+const sldBodydtm = `<?xml version="1.0" encoding="UTF-8"?>
+<StyledLayerDescriptor version="1.0.0"
+  xsi:schemaLocation="http://www.opengis.net/sld StyledLayerDescriptor.xsd"
+  xmlns="http://www.opengis.net/sld"
+  xmlns:ogc="http://www.opengis.net/ogc"
+  xmlns:xlink="http://www.opengis.net/xlink"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+  <NamedLayer>
+    <Name>uk_sfd:Uttaranchal_SRTM_GEO</Name>
+    <UserStyle>
+      <Title>Elevation Classification</Title>
+      <FeatureTypeStyle>
+        <Rule>
+          <RasterSymbolizer>
+            <ColorMap type="intervals" extended="true">
+              <ColorMapEntry label="Very Low (≤500m)" color="#2b83ba" quantity="500" />
+              <ColorMapEntry label="Low‐Moderate (500–1000m)" color="#abdda4" quantity="1000" />
+              <ColorMapEntry label="Moderate‐High (1000–2000m)" color="#ffffbf" quantity="2000" />
+              <ColorMapEntry label="High (2000–3000m)" color="#fdae61" quantity="3000" />
+              <ColorMapEntry label="Very High (>3000m)" color="#d7191c" quantity="4000" />
+            </ColorMap>
+          </RasterSymbolizer>
+        </Rule>
+      </FeatureTypeStyle>
+    </UserStyle>
+  </NamedLayer>
+</StyledLayerDescriptor>`.trim();
+
+
+const dtmlayer = new ol.layer.Image({
+    source: new ol.source.ImageWMS({
+        url: geoserver_ip,
+        params: {
+            'LAYERS': 'uk_sfd:Uttaranchal_SRTM_GEO',
+            'FORMAT': 'image/png',
+            'VERSION': '1.1.0',
+            'SRS': 'EPSG:4326',
+            'SLD_BODY': sldBodydtm
+            // Add 'SLD_BODY' if needed
+        },
+        ratio: 1,
+        crossOrigin: 'anonymous'
+    })
+});
 
 
 
 let sentinelLayer1, sentinelLayer2;
-let ndviLayer1, ndviLayer2;
-let swipeLayer1, swipeLayer2, swipeNDVILayer1, swipeNDVILayer2;
+var ndviLayer1, ndviLayer2;
+var swipeLayer1, swipeLayer2, swipeNDVILayer1, swipeNDVILayer2;
 let showNDVI = false;
 let singleDates = [];
 let dualDates1 = [], dualDates2 = [];
 
 
+let rasterListenerAdded = false; let rasterListenerAdded1 = false;
 
-function createSentinelLayer(date, type = '2_FALSE_COLOR') {
-    var checkndvi = document.getElementById("ndvi-toggle");
-    if (true) {
-        const sentinelSource = new ol.source.TileWMS({
-            url: 'https://services.sentinel-hub.com/ogc/wms/13d5aaea-1d0e-4581-9288-a463ce586119',
+function createSentinelLayer(date) {
+    //alert("createSentinelLayer");
+    //alert("createSentinelLayer for the date : " + date);
+    document.getElementById("key-switcher").style.display = "block";
+
+    //const checkndvi = document.getElementById("ndvi-toggle");
+    //const checkcbi = document.getElementById("ndvi-toggle1");
+    // var selectedindicies = document.querySelector('input[name="index"]:checked');
+    var selectedindicies = document.getElementById("selectedIndicies");
+    // alert("selectedindicies :"+selectedindicies)
+    if (selectedindicies) {
+        selectedindicies = selectedindicies.value;
+    }
+
+    const selected = document.querySelector('input[name="sentinel-type"]:checked').value;
+    const mode = document.querySelector('input[name="mode"]:checked').value;
+
+    const layerName = selected === 'fcc' ? 'CLOUDFREEFALSECOLOR' : '1_TRUE_COLOR';
+    const key = selected === 'fcc' ? sentinel2fcckey : sentinel2ncckey;
+
+    // Default true color source
+    const trueColorSource = new ol.source.TileWMS({
+        url: 'https://services.sentinel-hub.com/ogc/wms/' + key,
+        params: {
+            layers: layerName,
+            time: date,
+            preset: layerName,
+            maxcc: 50
+        },
+        crossOrigin: 'anonymous'
+    });
+
+    rasterListenerAdded = false;
+
+    document.getElementById("ndvi-stats-table").style.display = "none";
+    document.getElementById("ndvilengend").style.display = "none";
+    document.getElementById("ndvilengendmap2").style.display = "none";
+    document.getElementById("saviLegend").style.display = "none";
+    document.getElementById("eviLegend").style.display = "none";
+    document.getElementById("ndwiLegend").style.display = "none";
+
+    // =================== NDVI PROCESSING ===================
+    if (selectedindicies == "NDVI") {
+
+        document.getElementById("ndvi-stats-table").style.display = "block";
+        if (mode === "dual") {
+            document.getElementById("ndvilengend").style.display = "block";
+            document.getElementById("ndvilengendmap2").style.display = "none";
+        } else {
+            document.getElementById("ndvilengend").style.display = "block";
+        }
+
+        const falseColorSource = new ol.source.TileWMS({
+            url: 'https://services.sentinel-hub.com/ogc/wms/' + sentinel2fcckey,
             params: {
-                layers: '2_FALSE_COLOR',
+                layers: 'CLOUDFREEFALSECOLOR',
                 time: date,
-                preset: '2_FALSE_COLOR',
+                preset: 'CLOUDFREEFALSECOLOR',
                 maxcc: 50
             },
             crossOrigin: 'anonymous'
         });
 
-        if (checkndvi.checked) {
+        var rasterSource = new ol.source.Raster({
+            sources: [falseColorSource],
+            operation: function (pixels, data) {
+                if (!data.counts) {
+                    data.counts = { Dense: 0, Moderate: 0, Low: 0, Other: 0 };
+                }
+                const pixel = pixels[0];
+                const nir = pixel[0] / 255;
+                const red = pixel[1] / 255;
+                const ndvi = (nir - red) / (nir + red);
 
 
-            // return new ol.layer.Image({
-            //    source: new ol.source.Raster({
-            //     sources: [sentinelSource],
-            //     operation: function (pixels) {
-            //      const pixel = pixels[0];
+                if (ndvi >= 0.60) {
+                    data.counts.Dense++;
+                    return [20, 90, 33, 255];
+                } else if (ndvi >= 0.40) {
+                    data.counts.Moderate++;
+                    return [50, 255, 90, 255];
+                } else if (ndvi >= 0.20) {
+                    data.counts.Low++;
+                    return [221, 137, 50, 255];
+                } else {
+                    data.counts.Other++;
+                    return [255, 0, 0, 255];
+                }
+            }
+        });
 
-            //     const nir = pixel[0] / 255; 
-            //     const red = pixel[1] / 255;
-            //     const ndvi = (nir - red) / (nir + red);
-            //console.log(ndvi);
-            //     if (ndvi >= 0.67) return [20, 90, 33, 255];
-            //    else if (ndvi >= 0.46) return [50, 255, 90, 255];
-            //     else if (ndvi >= 0.30) return [221, 137, 50, 255];
-            //    else return [255, 0, 0, 255];
-            //  }
-            // })
-            //  });
+        if (!rasterListenerAdded) {
+            rasterSource.on('afteroperations', function (event) {
+                if (event.data && event.data.counts) {
+                    const counts = event.data.counts;
+                    const total = counts.Dense + counts.Moderate + counts.Low + counts.Other;
 
-            return new ol.layer.Image({
-                source: new ol.source.Raster({
-                    sources: [sentinelSource],
-                    operation: function (pixels) {
-                        const pixel = pixels[0];
-                        const nir = pixel[0] / 255; // Replace if using real NIR band
-                        const red = pixel[1] / 255;
-                        const ndvi = (nir - red) / (nir + red);
-                        if (ndvi >= 0.67) return [20, 90, 33, 255];
-                        else if (ndvi >= 0.46) return [50, 255, 90, 255];
-                        else if (ndvi >= 0.30) return [221, 137, 50, 255];
-                        else return [255, 0, 0, 255];
+
+                    if (total > 0) {
+                        const percentages = {
+                            Dense: ((counts.Dense / total) * 100).toFixed(2),
+                            Moderate: ((counts.Moderate / total) * 100).toFixed(2),
+                            Low: ((counts.Low / total) * 100).toFixed(2),
+                            Other: ((counts.Other / total) * 100).toFixed(2)
+                        };
+
+
+                        updateNdviStatsTable(percentages);
+
+                    } else {
+                        console.log("No pixels counted yet.");
                     }
-                })
+                }
             });
-
-            return new ol.layer.Image({ source: ndviRaster });
-        } else {
-            return new ol.layer.Tile({ source: sentinelSource });
+            rasterListenerAdded = true;
         }
+
+        return new ol.layer.Image({ source: rasterSource });
+
+
+
+    }
+    else if (selectedindicies == "NDWI") {
+        document.getElementById("ndvi-stats-table").style.display = "block";
+        if (mode === "dual") {
+            document.getElementById("ndwiLegend").style.display = "block";
+            //document.getElementById("ndvilengendmap2").style.display = "block";
+        } else {
+            document.getElementById("ndwiLegend").style.display = "block";
+        }
+
+        const falseColorSource = new ol.source.TileWMS({
+            url: 'https://services.sentinel-hub.com/ogc/wms/' + sentinel2fcckey,
+            params: {
+                layers: 'CLOUDFREEFALSECOLOR',
+                time: date,
+                preset: 'CLOUDFREEFALSECOLOR',
+                maxcc: 50
+            },
+            crossOrigin: 'anonymous'
+        });
+
+        const rasterSource = new ol.source.Raster({
+            sources: [falseColorSource],
+            operation: function (pixels, data) {
+                if (!data.counts) {
+                    data.counts = { Wetlands: 0, Moist: 0, Urban: 0 };
+                }
+                const pixel = pixels[0];
+                const nir = pixel[1] / 255;
+                const r = pixel[1] / 255;
+                const g = pixel[2] / 255;
+                const ndwi = (g - nir) / (g + nir);
+                // const nbr = (nir - (r + g)) / (nir + (r + g));
+
+                if (ndwi > 0.3) {
+                    data.counts.Wetlands++;
+                    return [0, 0, 255, 255]; // Water bodies (blue)
+
+                } else if (ndwi >= 0) {
+                    data.counts.Moist++;
+                    return [0, 255, 0, 255]; // Wet soil, vegetation edges, moist areas (green)
+                } else {
+                    data.counts.Urban++;
+                    return [255, 165, 0, 255]; // Vegetation, bare soil, urban areas (orange)
+                }
+
+            }
+        });
+
+        if (!rasterListenerAdded) {
+            rasterSource.on('afteroperations', function (event) {
+                if (event.data && event.data.counts) {
+                    const counts = event.data.counts;
+                    const total = counts.Wetlands + counts.Moist + counts.Urban;
+
+                    if (total > 0) {
+                        const percentages = {
+                            Wetlands: ((counts.Wetlands / total) * 100).toFixed(2),
+                            Moist: ((counts.Moist / total) * 100).toFixed(2),
+                            Urban: ((counts.Urban / total) * 100).toFixed(2)
+                        };
+
+                        //console.log("NDVI Counts:", counts);
+                        //console.log("NDVI Percentages (%):", percentages);
+                        updateNdviStatsTable(percentages);
+                    } else {
+                        console.log("No pixels counted yet.");
+                    }
+                }
+            });
+            rasterListenerAdded = true;
+        }
+
+        return new ol.layer.Image({ source: rasterSource });
+    }
+    else if (selectedindicies == "EVI") {
+        document.getElementById("ndvi-stats-table").style.display = "block";
+        if (mode === "dual") {
+            document.getElementById("eviLegend").style.display = "block";
+            //document.getElementById("ndvilengendmap2").style.display = "block";
+        } else {
+            document.getElementById("eviLegend").style.display = "block";
+        }
+
+        const falseColorSource = new ol.source.TileWMS({
+            url: 'https://services.sentinel-hub.com/ogc/wms/' + sentinel2fcckey,
+            params: {
+                layers: 'CLOUDFREEFALSECOLOR',
+                time: date,
+                preset: 'CLOUDFREEFALSECOLOR',
+                maxcc: 50
+            },
+            crossOrigin: 'anonymous'
+        });
+
+        //const rasterSource = new ol.source.Raster({
+        //    sources: [falseColorSource],
+        //    operation: function (pixels) {
+        //        const pixel = pixels[0];
+        //        const nir = pixel[1] / 255;
+        //        const r = pixel[1] / 255;
+        //        const g = pixel[2] / 255;
+        //       // const evi = (nir - (r + g)) / (nir + (r + g));
+        //        const evi = 2.5 * ((nir + r) / ((nir + (6 * r)) - ((7.5 * b) + 1)));
+
+        //        if (evi < 0) {
+        //            return [0, 0, 255, 255]; // Water, snow, clouds (blue)
+        //        } else if (evi < 0.2) {
+        //            return [210, 180, 140, 255]; // Sparse/stressed vegetation, bare soil (tan)
+        //        } else if (evi < 0.5) {
+        //            return [34, 139, 34, 255]; // Moderate vegetation (forest green)
+        //        } else {
+        //            return [0, 100, 0, 255]; // Dense, healthy vegetation (dark green)
+        //        }
+        //    }
+        //});
+
+        const rasterSource = new ol.source.Raster({
+            sources: [falseColorSource],
+            operation: function (pixels, data) {
+                if (!data.counts) {
+                    data.counts = { Nonvegetated: 0, Barren: 0, Shrubland: 0, Vegetated: 0 };
+                }
+                const pixel = pixels[0];
+
+                const nir = pixel[0] / 255;  // NIR
+                const red = pixel[1] / 255;  // Red
+                const blue = pixel[3] ? pixel[3] / 255 : 0.01; // Blue (fallback if not available)
+
+                // EVI formula
+                const evi = 2.5 * ((nir - red) / ((nir + 6 * red) - (7.5 * blue + 1)));
+
+                // Classification by EVI value
+                if (evi < 0) {
+                    data.counts.Nonvegetated++;
+                    return [0, 0, 255, 255]; // Water, snow, clouds (blue)
+                } else if (evi < 0.2) {
+                    data.counts.Barren++;
+                    return [210, 180, 140, 255]; // Bare soil or sparse vegetation (tan)
+                } else if (evi < 0.5) {
+                    data.counts.Shrubland++;
+                    return [34, 139, 34, 255]; // Moderate vegetation (forest green)
+                } else {
+                    data.counts.Vegetated++;
+                    return [0, 100, 0, 255]; // Dense vegetation (dark green)
+                }
+            }
+        });
+
+        if (!rasterListenerAdded) {
+            rasterSource.on('afteroperations', function (event) {
+                if (event.data && event.data.counts) {
+                    const counts = event.data.counts;
+                    const total = counts.Nonvegetated + counts.Barren + counts.Shrubland + counts.Vegetated;
+
+                    if (total > 0) {
+                        const percentages = {
+                            Nonvegetated: ((counts.Nonvegetated / total) * 100).toFixed(2),
+                            Barren: ((counts.Barren / total) * 100).toFixed(2),
+                            Shrubland: ((counts.Shrubland / total) * 100).toFixed(2),
+                            Vegetated: ((counts.Vegetated / total) * 100).toFixed(2)
+                        };
+
+                        //console.log("NDVI Counts:", counts);
+                        //console.log("NDVI Percentages (%):", percentages);
+                        updateNdviStatsTable(percentages);
+                    } else {
+                        console.log("No pixels counted yet.");
+                    }
+                }
+            });
+            rasterListenerAdded = true;
+        }
+
+        return new ol.layer.Image({ source: rasterSource });
+    }
+    else if (selectedindicies == "SAVI") {
+        document.getElementById("ndvi-stats-table").style.display = "block";
+        if (mode === "dual") {
+            document.getElementById("ndvilengend").style.display = "block";
+            document.getElementById("ndvilengendmap2").style.display = "none";
+        } else {
+            document.getElementById("saviLegend").style.display = "block";
+        }
+
+        const falseColorSource = new ol.source.TileWMS({
+            url: 'https://services.sentinel-hub.com/ogc/wms/' + sentinel2fcckey,
+            params: {
+                layers: 'CLOUDFREEFALSECOLOR',
+                time: date,
+                preset: 'CLOUDFREEFALSECOLOR',
+                maxcc: 50
+            },
+            crossOrigin: 'anonymous'
+        });
+
+        const rasterSource = new ol.source.Raster({
+            sources: [falseColorSource],
+            operation: function (pixels, data) {
+                if (!data.counts) {
+                    data.counts = { Nonvegetated: 0, Bare_soil: 0, Vegetated: 0 };
+                }
+                const pixel = pixels[0];
+                const nir = pixel[1] / 255;
+                const red = pixel[1] / 255;
+
+                // Assume 'nir' and 'red' are band values, and L = 0.5
+                var L = 0.5;
+                var savi = ((nir - red) * (1 + L)) / (nir + red + L);
+
+                // Classification and color coding
+                if (savi < 0) {
+                    data.counts.Nonvegetated++;
+                    return [0, 0, 255, 255]; // No vegetation / water / errors (blue)
+                } else if (savi < 0.3) {
+                    data.counts.Bare_soil++;
+                    return [210, 180, 140, 255]; // Sparse or stressed vegetation / bare soil (tan)
+                } else {
+                    data.counts.Vegetated++;
+                    return [34, 139, 34, 255]; // Moderate to dense vegetation (forest green)
+                }
+
+            }
+        });
+
+
+        if (!rasterListenerAdded) {
+            rasterSource.on('afteroperations', function (event) {
+                if (event.data && event.data.counts) {
+                    const counts = event.data.counts;
+                    const total = counts.Nonvegetated + counts.Bare_soil + counts.Vegetated;
+
+                    if (total > 0) {
+                        const percentages = {
+                            Nonvegetated: ((counts.Nonvegetated / total) * 100).toFixed(2),
+                            Bare_soil: ((counts.Bare_soil / total) * 100).toFixed(2),
+
+                            Vegetated: ((counts.Vegetated / total) * 100).toFixed(2)
+                        };
+
+                        //console.log("NDVI Counts:", counts);
+                        //console.log("NDVI Percentages (%):", percentages);
+                        updateNdviStatsTable(percentages);
+                    } else {
+                        console.log("No pixels counted yet.");
+                    }
+                }
+            });
+            rasterListenerAdded = true;
+        }
+        return new ol.layer.Image({ source: rasterSource });
+    }
+    else {
+        document.getElementById("ndvi-stats-table").style.display = "none";
+        document.getElementById("ndvilengend").style.display = "none";
+        document.getElementById("ndvilengendmap2").style.display = "none";
+
+        return new ol.layer.Tile({ source: trueColorSource });
+    }
+}
+
+function createSentinelLayernew(date) {
+    //  alert("createSentinelLayernew");
+    // Show legend key switcher
+   // alert("createSentinelLayernew  for the date : " + date);
+
+    document.getElementById("key-switcher").style.display = "block";
+
+    // Get selected index type (NDVI, NDWI, etc.)
+    let selectedIndexElement = document.getElementById("selectedIndicies");
+    let selectedIndex = selectedIndexElement ? selectedIndexElement.value : null;
+
+    // Get selected Sentinel image type (true color or false color)
+    const sentinelImageType = document.querySelector('input[name="sentinel-type"]:checked').value;
+
+    // Get selected mode (single or dual)
+    const displayMode = document.querySelector('#screenmode').value;
+
+    // Determine layer and key based on image type
+    const selectedLayerName = sentinelImageType === 'fcc' ? 'CLOUDFREEFALSECOLOR' : '1_TRUE_COLOR';
+    const sentinelKey = sentinelImageType === 'fcc' ? sentinel2fcckey : sentinel2ncckey;
+
+    // Default base map source (true/false color Sentinel-2 WMS)
+    const baseLayerSource = new ol.source.TileWMS({
+        url: 'https://services.sentinel-hub.com/ogc/wms/' + sentinelKey,
+        params: {
+            layers: selectedLayerName,
+            time: date,
+            preset: selectedLayerName,
+            maxcc: 50
+        },
+        crossOrigin: 'anonymous'
+    });
+
+    // Reset legend and stats
+    rasterListenerAdded = false;
+    document.getElementById("ndvi-stats-table").style.display = "none";
+    document.getElementById("ndvilengend").style.display = "none";
+    document.getElementById("saviLegend").style.display = "none";
+    document.getElementById("eviLegend").style.display = "none";
+    document.getElementById("ndwiLegend").style.display = "none";
+
+    // =================== NDVI Processing ===================
+    if (selectedIndex === "NDVI") {
+        document.getElementById("ndvi-stats-table").style.display = "block";
+        if (displayMode === "dual") {
+            document.getElementById("ndvilengend").style.display = "block";
+            // document.getElementById("ndvilengendmap2").style.display = "block";
+        } else {
+            document.getElementById("ndvilengend").style.display = "block";
+        }
+
+        const ndviSource = new ol.source.TileWMS({
+            url: 'https://services.sentinel-hub.com/ogc/wms/' + sentinel2fcckey,
+            params: {
+                layers: 'CLOUDFREEFALSECOLOR',
+                time: date,
+                preset: 'CLOUDFREEFALSECOLOR',
+                maxcc: 50
+            },
+            crossOrigin: 'anonymous'
+        });
+
+        const ndviRasterSource = new ol.source.Raster({
+            sources: [ndviSource],
+            operation: function (pixels, data1) {
+                if (!data1.counts) {
+                    data1.counts = { Dense1: 0, Moderate1: 0, Low1: 0, Other1: 0 };
+                }
+
+                const [nirRaw, redRaw] = pixels[0];
+                const nir = nirRaw / 255;
+                const red = redRaw / 255;
+                const ndvi = (nir - red) / (nir + red);
+
+                if (ndvi >= 0.60) {
+                    data1.counts.Dense1++;
+                    return [20, 90, 33, 255]; // Dark Green
+                } else if (ndvi >= 0.40) {
+                    data1.counts.Moderate1++;
+                    return [50, 255, 90, 255]; // Light Green
+                } else if (ndvi >= 0.20) {
+                    data1.counts.Low1++;
+                    return [221, 137, 50, 255]; // Orange
+                } else {
+                    data1.counts.Other1++;
+                    return [255, 0, 0, 255]; // Red
+                }
+            }
+        });
+
+        if (!rasterListenerAdded) {
+            ndviRasterSource.on('afteroperations', function (event) {
+                if (event.data?.counts) {
+                    const counts = event.data.counts;
+                    const total = Object.values(counts).reduce((a, b) => a + b, 0);
+
+                    if (total > 0) {
+                        const percentages = Object.fromEntries(
+                            Object.entries(counts).map(([key, value]) => [key, ((value / total) * 100).toFixed(2)])
+                        );
+                        updateNdviStatsTablenew(percentages);
+                    }
+                }
+            });
+            rasterListenerAdded = true;
+        }
+
+        return new ol.layer.Image({ source: ndviRasterSource });
     }
 
+    // =================== NDWI Processing ===================
+    else if (selectedIndex === "NDWI") {
+        document.getElementById("ndvi-stats-table").style.display = "block";
+        displayMode === "dual"
+            ? (document.getElementById("ndwiLegend").style.display = "block",
+                document.getElementById("ndvilengendmap2").style.display = "none")
+            : document.getElementById("ndwiLegend").style.display = "block";
+
+        const ndwiSource = new ol.source.TileWMS({
+            url: 'https://services.sentinel-hub.com/ogc/wms/' + sentinel2fcckey,
+            params: {
+                layers: 'CLOUDFREEFALSECOLOR',
+                time: date,
+                preset: 'CLOUDFREEFALSECOLOR',
+                maxcc: 50
+            },
+            crossOrigin: 'anonymous'
+        });
+
+        const ndwiRasterSource = new ol.source.Raster({
+            sources: [ndwiSource],
+            operation: function (pixels, data) {
+                if (!data.counts) {
+                    data.counts = { Wetlands1: 0, Moist1: 0, Urban1: 0 };
+                }
+
+                const [_, nirRaw, greenRaw] = pixels[0];
+                const nir = nirRaw / 255;
+                const green = greenRaw / 255;
+                const ndwi = (green - nir) / (green + nir);
+
+                if (ndwi > 0.3) {
+                    data.counts.Wetlands1++;
+                    return [0, 0, 255, 255]; // Blue
+                } else if (ndwi >= 0) {
+                    data.counts.Moist1++;
+                    return [0, 255, 0, 255]; // Green
+                } else {
+                    data.counts.Urban1++;
+                    return [255, 165, 0, 255]; // Orange
+                }
+            }
+        });
+
+        if (!rasterListenerAdded) {
+            ndwiRasterSource.on('afteroperations', function (event) {
+                if (event.data?.counts) {
+                    const counts = event.data.counts;
+                    const total = counts.Wetlands1 + counts.Moist1 + counts.Urban1;
+
+                    if (total > 0) {
+                        const percentages = {
+                            Wetlands1: ((counts.Wetlands1 / total) * 100).toFixed(2),
+                            Moist1: ((counts.Moist1 / total) * 100).toFixed(2),
+                            Urban1: ((counts.Urban1 / total) * 100).toFixed(2)
+                        };
+                        updateNdviStatsTablenew(percentages);
+                    }
+                }
+            });
+            rasterListenerAdded = true;
+        }
+
+        return new ol.layer.Image({ source: ndwiRasterSource });
+    }
+
+    // =================== EVI Processing ===================
+    else if (selectedIndex === "EVI") {
+        document.getElementById("ndvi-stats-table").style.display = "block";
+        displayMode === "dual"
+            ? (document.getElementById("eviLegend").style.display = "block",
+                document.getElementById("ndvilengendmap2").style.display = "none")
+            : document.getElementById("eviLegend").style.display = "block";
+
+        const eviSource = new ol.source.TileWMS({
+            url: 'https://services.sentinel-hub.com/ogc/wms/' + sentinel2fcckey,
+            params: {
+                layers: 'CLOUDFREEFALSECOLOR',
+                time: date,
+                preset: 'CLOUDFREEFALSECOLOR',
+                maxcc: 50
+            },
+            crossOrigin: 'anonymous'
+        });
+
+        const eviRasterSource = new ol.source.Raster({
+            sources: [eviSource],
+            operation: function (pixels, data) {
+                if (!data.counts) {
+                    data.counts = { Nonvegetated1: 0, Barren1: 0, Shrubland1: 0, Vegetated1: 0 };
+                }
+
+                const pixel = pixels[0];
+                const nir = pixel[0] / 255;
+                const red = pixel[1] / 255;
+                const blue = pixel[3] ? pixel[3] / 255 : 0.01;
+
+                const evi = 2.5 * ((nir - red) / ((nir + 6 * red) - (7.5 * blue + 1)));
+
+                if (evi < 0) {
+                    data.counts.Nonvegetated1++;
+                    return [0, 0, 255, 255];
+                } else if (evi < 0.2) {
+                    data.counts.Barren1++;
+                    return [210, 180, 140, 255];
+                } else if (evi < 0.5) {
+                    data.counts.Shrubland1++;
+                    return [34, 139, 34, 255];
+                } else {
+                    data.counts.Vegetated1++;
+                    return [0, 100, 0, 255];
+                }
+            }
+        });
+
+        if (!rasterListenerAdded) {
+            eviRasterSource.on('afteroperations', function (event) {
+                if (event.data?.counts) {
+                    const counts = event.data.counts;
+                    const total = Object.values(counts).reduce((a, b) => a + b, 0);
+                    const percentages = Object.fromEntries(
+                        Object.entries(counts).map(([k, v]) => [k, ((v / total) * 100).toFixed(2)])
+                    );
+                    updateNdviStatsTablenew(percentages);
+                }
+            });
+            rasterListenerAdded = true;
+        }
+
+        return new ol.layer.Image({ source: eviRasterSource });
+    }
+
+    // =================== SAVI Processing ===================
+    else if (selectedIndex === "SAVI") {
+        document.getElementById("ndvi-stats-table").style.display = "block";
+        displayMode === "dual"
+            ? (document.getElementById("saviLegend").style.display = "block",
+                document.getElementById("ndvilengendmap2").style.display = "none")
+            : document.getElementById("saviLegend").style.display = "block";
+
+        const saviSource = new ol.source.TileWMS({
+            url: 'https://services.sentinel-hub.com/ogc/wms/' + sentinel2fcckey,
+            params: {
+                layers: 'CLOUDFREEFALSECOLOR',
+                time: date,
+                preset: 'CLOUDFREEFALSECOLOR',
+                maxcc: 50
+            },
+            crossOrigin: 'anonymous'
+        });
+
+        const saviRasterSource = new ol.source.Raster({
+            sources: [saviSource],
+            operation: function (pixels, data) {
+                if (!data.counts) {
+                    data.counts = { Nonvegetated1: 0, Bare_soil1: 0, Vegetated1: 0 };
+                }
+
+                const [nirRaw, redRaw] = pixels[0];
+                const nir = nirRaw / 255;
+                const red = redRaw / 255;
+                const L = 0.5;
+                const savi = ((nir - red) * (1 + L)) / (nir + red + L);
+
+                if (savi < 0) {
+                    data.counts.Nonvegetated1++;
+                    return [0, 0, 255, 255];
+                } else if (savi < 0.3) {
+                    data.counts.Bare_soil1++;
+                    return [210, 180, 140, 255];
+                } else {
+                    data.counts.Vegetated1++;
+                    return [34, 139, 34, 255];
+                }
+            }
+        });
+
+        if (!rasterListenerAdded) {
+            saviRasterSource.on('afteroperations', function (event) {
+                if (event.data?.counts) {
+                    const counts = event.data.counts;
+                    const total = Object.values(counts).reduce((a, b) => a + b, 0);
+                    const percentages = Object.fromEntries(
+                        Object.entries(counts).map(([k, v]) => [k, ((v / total) * 100).toFixed(2)])
+                    );
+                    updateNdviStatsTablenew(percentages);
+                }
+            });
+            rasterListenerAdded = true;
+        }
+
+        return new ol.layer.Image({ source: saviRasterSource });
+    }
+
+    // =================== Default True Color Layer ===================
+    else {
+        document.getElementById("ndvi-stats-table").style.display = "none";
+        document.getElementById("ndvilengend").style.display = "none";
+        document.getElementById("ndvilengendmap2").style.display = "none";
+
+        return new ol.layer.Tile({ source: baseLayerSource });
+    }
 }
 
 
+function updateNdviStatsTable(percentages) {
+
+    var tbody = document.querySelector("#ndvi-stats-table tbody");
+
+    tbody.innerHTML = "";
+
+    for (const [category, value] of Object.entries(percentages)) {
+        const row = document.createElement("tr");
+
+        const catCell = document.createElement("td");
+        catCell.textContent = category;
+
+        const valCell = document.createElement("td");
+        valCell.textContent = value;
+        //console.log("value : "+value);
+        row.appendChild(catCell);
+        row.appendChild(valCell);
+        tbody.appendChild(row);
+    }
 
 
+}
+function updateNdviStatsTablenew(percentages) {
+
+    var tbody = document.querySelector("#ndvi-stats-table1 tbody");
+
+    tbody.innerHTML = "";
+
+    for (const [category, value] of Object.entries(percentages)) {
+        const row = document.createElement("tr");
+
+        const catCell = document.createElement("td");
+        catCell.textContent = category;
+
+        const valCell = document.createElement("td");
+        valCell.textContent = value;
+        //console.log("value : "+value);
+        row.appendChild(catCell);
+        row.appendChild(valCell);
+        tbody.appendChild(row);
+    }
 
 
-
-
+}
 
 
 
@@ -4475,12 +1439,19 @@ function createNDVILayer(date) {
     return createSentinelLayer(date, 'NDVI');
 }
 
-function toggleNDVI() {
-    showNDVI = document.getElementById('ndvi-toggle').checked;
-    refreshLayers();
-}
 
-function changeMode(mode) {
+
+function changeMode() {
+    checkrunningtime = 0;
+    var mode = document.getElementById("screenmode").value;
+    //alert(mode)
+    document.getElementById("date2").style.display = "none"
+    document.getElementById("ndvilengend").style.display = "none";
+    document.getElementById("ndvilengendmap2").style.display = "none";
+    document.getElementById("ndvi-toggle").checked = false;
+
+
+    document.getElementById("key-switcher").style.display = "none";
     document.querySelectorAll('.panel-content').forEach(p => p.classList.remove('active'));
     document.getElementById(mode).classList.add('active');
 
@@ -4493,40 +1464,44 @@ function changeMode(mode) {
     }
 
     if (mode === 'single') {
-        document.getElementById('map1').style.width = '100%';
+        //document.getElementById('map1').style.width = '100%';
         document.getElementById('map2').style.width = '0%';
         document.getElementById('map2').style.display = 'none';
         map1.updateSize();
         map1.addLayer(zones);
-      /*  map1.addOverlay(zones);*/
+        map1.addOverlay(zones);
         document.getElementById('zonecheck').checked = true;
         document.getElementById('circlecheck').checked = false;
         document.getElementById('divisioncheck').checked = false;
     } else if (mode === 'dual') {
+        document.getElementById("date2").style.display = "block";
         document.getElementById('map1').style.width = '50%';
         document.getElementById('map2').style.width = '50%';
         document.getElementById('map2').style.display = 'block';
+
+
         map1.updateSize();
         map2.updateSize();
 
-       
+
         map1.addLayer(zones);
-       // map1.addOverlay(zones);
+        map1.addOverlay(zones);
 
         map2.addLayer(zones);
-       // map2.addOverlay(zones);
+        map2.addOverlay(zones);
 
         document.getElementById('zonecheck').checked = true;
         document.getElementById('circlecheck').checked = false;
         document.getElementById('divisioncheck').checked = false;
 
     } else if (mode === 'swipe') {
-        document.getElementById('map1').style.width = '100%';
+        document.getElementById("date2").style.display = "block";
+        //document.getElementById('map1').style.width = '100%';
         document.getElementById('map2').style.width = '0%';
         document.getElementById('map2').style.display = 'none';
         map1.updateSize();
         map1.addLayer(zones);
-      //  map1.addOverlay(zones);
+        map1.addOverlay(zones);
         document.getElementById('zonecheck').checked = true;
         document.getElementById('circlecheck').checked = false;
         document.getElementById('divisioncheck').checked = false;
@@ -4537,7 +1512,7 @@ function changeMode(mode) {
 function generateDateRange(baseDateStr) {
     const dates = [];
     const baseDate = new Date(baseDateStr);
-    for (let i = 0; i < 10; i++) {
+    for (let i = 0; i < 5; i++) {
         const d = new Date(baseDate);
         d.setDate(d.getDate() - i * 5);
         dates.push(d.toISOString().split('T')[0]);
@@ -4546,121 +1521,351 @@ function generateDateRange(baseDateStr) {
 }
 
 function generateSingleDates() {
-    const baseDate = document.getElementById('single-date').value;
-    if (!baseDate) return;
-    singleDates = generateDateRange(baseDate);
-    document.getElementById('single-ticks').innerHTML = singleDates.map(d => `<span>${d}</span>`).join('');
-    updateSingleLayer(0);
+ 
+    const mode = document.getElementById('screenmode').value;
+
+    if (mode === 'single') {
+        updateSingleLayer(document.getElementById('single-date').value);
+    } else if (mode === 'dual') {
+        updateDualLayer(1, document.getElementById('single-date').value);
+        updateDualLayer(2, document.getElementById('dual-date2').value);
+    } else if (mode === 'swipe') {
+        generateSwipeDates();
+    }
+
+
+
 }
 
 var date;
+
+
 function updateSingleLayer(index) {
-     date = singleDates[index];
+    //date = singleDates[index];
+    date = index;
     if (!date) return;
 
+    // Remove existing layers
     if (sentinelLayer1) map1.removeLayer(sentinelLayer1);
     if (ndviLayer1) map1.removeLayer(ndviLayer1);
+    if (cliplayer) map1.removeLayer(cliplayer);
 
+    // Create and add Sentinel layer
     sentinelLayer1 = createSentinelLayer(date);
+
+    //sentinelLayer1.setZIndex(0); // Bottom layer
     map1.addLayer(sentinelLayer1);
 
-    if (showNDVI) {
-        ndviLayer1 = createNDVILayer(date);
-        map1.addLayer(ndviLayer1);
+    var selectedindicies = document.getElementById("selectedIndicies");
+
+    if (selectedindicies) {
+        selectedindicies = selectedindicies.value;
     }
 
-    CropGrowth(document.getElementById("ndvi-toggle"));
+
+    if (selectedindicies) {
+
+        if (count == 0) {
+            // alert("geoserver");
+            cliplayer = createGeoServerLayer(
+                lastselectedlayer_vector[lastselectedlayer_vector.length - 1],
+                filter
+            );
+        } else {
+            // alert("poly sdfsfsdf");
+
+            onMaskToggleChange();
+
+        }
+
+        if (cliplayer) {
+            cliplayer.on('postcompose', function (e) {
+                e.context.globalCompositeOperation = 'source-over';
+            });
+
+            cliplayer.on('precompose', function (e) {
+                e.context.globalCompositeOperation = 'destination-in';
+            });
+
+            //jQuery('#div_CropGrowth').css('display', 'block');
+
+            map1.addLayer(cliplayer);
+        }
+
+        layerobject.push(cliplayer);
+        // lastselectedlayer.push("Crop_Growth");
+        // lastselectedlayername.push("Crop Growth");
+    } else {
+        // jQuery('#div_CropGrowth').css('display', 'none');
+        if (cliplayer) map1.removeLayer(cliplayer);
+    }
 }
 
+
+
+
 function generateDualDates(windowNum) {
+    checkrunningtime = 0;
+    document.getElementById("key-switcher").style.display = "block";
     const dateInput = document.getElementById(`dual-date${windowNum}`).value;
     if (!dateInput) return;
     const dates = generateDateRange(dateInput);
     document.getElementById(`dual-ticks${windowNum}`).innerHTML = dates.map(d => `<span>${d}</span>`).join('');
     if (windowNum === 1) {
         dualDates1 = dates;
-        updateDualLayer(1, 0);
+        updateDualLayer(1, document.getElementById("dual-date2").value);
     } else {
         dualDates2 = dates;
-        updateDualLayer(2, 0);
+        updateDualLayer(2, document.getElementById("dual-date2").value);
     }
 }
+var ndviLayer1, ndviLayer2;
+var vectorMaskLayer1, vectorMaskLayer2;
+
+
+
+
 
 function updateDualLayer(windowNum, index) {
+    document.getElementById("id_legendsection2").style.display = "block";
     const dates = windowNum === 1 ? dualDates1 : dualDates2;
-    const date = dates[index];
+    //const date = dates[index];
+    const date = index;
+
+
     if (!date) return;
 
-    const baseLayer = createSentinelLayer(date);
-    const ndviLayer = showNDVI ? createNDVILayer(date) : null;
-
+    const map = windowNum === 1 ? map1 : map2;
+    // alert("for map : " + map);
+    // Remove previous Sentinel and NDVI layers
     if (windowNum === 1) {
-        if (sentinelLayer1) map1.removeLayer(sentinelLayer1);
-        if (ndviLayer1) map1.removeLayer(ndviLayer1);
-        sentinelLayer1 = baseLayer;
-        map1.addLayer(sentinelLayer1);
-        if (ndviLayer) {
-            ndviLayer1 = ndviLayer;
-            map1.addLayer(ndviLayer1);
+        if (sentinelLayer1) map.removeLayer(sentinelLayer1);
+        if (ndviLayer1) {
+            map.removeLayer(ndviLayer1);
+            ndviLayer1 = null;
+        }
+        if (vectorMaskLayer1) {
+            map.removeLayer(vectorMaskLayer1);
+            vectorMaskLayer1 = null;
         }
     } else {
-        if (sentinelLayer2) map2.removeLayer(sentinelLayer2);
-        if (ndviLayer2) map2.removeLayer(ndviLayer2);
-        sentinelLayer2 = baseLayer;
-        map2.addLayer(sentinelLayer2);
-        if (ndviLayer) {
-            ndviLayer2 = ndviLayer;
-            map2.addLayer(ndviLayer2);
+        if (sentinelLayer2) map.removeLayer(sentinelLayer2);
+        if (ndviLayer2) {
+            map.removeLayer(ndviLayer2);
+            ndviLayer2 = null;
         }
+        if (vectorMaskLayer2) {
+            map.removeLayer(vectorMaskLayer2);
+            vectorMaskLayer2 = null;
+        }
+    }
+
+    // Create and add Sentinel layer
+    var baseLayer
+    //  alert(windowNum);
+    if (windowNum == 1) {
+        baseLayer = createSentinelLayer(date);
+    } else {
+        baseLayer = createSentinelLayernew(date);
+    }
+
+
+    map.addLayer(baseLayer);
+
+    // Store reference
+    if (windowNum === 1) {
+        sentinelLayer1 = baseLayer;
+    } else {
+        sentinelLayer2 = baseLayer;
+    }
+    var vectorMaskLayer;
+    // NDVI logic
+    const isNDVI = document.getElementById('selectedIndicies').value;
+    if (isNDVI) {
+        const ndviLayer = createNDVILayer(date);
+
+        map.addLayer(ndviLayer);
+
+
+        if (count == 0) {
+            //alert("geoserver");
+            cliplayer = createGeoServerLayer(
+                lastselectedlayer_vector[lastselectedlayer_vector.length - 1],
+                filter
+            );
+        } else {
+            // alert("poly sdfsfsdf");
+
+            onMaskToggleChange();
+
+        }
+
+        if (cliplayer) {
+            cliplayer.on('postcompose', function (e) {
+                e.context.globalCompositeOperation = 'source-over';
+            });
+
+            cliplayer.on('precompose', function (e) {
+                e.context.globalCompositeOperation = 'destination-in';
+            });
+
+            //jQuery('#div_CropGrowth').css('display', 'block');
+
+            map.addLayer(cliplayer);
+        }
+
+
+        if (windowNum === 1) {
+            ndviLayer1 = ndviLayer;
+            vectorMaskLayer1 = vectorMaskLayer;
+        } else {
+            ndviLayer2 = ndviLayer;
+            vectorMaskLayer2 = vectorMaskLayer;
+        }
+
+        layerobject.push(vectorMaskLayer);
+        lastselectedlayer.push("Crop_Growth");
+        lastselectedlayername.push("Crop Growth");
     }
 }
 
-function generateSwipeDates() {
-    const date1 = document.getElementById('swipe-date1').value;
-    const date2 = document.getElementById('swipe-date2').value;
-    if (!date1 || !date2) return;
+var swipeNDVILayer1, swipeNDVILayer2;
+var swipeLayer1, swipeLayer2;
+var vectorMaskLayer;
 
+function generateSwipeDates() {
+    const date1 = document.getElementById('single-date').value;
+    const date2 = document.getElementById('dual-date2').value;
+    // alert(date1 + " -- " + date2);
+    //const date1 = document.getElementById('swipe-date1').value;
+    //const date2 = document.getElementById('swipe-date2').value;
+    if (!date1 || !date2) return;
+    if (date1 != "" && date2 != "") {
+        document.getElementById("swipe").style.display = "block";
+    } else {
+        document.getElementById("swipe").style.display = "none";
+    }
+    // Clear all layers
     map1.getLayers().clear();
     map1.addLayer(new ol.layer.Tile({ source: new ol.source.OSM() }));
 
+    // --- Sentinel Swipe Layers ---
     swipeLayer1 = createSentinelLayer(date1);
-    swipeLayer2 = createSentinelLayer(date2);
-    swipeLayer1.on('prerender', applySwipeClipLeft);
-    swipeLayer2.on('prerender', applySwipeClipRight);
-    swipeLayer1.on('postrender', clearClip);
-    swipeLayer2.on('postrender', clearClip);
+    swipeLayer2 = createSentinelLayernew(date2);
+    document.getElementById("ndvi-stats-table1").style.display = "block";
+    document.getElementById("id_legendsection2").style.display = "block";
+
+    //swipeLayer1.setZIndex(0);
+    //swipeLayer2.setZIndex(0);
+
+    swipeLayer1.on('precompose', applySwipeClipLeft);
+    swipeLayer2.on('precompose', applySwipeClipRight);
+    swipeLayer1.on('postcompose', clearClip);
+    swipeLayer2.on('postcompose', clearClip);
+
     map1.addLayer(swipeLayer1);
     map1.addLayer(swipeLayer2);
 
-    if (showNDVI) {
+    // --- NDVI + Vector Mask ---
+    const isNDVI = document.getElementById('selectedIndicies').value;
+
+    if (isNDVI != "") {
+        // NDVI Layers
         swipeNDVILayer1 = createNDVILayer(date1);
         swipeNDVILayer2 = createNDVILayer(date2);
-        swipeNDVILayer1.on('prerender', applySwipeClipLeft);
-        swipeNDVILayer2.on('prerender', applySwipeClipRight);
-        swipeNDVILayer1.on('postrender', clearClip);
-        swipeNDVILayer2.on('postrender', clearClip);
+
+        //swipeNDVILayer1.setZIndex(1);
+        //swipeNDVILayer2.setZIndex(1);
+
+        swipeNDVILayer1.on('precompose', applySwipeClipLeft);
+        swipeNDVILayer2.on('precompose', applySwipeClipRight);
+        swipeNDVILayer1.on('postcompose', clearClip);
+        swipeNDVILayer2.on('postcompose', clearClip);
+
         map1.addLayer(swipeNDVILayer1);
         map1.addLayer(swipeNDVILayer2);
+
+        if (count == 0) {
+            // alert("geoserver");
+            vectorMaskLayer = createGeoServerLayer(
+                lastselectedlayer_vector[lastselectedlayer_vector.length - 1],
+                filter
+            );
+        } else {
+            // alert("poly sdfsfsdf");
+
+            onMaskToggleChange();
+
+        }
+
+        if (vectorMaskLayer) {
+            vectorMaskLayer.on('precompose', function (e) {
+                e.context.globalCompositeOperation = 'destination-in';
+            });
+            vectorMaskLayer.on('postcompose', function (e) {
+                e.context.globalCompositeOperation = 'source-over';
+            });
+
+
+            map1.addLayer(vectorMaskLayer);
+            map1.addLayer(vectorMaskLayer);
+        }
+
+
+        jQuery('#div_CropGrowth').css('display', 'block');
+
+        // Optional tracking
+        layerobject.push(vectorMaskLayer);
+        lastselectedlayer.push("Crop_Growth");
+        lastselectedlayername.push("Crop Growth");
+
+    } else {
+        // Remove NDVI and vector layers if previously added
+        if (swipeNDVILayer1) {
+            map1.removeLayer(swipeNDVILayer1);
+            swipeNDVILayer1 = null;
+        }
+        if (swipeNDVILayer2) {
+            map1.removeLayer(swipeNDVILayer2);
+            swipeNDVILayer2 = null;
+        }
+        if (vectorMaskLayer) {
+            map1.removeLayer(vectorMaskLayer);
+            vectorMaskLayer = null;
+        }
+        // jQuery('#div_CropGrowth').css('display', 'none');
     }
 
-    map1.render();
+    // Swipe Slider Event
+    document.getElementById('swipe-slider').addEventListener('input', function () {
+        map1.render(); // Force re-render on slider input
+    });
 }
+
 
 function applySwipeClipLeft(event) {
     const context = event.context;
-    const width = context.canvas.width * parseFloat(document.getElementById('swipe-slider').value);
+    const width = context.canvas.width;
+    const slider = document.getElementById('swipe-slider');
+    const swipeValue = parseFloat(slider.value) || 0.5;
+    const clipX = width * swipeValue;
+
     context.save();
     context.beginPath();
-    context.rect(0, 0, width, context.canvas.height);
+    context.rect(0, 0, clipX, context.canvas.height);
     context.clip();
 }
 
 function applySwipeClipRight(event) {
     const context = event.context;
-    const width = context.canvas.width * parseFloat(document.getElementById('swipe-slider').value);
+    const width = context.canvas.width;
+    const slider = document.getElementById('swipe-slider');
+    const swipeValue = parseFloat(slider.value) || 0.5;
+    const clipX = width * swipeValue;
+
     context.save();
     context.beginPath();
-    context.rect(width, 0, context.canvas.width - width, context.canvas.height);
+    context.rect(clipX, 0, width - clipX, context.canvas.height);
     context.clip();
 }
 
@@ -4668,61 +1873,1434 @@ function clearClip(event) {
     const context = event.context;
     context.restore();
 }
+
 var overlayLayer;
 function updateSwipeSlider() {
-    //// Assuming two layers: baseLayer and overlayLayer
-    //let swipeSlider = document.getElementById('swipe-slider');
-
-    //overlayLayer.on('prerender', function (event) {
-    //    const ctx = event.context;
-    //    const width = ctx.canvas.width * (swipeSlider.value / 100);
-    //    ctx.save();
-    //    ctx.beginPath();
-    //    ctx.rect(0, 0, width, ctx.canvas.height);
-    //    ctx.clip();
-    //});
-
-    //overlayLayer.on('postrender', function (event) {
-    //    event.context.restore();
-    //});
-
-    //swipeSlider.addEventListener('input', function () {
-    //    map1.render(); // Triggers re-render when slider moves
-    //});
 
     map1.render();
-
 }
-
 function refreshLayers() {
-    const mode = document.querySelector('input[name="mode"]:checked').value;
+    //const mode = document.querySelector('input[name="mode"]:checked').value;
+
+    const mode = document.getElementById('screenmode').value;
+
     if (mode === 'single') {
         updateSingleLayer(document.getElementById('single-range').value);
     } else if (mode === 'dual') {
-        updateDualLayer(1, document.getElementById('dual-range1').value);
-        updateDualLayer(2, document.getElementById('dual-range2').value);
+        updateDualLayer(1, document.getElementById('single-date').value);
+        updateDualLayer(2, document.getElementById('dual-date2').value);
     } else if (mode === 'swipe') {
         generateSwipeDates();
     }
+}
 
-    cliplayer = createGeoServerLayer(lastselectedlayer_vector[lastselectedlayer_vector.length - 1], lastselectedlayer_vector_filter[0]);
-    cliplayer.on('postcompose', function (e) {
-        e.context.globalCompositeOperation = 'source-over';
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+const uploadedLayers = [];
+function uploadyourdata() {
+    document.getElementById("popup_uploaddata").style.display = "block";
+} function close_popup_uploaddata() {
+    document.getElementById("popup_uploaddata").style.display = "none";
+}
+
+
+function showLoading(show) {
+    document.getElementById('loading').style.display = show ? 'flex' : 'none';
+}
+
+function addVectorLayer(name, features) {
+    var vectorSource = new ol.source.Vector({ features });
+    var vectorLayer = new ol.layer.Vector({
+        source: vectorSource,
+        visible: true,
+        style: new ol.style.Style({
+            stroke: new ol.style.Stroke({ color: '#f20b97', width: 2 }),
+            fill: new ol.style.Fill({ color: '#f6d24b0f' }),
+
+        })
     });
-    cliplayer.on('precompose', function (e) {
-        e.context.globalCompositeOperation = 'destination-in';
+    //vectorLayer.setZIndex(10); // always on top
+    map1.addLayer(vectorLayer);
+    map1.getView().fit(vectorSource.getExtent(), { padding: [20, 20, 20, 20] });
+    //map2.addLayer(vectorLayer);
+    //map2.getView().fit(vectorSource.getExtent(), { padding: [20, 20, 20, 20] });
+
+    const layerId = 'layer_' + Date.now();
+    uploadedLayers.push({ id: layerId, name, layer: vectorLayer });
+
+    const layerItem = document.createElement('div');
+    layerItem.className = 'layer-item';
+    layerItem.id = layerId;
+
+    const checkbox = document.createElement('input');
+    checkbox.type = 'checkbox';
+    checkbox.checked = true;
+    checkbox.addEventListener('change', () => {
+        vectorLayer.setVisible(checkbox.checked);
     });
 
-    jQuery('#div_CropGrowth').css('display', 'block');
+    const label = document.createElement('label');
+    label.textContent = name;
+    label.style.marginLeft = '5px';
 
-    map1.addLayer(cliplayer);
-    map2.addLayer(cliplayer);
-    layerobject.push(cliplayer);
-    //map1.addOverlay(cliplayer);
-    //map2.addOverlay(cliplayer);
-    lastselectedlayer.push("Crop_Growth");
-    lastselectedlayername.push("Crop Growth");
+    const deleteBtn = document.createElement('button');
+    deleteBtn.textContent = 'Delete';
+    deleteBtn.addEventListener('click', () => {
+        map1.removeLayer(vectorLayer);
+        document.getElementById('layerList').removeChild(layerItem);
+        const index = uploadedLayers.findIndex(l => l.id === layerId);
+        if (index !== -1) uploadedLayers.splice(index, 1);
+    });
+
+    const nameGroup = document.createElement('div');
+    nameGroup.style.display = 'flex';
+    nameGroup.style.alignItems = 'center';
+    nameGroup.appendChild(checkbox);
+    nameGroup.appendChild(label);
+
+    layerItem.appendChild(nameGroup);
+    layerItem.appendChild(deleteBtn);
+    document.getElementById('layerList').appendChild(layerItem);
+}
+
+
+const uploaded = [];
+let sentinelLayer = null;
+
+
+//////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////
+
+var count = 0;
+
+let vectorSource = new ol.source.Vector();
+let polygonLayer = new ol.layer.Vector({
+    source: vectorSource,
+    style: new ol.style.Style({
+        stroke: new ol.style.Stroke({ color: '#f20b97', width: 2 }),
+        fill: new ol.style.Fill({ color: 'rgba(0, 0, 255, 0.2)' })
+    })
+});
+map1.addLayer(polygonLayer);
+
+
+let maskLayer = null;
+
+function geojsonToOLFeature(geojson) {
+    const format = new ol.format.GeoJSON();
+    return format.readFeature(geojson, {
+        featureProjection: map1.getView().getProjection()
+    });
+}
+
+// Check ring winding order (clockwise or not)
+function ringIsClockwise(coords) {
+    let sum = 0;
+    for (let i = 0, len = coords.length - 1; i < len; i++) {
+        sum += (coords[i + 1][0] - coords[i][0]) * (coords[i + 1][1] + coords[i][1]);
+    }
+    return sum > 0;
+}
+
+
+function createMaskLayerFromFeatures(features) {
+    const projection = map1.getView().getProjection();
+
+    // Full world extent in EPSG:3857
+    const extent = ol.proj.transformExtent([-180, -90, 180, 90], 'EPSG:4326', projection);
+
+    // Define a large outer ring (must be clockwise)
+    let outerRing = [
+        [extent[0], extent[1]],
+        [extent[0], extent[3]],
+        [extent[2], extent[3]],
+        [extent[2], extent[1]],
+        [extent[0], extent[1]]
+    ];
+    if (!ringIsClockwise(outerRing)) outerRing.reverse();
+
+    const holes = [];
+
+    features.forEach(feature => {
+        const geom = feature.getGeometry();
+
+        if (geom instanceof ol.geom.Polygon) {
+            const coords = geom.getCoordinates()[0].slice();
+            if (ringIsClockwise(coords)) coords.reverse(); // Hole = counter-clockwise
+            holes.push(coords);
+        }
+
+        if (geom instanceof ol.geom.MultiPolygon) {
+            geom.getCoordinates().forEach(polygonCoords => {
+                const coords = polygonCoords[0].slice();
+                if (ringIsClockwise(coords)) coords.reverse();
+                holes.push(coords);
+            });
+        }
+    });
+
+    // Create a polygon with outer ring and holes
+    const maskGeom = new ol.geom.Polygon([outerRing, ...holes]);
+
+    const maskFeature = new ol.Feature(maskGeom);
+
+    const maskLayer = new ol.layer.Vector({
+        source: new ol.source.Vector({ features: [maskFeature] }),
+        style: new ol.style.Style({
+            fill: new ol.style.Fill({
+                color: 'rgba(255, 255, 255, 0.8)'  // White outside the holes
+            }),
+            stroke: null
+        }),
+        zIndex: 999
+    });
+
+    return maskLayer;
+}
+
+
+// Ring winding helper
+function ringIsClockwise(coords) {
+    let sum = 0;
+    for (let i = 0; i < coords.length - 1; i++) {
+        const [x1, y1] = coords[i];
+        const [x2, y2] = coords[i + 1];
+        sum += (x2 - x1) * (y2 + y1);
+    }
+    return sum > 0;
+}
+
+
+function fixCoordinates(geometry) {
+    const fixCoords = coords => {
+        if (typeof coords[0] === 'number') return coords.slice(0, 2);
+        return coords.map(fixCoords);
+    };
+    return { type: geometry.type, coordinates: fixCoords(geometry.coordinates) };
+}
+
+// When mask checkbox toggles
+function uploadclip(checked) {
+    if (checked.checked) {
+        if (maskLayer) map1.removeLayer(maskLayer);
+
+        const features11 = new ol.format.GeoJSON().readFeatures(vectorLayer1, {
+            featureProjection: map1.getView().getProjection()
+        });
+        maskLayer = createMaskLayerFromFeatures(features11);
+        // console.log(maskLayer);
+        if (maskLayer) {
+            map1.addLayer(maskLayer);
+
+            map1.addOverlay(maskLayer);
+            map2.addLayer(maskLayer);
+
+            map2.addOverlay(maskLayer);
+        }
+    } else {
+        if (maskLayer) {
+            map2.removeLayer(maskLayer);
+            map2.removeOverlay(maskLayer);
+            map1.removeLayer(maskLayer);
+            map1.removeOverlay(maskLayer);
+            maskLayer = null;
+        }
+    }
+}
+
+
+let vectorLayer1 = null;
+let vectorLayer2 = null;
+let maskLayer1 = null;
+let maskLayer2 = null;
+let uploadedFeatures = null; // 🔁 NEW: store features globally
+
+document.getElementById('fileInput').addEventListener('change', function (event) {
+    const file = event.target.files[0];
+    if (!file || !file.name.endsWith('.zip')) {
+        alert('Please upload a valid .zip shapefile.');
+        return;
+    }
+
+    const reader = new FileReader();
+    reader.onload = function (e) {
+        const arrayBuffer = e.target.result;
+        shp(arrayBuffer).then(function (geojson) {
+            // Remove old layers if they exist
+            if (vectorLayer1) map1.removeLayer(vectorLayer1);
+            if (vectorLayer2) map2.removeLayer(vectorLayer2);
+            if (maskLayer1) map1.removeLayer(maskLayer1);
+            if (maskLayer2) map2.removeLayer(maskLayer2);
+
+            const features = new ol.format.GeoJSON().readFeatures(geojson, {
+                featureProjection: 'EPSG:3857'
+            });
+
+            uploadedFeatures = features; // 🔁 Save for use in toggle function
+
+            const vectorSource = new ol.source.Vector({ features });
+
+            const vectorStyle = new ol.style.Style({
+                stroke: new ol.style.Stroke({ color: '#FF2DD1', width: 2 }),
+                fill: new ol.style.Fill({ color: '#FF2DD100' })
+            });
+            var datatype = document.getElementById("datatypeid").value;
+
+
+            if (datatype == "slope") {
+                features.forEach(function (feature) {
+                    const geometry = feature.getGeometry();
+                    if (geometry) {
+                        getSlopeValuesInsidePolygon(geometry);
+                    }
+                });
+            } else if (datatype == "soil") {
+                features.forEach(function (feature) {
+                    const geometry = feature.getGeometry();
+                    if (geometry) {
+                        getSoilInsidePolygon(geometry);
+                    }
+                });
+            }
+            //if (datatype == "slop") {
+            //    alert(datatype);
+            //    console.log(features.getGeometry())
+            //    if (features.getGeometry()) {
+            //        getSlopeValuesInsidePolygon(features.getGeometry());
+            //    }
+
+            //} else if (datatype == "soil") {
+            //    getSoilInsidePolygon(feature.getGeometry());
+            //}
+
+
+            vectorLayer1 = new ol.layer.Vector({ source: vectorSource, style: vectorStyle });
+            vectorLayer2 = new ol.layer.Vector({ source: vectorSource, style: vectorStyle });
+
+            map1.addLayer(vectorLayer1);
+            map1.addOverlay(vectorLayer1);
+            map2.addLayer(vectorLayer2);
+            map2.addOverlay(vectorLayer2);
+
+            const extent = vectorSource.getExtent();
+            map1.getView().fit(extent, { padding: [50, 50, 50, 50], maxZoom: 18 });
+            map2.getView().fit(extent, { padding: [50, 50, 50, 50], maxZoom: 18 });
+            document.getElementById("popup_uploaddata").style.display = "none";
+            count = 1;
+            //onMaskToggleChange(); // apply mask if checkbox is already checked
+
+        }).catch(err => {
+            alert('Error reading shapefile: ' + err);
+        });
+    };
+
+    reader.readAsArrayBuffer(file);
+});
+
+function onMaskToggleChange() {
+    //const checkbox = document.getElementById('ndvi-toggle');
+    const checkbox = document.getElementById('selectedIndicies').value;
+    if (!uploadedFeatures) return;
+
+    if (checkbox != "") {
+        if (maskLayer1) map1.removeLayer(maskLayer1);
+        if (maskLayer2) map2.removeLayer(maskLayer2);
+        maskLayer1 = createMaskLayerFromFeatures(uploadedFeatures, map1);
+        maskLayer2 = createMaskLayerFromFeatures(uploadedFeatures, map2);
+        map1.addLayer(maskLayer1);
+        map2.addLayer(maskLayer2);
+    } else {
+        if (maskLayer1) {
+            maskLayer1.un('precompose', maskPrecomposeHandler);
+            maskLayer1.un('postcompose', maskPostcomposeHandler);
+            map1.removeLayer(maskLayer1);
+            maskLayer1 = null;
+        }
+        if (maskLayer2) {
+            maskLayer2.un('precompose', maskPrecomposeHandler);
+            maskLayer2.un('postcompose', maskPostcomposeHandler);
+            map2.removeLayer(maskLayer2);
+            maskLayer2 = null;
+        }
+
+        // Force full re-render to clear canvas state
+        map1.renderSync();
+        map2.renderSync();
+    }
+}
+
+function createMaskLayerFromFeatures(features, map) {
+    const projection = map.getView().getProjection();
+    const extent = ol.proj.transformExtent([-180, -90, 180, 90], 'EPSG:4326', projection);
+
+    let outerRing = [
+        [extent[0], extent[1]],
+        [extent[0], extent[3]],
+        [extent[2], extent[3]],
+        [extent[2], extent[1]],
+        [extent[0], extent[1]]
+    ];
+    if (!ringIsClockwise(outerRing)) outerRing.reverse();
+
+    const holes = [];
+    const startDate = "2022-01-01";
+    const endDate = "2025-09-15";
+    var selectedindicies = document.getElementById("selectedIndicies").value;
+
+
+    features.forEach(feature => {
+        const geom = feature.getGeometry();
+        if (geom instanceof ol.geom.Polygon) {
+            let coords = geom.getCoordinates()[0].slice();
+            if (ringIsClockwise(coords)) coords.reverse();
+            holes.push(coords);
+            if (selectedindicies == "NDVI") {
+                var latloninepsg = transformCoordsToLonLat(coords);
+
+                fetchNdviForPolygon(startDate, endDate, latloninepsg);
+
+            }
+
+        } else if (geom instanceof ol.geom.MultiPolygon) {
+            geom.getCoordinates().forEach(polygon => {
+                let coords = polygon[0].slice();
+                if (ringIsClockwise(coords)) coords.reverse();
+                holes.push(coords);
+                if (selectedindicies == "NDVI") {
+                    var latloninepsg = transformCoordsToLonLat(coords);
+
+                    fetchNdviForPolygon(startDate, endDate, latloninepsg);
+
+                }
+            });
+        }
+    });
+
+    const maskPolygon = new ol.geom.Polygon([outerRing, ...holes]);
+    const maskFeature = new ol.Feature(maskPolygon);
+
+    return new ol.layer.Vector({
+        source: new ol.source.Vector({ features: [maskFeature] }),
+        style: new ol.style.Style({
+            fill: new ol.style.Fill({ color: 'rgba(255, 255, 255, 1)' }),
+            stroke: null
+        }),
+        zIndex: 999
+    });
+}
+
+function transformCoordsToLonLat(coords) {
+    const transformed = coords.map(coord => {
+        const [lon, lat] = ol.proj.transform(coord, 'EPSG:3857', 'EPSG:4326');
+        return [
+            +lon.toFixed(6),
+            +lat.toFixed(6)
+        ];
+    });
+
+    return transformed; // return as an actual array
 }
 
 
 
+
+
+
+
+
+function ringIsClockwise(coords) {
+    let sum = 0;
+    for (let i = 0; i < coords.length - 1; i++) {
+        const [x1, y1] = coords[i];
+        const [x2, y2] = coords[i + 1];
+        sum += (x2 - x1) * (y2 + y1);
+    }
+    return sum > 0;
+}
+
+
+
+function removeAllUploadedLayers() {
+    
+    window.location.reload(true);
+}
+
+
+//////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////
+
+
+
+var currentLayer;
+document.getElementById('sentinel-form').addEventListener('change', () => {
+    const selected = document.querySelector('input[name="sentinel-type"]:checked').value;
+    switchSentinelLayer(selected);
+});
+
+function switchSentinelLayer(type) {
+    if (currentLayer) {
+        map1.removeLayer(currentLayer);
+        map2.removeLayer(currentLayer);
+    }
+
+    currentLayer = createSentinelLayerswitch(type);
+    map1.addLayer(currentLayer);
+    map1.addOverlay(currentLayer);
+    map2.addLayer(currentLayer);
+    map2.addOverlay(currentLayer);
+}
+
+function createSentinelLayerswitch(type) {
+    const layerName = type === 'fcc' ? 'CLOUDFREEFALSECOLOR' : '1_TRUE_COLOR';
+    const key = type === 'fcc' ? sentinel2fcckey : sentinel2ncckey;
+
+    var rangeInput = document.getElementById('single-range');
+    //console.log(rangeInput.value);
+    //console.log(singleDates);
+    rangeInput = singleDates[rangeInput.value];
+    // console.log(rangeInput);
+
+    return new ol.layer.Tile({
+        source: new ol.source.TileWMS({
+            url: `https://services.sentinel-hub.com/ogc/wms/${key}`,
+            params: {
+                LAYERS: layerName,
+                TIME: rangeInput,
+                MAXCC: 50,
+                FORMAT: 'image/png',
+                TRANSPARENT: true
+            },
+            crossOrigin: 'anonymous'
+        }),
+        opacity: 0.8 // Optional: blend with base layer
+    });
+}
+
+
+
+
+// Add ghost cursor to each map
+function addGhostCursor(mapId) {
+    const container = document.getElementById(mapId);
+    const ghost = document.createElement('div');
+    ghost.className = 'ghost-cursor';
+    ghost.textContent = '+';
+    container.appendChild(ghost);
+    return ghost;
+}
+
+const ghostOnMap1 = addGhostCursor('map1');
+const ghostOnMap2 = addGhostCursor('map2');
+
+let activeMap = null; // To track which map has the real mouse
+
+// Utility to hide all ghost cursors
+function hideGhosts() {
+    ghostOnMap1.style.display = 'none';
+    ghostOnMap2.style.display = 'none';
+}
+
+function syncGhostCursor(sourceMap, sourceId, targetMap, targetId, targetGhost) {
+    const sourceDiv = document.getElementById(sourceId);
+    const targetDiv = document.getElementById(targetId);
+
+    sourceMap.on('pointermove', function (evt) {
+        activeMap = sourceId;
+
+        const coord = sourceMap.getCoordinateFromPixel(evt.pixel);
+        if (coord) {
+            const pixelOnTarget = targetMap.getPixelFromCoordinate(coord);
+            if (pixelOnTarget) {
+                targetGhost.style.left = pixelOnTarget[0] + 'px';
+                targetGhost.style.top = pixelOnTarget[1] + 'px';
+
+                // Show ghost only on the target map
+                if (activeMap === sourceId) {
+                    targetGhost.style.display = 'block';
+                }
+            }
+        }
+    });
+
+    sourceMap.getViewport().addEventListener('mouseleave', () => {
+        hideGhosts();
+        activeMap = null;
+    });
+}
+
+// Setup syncing in both directions
+syncGhostCursor(map1, 'map1', map2, 'map2', ghostOnMap2);
+syncGhostCursor(map2, 'map2', map1, 'map1', ghostOnMap1);
+
+
+
+
+function downloadreport() {
+    var file = 'report_' + Date.now() + '.pdf';
+    downloadMapAndLegendPdf({
+        title: 'NDVI Report',
+        fileName: file
+    });
+}
+
+async function downloadMapAndLegendPdf(options = {}) {
+    const title = options.title || 'Map Report';
+    const fileName = options.fileName || 'map-report.pdf';
+
+    const mapElement = document.getElementById('map1');
+    const legendElement = document.getElementById('legend');
+
+    // Hide legend before capturing map image to avoid duplication
+    legendElement.style.visibility = 'hidden';
+
+    const mapCanvas = await html2canvas(mapElement, {
+        useCORS: true,
+        allowTaint: false,
+        scale: 2
+    });
+
+    // Restore legend visibility
+    legendElement.style.visibility = 'visible';
+
+    const mapImgData = mapCanvas.toDataURL('image/png');
+
+    // Capture legend div separately for clean PDF legend image
+    const legendCanvas = await html2canvas(legendElement, {
+        scale: 2,
+        backgroundColor: '#fff'
+    });
+    const legendImgData = legendCanvas.toDataURL('image/png');
+
+    const { jsPDF } = window.jspdf;
+    const pdf = new jsPDF({
+        orientation: 'portrait',
+        unit: 'pt',
+        format: 'a4'
+    });
+
+    const pageWidth = pdf.internal.pageSize.getWidth();
+    const pageHeight = pdf.internal.pageSize.getHeight();
+    const margin = 40;
+
+    // Title
+    pdf.setFontSize(18);
+    pdf.setFont('helvetica', 'bold');
+    pdf.text(title, pageWidth / 2, margin, { align: 'center' });
+
+    // Add Map Image
+    const availableMapWidth = pageWidth - margin * 2;
+    const mapAspect = mapCanvas.width / mapCanvas.height;
+    const mapImgWidth = availableMapWidth;
+    const mapImgHeight = mapImgWidth / mapAspect;
+    const mapY = margin + 20;
+    pdf.addImage(mapImgData, 'PNG', margin, mapY, mapImgWidth, mapImgHeight);
+
+    // Add Legend Image below map
+    const legendAspect = legendCanvas.width / legendCanvas.height;
+    const legendWidth = 150; // width for legend box
+    const legendHeight = legendWidth / legendAspect;
+    const legendY = mapY + mapImgHeight + 20;
+    pdf.setFontSize(14);
+    pdf.setFont('helvetica', 'bold');
+    pdf.text('Legend', margin, legendY);
+    pdf.addImage(legendImgData, 'PNG', margin, legendY + 10, legendWidth, legendHeight);
+
+    // Add Results Table below legend
+    let nextY = legendY + 10 + legendHeight + 20;
+    pdf.setFontSize(14);
+    pdf.setFont('helvetica', 'bold');
+    pdf.text('Table: Results', margin, nextY);
+
+    pdf.autoTable({
+        html: '#ndvi-stats-table',
+        startY: nextY + 10,
+        theme: 'grid',
+        styles: {
+            font: 'helvetica',
+            fontSize: 10
+        },
+        headStyles: {
+            fillColor: [41, 128, 185],
+            textColor: 255,
+            halign: 'center'
+        },
+        margin: { left: margin, right: margin }
+    });
+
+    // Footer
+    const today = new Date().toLocaleDateString();
+    pdf.setFontSize(10);
+    pdf.setFont('helvetica', 'normal');
+    pdf.text(`Generated on ${today}`, margin, pageHeight - 10);
+
+    // Save the PDF
+    pdf.save(fileName);
+}
+
+
+/////////////////////////////////////var boundrayfilter;
+
+ 
+
+let vectorLayer;
+var testfeaturew;
+async function loadFilteredFeature(layername, value) {
+    const layernamebuild = "tbl_" + layername + "_master";
+    lastselectedlayer_vector.pop(layernamebuild);
+    if (!vectorLayer) {
+        vectorLayer = new ol.layer.Vector({
+            source: new ol.source.Vector(),
+            style: new ol.style.Style({
+                stroke: new ol.style.Stroke({
+                    color: '#ff77ff',
+                    width: 3
+                }),
+                fill: new ol.style.Fill({
+                    color: 'rgba(255,0,0,0.01)'
+                })
+            }),
+            zIndex: 1000
+        });
+        console.log(vectorLayer);
+        lastselectedlayer_vector.pop(layernamebuild);
+        map1.addLayer(vectorLayer);
+        map1.addOverlay(vectorLayer);
+
+        map2.addLayer(vectorLayer);
+        map2.addOverlay(vectorLayer);
+    }
+    lastselectedlayer_vector.push(layernamebuild);
+    filter = `${layername} ILIKE '${value}'`;
+    const wfsUrl = 'https://ukforestgis.in/geoserver/uk_sfd/ows';
+    const params = new URLSearchParams({
+        service: 'WFS',
+        version: '1.1.0',
+        request: 'GetFeature',
+        typeName: layernamebuild,
+        outputFormat: 'application/json',
+        CQL_FILTER: filter
+    });
+
+    try {
+        const response = await fetch(`${wfsUrl}?${params.toString()}`);
+        const data = await response.json();
+
+        const format = new ol.format.GeoJSON();
+        const features = format.readFeatures(data, {
+            dataProjection: 'EPSG:4326',
+            featureProjection: 'EPSG:3857'
+        });
+
+        const source = vectorLayer.getSource();
+        source.clear();
+
+        if (!features.length) {
+            alert(`No features found for ${layername}: ${value}`);
+            document.getElementById("btngetstat").style.display = "none";
+            return;
+        } else {
+            var sle = document.getElementById("datatypeid").value;
+            if (sle !== "") {
+                document.getElementById("btngetstat").style.display = "block";
+            } else {
+                document.getElementById("btngetstat").style.display = "none";
+            }
+
+
+        }
+        //features.forEach(function (feature) {
+        //    const geometry = feature.getGeometry();
+        //    if (geometry) {
+        //        alert(geometry);
+        //    }
+        //});
+        source.addFeatures(features);
+        testfeaturew = features;
+        const extent = source.getExtent();
+        map1.getView().fit(extent, { duration: 1000, padding: [40, 40, 40, 40] });
+        map1.getView().fit(extent, { duration: 1000, padding: [40, 40, 40, 40] });
+
+    } catch (err) {
+        console.error('Error loading WFS data:', err);
+        alert('Failed to load data.');
+    }
+}
+
+
+
+function getfeatures() {
+    console.log(vectorLayer);
+    var datatype = document.getElementById("datatypeid").value;
+
+    console.log(datatype);
+    if (datatype == "slope") {
+
+        testfeaturew.forEach(function (feature) {
+            const geometry = feature.getGeometry();
+            if (geometry) {
+                getSlopeValuesInsidePolygon(geometry);
+            }
+        });
+    } else if (datatype == "soil") {
+
+        testfeaturew.forEach(function (feature) {
+            const geometry = feature.getGeometry();
+            if (geometry) {
+                getSoilInsidePolygon(geometry);
+            }
+        });
+    } else if (datatype == "dtm") {
+
+        testfeaturew.forEach(function (feature) {
+            const geometry = feature.getGeometry();
+            if (geometry) {
+                getElevationValuesInsidePolygon(feature);
+            }
+        });
+    } else {
+        alert("Choose correct option !!!");
+    }
+}
+
+
+
+const rasterLabels = { 1: "Loamy", 2: "Sandy", 3: "Snow", 4: "Clay" };
+const rasterColors = { 1: "brown", 2: "yellow", 3: "pink", 4: "gray" };
+
+
+function parseRasterValue(text) {
+    const m = text.match(/[-+]?[0-9]*\.?[0-9]+/);
+    return m ? Math.round(Number(m[0])) : null;
+}
+
+
+var vectorLayerforsoil;
+const vectorSourceforsoil = new ol.source.Vector();
+vectorLayerforsoil = new ol.layer.Vector({
+    source: vectorSourceforsoil,
+    style: new ol.style.Style({
+        stroke: new ol.style.Stroke({ color: '#ff77ff', width: 3 }),
+        fill: new ol.style.Fill({ color: 'rgba(255,0,0,0.1)' })
+    })
+});
+map1.addLayer(vectorLayerforsoil);
+map1.addOverlay(vectorLayerforsoil);
+let drawInteractionforsoil;
+document.getElementById('drawPolygon').addEventListener('change', function () {
+    if (this.checked) {
+        drawInteractionforsoil = new ol.interaction.Draw({
+            source: vectorSourceforslop,   // <-- ✅ saves drawn polygon
+            type: 'Polygon'
+        });
+        map1.addInteraction(drawInteractionforsoil);
+
+        drawInteractionforsoil.on('drawend', evt => {
+            map1.removeInteraction(drawInteractionforsoil);
+            this.checked = false;
+
+            // feature is already stored in vectorSource
+            const feature = evt.feature;
+            getSoilInsidePolygon(feature.getGeometry());
+        });
+    } else if (drawInteractionforsoil) {
+        map1.removeInteraction(drawInteractionforsoil);
+    }
+});
+
+
+
+
+
+// Get unique soil types inside polygon
+
+async function getSoilInsidePolygon(polygon) {
+    const view = map1.getView();
+    const resolution = view.getResolution();
+    const projection = view.getProjection(); // EPSG:4326
+    const extent = polygon.getExtent();
+    const step = (extent[2] - extent[0]) / 25;
+    const values = new Set();
+
+    document.getElementById('loader').style.display = 'block';
+    document.getElementById('info').innerHTML = "Fetching soil types…";
+
+    for (let x = extent[0]; x <= extent[2]; x += step) {
+        for (let y = extent[1]; y <= extent[3]; y += step) {
+            const coord = [x, y];
+            if (polygon.intersectsCoordinate(coord)) {
+                const url = soil_layer.getSource().getGetFeatureInfoUrl(
+                    coord, resolution, projection.getCode(),
+                    { INFO_FORMAT: 'text/plain', FEATURE_COUNT: 1 }
+                );
+                if (!url) continue;
+                try {
+                    const text = await fetch(url).then(r => r.text());
+                    /* console.log(`GFI at ${coord}:`, text);*/
+                    const val = parseRasterValue(text);
+                    if (val !== null) values.add(val);
+                } catch (err) {
+                    console.error('Error querying GFI:', err);
+                }
+            }
+        }
+    }
+
+    document.getElementById('loader').style.display = 'none';
+    const infoEl = document.getElementById('info');
+    if (values.size === 0) {
+        infoEl.innerHTML = "<b>Soil type inside polygon:</b><br>No soil types found.";
+    } else {
+        infoEl.innerHTML = "<b>Soil type inside polygon:</b><br>" +
+            Array.from(values).sort((a, b) => a - b).map((v, i) => {
+                const label = rasterLabels[v] || v;
+                const color = rasterColors[v] || 'transparent';
+                return `${i + 1}. <span class="color-box" style="background:${color}"></span>${label}`;
+            }).join('<br>');
+    }
+}
+let isVisible = false;
+function togglePanellayer() {
+    const panel = document.getElementById('slidingDiv');
+
+    if (!isVisible) {
+        panel.style.display = 'block';
+        setTimeout(() => {
+            panel.classList.add('show');
+        }, 10);
+        isVisible = true;
+    } else {
+        panel.classList.remove('show');
+        setTimeout(() => {
+            panel.style.display = 'none';
+        }, 400); // matches transition duration
+        isVisible = false;
+    }
+}
+
+
+//////////////// slop stat calculation 
+function parseRasterValue(text) {
+    const m = text.match(/[-+]?[0-9]*\.?[0-9]+/);
+    return m ? parseFloat(m[0]) : null;
+}
+
+
+const vectorSourceforslop = new ol.source.Vector();
+const vectorLayerforslop = new ol.layer.Vector({
+    source: vectorSourceforslop,
+    style: new ol.style.Style({
+        stroke: new ol.style.Stroke({ color: '#ff77ff', width: 3 }),
+        fill: new ol.style.Fill({ color: 'rgba(255,0,0,0.1)' })
+    })
+});
+map1.addLayer(vectorLayerforslop);
+map1.addOverlay(vectorLayerforslop);
+
+let drawInteraction;
+document.getElementById('drawPolygonforslop').addEventListener('change', function () {
+    if (this.checked) {
+        drawInteraction = new ol.interaction.Draw({
+            source: vectorSourceforslop,   // <-- ✅ saves drawn polygon
+            type: 'Polygon'
+        });
+        map1.addInteraction(drawInteraction);
+
+        drawInteraction.on('drawend', evt => {
+            map1.removeInteraction(drawInteraction);
+            this.checked = false;
+
+            // feature is already stored in vectorSource
+            const feature = evt.feature;
+            getSlopeValuesInsidePolygon(feature.getGeometry());
+        });
+    } else if (drawInteraction) {
+        map1.removeInteraction(drawInteraction);
+    }
+});
+
+async function getSlopeValuesInsidePolygon(polygon) {
+    console.log("----------------------:::::::::::::" + polygon);
+    const view = map1.getView();
+    const resolution = view.getResolution();
+    const projection = view.getProjection();
+    const extent = polygon.getExtent();
+    const step = (extent[2] - extent[0]) / 30;
+    const values = [];
+    // alert("called");
+    document.getElementById('loader').style.display = 'block';
+    document.getElementById('infoforslop').innerHTML = "Fetching slope values…";
+
+    for (let x = extent[0]; x <= extent[2]; x += step) {
+        for (let y = extent[1]; y <= extent[3]; y += step) {
+            const coord = [x, y];
+            if (polygon.intersectsCoordinate(coord)) {
+                const url = sloplayer.getSource().getGetFeatureInfoUrl(
+                    coord,
+                    resolution,
+                    projection.getCode(),
+                    {
+                        INFO_FORMAT: 'text/plain',
+                        FEATURE_COUNT: 1
+                    }
+                );
+                if (!url) continue;
+                try {
+                    const text = await fetch(url).then(r => r.text());
+                    const val = parseRasterValue(text);
+                    if (val !== null) values.push(val);
+                } catch (err) {
+                    console.error('GFI error:', err);
+                }
+            }
+        }
+    }
+
+    document.getElementById('loader').style.display = 'none';
+    const infoEl = document.getElementById('infoforslop');
+    const slopeClasses = [
+        { range: [0, 10], label: "Flat to Gentle (0–10°)", color: "#6BBE44" },
+        { range: [10, 20], label: "Moderate (10–20°)", color: "#E5F94E" },
+        { range: [20, 30], label: "Steep (20–30°)", color: "#FDC84E" },
+        { range: [30, 45], label: "Very Steep (30–45°)", color: "#F57C20" },
+        { range: [45, 88], label: "Extreme Cliff (45–88°)", color: "#FF0000" }
+    ];
+    if (values.length === 0) {
+        infoEl.innerHTML = "<b>Slope inside polygon:</b><br>No values found.";
+        return;
+    }
+
+    const min = Math.min(...values).toFixed(2);
+    const max = Math.max(...values).toFixed(2);
+    const avg = (values.reduce((a, b) => a + b, 0) / values.length).toFixed(2);
+
+    const counts = slopeClasses.map(c => ({
+        ...c,
+        count: values.filter(v => v >= c.range[0] && v < c.range[1]).length
+    }));
+
+    let html = `
+        <b>Slope Statistics (degrees):</b><br>
+        Min: ${min}<br>
+        Max: ${max}<br>
+        Mean: ${avg}<br>
+       <br>
+        <b>Class Breakdown:</b><br>
+      `;
+
+    counts.forEach(c => {
+        const perc = ((c.count / values.length) * 100).toFixed(1);
+        html += `<div style="margin:3px 0;">
+          <span style="display:inline-block;width:20px;height:12px;background:${c.color};border:1px solid #333;margin-right:6px;"></span>
+          ${c.label}:(${perc}%)
+        </div>`;
+    });
+
+    infoEl.innerHTML = html;
+}
+
+
+
+
+const vectorSourcefordtm = new ol.source.Vector();
+const vectorLayerfordtm = new ol.layer.Vector({
+    source: vectorSourcefordtm,
+    style: new ol.style.Style({
+        stroke: new ol.style.Stroke({ color: '#ff77ff', width: 3 }),
+        fill: new ol.style.Fill({ color: 'rgba(255,0,0,0.1)' })
+    })
+});
+document.getElementById('drawPolygonfordtm').addEventListener('change', function () {
+    if (this.checked) {
+        drawInteraction = new ol.interaction.Draw({
+            source: vectorSourcefordtm,   // <-- ✅ saves drawn polygon
+            type: 'Polygon'
+        });
+        map1.addInteraction(drawInteraction);
+
+        drawInteraction.on('drawend', evt => {
+            map1.removeInteraction(drawInteraction);
+            this.checked = false;
+
+            // feature is already stored in vectorSource
+            const feature = evt.feature;
+            getElevationValuesInsidePolygon(feature);
+        });
+    } else if (drawInteraction) {
+        map1.removeInteraction(drawInteraction);
+    }
+});
+
+
+async function getElevationValuesInsidePolygon(feature) {
+    const infoElev = document.getElementById('infofordtm');
+    document.getElementById('loader').style.display = 'block';
+    infoElev.innerHTML = 'Fetching elevation values…';
+
+    const geom = feature.getGeometry();
+    const extent = geom.getExtent();
+    const step = (extent[2] - extent[0]) / 30;
+
+    const values = [];
+
+    const view = map1.getView();
+    const projection = view.getProjection();
+    const resolution = view.getResolution();
+
+    for (let x = extent[0]; x <= extent[2]; x += step) {
+        for (let y = extent[1]; y <= extent[3]; y += step) {
+            const coord = [x, y];
+            if (geom.intersectsCoordinate(coord)) {
+                const url = dtmlayer.getSource().getGetFeatureInfoUrl(
+                    coord,
+                    resolution,
+                    projection.getCode(),
+                    {
+                        INFO_FORMAT: 'text/plain',
+                        FEATURE_COUNT: 1
+                    }
+                );
+
+                if (!url) continue;
+
+                try {
+                    const text = await fetch(url).then(r => r.text());
+                    const val = parseRasterValue(text);  // You must define this function
+                    if (val !== null && !isNaN(val)) {
+                        values.push(val);
+                    }
+                } catch (err) {
+                    console.error('GFI error:', err);
+                }
+            }
+        }
+    }
+
+    document.getElementById('loader').style.display = 'none';
+    // alert(values.length);
+    if (values.length === 0) {
+        return `<b>Elevation inside polygon:</b><br>No values found.`;
+    }
+
+    document.getElementById("infofordtmmain").style.display = "block";
+    // Stats
+    const min = Math.min(...values);
+    const max = Math.max(...values);
+    const mean = values.reduce((a, b) => a + b, 0) / values.length;
+
+    const classes = [
+        { range: [-Infinity, 500], label: "Very Low (≤500m)", color: "#2b83ba" },
+        { range: [500, 1000], label: "Low‐Moderate (500–1000m)", color: "#abdda4" },
+        { range: [1000, 2000], label: "Moderate‐High (1000–2000m)", color: "#ffffbf" },
+        { range: [2000, 3000], label: "High (2000–3000m)", color: "#fdae61" },
+        { range: [3000, Infinity], label: "Very High (>3000m)", color: "#d7191c" }
+    ];
+
+    const counts = classes.map(c => {
+        const count = values.filter(v => v >= c.range[0] && v < c.range[1]).length;
+        return { ...c, count };
+    });
+
+    let html = `<b>Elevation Statistics:</b><br>`;
+    html += `Min: ${min.toFixed(2)} m<br>`;
+    html += `Max: ${max.toFixed(2)} m<br>`;
+    html += `Mean: ${mean.toFixed(2)} m<br>`;
+    html += `<br><b>Elevation Classes Breakdown:</b><br><ul style="list-style:none; padding-left:0;">`;
+
+    counts.forEach(c => {
+        const percent = ((c.count / values.length) * 100).toFixed(1);
+        html += `<li>
+            <span style="display:inline-block;width:16px;height:16px;background:${c.color};margin-right:6px;"></span>
+            ${c.label}: (${percent}%)
+        </li>`;
+    });
+
+    html += `</ul>`;
+    infoElev.innerHTML = html;
+
+
+}
+
+function parseElevationFromResponse(text) {
+    // The response is plain text, try to extract the first number from it
+    // Usually it's just a number or "no data"
+    const match = text.match(/-?\d+(\.\d+)?/);
+    if (match) {
+        return parseFloat(match[0]);
+    }
+    return null;
+}
+
+/////////// on data select change
+
+function getdatatype(val) {
+    try {
+        var btnstat = document.getElementById("btngetstat");
+        var ddlsection = document.getElementById("ContentPlaceHolder1_ddlsection").value;
+        var datatypeid = document.getElementById("datatypeid").value;
+        checkrunningtime = 0;
+        map1.removeLayer(sloplayer);
+        map1.removeLayer(soil_layer);
+
+        map1.removeLayer(sentinelLayer1);
+        map1.removeOverlay(sentinelLayer1);
+        map2.removeLayer(sentinelLayer1);
+        map2.removeOverlay(sentinelLayer1);
+        map1.removeLayer(dtmlayer);
+
+        document.getElementById("selectedIndicies").disabled = true;
+        document.getElementById("single-date").disabled = true;
+        document.getElementById("dual-date2").disabled = true;
+        document.getElementById("single-date").value = '';
+        document.getElementById("id_drawPolygonforsoil").style.display = "none";
+        document.getElementById("id_drawPolygonforslop").style.display = "none";
+        document.getElementById("id_drawPolygonfordtm").style.display = "none";
+
+        document.getElementById("infoforslopmain").style.display = "none";
+        document.getElementById("infofordtmmain").style.display = "none";
+        document.getElementById("key-switcher").style.display = "none";
+        document.getElementById("div_slope").style.display = "none";
+        btnstat.style.display = "none";
+        if (val.value != "") {
+
+            if (
+                ddlsection.trim() !== "" &&
+                ddlsection.trim() !== "All" &&
+                datatypeid.trim().toLowerCase() !== "" &&
+                datatypeid.trim().toLowerCase() !== "sentinel2"
+            ) {
+                btnstat.style.display = "block";
+            } else {
+                btnstat.style.display = "none";
+            }
+
+
+            if (val.value == "slope") {
+                document.getElementById("id_drawPolygonforslop").style.display = "block";
+                document.getElementById("infoforslopmain").style.display = "block";
+                map1.addLayer(sloplayer);
+                document.getElementById("div_slope").style.display = "block";
+
+            } else if (val.value == "sentinel2") {
+                document.getElementById("selectedIndicies").disabled = false;
+                document.getElementById("single-date").disabled = false;
+                document.getElementById("dual-date2").disabled = false;
+
+
+            } else if (val.value == "soil") {
+                document.getElementById("id_drawPolygonforsoil").style.display = "block";
+                document.getElementById("soilinfodivmain").style.display = "block";
+                map1.addLayer(soil_layer);
+
+            } else if (val.value == "dtm") {
+                document.getElementById("id_drawPolygonfordtm").style.display = "block";
+                document.getElementById("drawPolygonfordtm").style.display = "block";
+                document.getElementById("infofordtmmain").style.display = "block";
+                map1.addLayer(dtmlayer);
+
+            }
+
+        } else {
+
+        }
+    } catch (e) {
+        alert(e)
+    }
+}
+
+
+//////////////////////////////////////////////////////
+const modeSelect = document.getElementById('screenmode');
+const optionSelect = document.getElementById('datatypeid');
+
+const allOptions = Array.from(optionSelect.options);
+
+modeSelect.addEventListener('change', () => {
+    const mode = modeSelect.value;
+
+    // Clear all options
+    optionSelect.innerHTML = '';
+
+    // Always add "Select" placeholder first
+    const placeholder = allOptions.find(opt => opt.value === '');
+    optionSelect.appendChild(placeholder.cloneNode(true));
+    optionSelect.selectedIndex = 0; // Ensure placeholder is selected
+
+    if (mode === 'single') {
+        // Add all real options (1-5)
+        allOptions.forEach(opt => {
+            if (opt.value !== '') {
+                optionSelect.appendChild(opt.cloneNode(true));
+            }
+        });
+    } else if (mode === 'dual' || mode === 'swipe') {
+        // Add only Option 2
+        const option2 = allOptions.find(opt => opt.value === 'sentinel2');
+        if (option2) {
+            optionSelect.appendChild(option2.cloneNode(true));
+        }
+    }
+});
+
+
+
+function closediv() {
+    document.getElementById("infoforslopmain").style.display = "none";
+    document.getElementById("infofordtmmain").style.display = "none";
+    document.getElementById("soilinfodivmain").style.display = "none";
+}
+
+
+//////////////////// NDVI time series start/////////////////////////////////////////////////////
+
+
+const apiKey = '60a2d297375669833a33d2383bd628aa';
+const output = document.getElementById('output');
+const loader = document.getElementById('loader');
+let ndviChart = null;
+
+async function fetchNdviForPolygon(startDate, endDate, asdfsdf) {
+    try {
+
+        output.innerHTML = '⏳ Creating polygon...';
+        loader.style.display = 'block';
+        // alert("fetching data");
+        const startTimestamp = Math.floor(new Date(startDate).getTime() / 1000);
+        const endTimestamp = Math.floor(new Date(endDate).getTime() / 1000);
+
+        const polygonData = {
+            name: "Custom Area",
+            geo_json: {
+                type: "Feature",
+                properties: {},
+                geometry: {
+                    type: "Polygon",
+                    coordinates: [asdfsdf]
+                }
+            }
+        };
+
+        const polygonRes = await fetch(`https://api.agromonitoring.com/agro/1.0/polygons?appid=${apiKey}&duplicated=true`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(polygonData)
+        });
+        const polygonResult = await polygonRes.json();
+
+        if (!polygonResult.id) throw new Error(polygonResult.message || "Polygon creation failed.");
+        const polygonId = polygonResult.id;
+
+        const ndviUrl = `https://api.agromonitoring.com/agro/1.0/ndvi/history?start=${startTimestamp}&end=${endTimestamp}&polyid=${polygonId}&appid=${apiKey}&type=s2`;
+        const ndviRes = await fetch(ndviUrl);
+        if (!ndviRes.ok) throw new Error(`HTTP error! status: ${ndviRes.status}`);
+        const ndviData = await ndviRes.json();
+
+        if (!Array.isArray(ndviData) || ndviData.length === 0) {
+            throw new Error("No NDVI data found.");
+        }
+
+        const grouped = {};
+        ndviData.forEach(item => {
+            const date = new Date(item.dt * 1000);
+            const key = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}`;
+            if (!grouped[key]) grouped[key] = [];
+            grouped[key].push(item);
+        });
+
+        const monthlyMax = [];
+        for (const month in grouped) {
+            const maxEntry = grouped[month].reduce((a, b) => (b.data.mean > a.data.mean ? b : a));
+            monthlyMax.push(maxEntry);
+        }
+
+        monthlyMax.sort((a, b) => a.dt - b.dt);
+
+        let table = `<table>
+            <thead><tr>
+              <th>Month</th><th>Type</th><th>Zoom</th><th>DC</th><th>CL</th>
+              <th>Mean</th><th>Median</th><th>Min</th><th>Max</th><th>Std</th>
+              <th>P25</th><th>P75</th><th>Num</th>
+            </tr></thead><tbody>`;
+
+        monthlyMax.forEach(item => {
+            const d = item.data;
+            const date = new Date(item.dt * 1000);
+            const month = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}`;
+            table += `<tr>
+              <td>${month}</td><td>${item.type}</td><td>${item.zoom}</td><td>${item.dc}</td><td>${item.cl}</td>
+              <td>${d.mean.toFixed(4)}</td><td>${d.median.toFixed(4)}</td><td>${d.min.toFixed(4)}</td>
+              <td>${d.max.toFixed(4)}</td><td>${d.std.toFixed(4)}</td><td>${d.p25.toFixed(4)}</td>
+              <td>${d.p75.toFixed(4)}</td><td>${d.num}</td>
+            </tr>`;
+        });
+
+        table += '</tbody></table>';
+        output.innerHTML = table;
+
+        bindChart(monthlyMax);
+
+    } catch (error) {
+        //alert("Error : " + error.message );
+        output.innerHTML = `❌ Error: ${error.message}`;
+        if (ndviChart) {
+            ndviChart.destroy();
+            ndviChart = null;
+        }
+    } finally {
+        loader.style.display = 'none';
+    }
+}
+
+function bindChart(monthlyData) {
+    const labels = monthlyData.map(item => {
+        const d = new Date(item.dt * 1000);
+        return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}`;
+    });
+    //alert("creating chart");
+    const maxNDVI = monthlyData.map(item => item.data.max);
+    document.getElementById("chartContainer").style.display = "block";
+
+    const ctx = document.getElementById('ndviChart').getContext('2d');
+    if (ndviChart) ndviChart.destroy();
+
+    ndviChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: labels,
+            datasets: [{
+                label: 'Max NDVI',
+                data: maxNDVI,
+                backgroundColor: 'rgba(54, 162, 235, 0.3)',
+                borderColor: 'rgba(54, 162, 235, 1)',
+                borderWidth: 2,
+                fill: true,
+                tension: 0.4
+            }]
+        },
+        options: {
+            responsive: true,
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    max: 1,
+                    title: { display: true, text: 'NDVI Value' }
+                },
+                x: {
+                    title: { display: true, text: 'Month' }
+                }
+            },
+            plugins: {
+                tooltip: {
+                    callbacks: {
+                        label: ctx => `Max NDVI: ${ctx.parsed.y.toFixed(4)}`
+                    }
+                },
+                legend: { display: true, position: 'top' }
+            }
+        }
+    });
+}
+
+
+//////////////////// NDVI time series end/////////////////////////////////////////////////////

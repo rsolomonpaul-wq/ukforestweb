@@ -1,5 +1,5 @@
 ﻿
-var geoserver_ip = "http://180.151.15.18:9007/geoserver/uk_sfd/wms?";
+var geoserver_ip = "https://ukforestgis.in/geoserver/uk_sfd/wms?";
 
 var format = 'image/png';
 var lastselectedlayer = [];
@@ -180,7 +180,7 @@ var container, content, closer;
 /*===========================================AOI Bind============================================*/
 var sentinel_layer = new ol.layer.Tile({
     source: new ol.source.TileWMS({
-        url: "https://services.sentinel-hub.com/ogc/wms/13d5aaea-1d0e-4581-9288-a463ce586119",
+        url: "https://services.sentinel-hub.com/ogc/wms/514e719b-3d56-429e-bdc8-55b90d20d343",
         //url: "https://services.sentinel-hub.com/ogc/wms/9b4d93bf-b7e5-4588-9394-cf70951aed63",
         params: { "maxcc": 85, "minZoom": 6, "maxZoom": 16, "preset": "2_FALSE_COLOR", "layers": "2_FALSE_COLOR", "time": timlapse },
         //params: { "maxcc": 85, "minZoom": 6, "maxZoom": 16, "preset": "2_FALSE_COLOR", "layers": "2_FALSE_COLOR" ,"time":'2024-09-27/2024-12-10' },
@@ -202,10 +202,10 @@ function createGeoServerLayer(lastselectedlayer, filter) {
     //console.log(lastselectedlayer);
     var geoServerURL = null;
     if (filter == null) {
-        geoServerURL = "http://180.151.15.18:9007/geoserver/uk_sfd/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=uk_sfd:" + lastselectedlayer + "&outputFormat=application/json";
+        geoServerURL = "https://ukforestgis.in/geoserver/uk_sfd/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=uk_sfd:" + lastselectedlayer + "&outputFormat=application/json";
     }
     else {
-        geoServerURL = "http://180.151.15.18:9007/geoserver/uk_sfd/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=uk_sfd:" + lastselectedlayer + "&outputFormat=application/json&CQL_FILTER=" + filter;
+        geoServerURL = "https://ukforestgis.in/geoserver/uk_sfd/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=uk_sfd:" + lastselectedlayer + "&outputFormat=application/json&CQL_FILTER=" + filter;
         console.log(geoServerURL);
     }
 
@@ -533,7 +533,7 @@ function createLayer(type, date = null) {
         case 'sentinel2fcc':
             return new ol.layer.Tile({
                 source: new ol.source.TileWMS({
-                    url: 'https://services.sentinel-hub.com/ogc/wms/13d5aaea-1d0e-4581-9288-a463ce586119',
+                    url: 'https://services.sentinel-hub.com/ogc/wms/514e719b-3d56-429e-bdc8-55b90d20d343',
                     params: {
                         layers: '2_FALSE_COLOR',
                         time: date,

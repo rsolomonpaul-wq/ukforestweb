@@ -1,371 +1,428 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Forest/forestmaster.Master" AutoEventWireup="true" CodeBehind="Proximityanalysis.aspx.cs" Inherits="uk_forest.DSS.topographyProfile" ClientIDMode="Static" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-   <link rel="stylesheet" href="https://unpkg.com/ol@v3.20.1/ol.css" />
+     <link rel="stylesheet" href="https://unpkg.com/ol@v3.20.1/ol.css" />
   <script src="https://openlayers.org/en/v3.20.1/build/ol.js"></script>
   <script src="https://unpkg.com/jsts@1.6.2/dist/jsts.min.js"></script>
   <style>
-      #map {
-          width: 100%;
-          height: calc(100vh - 100px) !important;
-      }
-
-      canvas.ol-unselectable {
-          height: calc(100vh - 100px) !important;
-      }
-
-      .page-content.my-5 .page-container {
-          margin: 0;
-          padding: 0;
-      }
-      .page-content.my-5 {
-          margin:0px !important
-}
+    #map { width: 100%; height: 90vh; position:relative}
     .ol-popup {
-      position: fixed !important;
-    background-color: white;
+      position: absolute !important;
+      background-color: white;
+      padding: 0px;
+      border: 1px solid black;
+      bottom: 0px;
+      left: 0px;
+      min-width: 300px;
+      z-index: 1;
+      max-height: 35vh;
+      overflow: scroll;
+      width: 98vw;
+    }
+   .popup-title {
+    font-weight: bold;
+    margin-bottom: 10px;
+    background-color: antiquewhite;
     padding: 10px;
-    border: 1px solid black;
-    top: 85px;
-    left: 290px;
-    min-width: 200px;
-    z-index: 9999;
-    }
-
-    .popup-content {
-      font-size: 14px;
-    }
-
-    .popup-title {
-      font-weight: bold;
-      margin-bottom: 10px;
-    }
-
-    .popup-attributes {
-      font-size: 12px;
-    }
-
-    #popup-content {
-      max-height: 680px;
-      overflow: auto;
-      height: 675px;
-    }
-
+}
     #layer-controls {
       padding: 10px;
       background: #f2f2f2;
       border-bottom: 1px solid #ccc;
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      z-index: 1;
     }
-    div#layer-controls {
-        position: absolute;
-    z-index: 1;
-    right: 12px;
-    padding: 11px;
-    width: 250px;
-    top: 40px;
+    table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+      margin: 10px 0px 20px 0px;
+  }
+
+  td, th {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 15px;
+  }
+
+  tr:nth-child(even) {
+      background-color: #dddddd;
+  }
+    thead {
+      background-color: #f9f9f9;
+    }
+    tr.highlighted {
+      background-color: rgb(96 255 67);
+    }
+
+    #feature-info-popup {
+      background: white;
+      border: 1px solid black;
+      padding: 10px;
+      min-width: 200px;
+      max-height: 200px;
+      overflow-y: auto;
+      font-size: 12px;
+      box-shadow: 2px 2px 6px rgba(0,0,0,0.3);
+      border-radius: 4px;
+    }
+    #close-feature-popup {
+      background: transparent;
+      border: none;
+      font-size: 18px;
+      cursor: pointer;
+    }
+    .divstrong{
+      padding: 10px;
+    background-color: #73bf3a;
+    }
+    .divtable{
+          width: 100vw;
+    overflow: scroll;
     }
   </style>
+
+    <style>
+        .page-content.my-5 .page-container {
+  margin-top: 10px;
+  padding:0px;
+}
+        .ol-overlay-container {
+            position: absolute !important;
+            bottom: 0;
+            left: 0 !important;
+        }
+        .page-content {
+ padding:0 !important;
+}
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     
-  <div class="mainhead">
-    <div id="popup" class="ol-popup">
-      <div class="popup-title"></div>
-      <div id="popup-content" class="popup-content"></div>
-    </div>
-    <br>
-    <div id="map">
-        <div id="layer-controls">
-            <strong>Toggle Layers:</strong><br>
-           <label><input type="checkbox" data-layer="Roads" checked> Roads</label><br>
+   <div id="layer-controls">
+    <strong>Toggle Layers:</strong><br>
+    <label><input type="checkbox" data-layer="Roads" checked> Roads</label><br>
     <label><input type="checkbox" data-layer="Divisions" checked> Divisions</label><br>
     <label><input type="checkbox" data-layer="Water Body" checked> Water Body</label><br>
     <label><input type="checkbox" data-layer="Fire Points" checked> Fire Points</label><br>
     <label><input type="checkbox" data-layer="Major City" checked> Major City</label><br>
     <label><input type="checkbox" data-layer="Plantation" checked> Plantation</label><br>
-    <%--<label><input type="checkbox" data-layer="Fire Points" checked> Fire Points</label><br>--%>
-    <label><input type="checkbox" data-layer="Railway Line" checked> Railway line</label><br>
+    <label><input type="checkbox" data-layer="Railway Line" checked> Railway Line</label><br>
     <label><input type="checkbox" data-layer="Railway Station" checked> Railway Station</label>
-          </div>
-
-    </div>
   </div>
-    <script>
-        const map = new ol.Map({
-            target: 'map',
-            layers: [new ol.layer.Tile({ source: new ol.source.OSM() })],
-            view: new ol.View({
-                center: ol.proj.fromLonLat([79.2090, 29.9139]),
-                zoom: 8
-            })
+
+    <div style="padding: 10px; background: #f9f9f9; position: absolute; z-index: 1;">
+    <label><input type="checkbox" id="enable-circle"> Enable Circle Intersect Tool</label><br>
+    <label><input type="checkbox" id="enable-circle-coords"> Enable Circle by Coordinates</label><br>
+    <label style="display:none"><input type="checkbox" id="enable-feature-info"> Enable Feature Info Popup</label>
+  </div>
+
+ 
+
+  <div id="map">
+
+       <div id="popup" class="ol-popup" style="position: absolute;">
+    <div class="popup-title">Intersected Features</div>
+    <div id="popup-content" class="popup-content"></div>
+  </div>
+  </div>
+
+  <div id="feature-info-popup" style="display:none;">
+    <button id="close-feature-popup" style="float:right;">&times;</button>
+    <div id="feature-info-content"></div>
+  </div>
+
+<script>
+    const map = new ol.Map({
+        target: 'map',
+        layers: [new ol.layer.Tile({ source: new ol.source.OSM() })],
+        view: new ol.View({
+            center: ol.proj.fromLonLat([79.2090, 29.9139]),
+            zoom: 8
+        })
+    });
+
+    const jstsParser = new jsts.io.OL3Parser();
+    jstsParser.inject(
+        ol.geom.Point, ol.geom.LineString, ol.geom.LinearRing,
+        ol.geom.Polygon, ol.geom.MultiPoint,
+        ol.geom.MultiLineString, ol.geom.MultiPolygon
+    );
+
+    const drawSource = new ol.source.Vector();
+    const drawLayer = new ol.layer.Vector({ source: drawSource });
+    map.addLayer(drawLayer);
+
+    const highlightSource = new ol.source.Vector();
+    const highlightLayer = new ol.layer.Vector({ source: highlightSource });
+    map.addLayer(highlightLayer);
+
+    const wfsLayers = [
+        { name: "Roads", sourceUrl: 'uk_sfd:tbl_uk_road', color: 'black' },
+        { name: "Railway Line", sourceUrl: 'uk_sfd:tbl_uk_railway_line', color: 'red' },
+        { name: "Railway Station", sourceUrl: 'uk_sfd:tbl_railway_station', point: true, color: 'blue' },
+        { name: "Divisions", sourceUrl: 'uk_sfd:tbl_division_master', color: '#FF5733' },
+        { name: "Water Body", sourceUrl: 'uk_sfd:tbl_uk_water_body', color: 'blue' },
+        { name: "Plantation", sourceUrl: 'uk_sfd:tbl_plantation_area', color: '#1fa811' },
+        { name: "Fire Points", sourceUrl: 'uk_sfd:tbl_2022', point: true, color: 'yellow' },
+        { name: "Major City", sourceUrl: 'uk_sfd:tbl_major_city', point: true, color: 'red' }
+    ].map(l => {
+        const source = new ol.source.Vector({
+            format: new ol.format.GeoJSON(),
+            url: `https://ukforestgis.in/geoserver/uk_sfd/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=${l.sourceUrl}&outputFormat=application/json`,
+            strategy: ol.loadingstrategy.all
         });
 
-        const jstsParser = new jsts.io.OL3Parser();
-        jstsParser.inject(
-            ol.geom.Point,
-            ol.geom.LineString,
-            ol.geom.LinearRing,
-            ol.geom.Polygon,
-            ol.geom.MultiPoint,
-            ol.geom.MultiLineString,
-            ol.geom.MultiPolygon
-        );
+        const style = l.point ?
+            new ol.style.Style({
+                image: new ol.style.Circle({
+                    radius: 5,
+                    fill: new ol.style.Fill({ color: l.color }),
+                    stroke: new ol.style.Stroke({ color: 'darkred', width: 1 })
+                })
+            }) :
+            new ol.style.Style({
+                stroke: new ol.style.Stroke({ color: l.color, width: 1 }),
+                fill: new ol.style.Fill({ color: 'rgba(0, 255, 0, 0.1)' })
+            });
 
-        const drawSource = new ol.source.Vector();
-        const drawLayer = new ol.layer.Vector({ source: drawSource });
-        map.addLayer(drawLayer);
+        const vectorLayer = new ol.layer.Vector({ source, style });
+        map.addLayer(vectorLayer);
 
-        const wfsLayers = [
-            {
-                name: "Roads",
-                source: new ol.source.Vector({
-                    format: new ol.format.GeoJSON(),
-                    url: 'http://180.151.15.18:9007/geoserver/uk_sfd/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=uk_sfd:tbl_uk_road&outputFormat=application/json',
-                    strategy: ol.loadingstrategy.all
-                }),
-                style: new ol.style.Style({
-                    stroke: new ol.style.Stroke({ color: 'black', width: 1 }),
-                    fill: new ol.style.Fill({ color: 'rgba(0, 255, 0, 0.1)' })
-                })
-            },
-            {
-                name: "Railway Line",
-                source: new ol.source.Vector({
-                    format: new ol.format.GeoJSON(),
-                    url: 'http://180.151.15.18:9007/geoserver/uk_sfd/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=uk_sfd:tbl_uk_railway_line&outputFormat=application/json',
-                    strategy: ol.loadingstrategy.all
-                }),
-                style: new ol.style.Style({
-                    stroke: new ol.style.Stroke({ color: 'red', width: 1 }),
-                    fill: new ol.style.Fill({ color: 'rgba(0, 255, 0, 0.1)' })
-                })
-            }, {
-                name: "Railway Station",
-                source: new ol.source.Vector({
-                    format: new ol.format.GeoJSON(),
-                    url: 'http://180.151.15.18:9007/geoserver/uk_sfd/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=uk_sfd:tbl_railway_station&outputFormat=application/json',
-                    strategy: ol.loadingstrategy.all
-                }),
-                style: new ol.style.Style({
-                    image: new ol.style.Circle({
-                        radius: 5,
-                        fill: new ol.style.Fill({ color: 'blue' }),
-                        stroke: new ol.style.Stroke({ color: 'darkred', width: 1 })
-                    })
-                })
-            },
-            {
-                name: "Divisions",
-                source: new ol.source.Vector({
-                    format: new ol.format.GeoJSON(),
-                    url: 'http://180.151.15.18:9007/geoserver/uk_sfd/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=uk_sfd:tbl_division_master&outputFormat=application/json',
-                    strategy: ol.loadingstrategy.all
-                }),
-                style: new ol.style.Style({
-                    stroke: new ol.style.Stroke({ color: '#FF5733', width: 1 }),
-                    fill: new ol.style.Fill({ color: 'rgba(0, 0, 255, 0.1)' })
-                })
-            },
-            {
-                name: "Water Body",
-                source: new ol.source.Vector({
-                    format: new ol.format.GeoJSON(),
-                    url: 'http://180.151.15.18:9007/geoserver/uk_sfd/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=uk_sfd:tbl_uk_water_body&outputFormat=application/json',
-                    strategy: ol.loadingstrategy.all
-                }),
-                style: new ol.style.Style({
-                    stroke: new ol.style.Stroke({ color: 'blue', width: 1 }),
-                    fill: new ol.style.Fill({ color: 'rgb(135, 206, 235)' })
-                })
-            },
-            {
-                name: "Plantation",
-                source: new ol.source.Vector({
-                    format: new ol.format.GeoJSON(),
-                    url: 'http://180.151.15.18:9007/geoserver/uk_sfd/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=uk_sfd:tbl_plantation_area&outputFormat=application/json',
-                    strategy: ol.loadingstrategy.all
-                }),
-                style: new ol.style.Style({
-                    stroke: new ol.style.Stroke({ color: '#082405', width: 1 }),
-                    fill: new ol.style.Fill({ color: '#1fa811' })
-                })
-            },
-            {
-                name: "Fire Points",
-                source: new ol.source.Vector({
-                    format: new ol.format.GeoJSON(),
-                    url: 'http://180.151.15.18:9007/geoserver/uk_sfd/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=uk_sfd:tbl_2022&outputFormat=application/json',
-                    strategy: ol.loadingstrategy.all
-                }),
-                style: new ol.style.Style({
-                    image: new ol.style.Circle({
-                        radius: 5,
-                        fill: new ol.style.Fill({ color: 'yellow' }),
-                        stroke: new ol.style.Stroke({ color: 'darkred', width: 1 })
-                    })
-                })
-            },
-            {
-                name: "Major City",
-                source: new ol.source.Vector({
-                    format: new ol.format.GeoJSON(),
-                    url: 'http://180.151.15.18:9007/geoserver/uk_sfd/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=uk_sfd:tbl_major_city&outputFormat=application/json',
-                    strategy: ol.loadingstrategy.all
-                }),
-                style: new ol.style.Style({
-                    image: new ol.style.Circle({
-                        radius: 5,
-                        fill: new ol.style.Fill({ color: 'red' }),
-                        stroke: new ol.style.Stroke({ color: 'white', width: 1 })
-                    })
-                })
-            }
-        ];
+        return { ...l, source, vectorLayer };
+    });
+
+    document.querySelectorAll('#layer-controls input[type="checkbox"]').forEach(cb => {
+        cb.addEventListener('change', function () {
+            const layerObj = wfsLayers.find(l => l.name === this.dataset.layer);
+            if (layerObj) layerObj.vectorLayer.setVisible(this.checked);
+        });
+    });
+
+    const popup = new ol.Overlay({ element: document.getElementById('popup') });
+    map.addOverlay(popup);
+
+    const featureInfoPopupEl = document.getElementById('feature-info-popup');
+    const featureInfoOverlay = new ol.Overlay({
+        element: featureInfoPopupEl,
+        positioning: 'bottom-center',
+        stopEvent: false,
+        offset: [0, -10]
+    });
+    map.addOverlay(featureInfoOverlay);
+
+    // Function to calculate distance in meters between two lon-lat points (haversine)
+    function getDistanceMeters(lonLat1, lonLat2) {
+        const R = 6371000; // Earth radius in meters
+        const toRad = deg => deg * Math.PI / 180;
+        const [lon1, lat1] = lonLat1;
+        const [lon2, lat2] = lonLat2;
+        const dLat = toRad(lat2 - lat1);
+        const dLon = toRad(lon2 - lon1);
+        const a = Math.sin(dLat / 2) ** 2 + Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) * Math.sin(dLon / 2) ** 2;
+        const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+        return R * c;
+    }
+
+    function drawCircleAndShowResults(centerLonLat, radiusMeters, evtCoordinate) {
+        drawSource.clear();
+        highlightSource.clear();
+
+        const circlePolygon = ol.geom.Polygon.circular(
+            new ol.Sphere(6371008.8), centerLonLat, radiusMeters, 64
+        ).transform('EPSG:4326', 'EPSG:3857');
+
+        const circleFeature = new ol.Feature({ geometry: circlePolygon });
+
+        circleFeature.setStyle(new ol.style.Style({
+            stroke: new ol.style.Stroke({ color: 'red', width: 2 }),
+            fill: new ol.style.Fill({ color: 'rgba(255, 0, 0, 0.1)' }),
+            text: new ol.style.Text({
+                text: `Radius: ${(radiusMeters / 1000).toFixed(3)} km`,
+                font: 'bold 14px Arial',
+                fill: new ol.style.Fill({ color: 'black' }),
+                stroke: new ol.style.Stroke({ color: 'white', width: 3 }),
+                placement: 'point',
+                overflow: true
+            })
+        }));
+
+        drawSource.addFeature(circleFeature);
+
+        const jstsCircle = jstsParser.read(circlePolygon);
+        let popupContent = ``;
+        let found = false;
+        let featureMap = {};
 
         wfsLayers.forEach(layer => {
-            const vectorLayer = new ol.layer.Vector({
-                source: layer.source,
-                style: layer.style
+            if (!layer.vectorLayer.getVisible()) return;
+            const features = layer.source.getFeatures().filter(f => {
+                const jstsGeom = jstsParser.read(f.getGeometry());
+                return jstsGeom.intersects(jstsCircle);
             });
-            layer.vectorLayer = vectorLayer;
-            map.addLayer(vectorLayer);
+
+            if (features.length > 0) {
+                found = true;
+
+                popupContent += `<div class="divstrong"><strong>${layer.name} (${features.length})</strong></div><br> <div class="divtable"><table id="${(layer.name).replace(/\s+/g, '')}"><thead><tr>`;
+                const keys = Object.keys(features[0].getProperties()).filter(k => k !== 'geometry');
+                keys.forEach(k => popupContent += `<th>${k}</th>`);
+                popupContent += `</tr></thead><tbody>`;
+
+                features.forEach((f, i) => {
+                    const fid = layer.name + "_" + i;
+                    featureMap[fid] = f;
+                    popupContent += `<tr data-fid="${fid}">`;
+                    keys.forEach(k => popupContent += `<td>${f.get(k)}</td>`);
+                    popupContent += `</tr>`;
+                });
+
+                popupContent += `</tbody></table></div>`;
+            }
         });
 
-        // Toggle visibility
-        document.querySelectorAll('#layer-controls input[type="checkbox"]').forEach(checkbox => {
-            checkbox.addEventListener('change', function () {
-                const layerName = this.getAttribute('data-layer');
-                const layerObj = wfsLayers.find(l => l.name === layerName);
-                if (layerObj && layerObj.vectorLayer) {
-                    layerObj.vectorLayer.setVisible(this.checked);
+        document.getElementById('popup-content').innerHTML = popupContent || 'No features found.';
+        popup.setPosition(evtCoordinate);
+
+        document.querySelectorAll('#popup-content table tbody tr').forEach(row => {
+            row.addEventListener('click', () => {
+                document.querySelectorAll('tr.highlighted').forEach(r => r.classList.remove('highlighted'));
+                row.classList.add('highlighted');
+                highlightSource.clear();
+
+                const feature = featureMap[row.dataset.fid];
+                const clonedFeature = new ol.Feature({
+                    geometry: feature.getGeometry().clone()
+                });
+
+                const geomType = feature.getGeometry().getType();
+                let highlightStyle;
+
+                if (geomType === 'Point') {
+                    highlightStyle = new ol.style.Style({
+                        image: new ol.style.Circle({
+                            radius: 6,
+                            fill: new ol.style.Fill({ color: 'blue' }),
+                            stroke: new ol.style.Stroke({ color: 'blue', width: 5 })
+                        })
+                    });
+                } else {
+                    highlightStyle = new ol.style.Style({
+                        stroke: new ol.style.Stroke({ color: 'blue', width: 5 }),
+                        fill: new ol.style.Fill({ color: 'blue' })
+                    });
                 }
+
+                clonedFeature.setStyle(highlightStyle);
+                highlightSource.addFeature(clonedFeature);
             });
         });
 
-        const popup = new ol.Overlay({
-            element: document.getElementById('popup'),
-            positioning: 'bottom-center',
-            stopEvent: false
-        });
-        map.addOverlay(popup);
+        featureInfoOverlay.setPosition(undefined);
+        featureInfoPopupEl.style.display = 'none';
+    }
 
-        // Compute destination point from center
-        function destinationPoint(lonLat, distanceMeters, bearingDegrees) {
-            const R = 6371000;
-            const [lon1, lat1] = [lonLat[0] * Math.PI / 180, lonLat[1] * Math.PI / 180];
-            const bearing = bearingDegrees * Math.PI / 180;
-            const lat2 = Math.asin(Math.sin(lat1) * Math.cos(distanceMeters / R) +
-                Math.cos(lat1) * Math.sin(distanceMeters / R) * Math.cos(bearing));
-            const lon2 = lon1 + Math.atan2(
-                Math.sin(bearing) * Math.sin(distanceMeters / R) * Math.cos(lat1),
-                Math.cos(distanceMeters / R) - Math.sin(lat1) * Math.sin(lat2)
-            );
-            return [lon2 * 180 / Math.PI, lat2 * 180 / Math.PI];
-        }
+    // Event handler for map clicks
+    map.on('click', function (evt) {
+        // Disable if circle-by-coords enabled (handled separately)
+        if (document.getElementById('enable-circle-coords').checked) return;
 
-        map.on('click', function (evt) {
+        if (document.getElementById('enable-circle').checked) {
             const radiusKm = prompt('Enter radius in kilometers:');
             const radius = parseFloat(radiusKm) * 1000;
+            if (isNaN(radius) || radius <= 0) return alert('Invalid radius.');
 
-            if (isNaN(radius) || radius <= 0) {
-                alert('Please enter a valid radius in kilometers.');
+            const centerLonLat = ol.proj.toLonLat(evt.coordinate);
+            drawCircleAndShowResults(centerLonLat, radius, evt.coordinate);
+
+            document.getElementById('enable-circle').checked = false;
+            return;
+        }
+
+        if (!document.getElementById('enable-feature-info').checked) {
+            featureInfoOverlay.setPosition(undefined);
+            featureInfoPopupEl.style.display = 'none';
+            return;
+        }
+
+        highlightSource.clear();
+
+        const pixel = evt.pixel;
+        let clickedFeature = null;
+
+        map.forEachFeatureAtPixel(pixel, function (feature, layer) {
+            if (wfsLayers.some(l => l.vectorLayer === layer && l.vectorLayer.getVisible())) {
+                clickedFeature = feature;
+                return true;
+            }
+        });
+
+        if (!clickedFeature) {
+            featureInfoOverlay.setPosition(undefined);
+            featureInfoPopupEl.style.display = 'none';
+            return;
+        }
+
+        const props = clickedFeature.getProperties();
+        let content = '<table>';
+        Object.entries(props).forEach(([k, v]) => {
+            if (k !== 'geometry') {
+                content += `<tr><th>${k}</th><td>${v}</td></tr>`;
+            }
+        });
+        content += '</table>';
+
+        document.getElementById('feature-info-content').innerHTML = content;
+        featureInfoOverlay.setPosition(evt.coordinate);
+        featureInfoPopupEl.style.display = 'block';
+    });
+
+    // Close feature info popup button
+    document.getElementById('close-feature-popup').addEventListener('click', () => {
+        featureInfoOverlay.setPosition(undefined);
+        featureInfoPopupEl.style.display = 'none';
+    });
+
+    // Circle by coordinates checkbox handler
+    document.getElementById('enable-circle-coords').addEventListener('change', function () {
+        if (this.checked) {
+            const input = prompt("Enter center latitude, longitude and radius in km separated by commas:\nExample:\n29.9139, 79.2090, 5");
+
+            if (!input) {
+                this.checked = false;
                 return;
             }
 
-            drawSource.clear();
-
-            const centerLonLat = ol.proj.toLonLat(evt.coordinate);
-            const circlePolygon = ol.geom.Polygon.circular(
-                new ol.Sphere(6371008.8),
-                centerLonLat,
-                radius,
-                64
-            ).transform('EPSG:4326', 'EPSG:3857');
-
-            const circleFeature = new ol.Feature({ geometry: circlePolygon });
-            circleFeature.setStyle(new ol.style.Style({
-                stroke: new ol.style.Stroke({ color: 'red', width: 2 }),
-                fill: new ol.style.Fill({ color: 'rgba(255, 0, 0, 0.2)' })
-            }));
-            drawSource.addFeature(circleFeature);
-
-            // Add center marker
-            const centerFeature = new ol.Feature({ geometry: new ol.geom.Point(evt.coordinate) });
-            centerFeature.setStyle(new ol.style.Style({
-                image: new ol.style.Circle({
-                    radius: 3,
-                    fill: new ol.style.Fill({ color: 'black' }),
-                    stroke: new ol.style.Stroke({ color: 'white', width: 1 })
-                })
-            }));
-            drawSource.addFeature(centerFeature);
-
-            // Add radius label
-            const labelLonLat = destinationPoint(centerLonLat, radius, 90);
-            const labelCoord = ol.proj.fromLonLat(labelLonLat);
-            const radiusLabel = new ol.Feature({ geometry: new ol.geom.Point(labelCoord) });
-            radiusLabel.setStyle(new ol.style.Style({
-                text: new ol.style.Text({
-                    text: `Radius: ${radiusKm} km`,
-                    font: 'bold 14px Arial',
-                    fill: new ol.style.Fill({ color: 'black' }),
-                    stroke: new ol.style.Stroke({ color: 'white', width: 3 }),
-                    offsetY: -10
-                })
-            }));
-            drawSource.addFeature(radiusLabel);
-
-            // Intersect logic
-            const jstsCircle = jstsParser.read(circlePolygon);
-            let popupContent = `<strong>Intersected Features Summary</strong><br><br>`;
-            let foundAny = false;
-
-            wfsLayers.forEach(layer => {
-                if (!layer.vectorLayer.getVisible()) return;
-                const features = layer.source.getFeatures();
-                const intersectedFeatures = [];
-
-                features.forEach(f => {
-                    f.setStyle(layer.style);
-                    const jstsGeom = jstsParser.read(f.getGeometry());
-                    if (jstsGeom.intersects(jstsCircle)) {
-                        foundAny = true;
-                        intersectedFeatures.push(f);
-                        f.setStyle(new ol.style.Style({
-                            stroke: new ol.style.Stroke({ color: 'red', width: 2 }),
-                            fill: new ol.style.Fill({ color: 'rgba(255, 0, 0, 0.4)' }),
-                            image: new ol.style.Circle({
-                                radius: 6,
-                                fill: new ol.style.Fill({ color: 'red' }),
-                                stroke: new ol.style.Stroke({ color: 'darkred', width: 1 })
-                            })
-                        }));
-                    }
-                });
-
-                if (intersectedFeatures.length > 0) {
-                    popupContent += `<div><strong>${layer.name} (${intersectedFeatures.length})</strong></div>`;
-                    intersectedFeatures.forEach((f, idx) => {
-                        const props = f.getProperties();
-                        popupContent += `<div class="popup-attributes" style="margin-left: 10px;"><em>Feature ${idx + 1}</em><br>`;
-                        Object.keys(props).forEach(k => {
-                            if (k !== 'geometry') {
-                                popupContent += `<span>${k}: ${props[k]}</span><br>`;
-                            }
-                        });
-                        popupContent += `</div><br>`;
-                    });
-                } else {
-                    popupContent += `<div><strong>${layer.name}:</strong> No intersected features</div><br>`;
-                }
-            });
-
-            if (foundAny) {
-                document.getElementById('popup-content').innerHTML = popupContent;
-                popup.setPosition(evt.coordinate);
-            } else {
-                document.getElementById('popup-content').innerHTML = "";
-                alert('No features intersect the circle.');
+            const parts = input.split(',').map(s => s.trim());
+            if (parts.length !== 3) {
+                alert('Please enter exactly three values: latitude, longitude, radius_km');
+                this.checked = false;
+                return;
             }
-        });
-    </script>
+
+            const lat = parseFloat(parts[0]);
+            const lon = parseFloat(parts[1]);
+            const radiusKm = parseFloat(parts[2]);
+
+            if (
+                isNaN(lat) || lat < -90 || lat > 90 ||
+                isNaN(lon) || lon < -180 || lon > 180 ||
+                isNaN(radiusKm) || radiusKm <= 0
+            ) {
+                alert('Invalid values entered. Please enter valid lat, lon and radius.');
+                this.checked = false;
+                return;
+            }
+
+            const radiusMeters = radiusKm * 1000;
+            const centerLonLat = [lon, lat];
+            const center3857 = ol.proj.fromLonLat(centerLonLat);
+
+            drawCircleAndShowResults(centerLonLat, radiusMeters, center3857);
+
+            this.checked = false;
+        }
+    });
+</script>
 </asp:Content>

@@ -228,9 +228,6 @@ namespace uk_forest.Forest
 
                     client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
                     client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token_sess);
-                    //HttpResponseMessage response = client.GetAsync(apiUrl + "TblUserRegistrations/GetUsersByRole?role_id=" + roleId + "&user_id=" + userId).Result;
-
-                    //HttpResponseMessage response = client.GetAsync(apiUrl + $"TblUserRegistrations/GetUsersByRole?selected_role_id={selected_role_id}&session_role_id={session_role_id}&session_user_id={session_user_id}").Result;
                     
                     HttpResponseMessage response = client.GetAsync(apiUrl + $"TblUserRegistrations/GetUsersByRole_Test?selected_role_id={selected_role_id}&session_role_id={session_role_id}&session_user_id={session_user_id}").Result;
 
@@ -313,6 +310,86 @@ namespace uk_forest.Forest
             }
         }
 
+        //protected void ddl_status_approved_SelectedIndexChanged(object sender, EventArgs e)
+        //{
+        //    try
+        //    {
+        //        GridViewRow gvrow = (sender as DropDownList)?.NamingContainer as GridViewRow;
+
+        //        if (gvrow != null)
+        //        {
+        //            DropDownList ddl_action = (DropDownList)gvrow.FindControl("ddl_status_approved");
+        //            Label lblUserId = (Label)gvrow.FindControl("lbl_UserId");
+        //            Label lblRoleId = (Label)gvrow.FindControl("lbl_RoleId");
+
+        //            string userId = lblUserId?.Text;
+        //            string permission = ddl_action?.SelectedValue;
+        //            string pageName = "Main";
+        //            Session["userid_dataKey"] = lblUserId.Text;
+        //            Session["roleid_dataKey"] = lblRoleId.Text;
+
+        //            if (ddl_action != null && !string.IsNullOrEmpty(permission))
+        //            {
+        //                string redirectUrl = "";
+
+        //                if (permission == "View" || permission == "Edit")
+        //                {
+        //                    //redirectUrl = $"user_Registration1_test.aspx?id={userId}&permission={permission}";
+        //                    redirectUrl = $"user_registration_new.aspx?id={userId}&permission={permission}&pageName={pageName}";
+        //                }
+        //                else if (permission == "AccessRight")
+        //                {
+        //                    redirectUrl = $"addAccessRight.aspx?id={userId}&permission={permission}";
+        //                }
+        //                else if (permission == "Delete")
+        //                {
+        //                    try
+        //                    {
+        //                        delete_user(userId);
+        //                        string Message = "User Deleted Successfully.";
+        //                        ScriptManager.RegisterStartupScript(this, GetType(), "showalert", $"alert('{Message}');", true);
+        //                        //BindUserGrid(Convert.ToInt32(ddl_role.SelectedValue), Session["UserId"].ToString());
+
+
+        //                        //string sessionUserId = "";
+
+        //                        //Int32 sessionRoleId = Convert.ToInt32(Session["RoleId"]);
+        //                        //if (sessionRoleId == 1 || sessionRoleId == 2)
+        //                        //{
+        //                        //    sessionUserId = "0";
+        //                        //}
+        //                        //else
+        //                        //{
+        //                        //    sessionUserId = Session["UserId"].ToString();
+        //                        //}
+        //                        //bind_role("User", sessionRoleId);
+        //                        BindUserGrid(Convert.ToInt32(ddl_role.SelectedValue), Convert.ToInt32(Session["RoleId"]), Session["UserId"].ToString());
+
+
+        //                    }
+        //                    catch (Exception ex)
+        //                    {
+        //                        ClientScript.RegisterStartupScript(this.GetType(), "alert", $"alert('Error deleting user: {ex.Message}');", true);
+        //                    }
+        //                }
+
+        //                if (!string.IsNullOrEmpty(redirectUrl))
+        //                {
+        //                    Response.Redirect(redirectUrl, false);
+        //                    Context.ApplicationInstance.CompleteRequest();
+        //                }
+        //            }
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        Console.WriteLine($"Error: {ex.Message}");
+
+        //        ClientScript.RegisterStartupScript(this.GetType(), "alert", $"alert('An error occurred: {ex.Message}');", true);
+        //    }
+        //}
+
+
         protected void ddl_status_approved_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
@@ -337,8 +414,8 @@ namespace uk_forest.Forest
 
                         if (permission == "View" || permission == "Edit")
                         {
-                            //redirectUrl = $"user_Registration1_test.aspx?id={userId}&permission={permission}";
-                            redirectUrl = $"user_registration_new.aspx?id={userId}&permission={permission}&pageName={pageName}";
+                            //redirectUrl = $"user_registration_new.aspx?id={userId}&permission={permission}&pageName={pageName}";
+                            redirectUrl = $"user_registration.aspx?id={userId}&permission={permission}&pageName={pageName}";
                         }
                         else if (permission == "AccessRight")
                         {
@@ -349,25 +426,29 @@ namespace uk_forest.Forest
                             try
                             {
                                 delete_user(userId);
-                                string Message = "User Deleted Successfully.";
-                                ScriptManager.RegisterStartupScript(this, GetType(), "showalert", $"alert('{Message}');", true);
-                                //BindUserGrid(Convert.ToInt32(ddl_role.SelectedValue), Session["UserId"].ToString());
+                                //string Message = "User Deleted Successfully.";
+                                //ScriptManager.RegisterStartupScript(this, GetType(), "showalert", $"alert('{Message}');", true);
 
 
-                                //string sessionUserId = "";
+                                string successScript = @"
+    Swal.fire({
+        title: 'User Deleted!',
+        text: 'User deleted successfully.',
+        icon: 'success',
+        showConfirmButton: true,
+        confirmButtonText: 'OK',
+        background: '#f0f9ff',
+        color: '#1a202c',
+        iconColor: '#38a169',
+        showClass: { popup: 'animate__animated animate__fadeInDown' },
+        hideClass: { popup: 'animate__animated animate__fadeOutUp' }
+    });";
 
-                                //Int32 sessionRoleId = Convert.ToInt32(Session["RoleId"]);
-                                //if (sessionRoleId == 1 || sessionRoleId == 2)
-                                //{
-                                //    sessionUserId = "0";
-                                //}
-                                //else
-                                //{
-                                //    sessionUserId = Session["UserId"].ToString();
-                                //}
-                                //bind_role("User", sessionRoleId);
+                                ScriptManager.RegisterStartupScript(this, this.GetType(), "deleteAlert", successScript, true);
+
+
+
                                 BindUserGrid(Convert.ToInt32(ddl_role.SelectedValue), Convert.ToInt32(Session["RoleId"]), Session["UserId"].ToString());
-
 
                             }
                             catch (Exception ex)
@@ -375,7 +456,6 @@ namespace uk_forest.Forest
                                 ClientScript.RegisterStartupScript(this.GetType(), "alert", $"alert('Error deleting user: {ex.Message}');", true);
                             }
                         }
-
                         if (!string.IsNullOrEmpty(redirectUrl))
                         {
                             Response.Redirect(redirectUrl, false);
@@ -391,6 +471,7 @@ namespace uk_forest.Forest
                 ClientScript.RegisterStartupScript(this.GetType(), "alert", $"alert('An error occurred: {ex.Message}');", true);
             }
         }
+
 
         public async Task<string> delete_user(string UserId)
         {

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+<Document id="root_doc">
+<Schema name="aoi" id="aoi">
+	<SimpleField name="id" type="float"></SimpleField>
+</Schema>
+<Folder><name>aoi</name>
+  <Placemark id="aoi.1">
+	<Style><LineStyle><color>ff0000ff</color></LineStyle><PolyStyle><fill>0</fill></PolyStyle></Style>
+	<ExtendedData><SchemaData schemaUrl="#aoi">
+		<SimpleData name="id">1</SimpleData>
+	</SchemaData></ExtendedData>
+      <MultiGeometry><Polygon><outerBoundaryIs><LinearRing><coordinates>77.5023005957964,28.670764816795 77.5038634053547,28.6698560090627 77.5024619728703,28.6680383935982 77.5010520468558,28.6691510460555 77.5023005957964,28.670764816795</coordinates></LinearRing></outerBoundaryIs></Polygon></MultiGeometry>
+  </Placemark>
+</Folder>
+</Document></kml>

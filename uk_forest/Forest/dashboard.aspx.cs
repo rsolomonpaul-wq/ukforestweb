@@ -34,7 +34,7 @@ namespace uk_forest.Forest
         {
             try
             {
-                string q = "select zone,rf_sqkm,nf_sqkm from tbl_zone_master";
+                string q = "select zone,rf_area_sq_km,nf_area_sq_km from tbl_zone_master";
                 DataTable dt = connectDB.executeGetData(q);
                 if (dt.Rows.Count > 0)
                 {
@@ -52,7 +52,7 @@ namespace uk_forest.Forest
         {
             try
             {
-                string q = "select zone, circle ,rf_sqkm,nf_sqkm from tbl_circle_master";
+                string q = "select zone, circle ,rf_area_sq_km,nf_area_sq_km from tbl_circle_master";
                 DataTable dt = connectDB.executeGetData(q);
                 if (dt.Rows.Count > 0)
                 {
@@ -71,7 +71,7 @@ namespace uk_forest.Forest
         {
             try
             {
-                string q = "select zone, circle,division ,rf_sqkm,nf_sqkm from tbl_division_master order by zone,circle";
+                string q = "select zone, circle,division ,rf_area_sq_km,nf_area_sq_km from tbl_division_master order by zone,circle";
                 DataTable dt = connectDB.executeGetData(q);
                 if (dt.Rows.Count > 0)
                 {

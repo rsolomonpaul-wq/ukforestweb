@@ -58,6 +58,9 @@
     <Reference Include="Aspose.Zip, Version=23.5.0.0, Culture=neutral, PublicKeyToken=716fcc553a201e56, processorArchitecture=MSIL">
       <HintPath>..\packages\Aspose.Zip.23.5.0\lib\net40\Aspose.Zip.dll</HintPath>
     </Reference>
+    <Reference Include="BouncyCastle.Cryptography, Version=2.0.0.0, Culture=neutral, PublicKeyToken=072edcf4a5328938, processorArchitecture=MSIL">
+      <HintPath>..\packages\BouncyCastle.Cryptography.2.6.2\lib\net461\BouncyCastle.Cryptography.dll</HintPath>
+    </Reference>
     <Reference Include="dotless.AspNet, Version=1.6.4.0, Culture=neutral, PublicKeyToken=96b446c9e63eae34, processorArchitecture=MSIL">
       <HintPath>..\packages\dotless.AspNetHandler.1.6.4\lib\net461\dotless.AspNet.dll</HintPath>
     </Reference>
@@ -69,6 +72,9 @@
     </Reference>
     <Reference Include="itextsharp, Version=5.4.2.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
       <HintPath>..\packages\iTextSharp.5.4.2\lib\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="MailKit, Version=4.8.0.0, Culture=neutral, PublicKeyToken=4e064fe7c44a8f1b, processorArchitecture=MSIL">
+      <HintPath>..\packages\MailKit.4.8.0\lib\net48\MailKit.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.AspNetCore.Cryptography.Internal, Version=9.0.3.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNetCore.Cryptography.Internal.9.0.3\lib\net462\Microsoft.AspNetCore.Cryptography.Internal.dll</HintPath>
@@ -116,6 +122,9 @@
     <Reference Include="Microsoft.Extensions.Primitives, Version=9.0.0.3, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Extensions.Primitives.9.0.3\lib\net462\Microsoft.Extensions.Primitives.dll</HintPath>
     </Reference>
+    <Reference Include="MimeKit, Version=4.17.0.0, Culture=neutral, PublicKeyToken=bede1c8a46c66814, processorArchitecture=MSIL">
+      <HintPath>..\packages\MimeKit.4.17.0\lib\net48\MimeKit.dll</HintPath>
+    </Reference>
     <Reference Include="Npgsql, Version=7.0.10.0, Culture=neutral, PublicKeyToken=5d8b90d52f46fda7, processorArchitecture=MSIL">
       <HintPath>..\packages\Npgsql.7.0.10\lib\netstandard2.0\Npgsql.dll</HintPath>
     </Reference>
@@ -125,8 +134,11 @@
     <Reference Include="Riganti.Utils.Infrastructure.Services.Mailing.SystemSmtpClient, Version=2.5.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Riganti.Utils.Infrastructure.Services.Mailing.SystemSmtpClient.2.5.1\lib\net472\Riganti.Utils.Infrastructure.Services.Mailing.SystemSmtpClient.dll</HintPath>
     </Reference>
-    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    <Reference Include="SharpCompress, Version=0.30.0.0, Culture=neutral, PublicKeyToken=afb0a02973931d96, processorArchitecture=MSIL">
+      <HintPath>..\packages\SharpCompress.0.30.0\lib\net461\SharpCompress.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Buffers, Version=4.0.5.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.6.1\lib\net462\System.Buffers.dll</HintPath>
     </Reference>
     <Reference Include="System.Collections.Immutable, Version=7.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Collections.Immutable.7.0.0\lib\net462\System.Collections.Immutable.dll</HintPath>
@@ -151,13 +163,22 @@
     <Reference Include="System.Drawing.Common, Version=9.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Drawing.Common.9.0.3\lib\net462\System.Drawing.Common.dll</HintPath>
     </Reference>
+    <Reference Include="System.Formats.Asn1, Version=8.0.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Formats.Asn1.8.0.1\lib\net462\System.Formats.Asn1.dll</HintPath>
+    </Reference>
     <Reference Include="System.IO, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.IO.4.3.0\lib\net462\System.IO.dll</HintPath>
       <Private>True</Private>
       <Private>True</Private>
     </Reference>
-    <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
+    <Reference Include="System.IO.Compression, Version=4.1.2.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.Compression.4.3.0\lib\net46\System.IO.Compression.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="System.Memory, Version=4.0.5.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.6.3\lib\net462\System.Memory.dll</HintPath>
     </Reference>
     <Reference Include="System.Net.Http, Version=4.1.1.3, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Net.Http.4.3.4\lib\net46\System.Net.Http.dll</HintPath>
@@ -165,17 +186,18 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System.Numerics" />
-    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    <Reference Include="System.Numerics.Vectors, Version=4.1.6.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.6.1\lib\net462\System.Numerics.Vectors.dll</HintPath>
     </Reference>
     <Reference Include="System.Runtime, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Runtime.4.3.0\lib\net462\System.Runtime.dll</HintPath>
       <Private>True</Private>
       <Private>True</Private>
     </Reference>
-    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.6.1.2\lib\net462\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
     </Reference>
+    <Reference Include="System.Security" />
     <Reference Include="System.Security.Cryptography.Algorithms, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Security.Cryptography.Algorithms.4.3.0\lib\net463\System.Security.Cryptography.Algorithms.dll</HintPath>
       <Private>True</Private>
@@ -199,8 +221,8 @@
     <Reference Include="System.Security.Principal.Windows, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Security.Principal.Windows.5.0.0\lib\net461\System.Security.Principal.Windows.dll</HintPath>
     </Reference>
-    <Reference Include="System.Text.Encoding.CodePages, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Text.Encoding.CodePages.4.5.0\lib\net461\System.Text.Encoding.CodePages.dll</HintPath>
+    <Reference Include="System.Text.Encoding.CodePages, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Encoding.CodePages.5.0.0\lib\net461\System.Text.Encoding.CodePages.dll</HintPath>
     </Reference>
     <Reference Include="System.Text.Encodings.Web, Version=9.0.0.3, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Text.Encodings.Web.9.0.3\lib\net462\System.Text.Encodings.Web.dll</HintPath>
@@ -211,8 +233,8 @@
     <Reference Include="System.Threading.Channels, Version=7.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Threading.Channels.7.0.0\lib\net462\System.Threading.Channels.dll</HintPath>
     </Reference>
-    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.4.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.6.3\lib\net462\System.Threading.Tasks.Extensions.dll</HintPath>
     </Reference>
     <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
@@ -317,6 +339,7 @@
     <Content Include="admin\assets\images\error\error-502.png" />
     <Content Include="admin\assets\images\error\error-503.png" />
     <Content Include="admin\assets\images\favicon.png" />
+    <Content Include="admin\assets\images\federal_logo.jpg" />
     <Content Include="admin\assets\images\fire_management.jpg" />
     <Content Include="admin\assets\images\flags\de.svg" />
     <Content Include="admin\assets\images\flags\es.svg" />
@@ -324,6 +347,8 @@
     <Content Include="admin\assets\images\flags\it.svg" />
     <Content Include="admin\assets\images\flags\ru.svg" />
     <Content Include="admin\assets\images\flags\us.svg" />
+    <Content Include="admin\assets\images\giz_logo.jpg" />
+    <Content Include="admin\assets\images\iki_logo.jpg" />
     <Content Include="admin\assets\images\logoIcon.png" />
     <Content Include="admin\assets\images\menu-line.png" />
     <Content Include="admin\assets\images\png\arrows.svg" />
@@ -486,29 +511,57 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="DSS\addtrack.aspx" />
     <Content Include="DSS\analysis.aspx" />
+    <Content Include="DSS\assetDashboard.aspx" />
+    <Content Include="DSS\assetInputForm.aspx" />
     <Content Include="DSS\change.aspx" />
     <Content Include="DSS\css\datepicker.css" />
+    <Content Include="DSS\css\plantationCss.css" />
+    <Content Include="DSS\firedashboard.aspx" />
+    <Content Include="DSS\fireReport.aspx" />
+    <Content Include="DSS\img\arrow.png" />
     <Content Include="DSS\img\Aspect.PNG" />
+    <Content Include="DSS\img\availablecapacity.png" />
+    <Content Include="DSS\img\backward.png" />
+    <Content Include="DSS\img\clearall.png" />
+    <Content Include="DSS\img\downloadicon.png" />
     <Content Include="DSS\img\EnhancedVegetation.png" />
     <Content Include="DSS\img\harvesting.png" />
     <Content Include="DSS\img\health.png" />
+    <Content Include="DSS\img\layer.png" />
     <Content Include="DSS\img\layer_swiper.png" />
+    <Content Include="DSS\img\locationicon.png" />
+    <Content Include="DSS\img\measureline.jpg" />
+    <Content Include="DSS\img\media-loader.gif" />
+    <Content Include="DSS\img\media.gif" />
     <Content Include="DSS\img\ndvi.png" />
     <Content Include="DSS\img\NitrogenContent.png" />
     <Content Include="DSS\img\NitrogenContent1.png" />
     <Content Include="DSS\img\precipitation.jpg" />
     <Content Include="DSS\img\pressure.jpg" />
+    <Content Include="DSS\img\reload.png" />
     <Content Include="DSS\img\Slope.PNG" />
     <Content Include="DSS\img\SoilMoisture.png" />
     <Content Include="DSS\img\SoilMoisture1.png" />
+    <Content Include="DSS\img\speciesdiversity.png" />
+    <Content Include="DSS\img\target.png" />
     <Content Include="DSS\img\Temperature.jpg" />
+    <Content Include="DSS\img\upload.png" />
     <Content Include="DSS\img\vegetation-moisture.png" />
+    <Content Include="DSS\img\vice-versa.png" />
     <Content Include="DSS\img\weed.png" />
     <Content Include="DSS\img\wind-speed.jpg" />
+    <Content Include="DSS\js\addtrack.js" />
+    <Content Include="DSS\js\analysis - Copy %282%29.js" />
+    <Content Include="DSS\js\analysis - Copy %283%29.js" />
+    <Content Include="DSS\js\analysis - Copy %284%29.js" />
+    <Content Include="DSS\js\analysis - Copy.js" />
     <Content Include="DSS\js\analysis.js" />
     <Content Include="DSS\js\datepicker.js" />
     <Content Include="DSS\js\changedetection.js" />
+    <Content Include="DSS\js\mapfilter.js" />
+    <Content Include="DSS\js\measure.js" />
     <Content Include="DSS\js\ol.js" />
     <Content Include="DSS\js\test.js" />
     <Content Include="DSS\js\topographyprofile.js" />
@@ -516,13 +569,41 @@
     <Content Include="DSS\js\ndvi2.js" />
     <Content Include="DSS\js\timeseriesanalysis.js" />
     <Content Include="DSS\changeDetection.aspx" />
+    <Content Include="DSS\nurseryDashboard.aspx" />
+    <Content Include="DSS\nurseryReport.aspx" />
+    <Content Include="DSS\nurseryStockForm.aspx" />
+    <Content Include="DSS\patrollingDashboard.aspx" />
+    <Content Include="DSS\patrollingInputForm.aspx" />
+    <Content Include="DSS\plantation.aspx" />
+    <Content Include="DSS\plantationDashboard.aspx" />
+    <Content Include="DSS\plantationjs\firedashboard.js" />
+    <Content Include="DSS\plantationjs\firedashboardmapfirst.js" />
+    <Content Include="DSS\plantationjs\info.js" />
+    <Content Include="DSS\plantationjs\layers.js" />
+    <Content Include="DSS\plantationjs\nurserydashboardjs.js" />
+    <Content Include="DSS\plantationjs\patrollingDashboard.js" />
+    <Content Include="DSS\plantationjs\plantationdashboard.js" />
+    <Content Include="DSS\plantationjs\plantationdashboardjs - Copy.js" />
+    <Content Include="DSS\plantationjs\plantationdashboardjs.js" />
+    <Content Include="DSS\plantationReport.aspx" />
+    <Content Include="DSS\proximety.aspx" />
     <Content Include="DSS\Proximityanalysis.aspx" />
+    <Content Include="DSS\proximty.aspx" />
     <Content Include="DSS\topographyProfile.aspx" />
     <Content Include="DSS\ndviAnalysis.aspx" />
     <Content Include="DSS\timeSeriesAnalysis.aspx" />
+    <Content Include="DSS\TrackMasterList.aspx" />
+    <Content Include="DSS\wlc.aspx" />
     <Content Include="favicon.ico" />
+    <Content Include="Files\Animal\2.png" />
+    <Content Include="Files\Animal\patrollingInputForm %281%29.aspx" />
+    <Content Include="Files\DFO-0089\Raster\20250324_dhirauli_Qgis\20250324_dhirauli_Qgis.tif" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Forest\Account_DashBoard.aspx" />
     <Content Include="Forest\addAccessRight.aspx" />
+    <Content Include="Forest\addApplicant.aspx" />
+    <Content Include="Forest\AddApplicantDetails.aspx" />
+    <Content Include="Forest\addbeneficiary.aspx" />
     <Content Include="Forest\addCircle.aspx" />
     <Content Include="Forest\addDept.aspx" />
     <Content Include="Forest\addDesignation.aspx" />
@@ -532,12 +613,43 @@
     <Content Include="Forest\addSubModule.aspx" />
     <Content Include="Forest\addUser.aspx" />
     <Content Include="Forest\addZone.aspx" />
+    <Content Include="Forest\add_Incident.aspx" />
+    <Content Include="Forest\add_bank_detail.aspx" />
+    <Content Include="Forest\add_incident_document.aspx" />
+    <Content Include="Forest\ApplicantDashboard.aspx" />
+    <Content Include="Forest\applicantlogin.aspx" />
+    <Content Include="Forest\applicant_details.aspx" />
+    <Content Include="Forest\BehalfofApplicant_RO.aspx" />
+    <Content Include="Forest\BeneficiaryCheckByAcount.aspx" />
+    <Content Include="Forest\BudgetDetails.aspx" />
+    <Content Include="Forest\EditeVictimInsidentList.aspx" />
+    <Content Include="Forest\ForestGuardAsign.aspx" />
+    <Content Include="Forest\ForestGuardDetailsBehalfofRo.aspx" />
+    <Content Include="Forest\ForgotPassword.aspx" />
+    <Content Include="Forest\hwcApplicantDashboard.aspx" />
+    <Content Include="Forest\hwcApplicantDashboard.js" />
+    <Content Include="Forest\hwcDashboard.aspx" />
+    <Content Include="Forest\hwcDashboard.js" />
+    <Content Include="Forest\IncidentListAccount.aspx" />
+    <Content Include="Forest\incidentlistDFO.aspx" />
+    <Content Include="Forest\incidentlistRO.aspx" />
+    <Content Include="Forest\incidentlist_return.aspx" />
+    <Content Include="Forest\Incident_documentfill_Ro.aspx" />
+    <Content Include="Forest\incident_list.aspx" />
+    <Content Include="Forest\incident_approval_detail.aspx" />
+    <Content Include="Forest\incident_list_approval.aspx" />
+    <Content Include="Forest\login.aspx" />
+    <Content Include="Forest\user_registration.aspx" />
+    <Content Include="Forest\victimincident.aspx" />
+    <Content Include="Forest\VictimIncidentForm.aspx" />
     <Content Include="Forest\changePassword.aspx" />
     <Content Include="Forest\dashboard.aspx" />
     <Content Include="Forest\profile.aspx" />
     <Content Include="Forest\upload_data.aspx" />
     <Content Include="Forest\user_Registration_List_new.aspx" />
     <Content Include="Forest\user_registration_new.aspx" />
+    <Content Include="Forest\victimincidentlist.aspx" />
+    <Content Include="Forest\vitimAllDetails.aspx" />
     <Content Include="fp.png" />
     <Content Include="GIS\assets\css\style.css" />
     <Content Include="GIS\assets\images\auth\lockscreen-bg.jpg" />
@@ -755,6 +867,7 @@
     <Content Include="GIS\img\map_icons\undo.png" />
     <Content Include="GIS\img\pen.png" />
     <Content Include="GIS\img\redo.png" />
+    <Content Include="GIS\img\slope_legend.png" />
     <Content Include="GIS\img\swipe.png" />
     <Content Include="GIS\img\undo.png" />
     <Content Include="GIS\index.html" />
@@ -782,10 +895,14 @@
     <Content Include="images\chart-1.jpg" />
     <Content Include="images\chart-1.png" />
     <Content Include="images\chart-2.jpg" />
+    <Content Include="images\form-div.png" />
     <Content Include="images\gizLogo.png" />
     <Content Include="images\Ministry-of-Environment.jpg" />
+    <Content Include="images\modules\Applicant_dashboard.png" />
+    <Content Include="images\modules\applicant_details.png" />
     <Content Include="images\modules\color-icon\dss.png" />
     <Content Include="images\modules\color-icon\HWC.png" />
+    <Content Include="images\modules\color-icon\NurseryPic.png" />
     <Content Include="images\modules\color-icon\pm_icon.png" />
     <Content Include="images\modules\color-icon\Rm_icon.png" />
     <Content Include="images\modules\color-icon\sfm.png" />
@@ -797,6 +914,7 @@
     <Content Include="images\modules\dss.png" />
     <Content Include="images\modules\HWC.png" />
     <Content Include="images\modules\HWCMM.png" />
+    <Content Include="images\modules\incident_management.png" />
     <Content Include="images\modules\Patrolling.png" />
     <Content Include="images\modules\pm_icon.png" />
     <Content Include="images\modules\Programs.png" />
@@ -809,10 +927,13 @@
     <Content Include="images\modules\tw_icon.png" />
     <Content Include="images\modules\Vigilance.png" />
     <Content Include="images\modules\vl_icon.png" />
+    <Content Include="images\notfound.jpg" />
     <Content Include="images\uttrakhand_logo.jpg" />
+    <Content Include="web\aboutus.aspx" />
     <Content Include="web\css\style.css" />
     <Content Include="web\fonts\lg8306.svg" />
     <Content Include="web\fonts\themify9f24.svg" />
+    <Content Include="web\forgotpassword.aspx" />
     <Content Include="web\img\a1.jpg" />
     <Content Include="web\img\a2.jpg" />
     <Content Include="web\img\a3.jpg" />
@@ -957,6 +1078,9 @@
     <Content Include="web\img\icons\23.png" />
     <Content Include="web\img\icons\arrow-bottom.png" />
     <Content Include="web\img\icons\arrow-top.png" />
+    <Content Include="web\img\icons\density.jpg" />
+    <Content Include="web\img\icons\density.png" />
+    <Content Include="web\img\icons\forest.png" />
     <Content Include="web\img\icons\icon-26.png" />
     <Content Include="web\img\icons\icon-27.png" />
     <Content Include="web\img\icons\icon-28.png" />
@@ -1000,11 +1124,13 @@
     <Content Include="web\img\icons\icon-77.png" />
     <Content Include="web\img\icons\icon-mail.png" />
     <Content Include="web\img\icons\icon-phone.png" />
+    <Content Include="web\img\icons\legend_degradation.jpg" />
     <Content Include="web\img\icons\process-arrow.png" />
     <Content Include="web\img\icons\quote-02.jpg" />
     <Content Include="web\img\icons\quote-02.png" />
     <Content Include="web\img\icons\quote-03.png" />
     <Content Include="web\img\icons\quote.png" />
+    <Content Include="web\img\icons\tree_Cover_loss.jpg" />
     <Content Include="web\img\icons\video-play.html" />
     <Content Include="web\img\icons\vimeo-play.html" />
     <Content Include="web\img\icons\youtube-play.html" />
@@ -1101,8 +1227,10 @@
     <Content Include="web\img\team\team-11.jpg" />
     <Content Include="web\img\team\team-12.jpg" />
     <Content Include="web\img\team\team-13.jpg" />
+    <Content Include="web\img\user-icon1.png" />
     <Content Include="web\index-08.html" />
     <Content Include="web\index.aspx" />
+    <Content Include="web\indexs.aspx" />
     <Content Include="web\js\dashboad_temp.js" />
     <Content Include="web\js\mapfilter.js" />
     <Content Include="web\js\modules.js" />
@@ -1225,6 +1353,103 @@
     <Content Include="GIS\assets\vendors\ti-icons\fonts\themify.ttf" />
     <Content Include="GIS\assets\vendors\ti-icons\fonts\themify.woff" />
     <Content Include="GIS\gis_master.Master" />
+    <Content Include="Forest\forestmaster1.Master" />
+    <Content Include="Forest\wildlife.Master" />
+    <Content Include="Forest\masterpage.Master" />
+    <Content Include="Files\Animal\admin_dashboard.cshtml" />
+    <Content Include="Files\CF-0088\Vector\_Vector_rar\Dhirauli_20250324_Buildings.cpg" />
+    <Content Include="Files\CF-0088\Vector\_Vector_rar\Dhirauli_20250324_Buildings.dbf" />
+    <Content Include="Files\CF-0088\Vector\_Vector_rar\Dhirauli_20250324_Buildings.prj" />
+    <Content Include="Files\CF-0088\Vector\_Vector_rar\Dhirauli_20250324_Buildings.sbn" />
+    <Content Include="Files\CF-0088\Vector\_Vector_rar\Dhirauli_20250324_Buildings.sbx" />
+    <Content Include="Files\CF-0088\Vector\_Vector_rar\Dhirauli_20250324_Buildings.shp" />
+    <Content Include="Files\CF-0088\Vector\_Vector_rar\Dhirauli_20250324_Buildings.shx" />
+    <Content Include="Files\CF-0088\Vector\_Vector_rar\_Vector_rar.rar" />
+    <Content Include="Files\CF-0088\Vector\_Vector_zip\Dhirauli_20250324_Buildings.cpg" />
+    <Content Include="Files\CF-0088\Vector\_Vector_zip\Dhirauli_20250324_Buildings.dbf" />
+    <Content Include="Files\CF-0088\Vector\_Vector_zip\Dhirauli_20250324_Buildings.prj" />
+    <Content Include="Files\CF-0088\Vector\_Vector_zip\Dhirauli_20250324_Buildings.sbn" />
+    <Content Include="Files\CF-0088\Vector\_Vector_zip\Dhirauli_20250324_Buildings.sbx" />
+    <Content Include="Files\CF-0088\Vector\_Vector_zip\Dhirauli_20250324_Buildings.shp" />
+    <Content Include="Files\CF-0088\Vector\_Vector_zip\Dhirauli_20250324_Buildings.shx" />
+    <Content Include="Files\CF-0088\Vector\_Vector_zip\_Vector_zip.zip" />
+    <Content Include="Files\CF-0090\Vector\_Vector_rar\Dhirauli_20250324_Buildings.cpg" />
+    <Content Include="Files\CF-0090\Vector\_Vector_rar\Dhirauli_20250324_Buildings.dbf" />
+    <Content Include="Files\CF-0090\Vector\_Vector_rar\Dhirauli_20250324_Buildings.prj" />
+    <Content Include="Files\CF-0090\Vector\_Vector_rar\Dhirauli_20250324_Buildings.sbn" />
+    <Content Include="Files\CF-0090\Vector\_Vector_rar\Dhirauli_20250324_Buildings.sbx" />
+    <Content Include="Files\CF-0090\Vector\_Vector_rar\Dhirauli_20250324_Buildings.shp" />
+    <Content Include="Files\CF-0090\Vector\_Vector_rar\Dhirauli_20250324_Buildings.shx" />
+    <Content Include="Files\CF-0090\Vector\_Vector_rar\_Vector_rar.rar" />
+    <Content Include="Files\CF-0090\Vector\_Vector_zip\Dhirauli_20250324_Buildings.cpg" />
+    <Content Include="Files\CF-0090\Vector\_Vector_zip\Dhirauli_20250324_Buildings.dbf" />
+    <Content Include="Files\CF-0090\Vector\_Vector_zip\Dhirauli_20250324_Buildings.prj" />
+    <Content Include="Files\CF-0090\Vector\_Vector_zip\Dhirauli_20250324_Buildings.sbn" />
+    <Content Include="Files\CF-0090\Vector\_Vector_zip\Dhirauli_20250324_Buildings.sbx" />
+    <Content Include="Files\CF-0090\Vector\_Vector_zip\Dhirauli_20250324_Buildings.shp" />
+    <Content Include="Files\CF-0090\Vector\_Vector_zip\Dhirauli_20250324_Buildings.shx" />
+    <Content Include="Files\CF-0090\Vector\_Vector_zip\_Vector_zip.zip" />
+    <Content Include="Files\DFO-0087\Vector\_Vector_rar\Dhirauli_20250324_Buildings.cpg" />
+    <Content Include="Files\DFO-0087\Vector\_Vector_rar\Dhirauli_20250324_Buildings.dbf" />
+    <Content Include="Files\DFO-0087\Vector\_Vector_rar\Dhirauli_20250324_Buildings.prj" />
+    <Content Include="Files\DFO-0087\Vector\_Vector_rar\Dhirauli_20250324_Buildings.sbn" />
+    <Content Include="Files\DFO-0087\Vector\_Vector_rar\Dhirauli_20250324_Buildings.sbx" />
+    <Content Include="Files\DFO-0087\Vector\_Vector_rar\Dhirauli_20250324_Buildings.shp" />
+    <Content Include="Files\DFO-0087\Vector\_Vector_rar\Dhirauli_20250324_Buildings.shx" />
+    <Content Include="Files\DFO-0087\Vector\_Vector_rar\_Vector_rar.rar" />
+    <Content Include="Files\DFO-0087\Vector\_Vector_zip\Dhirauli_20250324_Buildings.cpg" />
+    <Content Include="Files\DFO-0087\Vector\_Vector_zip\Dhirauli_20250324_Buildings.dbf" />
+    <Content Include="Files\DFO-0087\Vector\_Vector_zip\Dhirauli_20250324_Buildings.prj" />
+    <Content Include="Files\DFO-0087\Vector\_Vector_zip\Dhirauli_20250324_Buildings.sbn" />
+    <Content Include="Files\DFO-0087\Vector\_Vector_zip\Dhirauli_20250324_Buildings.sbx" />
+    <Content Include="Files\DFO-0087\Vector\_Vector_zip\Dhirauli_20250324_Buildings.shp" />
+    <Content Include="Files\DFO-0087\Vector\_Vector_zip\Dhirauli_20250324_Buildings.shx" />
+    <Content Include="Files\DFO-0087\Vector\_Vector_zip\_Vector_zip.zip" />
+    <Content Include="Files\DFO-0089\KML\Dhirauli_20250324_Buildings\Dhirauli_20250324_Buildings.kml" />
+    <Content Include="Files\DFO-0089\Vector\_Vector_rar\Dhirauli_20250324_Buildings.cpg" />
+    <Content Include="Files\DFO-0089\Vector\_Vector_rar\Dhirauli_20250324_Buildings.dbf" />
+    <Content Include="Files\DFO-0089\Vector\_Vector_rar\Dhirauli_20250324_Buildings.prj" />
+    <Content Include="Files\DFO-0089\Vector\_Vector_rar\Dhirauli_20250324_Buildings.sbn" />
+    <Content Include="Files\DFO-0089\Vector\_Vector_rar\Dhirauli_20250324_Buildings.sbx" />
+    <Content Include="Files\DFO-0089\Vector\_Vector_rar\Dhirauli_20250324_Buildings.shp" />
+    <Content Include="Files\DFO-0089\Vector\_Vector_rar\Dhirauli_20250324_Buildings.shx" />
+    <Content Include="Files\DFO-0089\Vector\_Vector_rar\_Vector_rar.rar" />
+    <Content Include="Files\DFO-0089\Vector\_Vector_zip\Dhirauli_20250324_Buildings.cpg" />
+    <Content Include="Files\DFO-0089\Vector\_Vector_zip\Dhirauli_20250324_Buildings.dbf" />
+    <Content Include="Files\DFO-0089\Vector\_Vector_zip\Dhirauli_20250324_Buildings.prj" />
+    <Content Include="Files\DFO-0089\Vector\_Vector_zip\Dhirauli_20250324_Buildings.sbn" />
+    <Content Include="Files\DFO-0089\Vector\_Vector_zip\Dhirauli_20250324_Buildings.sbx" />
+    <Content Include="Files\DFO-0089\Vector\_Vector_zip\Dhirauli_20250324_Buildings.shp" />
+    <Content Include="Files\DFO-0089\Vector\_Vector_zip\Dhirauli_20250324_Buildings.shx" />
+    <Content Include="Files\DFO-0089\Vector\_Vector_zip\_Vector_zip.zip" />
+    <Content Include="Files\HOFF-0001\Vector\_Vector_rar\Dhirauli_20250324_Buildings.cpg" />
+    <Content Include="Files\HOFF-0001\Vector\_Vector_rar\Dhirauli_20250324_Buildings.dbf" />
+    <Content Include="Files\HOFF-0001\Vector\_Vector_rar\Dhirauli_20250324_Buildings.prj" />
+    <Content Include="Files\HOFF-0001\Vector\_Vector_rar\Dhirauli_20250324_Buildings.sbn" />
+    <Content Include="Files\HOFF-0001\Vector\_Vector_rar\Dhirauli_20250324_Buildings.sbx" />
+    <Content Include="Files\HOFF-0001\Vector\_Vector_rar\Dhirauli_20250324_Buildings.shp" />
+    <Content Include="Files\HOFF-0001\Vector\_Vector_rar\Dhirauli_20250324_Buildings.shx" />
+    <Content Include="Files\HOFF-0001\Vector\_Vector_rar\_Vector_rar.rar" />
+    <Content Include="Files\HOFF-0001\Vector\_Vector_zip\_Vector_zip.zip" />
+    <Content Include="Files\KML\dasna_639089135000249808.kml" />
+    <Content Include="Files\KML\selected_features%283%29%281%29.kml" />
+    <Content Include="Files\PCCF-0057\Vector\_Vector_zip\Dhirauli_20250324_Buildings.cpg" />
+    <Content Include="Files\PCCF-0057\Vector\_Vector_zip\Dhirauli_20250324_Buildings.dbf" />
+    <Content Include="Files\PCCF-0057\Vector\_Vector_zip\Dhirauli_20250324_Buildings.prj" />
+    <Content Include="Files\PCCF-0057\Vector\_Vector_zip\Dhirauli_20250324_Buildings.sbn" />
+    <Content Include="Files\PCCF-0057\Vector\_Vector_zip\Dhirauli_20250324_Buildings.sbx" />
+    <Content Include="Files\PCCF-0057\Vector\_Vector_zip\Dhirauli_20250324_Buildings.shp" />
+    <Content Include="Files\PCCF-0057\Vector\_Vector_zip\Dhirauli_20250324_Buildings.shx" />
+    <Content Include="Files\PCCF-0057\Vector\_Vector_zip\_Vector_zip.zip" />
+    <Content Include="Files\PCCF-0085\KML\Jitpur_Buildings_20241021\Jitpur_Buildings_20241021.kml" />
+    <Content Include="Files\PCCF-0085\Vector\_Vector_rar\Dhirauli_20250324_Buildings.cpg" />
+    <Content Include="Files\PCCF-0085\Vector\_Vector_rar\Dhirauli_20250324_Buildings.dbf" />
+    <Content Include="Files\PCCF-0085\Vector\_Vector_rar\Dhirauli_20250324_Buildings.prj" />
+    <Content Include="Files\PCCF-0085\Vector\_Vector_rar\Dhirauli_20250324_Buildings.sbn" />
+    <Content Include="Files\PCCF-0085\Vector\_Vector_rar\Dhirauli_20250324_Buildings.sbx" />
+    <Content Include="Files\PCCF-0085\Vector\_Vector_rar\Dhirauli_20250324_Buildings.shp" />
+    <Content Include="Files\PCCF-0085\Vector\_Vector_rar\Dhirauli_20250324_Buildings.shx" />
+    <Content Include="Files\PCCF-0085\Vector\_Vector_rar\_Vector_rar.rar" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -1274,18 +1499,40 @@
     <Content Include="web\fonts\themify9f24.woff" />
     <Content Include="web\fonts\themifyd41d.eot" />
     <Content Include="web\img\debug.log" />
+    <Content Include="_Vector_rar.rar" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="common_email\MailsHandling.cs" />
     <Compile Include="datalayer\dbquery.cs" />
+    <Compile Include="DSS\addtrack.aspx.cs">
+      <DependentUpon>addtrack.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DSS\addtrack.aspx.designer.cs">
+      <DependentUpon>addtrack.aspx</DependentUpon>
+    </Compile>
     <Compile Include="DSS\analysis.aspx.cs">
       <DependentUpon>analysis.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="DSS\analysis.aspx.designer.cs">
       <DependentUpon>analysis.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DSS\assetDashboard.aspx.cs">
+      <DependentUpon>assetDashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DSS\assetDashboard.aspx.designer.cs">
+      <DependentUpon>assetDashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DSS\assetInputForm.aspx.cs">
+      <DependentUpon>assetInputForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DSS\assetInputForm.aspx.designer.cs">
+      <DependentUpon>assetInputForm.aspx</DependentUpon>
     </Compile>
     <Compile Include="DSS\change.aspx.cs">
       <DependentUpon>change.aspx</DependentUpon>
@@ -1301,12 +1548,96 @@
     <Compile Include="DSS\changeDetection.aspx.designer.cs">
       <DependentUpon>changeDetection.aspx</DependentUpon>
     </Compile>
+    <Compile Include="DSS\firedashboard.aspx.cs">
+      <DependentUpon>firedashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DSS\firedashboard.aspx.designer.cs">
+      <DependentUpon>firedashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DSS\fireReport.aspx.cs">
+      <DependentUpon>fireReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DSS\fireReport.aspx.designer.cs">
+      <DependentUpon>fireReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DSS\nurseryDashboard.aspx.cs">
+      <DependentUpon>nurseryDashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DSS\nurseryDashboard.aspx.designer.cs">
+      <DependentUpon>nurseryDashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DSS\nurseryReport.aspx.cs">
+      <DependentUpon>nurseryReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DSS\nurseryReport.aspx.designer.cs">
+      <DependentUpon>nurseryReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DSS\nurseryStockForm.aspx.cs">
+      <DependentUpon>nurseryStockForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DSS\nurseryStockForm.aspx.designer.cs">
+      <DependentUpon>nurseryStockForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DSS\patrollingDashboard.aspx.cs">
+      <DependentUpon>patrollingDashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DSS\patrollingDashboard.aspx.designer.cs">
+      <DependentUpon>patrollingDashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DSS\patrollingInputForm.aspx.cs">
+      <DependentUpon>patrollingInputForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DSS\patrollingInputForm.aspx.designer.cs">
+      <DependentUpon>patrollingInputForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DSS\plantation.aspx.cs">
+      <DependentUpon>plantation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DSS\plantation.aspx.designer.cs">
+      <DependentUpon>plantation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DSS\plantationDashboard.aspx.cs">
+      <DependentUpon>plantationDashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DSS\plantationDashboard.aspx.designer.cs">
+      <DependentUpon>plantationDashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DSS\plantationReport.aspx.cs">
+      <DependentUpon>plantationReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DSS\plantationReport.aspx.designer.cs">
+      <DependentUpon>plantationReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DSS\proximety.aspx.cs">
+      <DependentUpon>proximety.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DSS\proximety.aspx.designer.cs">
+      <DependentUpon>proximety.aspx</DependentUpon>
+    </Compile>
     <Compile Include="DSS\Proximityanalysis.aspx.cs">
       <DependentUpon>Proximityanalysis.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="DSS\Proximityanalysis.aspx.designer.cs">
       <DependentUpon>Proximityanalysis.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DSS\proximty.aspx.cs">
+      <DependentUpon>proximty.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DSS\proximty.aspx.designer.cs">
+      <DependentUpon>proximty.aspx</DependentUpon>
     </Compile>
     <Compile Include="DSS\topographyProfile.aspx.cs">
       <DependentUpon>topographyProfile.aspx</DependentUpon>
@@ -1329,12 +1660,54 @@
     <Compile Include="DSS\timeSeriesAnalysis.aspx.designer.cs">
       <DependentUpon>timeSeriesAnalysis.aspx</DependentUpon>
     </Compile>
+    <Compile Include="DSS\TrackMasterList.aspx.cs">
+      <DependentUpon>TrackMasterList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DSS\TrackMasterList.aspx.designer.cs">
+      <DependentUpon>TrackMasterList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DSS\wlc.aspx.cs">
+      <DependentUpon>wlc.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DSS\wlc.aspx.designer.cs">
+      <DependentUpon>wlc.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forest\Account_DashBoard.aspx.cs">
+      <DependentUpon>Account_DashBoard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forest\Account_DashBoard.aspx.designer.cs">
+      <DependentUpon>Account_DashBoard.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Forest\addAccessRight.aspx.cs">
       <DependentUpon>addAccessRight.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Forest\addAccessRight.aspx.designer.cs">
       <DependentUpon>addAccessRight.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forest\addApplicant.aspx.cs">
+      <DependentUpon>addApplicant.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forest\addApplicant.aspx.designer.cs">
+      <DependentUpon>addApplicant.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forest\AddApplicantDetails.aspx.cs">
+      <DependentUpon>AddApplicantDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forest\AddApplicantDetails.aspx.designer.cs">
+      <DependentUpon>AddApplicantDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forest\addbeneficiary.aspx.cs">
+      <DependentUpon>addbeneficiary.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forest\addbeneficiary.aspx.designer.cs">
+      <DependentUpon>addbeneficiary.aspx</DependentUpon>
     </Compile>
     <Compile Include="Forest\addCircle.aspx.cs">
       <DependentUpon>addCircle.aspx</DependentUpon>
@@ -1399,6 +1772,203 @@
     <Compile Include="Forest\addRole.aspx.designer.cs">
       <DependentUpon>addRole.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Forest\add_Incident.aspx.cs">
+      <DependentUpon>add_Incident.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forest\add_Incident.aspx.designer.cs">
+      <DependentUpon>add_Incident.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forest\add_bank_detail.aspx.cs">
+      <DependentUpon>add_bank_detail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forest\add_bank_detail.aspx.designer.cs">
+      <DependentUpon>add_bank_detail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forest\add_incident_document.aspx.cs">
+      <DependentUpon>add_incident_document.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forest\add_incident_document.aspx.designer.cs">
+      <DependentUpon>add_incident_document.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forest\ApiHelper.cs" />
+    <Compile Include="Forest\ApplicantDashboard.aspx.cs">
+      <DependentUpon>ApplicantDashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forest\ApplicantDashboard.aspx.designer.cs">
+      <DependentUpon>ApplicantDashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forest\applicantlogin.aspx.cs">
+      <DependentUpon>applicantlogin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forest\applicantlogin.aspx.designer.cs">
+      <DependentUpon>applicantlogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forest\applicant_details.aspx.cs">
+      <DependentUpon>applicant_details.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forest\applicant_details.aspx.designer.cs">
+      <DependentUpon>applicant_details.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forest\BehalfofApplicant_RO.aspx.cs">
+      <DependentUpon>BehalfofApplicant_RO.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forest\BehalfofApplicant_RO.aspx.designer.cs">
+      <DependentUpon>BehalfofApplicant_RO.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forest\BeneficiaryCheckByAcount.aspx.cs">
+      <DependentUpon>BeneficiaryCheckByAcount.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forest\BeneficiaryCheckByAcount.aspx.designer.cs">
+      <DependentUpon>BeneficiaryCheckByAcount.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forest\BudgetDetails.aspx.cs">
+      <DependentUpon>BudgetDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forest\BudgetDetails.aspx.designer.cs">
+      <DependentUpon>BudgetDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forest\EditeVictimInsidentList.aspx.cs">
+      <DependentUpon>EditeVictimInsidentList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forest\EditeVictimInsidentList.aspx.designer.cs">
+      <DependentUpon>EditeVictimInsidentList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forest\ForestGuardAsign.aspx.cs">
+      <DependentUpon>ForestGuardAsign.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forest\ForestGuardAsign.aspx.designer.cs">
+      <DependentUpon>ForestGuardAsign.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forest\ForestGuardDetailsBehalfofRo.aspx.cs">
+      <DependentUpon>ForestGuardDetailsBehalfofRo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forest\ForestGuardDetailsBehalfofRo.aspx.designer.cs">
+      <DependentUpon>ForestGuardDetailsBehalfofRo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forest\ForgotPassword.aspx.cs">
+      <DependentUpon>ForgotPassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forest\ForgotPassword.aspx.designer.cs">
+      <DependentUpon>ForgotPassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forest\hwcApplicantDashboard.aspx.cs">
+      <DependentUpon>hwcApplicantDashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forest\hwcApplicantDashboard.aspx.designer.cs">
+      <DependentUpon>hwcApplicantDashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forest\hwcDashboard.aspx.cs">
+      <DependentUpon>hwcDashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forest\hwcDashboard.aspx.designer.cs">
+      <DependentUpon>hwcDashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forest\IncidentListAccount.aspx.cs">
+      <DependentUpon>IncidentListAccount.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forest\IncidentListAccount.aspx.designer.cs">
+      <DependentUpon>IncidentListAccount.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forest\incidentlistDFO.aspx.cs">
+      <DependentUpon>incidentlistDFO.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forest\incidentlistDFO.aspx.designer.cs">
+      <DependentUpon>incidentlistDFO.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forest\incidentlistRO.aspx.cs">
+      <DependentUpon>incidentlistRO.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forest\incidentlistRO.aspx.designer.cs">
+      <DependentUpon>incidentlistRO.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forest\incidentlist_return.aspx.cs">
+      <DependentUpon>incidentlist_return.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forest\incidentlist_return.aspx.designer.cs">
+      <DependentUpon>incidentlist_return.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forest\Incident_documentfill_Ro.aspx.cs">
+      <DependentUpon>Incident_documentfill_Ro.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forest\Incident_documentfill_Ro.aspx.designer.cs">
+      <DependentUpon>Incident_documentfill_Ro.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forest\incident_list.aspx.cs">
+      <DependentUpon>incident_list.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forest\incident_list.aspx.designer.cs">
+      <DependentUpon>incident_list.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forest\incident_approval_detail.aspx.cs">
+      <DependentUpon>incident_approval_detail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forest\incident_approval_detail.aspx.designer.cs">
+      <DependentUpon>incident_approval_detail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forest\incident_list_approval.aspx.cs">
+      <DependentUpon>incident_list_approval.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forest\incident_list_approval.aspx.designer.cs">
+      <DependentUpon>incident_list_approval.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forest\login.aspx.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forest\login.aspx.designer.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forest\masterpage.Master.cs">
+      <DependentUpon>masterpage.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forest\masterpage.Master.designer.cs">
+      <DependentUpon>masterpage.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Forest\user_registration.aspx.cs">
+      <DependentUpon>user_registration.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forest\user_registration.aspx.designer.cs">
+      <DependentUpon>user_registration.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forest\victimincident.aspx.cs">
+      <DependentUpon>victimincident.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forest\victimincident.aspx.designer.cs">
+      <DependentUpon>victimincident.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forest\VictimIncidentForm.aspx.cs">
+      <DependentUpon>VictimIncidentForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forest\VictimIncidentForm.aspx.designer.cs">
+      <DependentUpon>VictimIncidentForm.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Forest\changePassword.aspx.cs">
       <DependentUpon>changePassword.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1412,6 +1982,13 @@
     </Compile>
     <Compile Include="Forest\dashboard.aspx.designer.cs">
       <DependentUpon>dashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forest\forestmaster1.Master.cs">
+      <DependentUpon>forestmaster1.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forest\forestmaster1.Master.designer.cs">
+      <DependentUpon>forestmaster1.Master</DependentUpon>
     </Compile>
     <Compile Include="Forest\forestmaster.Master.cs">
       <DependentUpon>forestmaster.Master</DependentUpon>
@@ -1447,6 +2024,27 @@
     </Compile>
     <Compile Include="Forest\user_registration_new.aspx.designer.cs">
       <DependentUpon>user_registration_new.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forest\victimincidentlist.aspx.cs">
+      <DependentUpon>victimincidentlist.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forest\victimincidentlist.aspx.designer.cs">
+      <DependentUpon>victimincidentlist.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forest\vitimAllDetails.aspx.cs">
+      <DependentUpon>vitimAllDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forest\vitimAllDetails.aspx.designer.cs">
+      <DependentUpon>vitimAllDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Forest\wildlife.Master.cs">
+      <DependentUpon>wildlife.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Forest\wildlife.Master.designer.cs">
+      <DependentUpon>wildlife.Master</DependentUpon>
     </Compile>
     <Compile Include="GIS\gis_master.Master.cs">
       <DependentUpon>gis_master.Master</DependentUpon>
@@ -1494,12 +2092,33 @@
     <Compile Include="ViewSwitcher.ascx.designer.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
     </Compile>
+    <Compile Include="web\aboutus.aspx.cs">
+      <DependentUpon>aboutus.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="web\aboutus.aspx.designer.cs">
+      <DependentUpon>aboutus.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="web\forgotpassword.aspx.cs">
+      <DependentUpon>forgotpassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="web\forgotpassword.aspx.designer.cs">
+      <DependentUpon>forgotpassword.aspx</DependentUpon>
+    </Compile>
     <Compile Include="web\index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="web\index.aspx.designer.cs">
       <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="web\indexs.aspx.cs">
+      <DependentUpon>indexs.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="web\indexs.aspx.designer.cs">
+      <DependentUpon>indexs.aspx</DependentUpon>
     </Compile>
     <Compile Include="web\modules_details.aspx.cs">
       <DependentUpon>modules_details.aspx</DependentUpon>
@@ -1518,6 +2137,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="DSS\files\" />
+    <Folder Include="Files\CF-0090\Raster\20250324_dhirauli_Qgis\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

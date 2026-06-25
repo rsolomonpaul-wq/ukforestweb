@@ -16,7 +16,7 @@
                 <div class="card-body">
 
                     <div class="row mb-3">
-                        <div class="col-md-12">
+                        <div class="col-md-3">
                             <asp:Label ID="lbl_role" runat="server" CssClass="font-weight-bold">User Role <span class="text-danger">*</span></asp:Label>
                             <span>
                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator14" runat="server" ControlToValidate="ddl_role" ErrorMessage="Required" Style="font-weight: 600;" ForeColor="Red" ValidationGroup="a"></asp:RequiredFieldValidator>
@@ -37,14 +37,14 @@
 
                     <div class="row mb-3" id="divReporting" runat="server" visible="false">
                         <div class="col-md-12">
-                            <asp:Label ID="lbl_reporting_to" runat="server" CssClass="font-weight-bold">Administrative Control Under: <span class="text-danger">*</span></asp:Label>
+                            <asp:Label ID="lbl_reporting_to" runat="server" CssClass="font-weight-bold"><span class="d-inline-block mb-2">Administrative Control Under:</span>  <span class="text-danger">*</span></asp:Label>
                             <asp:UpdatePanel ID="updReporting" runat="server" UpdateMode="Conditional">
                                 <ContentTemplate>
                                     <asp:RadioButtonList ID="rbl_reporting_to" runat="server" AutoPostBack="true"
                                         OnSelectedIndexChanged="rbl_reporting_to_SelectedIndexChanged"
                                         RepeatDirection="Horizontal"
                                         RepeatLayout="Flow"
-                                        CssClass="d-flex gap-4">
+                                        CssClass="d-flex gap-2">
 
                                         <asp:ListItem Text="HOFF" Value="HOFF"></asp:ListItem>
                                         <asp:ListItem Text="PCCF" Value="PCCF"></asp:ListItem>

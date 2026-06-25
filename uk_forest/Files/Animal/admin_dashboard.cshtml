@@ -1,0 +1,434 @@
+﻿@model Malavi_Excise.Models.dashboard
+@{
+    ViewBag.Title = "admin_dashboard";
+    //Layout = "~/Views/Shared/master_side_bar.cshtml";
+    Layout = "~/Views/Malavi/test_sidebar.cshtml";
+
+    var order_list = ViewBag.order_details;
+    //var order_list1 = ViewBag.order_details;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    @*<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+        <script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>*@
+
+    @*<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.2.2/Chart.bundle.min.js"></script>*@
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.min.js"></script>
+
+    <style>
+        .panel {
+            background-color: #fff;
+            border: 0px solid transparent;
+        }
+
+        .main_panel {
+            box-shadow: 0 1rem 3rem rgba(0,0,0,.175) !important;
+        }
+
+        .card1 {
+            cursor: pointer;
+        }
+
+            .card1:hover {
+                transform: scale(1.05);
+            }
+
+        .border_side1 {
+            border-left: 0.44rem solid #0089ff !important;
+        }
+
+        .border_side2 {
+            border-left: 0.44rem solid #f22925 !important;
+        }
+
+        .border_side3 {
+            border-left: 0.44rem solid #31708f !important;
+        }
+
+        .border_side4 {
+            border-left: 0.44rem solid #28a745 !important;
+        }
+
+        .card {
+            margin-bottom: 1.875em;
+            border-radius: 20px;
+            padding: 7px;
+            border: 0px solid transparent;
+            background-color: #faebd780;
+        }
+
+        .text-uppercase {
+            text-transform: uppercase !important;
+        }
+
+        .text-danger {
+            color: #f22925;
+        }
+
+        .text-primary {
+            color: #0089ff;
+        }
+
+        .text-success {
+            color: #1fb642 !important;
+        }
+
+        .card-header {
+            color: #000;
+            font-size: 20px;
+            border-radius: 10px;
+            padding: 0.75rem 1.25rem;
+            margin-bottom: 0;
+            border-bottom: 1px solid rgba(0,0,0,.125);
+            background: radial-gradient(circle, rgb(255 234 203) 0%, rgb(249 219 173) 100%);
+            box-shadow: rgb(50 50 93 / 25%) 0px 50px 100px -20px, rgb(0 0 0 / 30%) 0px 30px 60px -30px, rgb(10 37 64 / 35%) 0px -2px 6px 0px inset;
+        }
+
+        .card .card-body {
+            float: left;
+            padding: 1.25em;
+            position: relative;
+            width: 100%;
+        }
+
+        .total_firm {
+            color: #0089ff;
+            font-size: 20px;
+            margin-left: 99px;
+            font-weight: 900;
+            margin-bottom: 0px;
+        }
+
+        .total_product {
+            color: #f22925;
+            font-size: 20px;
+            margin-left: 99px;
+            font-weight: 900;
+            margin-bottom: 0px;
+        }
+
+        .total_stamp {
+            color: #1fb642;
+            font-size: 20px;
+            margin-left: 99px;
+            font-weight: 900;
+            margin-bottom: -1px;
+            margin-top: -35px;
+        }
+
+        .total_username {
+            color: #31708f;
+            font-size: 20px;
+            margin-left: 99px;
+            font-weight: 900;
+            margin-bottom: 0px;
+        }
+
+        td, th {
+            border: 1px solid;
+            border-bottom: -1px solid #dddddd;
+        }
+
+        thead {
+            border: 1px solid;
+            text-align: left;
+            border-bottom: -1px solid #dddddd;
+            background-color: blanchedalmond;
+            height: 20px;
+        }
+
+        .table {
+            border: 1px solid;
+        }
+
+        .border_side5 {
+            border-left: 0.44rem solid #8a6d3b !important;
+        }
+
+        div.dataTables_wrapper div.dataTables_filter input {
+            margin-left: 0.5em;
+            display: inline-block;
+            width: 114px;
+            color: black;
+        }
+
+        div.dataTables_wrapper div.dataTables_filter label {
+            white-space: nowrap;
+            text-align: left;
+            color: black;
+            font-weight: 900;
+        }
+
+        div.dataTables_wrapper div.dataTables_length label {
+            font-weight: 900;
+            text-align: left;
+            white-space: nowrap;
+            color: black;
+        }
+
+        div.dataTables_wrapper div.dataTables_info {
+            padding-top: 8px;
+            white-space: nowrap;
+            font-weight: 900;
+            color: black;
+            display: none;
+        }
+
+        .chart-container {
+            padding: 0 7% 15% 8%;
+        }
+
+        .chart-container11 {
+            margin-left:120px;
+        }
+    </style>
+
+    <script type="text/javascript">
+        $(function () {
+            //debugger;
+            var labels = '@ViewBag.Label';
+            var datas = '@ViewBag.Y';
+            var labelsArray = new Array();
+            var dataArray = new Array();
+            var colorArray = new Array();
+            for (var i = 0; i < labels.split(',').length; i++) {
+                labelsArray.push(labels.split(',')[i]);
+                dataArray.push(datas.split(',')[i]);
+                colorArray.push(getRandomColor());
+            }
+
+            new Chart(document.getElementById("chart").getContext('2d'), {
+                type: 'pie',
+                data: {
+                    labels: labelsArray,
+                    datasets: [{
+                        backgroundColor: colorArray,
+                        data: dataArray
+                    }]
+                }
+            });
+        });
+
+        function getRandomColor() {
+            //debugger;
+            varletters = '0123456789ABCDEF';
+            varcolor = '#';
+            for (var i = 0; i < 6; i++) {
+                varcolor += varletters[Math.floor(Math.random() * 16)];
+            }
+            return varcolor;
+        }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/gh/JDMcKinstry/JavaScriptDateFormat@master/Date.format.min.js"></script>
+
+    <script type="text/javascript">
+        $(function () {
+            //debugger;
+            var labels = '@ViewBag.dtimee';
+            var datas = '@ViewBag.qty';
+            var labelsArray = new Array();
+            var dataArray = new Array();
+            var colorArray = new Array();
+            for (var i = 0; i < labels.split(',').length; i++) {
+                labelsArray.push(labels.split(',')[i]);
+                dataArray.push(datas.split(',')[i]);
+                colorArray.push(getRandomColor());
+            }
+
+            new Chart(document.getElementById("chart_bar").getContext('2d'), {
+                type: 'bar',
+
+                data: {
+                    labels: labelsArray,
+                    datasets: [{
+                        backgroundColor: colorArray,
+                        data: dataArray
+                    }]
+                }
+            });
+        });
+
+        function getRandomColor() {
+            //debugger;
+            varletters = '0123456789ABCDEF';
+            varcolor = '#';
+            for (var i = 0; i < 6; i++) {
+                varcolor += varletters[Math.floor(Math.random() * 16)];
+            }
+            return varcolor;
+        }
+    </script>
+
+</head>
+<body>
+
+    <div class="row">
+        <div class="col-md-3">
+            <div class="card main_panel border_side1 card1 card_bg1">
+                <h5 class="text-uppercase text-primary" style="font-weight: 900;font-size: 15px;">Bussiness Users</h5>
+                <i class="fa-solid fa-user fa-2x float-left text-primary"></i>
+                <span>
+                    @Html.Label((string)ViewBag.firm_name, new { @class = "total_firm" })
+                </span>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card main_panel border_side2 card1 card_bg3">
+                <h5 class="text-uppercase text-danger" style="font-weight: 900; font-size: 15px;">Total Products</h5>
+                <i class="fa-brands fa-product-hunt fa-2x float-left text-danger"></i>
+                <span>
+                    @Html.Label((string)ViewBag.product_name, new { @class = "total_product" })
+                </span>
+
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card main_panel border_side3 card1 card_bg2">
+
+                <h5 class="text-uppercase text-info" style="font-weight: 900; font-size: 15px;">Total Roles</h5>
+                <i class="fa-solid fa-users fa-2x float-left text-info"></i>
+                <span>
+                    @Html.Label((string)ViewBag.username, new { @class = "total_username" })
+                </span>
+
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card main_panel border_side4 card1 card_bg4">
+
+                <h5 class="text-uppercase text-success" style="font-weight: 900; font-size: 15px;">Stamp ordered</h5>
+                <i class="fa-solid fa-cart-shopping fa-2x float-left text-success"></i>
+                <span>
+                    @Html.Label((string)ViewBag.total_qty, new { @class = "total_stamp" })
+                </span>
+
+
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="row">
+        <div class="col-md-5">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="text-uppercase" style="font-weight: 900;">Manufacturer Pie cahrt </h4>
+                </div>
+                <div class="card-body">
+                    <div class="chart-container">
+                        <canvas id="chart" height="413" style="width:337px"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-7">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="text-uppercase" style="font-weight: 900;">Weekly Stamp sale graph </h4>
+                </div>
+                <div class="card-body" style="max-width: 545px;">
+                    <div class="chart-container11" style="">
+                        <canvas id="chart_bar" height="413" style="width:337px"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="row" style=" margin-top 15px;">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="text-uppercase" style="font-weight: 900;">Today's stamp orders quantity</h4>
+            </div>
+            <div class="card-body">
+                <table class="table table-striped" id="example">
+                    <thead style="background-color:blanchedalmond;">
+                        <tr>
+                            <th>
+                                <label id="lbl_srno1" style="margin-left: 0px;margin-bottom: 0px;font-size: 16px;    margin-top: 0px;
+                                ">S/No</label>
+                            </th>
+                            <th>
+                                <label id="lbl_firm_name2" style="margin-left: 0px;margin-bottom: 0px;font-size: 16px;    margin-top: 0px;
+                                ">Firm Name</label>
+                            </th>
+                            <th>
+                                <label id="lbl_firm_name3" style="margin-left: 0px;margin-bottom: 0px;font-size: 16px;    margin-top: 0px;
+                                ">Total Items</label>
+                            </th>
+                            <th>
+                                <label id="lbl_firm_name4" style="margin-left: 0px;margin-bottom: 0px;font-size: 16px;    margin-top: 0px;
+                                ">Total Quantity</label>
+                            </th>
+                            <th>
+                                <label id="lbl_firm_name4" style="margin-left: 0px;margin-bottom: 0px;font-size: 16px;    margin-top: 0px;
+                                ">Order Date</label>
+                            </th>
+                            <th>
+                                <label id="lbl_firm_name5" style="margin-left: 0px;margin-bottom: 0px;font-size: 16px;    margin-top: 0px;
+                                ">Payment Status</label>
+                            </th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        @{int srno = 1;}
+                        @foreach (var item in ViewBag.order_stamp_dash)
+                        {
+                            <tr>
+                                <td>@srno.</td>
+                                <td>@item.firm_name</td>
+                                <td>@item.total_item</td>
+                                <td>@item.total_qty</td>
+                                <td>@item.date.ToString("dd/MM/yyyy")</td>
+                                <td>@item.payment_status</td>
+                            </tr>
+                            srno++;
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <script>
+        $(document).ready(function () {
+            $('#example').DataTable();
+        });
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            $('#firm_table').DataTable();
+        });
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            $('#user_list').DataTable();
+        });
+    </script>
+
+    <script src="/Scripts/jquery-1.10.2.js"></script>
+    <script src="/Scripts/bootstrap.js"></script>
+    <script src="/Scripts/respond.js"></script>
+</body>
+</html>

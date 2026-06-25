@@ -17,32 +17,32 @@
                     </h3>
                 </div>
 
-                <div class="card-body" style="padding-left: 260px;">
+                <div class="card-body" style="padding-left:260px;">
                     <div class="col-md-8">
                         <asp:Label ID="lblId" runat="server" CssClass="font-weight-bold">User Id</asp:Label>
                         <asp:TextBox ID="txtId" runat="server"
                             CssClass="form-control rounded-pill border-primary shadow-sm px-4 py-2 border-success"
-                            MaxLength="50" placeholder="Enter ID" />
+                            MaxLength="50" placeholder="Enter ID" ReadOnly="true" />
                     </div>
 
-               <%--     <div class="col-md-8">
+               <%--  <div class="col-md-8">
                         <asp:Label ID="lbl_emp_id" runat="server" CssClass="font-weight-bold">Emp ID</asp:Label>
                         <asp:TextBox ID="txt_emp_id" runat="server" CssClass="form-control rounded-pill border-primary shadow-sm px-4 py-2 border-success" MaxLength="50" />
                     </div>--%>
 
                     <div class="col-md-8">
                         <asp:Label ID="lbl_name" runat="server" CssClass="font-weight-bold">Full Name</asp:Label>
-                        <asp:TextBox ID="txtName" runat="server" CssClass="form-control rounded-pill border-primary shadow-sm px-4 py-2 border-success" MaxLength="50" />
+                        <asp:TextBox ID="txtName" runat="server" CssClass="form-control rounded-pill border-primary shadow-sm px-4 py-2 border-success" MaxLength="50" ReadOnly="true"/>
                     </div>
 
                     <div class="col-md-8">
                         <asp:Label ID="lbl_email_id" runat="server" CssClass="font-weight-bold">Email Id</asp:Label>
-                        <asp:TextBox ID="txt_email_id" runat="server" CssClass="form-control rounded-pill border-primary shadow-sm px-4 py-2 border-success" MaxLength="50" />
+                        <asp:TextBox ID="txt_email_id" runat="server" CssClass="form-control rounded-pill border-primary shadow-sm px-4 py-2 border-success" MaxLength="50" ReadOnly="true"/>
                     </div>
 
                     <div class="col-md-8">
                         <asp:Label ID="lbl_phone" runat="server" CssClass="font-weight-bold">Mobile No.</asp:Label>
-                        <asp:TextBox ID="txt_phone_no" runat="server" CssClass="form-control rounded-pill border-primary shadow-sm px-4 py-2 border-success" MaxLength="50" />
+                        <asp:TextBox ID="txt_phone_no" runat="server" CssClass="form-control rounded-pill border-primary shadow-sm px-4 py-2 border-success" MaxLength="50" ReadOnly="true"/>
                     </div>
 
 

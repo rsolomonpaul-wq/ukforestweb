@@ -6,7 +6,10 @@
 <head runat="server">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RECAP4NDC</title>
+    <title>FMIS</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <!-- App favicon -->
     <%-- <link rel="shortcut icon" href="../assets/images/favicon.png">--%>
@@ -26,19 +29,138 @@
 
     <style>
         .dropdown-action {
-            padding: 8px;
+            padding: 10px;
             border-radius: 20px;
             border: 1px solid #038d5b;
             background-color: #f5faff;
             font-weight: bold;
             width: 100%;
+            font-size: 14px;
+        }
+        .dropdown-action:focus {
+            border-color: #0056b3;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(0,123,255,0.2);
+        }
+        .dropdown-item.active{
+            background-color:#28a847 !important;
+            color:#fff !important;
+        }
+        .card .card-header {
+            border-bottom: 0;
+            background-color: #1186c5;
+            color: #fff;
+            padding: 15px;
         }
 
-            .dropdown-action:focus {
-                border-color: #0056b3;
-                outline: none;
-                box-shadow: 0 0 0 3px rgba(0,123,255,0.2);
-            }
+        .tableColumn table tr th {
+            padding: 10px 5px;
+            background-color: #bcffdd;
+            font-size: 14px;
+            color: #000;
+        }
+
+        tbody, td, tfoot, th, thead, tr {
+            border-color: inherit;
+            border-style: solid;
+            border-width: thin;
+            padding: 0px 5px;
+        }
+
+        .accessRightTable table tr th {
+            padding: 10px 5px;
+            background-color: #bcffdd;
+            font-size: 14px;
+            color: #000;
+        }
+
+        .accessRightTable table tr td {
+            padding: 10px 5px;
+            font-size: 14px;
+        }
+
+        .btn_assign input#ContentPlaceHolder1_btnAssign {
+            background-color: #05476b;
+            color: #ffffff;
+            border-color: #05476b;
+        }
+
+        .uploadData input#ContentPlaceHolder1_fileUploadTextBox {
+            border: 1px solid green;
+            border-radius: 50px;
+            width: 100%;
+            height: 41px !important;
+            display: inline-block;
+        }
+
+        .uploadData select {
+            border: 1px solid green;
+            border-radius: 50px;
+            width: 100%;
+            height: 41px !important;
+            display: inline-block;
+        }
+
+        .uploadData input#ContentPlaceHolder1_btnUploadData {
+            padding: 10px;
+            background-color: #05476b;
+            color: #ffffff;
+            border-color: #000;
+            border: none;
+            font-weight: 500;
+        }
+
+        input#ContentPlaceHolder1_btn_save {
+            background-color: #05476b;
+            color: #ffffff;
+            border: none;
+        }
+
+        input#ContentPlaceHolder1_btnSave {
+            background-color: #1c1c1c;
+            border: 0;
+        }
+
+        input#ContentPlaceHolder1_btnback {
+            background-color: #1c1c1c;
+            border: 0;
+        }
+
+        input#ContentPlaceHolder1_btn_update {
+            background-color: #05476b;
+            color: #ffffff;
+            border: none;
+        }
+
+        span.aspNetDisabled {
+            display: flex;
+            gap: 10px;
+        }
+
+        .tab-content-wrapper .titleHeading {
+            font-weight: 700 !important;
+            color: #13460c;
+            margin-top: 20px;
+            font-size: 30px;
+        }
+
+        .table-striped > tbody > tr:nth-of-type(odd) > * {
+            --osen-table-color-type: #ffffff;
+            --osen-table-bg-type: rgb(4 96 134);
+        }
+
+        .grid-container .table th {
+            padding: 12px !important;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .grid-container .table td {
+            padding: 10px !important;
+        }
+
+
+
 
 
         /*=== User management =====*/
@@ -95,6 +217,19 @@
             border-bottom: 0;
             background-color: #c7e3d9;
         } */
+        .topbar-search {
+            visibility: hidden !important;
+        }
+
+        .pagepathtext {
+            position: fixed;
+            left: 19.5em;
+            top: 27px;
+            font-size: 18px;
+            color: #149309;
+            text-transform: capitalize;
+            font-weight: 700;
+        }
     </style>
 
     <asp:ContentPlaceHolder ID="head" runat="server">
@@ -133,28 +268,21 @@
 
                     <!--- Sidenav Menu -->
                     <ul class="side-nav">
-                        <%-- <li class="side-nav-item">
-                            <a href="../Forest/dashboard.aspx" class="side-nav-link">
-                                <span class="menu-icon"><div class="iconPic"><img src="../images/modules/dashboard.png" alt="icon"></div></span>
-                                <span class="menu-text">Unified Dashboard</span>
-                            </a>
-                        </li>--%>
-
 
                         <li class="side-nav-item" id="m_1" runat="server" visible="false">
-                            <a href="../Forest/dashboard.aspx" class="side-nav-link">
+                            <a href="../DSS/analysis.aspx" class="side-nav-link">
                                 <span class="menu-icon">
                                     <div class="iconPic">
                                         <img src="../images/modules/dashboard.png" alt="icon">
                                     </div>
                                 </span>
-                                <span class="menu-text">Unified Dashboard</span>
+                                <span class="menu-text"> Dashboard</span>
                                 <span class="menu-arrow"></span>
                             </a>
                             <div class="collapse" id="sidebarPages1">
                                 <ul class="sub-menu">
                                     <li class="side-nav-item" id="sm_1" runat="server" visible="false">
-                                        <a href="../Forest/dashboard.aspx" class="side-nav-link">
+                                        <a href="../DSS/analysis.aspx" class="side-nav-link">
                                             <span class="menu-text">Dashboard</span>
                                         </a>
                                     </li>
@@ -164,50 +292,6 @@
                         </li>
 
 
-                        <%--<li class="side-nav-item">
-                            <a data-bs-toggle="collapse" href="#sidebarPricing" aria-expanded="false" aria-controls="sidebarPricing" class="side-nav-link collapsed">
-                                <span class="menu-icon">
-                                    <div class="iconPic"><img src="../images/modules/mapView.png" alt="icon"></div> </span>
-                                <span class="menu-text">GIS Map Viewer</span>
-                                <span class="menu-arrow"></span>
-                            </a>
-                            <div class="collapse" id="sidebarPricing" style="">
-                                <ul class="sub-menu">
-                                    <li class="side-nav-item">
-                                        <a href="../GIS/maps.aspx" class="side-nav-link">
-                                            <span class="menu-text">Map View</span>
-                                        </a>
-
-                                    </li>
-                                    <li class="side-nav-item">
-                                        <a href="#!" class="side-nav-link">
-                                            <span class="menu-text">Spatial Layer Management</span>
-                                        </a>
-                                    </li>
-                                    <li class="side-nav-item">
-                                        <a href="#!" class="side-nav-link">
-                                            <span class="menu-text">Remote Sensing Analysis</span>
-                                        </a>
-                                    </li>
-                                    <li class="side-nav-item">
-                                        <a href="#!" class="side-nav-link">
-                                            <span class="menu-text">Data Management</span>
-                                        </a>
-                                    </li>
-                                    <li class="side-nav-item">
-                                        <a href="#!" class="side-nav-link">
-                                            <span class="menu-text">Analytics</span>
-                                        </a>
-                                    </li>
-                                    <li class="side-nav-item">
-                                        <a href="#!" class="side-nav-link">
-                                            <span class="menu-text">Reports</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>--%>
-
 
                         <li class="side-nav-item" id="m_2" runat="server" visible="false">
                             <a data-bs-toggle="collapse" href="#sidebarPricing" aria-expanded="false" aria-controls="sidebarPricing" class="side-nav-link collapsed">
@@ -216,262 +300,354 @@
                                         <img src="../images/modules/mapView.png" alt="icon">
                                     </div>
                                 </span>
-                                <span class="menu-text">GIS Map Viewer</span>
+                                <span class="menu-text">Forest Information System Module</span>
                                 <span class="menu-arrow"></span>
                             </a>
                             <div class="collapse" id="sidebarPricing" style="">
                                 <ul class="sub-menu">
                                     <li class="side-nav-item" id="sm_2" runat="server" visible="false">
-                                        <%--<a href="../GIS/maps.aspx" class="side-nav-link">
-                                            <span class="menu-text">Map View</span>
-                                        </a>--%>
-
                                         <a href="../GIS/maps.aspx" class="side-nav-link">
-                                            <span class="menu-text">Map View</span>
+                                            <span class="menu-text">GIS Viewer</span>
                                         </a>
 
                                     </li>
-                                    <li class="side-nav-item" id="sm_3" runat="server" visible="false">
+                                    <li class="side-nav-item" id="sm_3" runat="server" visible="false" style="display: none">
                                         <a href="#!" class="side-nav-link">
                                             <span class="menu-text">Spatial Layer Management</span>
                                         </a>
                                     </li>
-                                    <li class="side-nav-item" id="sm_4" runat="server" visible="false">
+                                    <li class="side-nav-item" id="sm_4" runat="server" visible="false" style="display: none">
                                         <a href="#!" class="side-nav-link">
                                             <span class="menu-text">Remote Sensing Analysis</span>
                                         </a>
                                     </li>
-                                    <%--<li class="side-nav-item" id="sm_5" runat="server" visible="false">
-                                    <a href="#!" class="side-nav-link">
-                                        <span class="menu-text">Data Management</span>
-                                    </a>
-                                </li>--%>
+                                    <li class="side-nav-item" id="sm_5" runat="server" visible="false"><a class="side-nav-link" href="../DSS/analysis.aspx">Change Detection Analysis</a></li>
 
-                                    <li class="side-nav-item" id="sm_5" runat="server" visible="false"><a class="side-nav-link" href="../Forest/upload_data.aspx">Data Management</a></li>
-
-                                    <li class="side-nav-item" id="sm_6" runat="server" visible="false">
-                                        <a href="#!" class="side-nav-link">
+                                    <li class="side-nav-item" id="sm_6" runat="server" visible="false" style="display: none">
+                                        <a href="../DSS/analysis.aspx" class="side-nav-link">
                                             <span class="menu-text">Analytics</span>
                                         </a>
                                     </li>
                                     <li class="side-nav-item" id="sm_7" runat="server" visible="false">
-                                        <a href="#!" class="side-nav-link">
-                                            <span class="menu-text">Reports</span>
+                                        <a href="../DSS/proximety.aspx" class="side-nav-link">
+                                            <span class="menu-text">Proximity Analysis</span>
                                         </a>
                                     </li>
                                 </ul>
                             </div>
                         </li>
-
-                        <%--<li class="side-nav-item">
-                            <a data-bs-toggle="collapse" href="#sidebarHospital1" aria-expanded="false" aria-controls="sidebarHospital1" class="side-nav-link">
-                                <span class="menu-icon">
-                                    <div class="iconPic" title="Decision Support System">
-                                        <img src="../images/modules/userManagement.png" alt="user icon"></div>
-                                </span>
-                                <span class="menu-text">User Management</span>
-                                <span class="menu-arrow"></span>
-                            </a>
-                            <div class="collapse" id="sidebarHospital1">
-                                 <ul class="sub-menu">
-                                <li class="side-nav-item"><a class="side-nav-link" href="../Forest/addDept.aspx">Add Department</a></li>
-                                <li class="side-nav-item"><a class="side-nav-link" href="../Forest/addDesignation.aspx">Add Designation</a></li>
-
-                                <li class="side-nav-item"><a class="side-nav-link" href="../Forest/addZone.aspx">Add Zone</a></li>
-                                <li class="side-nav-item"><a class="side-nav-link" href="../Forest/addCircle.aspx">Add Circle</a></li>
-                                <li class="side-nav-item"><a class="side-nav-link" href="../Forest/addDivision.aspx">Add Division</a></li>
-
-                                <li class="side-nav-item"><a class="side-nav-link" href="../Forest/user_Registration1_test.aspx">Add User</a></li>
-                                <li class="side-nav-item"><a class="side-nav-link" href="../Forest/user_Registration_List.aspx">User List</a></li>
-                            </ul>
-                            </div>
-                        </li>--%>
 
 
                         <li class="side-nav-item" id="m_3" runat="server" visible="false">
                             <a data-bs-toggle="collapse" href="#sidebarHospital1" aria-expanded="false" aria-controls="sidebarHospital1" class="side-nav-link">
                                 <span class="menu-icon">
-                                    <div class="iconPic" title="Decision Support System">
+                                    <div class="iconPic" title="Fire Management">
                                         <img src="../images/modules/userManagement.png" alt="user icon">
                                     </div>
                                 </span>
-                                <span class="menu-text">User Management</span>
+                                <span class="menu-text">Fire Management</span>
                                 <span class="menu-arrow"></span>
                             </a>
                             <div class="collapse" id="sidebarHospital1">
                                 <ul class="sub-menu">
-                                    <%--                           <li class="side-nav-item"><a class="side-nav-link" href="addRole.aspx">Add Role</a></li>
-                                <li class="side-nav-item"><a class="side-nav-link" href="addUser.aspx">Add User</a></li>
-                                <li class="side-nav-item"><a class="side-nav-link" href="addModule.aspx">Add Module</a></li>
-                                <li class="side-nav-item"><a class="side-nav-link" href="addSubModule.aspx">Add Sub Module</a></li>
+                                    <li class="side-nav-item" id="sm_8" runat="server" visible="false"><a class="side-nav-link" href="../DSS/firedashboard.aspx">Fire Monitoring Dashboard</a></li>
+                                    <li class="side-nav-item" id="sm_9" runat="server" visible="false" style="display:none"><a class="side-nav-link" href="../Forest/user_Registration_List_new.aspx">User List</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                           <li class="side-nav-item" id="m_5" runat="server" visible="false">
+                            <a data-bs-toggle="collapse" href="#sidebarPages" aria-expanded="false" aria-controls="sidebarPages" class="side-nav-link">
+                                <div class="iconPic">
+                                    <img src="../images/modules/sfm.png" alt="">
+                                </div>
+                                <span class="menu-text">Plantation Management</span>
+                                <span class="menu-arrow"></span>
+                            </a>
+                            <div class="collapse" id="sidebarPages">
+                                <ul class="sub-menu">
 
-                                <%--<li class="side-nav-item"><a class="side-nav-link" href="../Forest/addDept.aspx">Add Department</a></li>
-                                <li class="side-nav-item"><a class="side-nav-link" href="../Forest/addDesignation.aspx">Add Designation</a></li>--%>
-
-                                    <%--    <li class="side-nav-item"><a class="side-nav-link" href="../Forest/addZone.aspx">Add Zone</a></li>
-                                    <li class="side-nav-item"><a class="side-nav-link" href="../Forest/addCircle.aspx">Add Circle</a></li>
-                                    <li class="side-nav-item"><a class="side-nav-link" href="../Forest/addDivision.aspx">Add Division</a></li>--%>
-
-                                    <%--  <li class="side-nav-item"  id="sm_8" runat="server" visible="false" ><a class="side-nav-link" href="../Forest/user_Registration.aspx">Add User</a></li>
-                                <li class="side-nav-item"  id="sm_9" runat="server" visible="false"><a class="side-nav-link" href="../Forest/user_Registration_List.aspx">User List</a></li>
-                                <li class="side-nav-item"  id="sm_10" runat="server" visible="false"><a class="side-nav-link" href="../Forest/user_Registration_List_pending.aspx">Pending User List</a></li>--%>
+                                    <li class="side-nav-item" id="sm_15" runat="server" visible="false" style="display:none"><a class="side-nav-link" href="../DSS/firedashboard.aspx">Fire Management</a></li>
 
 
-                                    <li class="side-nav-item" id="sm_8" runat="server" visible="false"><a class="side-nav-link" href="../Forest/user_Registration_new.aspx">Add User</a></li>
-                                    <li class="side-nav-item" id="sm_9" runat="server" visible="false"><a class="side-nav-link" href="../Forest/user_Registration_List_new.aspx">User List</a></li>
+                                    <li class="side-nav-item" id="Li10" runat="server" style="display:none"><a class="side-nav-link" href="../DSS/fireReport.aspx">Fire Reports</a></li>
+
+
+
+                                    <li class="side-nav-item" id="Li11" runat="server"><a class="side-nav-link" href="../DSS/plantationDashboard.aspx">Plantation Monitoring Dashboard</a></li>
+                                    <li class="side-nav-item" id="Li12" runat="server" style="display:none"><a class="side-nav-link" href="../DSS/plantationReport.aspx">Plantation Reports</a></li>
+                                    <li class="side-nav-item" id="Li13" runat="server" style="display:none"><a class="side-nav-link" href="../DSS/nurseryDashboard.aspx">Nursery Management</a></li>
+
+                                    <li class="side-nav-item" id="Li14" runat="server" style="display:none"><a class="side-nav-link" href="../DSS/nurseryReport.aspx">Nursery Reports</a></li>
+
+                                    <%--<li class="side-nav-item" id="Li15" runat="server"  ><a class="side-nav-link" href="../DSS/nurseryStockForm.aspx">Nursery stock Management</a></li>--%>
+
+                                    <li class="side-nav-item" id="Li16" runat="server" style="display:none"><a class="side-nav-link" href="../DSS/assetInputForm.aspx">Asset Input Form</a></li>
+                                    <li class="side-nav-item" id="sm_16" runat="server" visible="false" style="display:none"><a class="side-nav-link" href="../DSS/assetDashboard.aspx">Asset Management</a></li>
+
 
 
                                 </ul>
                             </div>
                         </li>
-
-
-                        <li class="side-nav-item">
+                        <li class="side-nav-item" id="m_4" runat="server" visible="false">
                             <a data-bs-toggle="collapse" href="#sidebarHospital" aria-expanded="false" aria-controls="sidebarHospital" class="side-nav-link">
                                 <span class="menu-icon">
                                     <div class="iconPic" title="Decision Support System">
                                         <img src="../images/modules/dss.png" alt="">
                                     </div>
                                 </span>
-                                <span class="menu-text">Decision Support System</span>
+                                <span class="menu-text">Nursery Management</span>
                                 <span class="menu-arrow"></span>
                             </a>
                             <div class="collapse" id="sidebarHospital">
                                 <ul class="sub-menu">
-                                    <%--  <li class="side-nav-item">
-                                        <a href="../DSS/timeSeriesAnalysis.aspx" class="side-nav-link">
-                                            <span class="menu-text">Time Series Analysis</span>
-                                        </a>
-                                    </li>--%>
-                                    <li class="side-nav-item">
-                                        <a href="../DSS/topographyProfile.aspx" class="side-nav-link">
-                                            <span class="menu-text">Topography Profile </span>
-                                        </a>
-                                    </li>
-                                    <%--  <li class="side-nav-item">
-                                        <a href="../DSS/ndviAnalysis.aspx" class="side-nav-link">
-                                            <span class="menu-text">NDVI Analysis based on time bar </span>
-                                        </a>
-                                    </li>--%>
-                                    <li class="side-nav-item">
-                                        <a href="../DSS/analysis.aspx" class="side-nav-link">
-                                            <span class="menu-text">Analysis</span>
-                                        </a>
-                                    </li>
-                                    <li class="side-nav-item">
-                                        <a href="#!" class="side-nav-link">
-                                            <span class="menu-text">Fire Alert</span>
-                                        </a>
-                                    </li>
-                                    <li class="side-nav-item">
-                                        <a href="#!" class="side-nav-link">
-                                            <span class="menu-text">Plantation Planning Feasibility </span>
-                                        </a>
-                                    </li>
-                                    <li class="side-nav-item">
-                                        <a href="../DSS/Proximityanalysis.aspx" class="side-nav-link">
-                                            <span class="menu-text">Proximity analysis</span>
-                                        </a>
-                                    </li>
-                                    <%-- <li class="side-nav-item">
-                                        <a href="#!" class="side-nav-link">
-                                            <span class="menu-text">User Management</span>
-                                        </a>
-                                    </li>--%>
-                                    <%-- <li class="side-nav-item">
-                                        <a href="#!" class="side-nav-link">
-                                            <span class="menu-text">Weather Management</span>
-                                        </a>
-                                    </li>--%>
+
+                                    <li class="side-nav-item" id="sm_11" runat="server" visible="false"><a class="side-nav-link" href="../DSS/nurseryDashboard.aspx">Nursery Monitoring Dashboard</a></li>
+
+                                    <li class="side-nav-item" id="sm_10" runat="server" visible="false" style="display: none;"><a class="side-nav-link" href="../DSS/topographyProfile.aspx">Topography Profile</a></li>
+
+
+
+                                    <li class="side-nav-item" id="sm_12" runat="server" visible="false" style="display: none;"><a class="side-nav-link" href="#!">Fire Alert</a></li>
+
+                                    <%--  <li class="side-nav-item" id="sm_13" runat="server" visible="false"><a class="side-nav-link" href="#!">Plantation Planning Feasibility</a></li>--%>
+
+                                    <li class="side-nav-item" id="sm_14" runat="server" visible="false" style="display: none;"><a class="side-nav-link" href="../DSS/proximety.aspx">Spatial analysis</a></li>
+
                                 </ul>
                             </div>
                         </li>
 
+                     
 
-                        <li class="side-nav-item">
-                            <a data-bs-toggle="collapse" href="#sidebarPages" aria-expanded="false" aria-controls="sidebarPages" class="side-nav-link">
+
+
+
+
+                        <li class="side-nav-item" id="m_7" runat="server" visible="false">
+                            <a data-bs-toggle="collapse" href="#sidebarWildlife" aria-expanded="false" aria-controls="sidebarWildlife" class="side-nav-link">
                                 <div class="iconPic">
-                                    <img src="../images/modules/sfm.png" alt="">
+                                    <img src="../images/modules/HWC.png" alt="">
                                 </div>
-                                <span class="menu-text">Scientific Forest Management </span>
+                                <span class="menu-text">Human Wildlife Conflict</span>
                                 <span class="menu-arrow"></span>
                             </a>
-                            <div class="collapse" id="sidebarPages">
+                            <div class="collapse" id="sidebarWildlife">
                                 <ul class="sub-menu">
-                                    <li class="side-nav-item">
-                                        <a href="fire-management.html" class="side-nav-link">
-                                            <span class="menu-text">Fire Management</span>
-                                        </a>
-                                    </li>
-                                    <li class="side-nav-item">
-                                        <a href="assets-management.html" class="side-nav-link">
-                                            <span class="menu-text">Asset Management</span>
-                                        </a>
-                                    </li>
+
+                                    <li class="side-nav-item" id="sm_18" runat="server" visible="false"><a class="side-nav-link" href="../DSS/wlc.aspx">Human Wildlife Conflict</a></li>
+
+
+                                    <li class="side-nav-item" id="sm_23" runat="server" visible="false"><a class="side-nav-link" href="../Forest/hwcDashboard.aspx">Dashboard</a></li>
+
+                                    <li class="side-nav-item" id="sm_26" runat="server" visible="false"><a class="side-nav-link" href="BehalfofApplicant_RO.aspx">Add Applicant Incident</a></li>
+
+
+                                    <li class="side-nav-item" id="sm_27" runat="server" visible="false"><a class="side-nav-link" href="Incident_documentfill_Ro.aspx">Add Applicant Document</a></li>
+
+
+                                    <li class="side-nav-item" id="sm_24" runat="server" visible="false"><a class="side-nav-link" href="incidentlistRO.aspx">Incident List</a></li>
+
+                                    <li class="side-nav-item" id="sm_28" runat="server" visible="false"><a class="side-nav-link" href="ForestGuardDetailsBehalfofRo.aspx">Incident Assigned to Forest Guard</a></li>
+
+                                     <li class="side-nav-item" id="sm_31" runat="server" visible="false"><a class="side-nav-link" href="incidentlist_return.aspx">Return Incident List</a></li>
+
+
+                                    <%--   <li class="side-nav-item" id="sm_25" runat="server" visible="false"><a class="side-nav-link" href="../Forest/incident_approval_detail.aspx">Incident Status Overview</a></li>--%>
+
+                                    <li class="side-nav-item" id="Li1" runat="server" visible="false"><a class="side-nav-link" href="../Forest/BehalfofApplicant_RO.aspx">Applicant Details(RO)</a></li>
+
+                                    <li class="side-nav-item" id="sm_29" runat="server" visible="false"><a class="side-nav-link" href="BudgetDetails.aspx">Budget Details</a></li>
+
+
+                                    <li class="side-nav-item" id="sm_30" runat="server" visible="false"><a class="side-nav-link" href="../Forest/Account_DashBoard.aspx">Dashboard</a></li>
+
+
+                                </ul>
+                            </div>
+
+                        </li>
+
+                        
+                        <li class="side-nav-item" id="m_6" runat="server" visible="false">
+                            <a data-bs-toggle="collapse" href="#sidebarPatrolling" aria-expanded="false" aria-controls="sidebarPatrolling" class="side-nav-link">
+                                <div class="iconPic">
+                                    <img src="../images/modules/pm_icon.png" alt="">
+                                </div>
+                                <span class="menu-text">Asset Management</span>
+                                <span class="menu-arrow"></span>
+                            </a>
+                            <div class="collapse" id="sidebarPatrolling">
+                                <ul class="sub-menu">
+
+                                    <%--                                    <li class="side-nav-item" id="sm_17" runat="server" visible="false"><a class="side-nav-link" href="#!">Patrolling & Monitoring</a></li>--%>
+                                    <li class="side-nav-item" id="Li15" runat="server"><a class="side-nav-link" href="../DSS/assetDashboard.aspx">Asset Monitoring Dashboard</a></li>
+                                    <li class="side-nav-item" id="Li17" runat="server" style="display:none"><a class="side-nav-link" href="../DSS/addtrack.aspx">Add New Track</a></li>
+                                    <li class="side-nav-item" id="Li18" runat="server" style="display:none"><a class="side-nav-link" href="../DSS/TrackMasterList.aspx">Track List</a></li>
+                                    <li class="side-nav-item" id="sm_17" runat="server" visible="false" style="display:none"><a class="side-nav-link" href="../DSS/patrollingInputForm.aspx">Patrolling Input Form</a></li>
+
+                                    
                                 </ul>
                             </div>
                         </li>
 
-                        <li class="side-nav-item">
-                            <a href="#!" class="side-nav-link">
-                                <span class="menu-icon">
-                                    <div class="iconPic">
-                                        <img src="../images/modules/pm_icon.png" alt="">
-                                    </div>
-                                </span>
-                                <span class="menu-text">Patrolling & Monitoring </span>
+                         <li class="side-nav-item" id="Li211" runat="server" >
+                            <a data-bs-toggle="collapse" href="#sidebarPatrolling1" aria-expanded="false" aria-controls="sidebarPatrolling" class="side-nav-link">
+                                <div class="iconPic">
+                                    <img src="../images/modules/pm_icon.png" alt="">
+                                </div>
+                                <span class="menu-text">Patrolling Management</span>
+                                <span class="menu-arrow"></span>
                             </a>
+                            <div class="collapse" id="sidebarPatrolling1">
+                                <ul class="sub-menu">
+
+                                    <%--                                    <li class="side-nav-item" id="sm_17" runat="server" visible="false"><a class="side-nav-link" href="#!">Patrolling & Monitoring</a></li>--%>
+                                    <li class="side-nav-item" id="Li22" runat="server"><a class="side-nav-link" href="../DSS/patrollingdashboard.aspx">Patrolling Monitoring Dashboard</a></li>
+                                    <li class="side-nav-item" id="Li23" runat="server" style="display:none"><a class="side-nav-link" href="../DSS/addtrack.aspx">Add New Track</a></li>
+                                    <li class="side-nav-item" id="Li24" runat="server" style="display:none"><a class="side-nav-link" href="../DSS/TrackMasterList.aspx">Track List</a></li>
+                                    <li class="side-nav-item" id="Li25" runat="server" visible="false" style="display:none"><a class="side-nav-link" href="../DSS/patrollingInputForm.aspx">Patrolling Input Form</a></li>
+
+                                    
+                                </ul>
+                            </div>
                         </li>
-                        <li class="side-nav-item">
-                            <a href="#!" class="side-nav-link">
-                                <span class="menu-icon">
-                                    <div class="iconPic">
-                                        <img src="../images/modules/HWC.png" alt="">
-                                    </div>
-                                </span>
-                                <span class="menu-text">Human Wildlife Conflict</span>
+
+
+                        <li class="side-nav-item" id="m_8" runat="server" visible="false">
+                            <a data-bs-toggle="collapse" href="#sidebarSchemes" aria-expanded="false" aria-controls="sidebarSchemes" class="side-nav-link">
+                                <div class="iconPic">
+                                    <img src="../images/modules/sp_icon.png" alt="">
+                                </div>
+                                <span class="menu-text">User Management</span>
+                                <span class="menu-arrow"></span>
                             </a>
+                            <div class="collapse" id="sidebarSchemes">
+                                <ul class="sub-menu">
+
+                                    <li class="side-nav-item" id="sm_19" runat="server" visible="false"><a class="side-nav-link" href="../forest/user_registration.aspx">Add User</a></li>
+                                    <li class="side-nav-item" id="sm_191" runat="server" ><a class="side-nav-link" href="../forest/user_Registration_List_new.aspx">User List</a></li>
+                                </ul>
+                            </div>
                         </li>
-                        <li class="side-nav-item">
-                            <a href="#!" class="side-nav-link">
-                                <span class="menu-icon">
-                                    <div class="iconPic">
-                                        <img src="../images/modules/sp_icon.png" alt="">
-                                    </div>
-                                </span>
-                                <span class="menu-text">Schemes & Programs </span>
+
+
+                        <li class="side-nav-item" id="m_9" runat="server" visible="false">
+                            <a data-bs-toggle="collapse" href="#sidebarVigilance" aria-expanded="false" aria-controls="sidebarVigilance" class="side-nav-link">
+                                <div class="iconPic">
+                                    <img src="../images/modules/vl_icon.png" alt="">
+                                </div>
+                                <span class="menu-text">User Resources</span>
+                                <span class="menu-arrow"></span>
                             </a>
+                            <div class="collapse" id="sidebarVigilance">
+                                <ul class="sub-menu">
+
+                                    <li class="side-nav-item" id="sm_20" runat="server" visible="false"><a class="side-nav-link" href="#!">Resources</a></li>
+                                </ul>
+                            </div>
                         </li>
-                        <li class="side-nav-item">
-                            <a href="#!" class="side-nav-link">
-                                <span class="menu-icon">
-                                    <div class="iconPic">
-                                        <img src="../images/modules/vl_icon.png" alt="">
-                                    </div>
-                                </span>
-                                <span class="menu-text">Vigilance and Legal </span>
+
+
+                        <li class="side-nav-item" id="m_10" runat="server" visible="false" style="display:none">
+                            <a data-bs-toggle="collapse" href="#sidebarReports" aria-expanded="false" aria-controls="sidebarReports" class="side-nav-link">
+                                <div class="iconPic">
+                                    <img src="../images/modules/Rm_icon.png" alt="">
+                                </div>
+                                <span class="menu-text">Reports & MIS</span>
+                                <span class="menu-arrow"></span>
                             </a>
+                            <div class="collapse" id="sidebarReports">
+                                <ul class="sub-menu">
+
+                                    <li class="side-nav-item" id="sm_21" runat="server" visible="false"><a class="side-nav-link" href="#!">Reports & MIS</a></li>
+                                </ul>
+                            </div>
                         </li>
-                        <li class="side-nav-item">
-                            <a href="#!" class="side-nav-link">
-                                <span class="menu-icon">
-                                    <div class="iconPic">
-                                        <img src="../images/modules/Rm_icon.png" alt="">
-                                    </div>
-                                </span>
-                                <span class="menu-text">Reports & MIS </span>
+
+                        <li class="side-nav-item" id="m_11" runat="server" visible="false" style="display:none">
+                            <a data-bs-toggle="collapse" href="#sidebarTraining" aria-expanded="false" aria-controls="sidebarTraining" class="side-nav-link">
+                                <div class="iconPic">
+                                    <img src="../images/modules/tw_icon.png" alt="">
+                                </div>
+                                <span class="menu-text">Training & Workshops</span>
+                                <span class="menu-arrow"></span>
                             </a>
+                            <div class="collapse" id="sidebarTraining">
+                                <ul class="sub-menu">
+                                    <li class="side-nav-item" id="sm_22" runat="server" visible="false"><a class="side-nav-link" href="#!">Training & Workshops</a></li>
+                                </ul>
+                            </div>
                         </li>
-                        <li class="side-nav-item">
-                            <a href="#!" class="side-nav-link">
-                                <span class="menu-icon">
-                                    <div class="iconPic">
-                                        <img src="../images/modules/tw_icon.png" alt="">
-                                    </div>
-                                </span>
-                                <span class="menu-text">Training & Workshops </span>
+
+
+                        <li class="side-nav-item" id="Li8" runat="server" style="display: none;">
+                            <a data-bs-toggle="collapse" href="#sidebarTraining33" aria-expanded="false" aria-controls="sidebarTraining" class="side-nav-link">
+                                <div class="iconPic">
+                                    <%--<img src="../images/modules/tw_icon.png" alt="">--%>
+                                    <img src="../images/modules/Applicant_dashboard.png" />
+                                </div>
+                                <span class="menu-text">Dashboard</span>
+                                <span class="menu-arrow"></span>
                             </a>
+                            <div class="collapse" id="sidebarTraining33">
+                                <ul class="sub-menu">
+                                    <li class="side-nav-item" id="Li9" runat="server"><a class="side-nav-link" href="ApplicantDashboard.aspx">Dashboard</a></li>
+                                </ul>
+                            </div>
                         </li>
+
+
+                        <li class="side-nav-item" id="Li2" runat="server" style="display: none;">
+                            <a data-bs-toggle="collapse" href="#sidebarTraining22" aria-expanded="false" aria-controls="sidebarTraining" class="side-nav-link">
+                                <div class="iconPic">
+                                    <%--<img src="../images/modules/tw_icon.png" alt="">--%>
+                                    <img src="../images/modules/applicant_details.png" />
+                                </div>
+                                <span class="menu-text">Applicant Details</span>
+                                <span class="menu-arrow"></span>
+                            </a>
+                            <div class="collapse" id="sidebarTraining22">
+                                <ul class="sub-menu">
+                                    <li class="side-nav-item" id="Li3" runat="server"><a class="side-nav-link" href="applicant_details.aspx">Applicant Details</a></li>
+                                    <li class="side-nav-item" id="Li6" runat="server"><a class="side-nav-link" href="addbeneficiary.aspx">Beneficiary Details</a></li>
+                                </ul>
+                            </div>
+                        </li>
+
+                        <li class="side-nav-item" id="Li4" runat="server" style="display: none;">
+                            <a data-bs-toggle="collapse" href="#sidebarTraining11" aria-expanded="false" aria-controls="sidebarTraining" class="side-nav-link">
+                                <div class="iconPic">
+                                    <%--<img src="../images/modules/tw_icon.png" alt="">--%>
+                                    <img src="../images/modules/incident_management.png" />
+                                </div>
+                                <span class="menu-text">Incident Management</span>
+                                <span class="menu-arrow"></span>
+                            </a>
+                            <div class="collapse" id="sidebarTraining11">
+                                <ul class="sub-menu">
+                                    <li class="side-nav-item" id="Li5" runat="server"><a class="side-nav-link" href="victimincident.aspx">Add Victim Incident</a></li>
+                                    <li class="side-nav-item" id="Li7" runat="server"><a class="side-nav-link" href="victimincidentlist.aspx">Victim Incident List</a></li>
+                                </ul>
+                            </div>
+                        </li>
+
+                        <li class="side-nav-item" id="Li19" runat="server" style="display: none;">
+                            <a data-bs-toggle="collapse" href="#sidebaraccount" aria-expanded="false" aria-controls="sidebaraccount" class="side-nav-link">
+                                <div class="iconPic">
+                                    <img src="../images/modules/Rm_icon.png" alt="">
+                                </div>
+                                <span class="menu-text">Incident Management</span>
+                                <span class="menu-arrow"></span>
+                            </a>
+                            <div class="collapse" id="sidebaraccount">
+                                <ul class="sub-menu">
+
+                                    <li class="side-nav-item" id="Li20" runat="server"><a class="side-nav-link" href="IncidentListAccount.aspx">Incident List</a></li>
+                                </ul>
+                            </div>
+                        </li>
+
 
                         <div class="clearfix"></div>
                 </div>
@@ -481,6 +657,7 @@
 
             <!-- Topbar Start -->
             <header class="app-topbar">
+                <asp:Label ID="masterlabel" CssClass="pagepathtext" runat="server" />
                 <div class="page-container topbar-menu">
                     <div class="d-flex align-items-center gap-2">
 
@@ -502,9 +679,10 @@
                         </a>--%>
 
                         <!-- Sidebar Menu Toggle Button -->
-                        <button class="sidenav-toggle-button px-2">
+                        <a href="#!" class="responsiveToggle">
                             <i class="ti ti-menu-deep fs-24"></i>
-                        </button>
+                        </a>
+
 
                         <!-- Horizontal Menu Toggle Button -->
                         <button class="topnav-toggle-button px-2" data-bs-toggle="collapse" data-bs-target="#topnav-menu-content">
@@ -521,11 +699,16 @@
                     <div class="d-flex align-items-center gap-2">
 
                         <!-- Search for small devices -->
-                        <div class="topbar-item d-flex d-xl-none">
+                        <div class="topbar-item d-none d-flex d-xl-none">
                             <button class="topbar-link" data-bs-toggle="modal" data-bs-target="#searchModal" type="button">
                                 <i class="ti ti-search fs-22"></i>
                             </button>
                         </div>
+
+
+
+<%--                        <div id="google_translate_element" style="float: right; margin: 10px;"></div>--%>
+
 
 
 
@@ -575,23 +758,26 @@
                                 <a class="topbar-link dropdown-toggle drop-arrow-none px-2" data-bs-toggle="dropdown" data-bs-offset="0,19" type="button" aria-haspopup="false" aria-expanded="false">
                                     <img src="../web/img/user-icon1.png" width="32" class="rounded-circle me-lg-2 d-flex" alt="user-image">
                                     <span class="d-lg-flex flex-column gap-1 d-none">
-                                        <h5 class="my-0">Profile.</h5>
+                                        <%--<h5 class="my-0">Profile.</h5>--%>
+                                        <h5 class="my-0">
+                                            <asp:Label ID="lblprofile" runat="server"></asp:Label></h5>
                                     </span>
                                     <i class="ti ti-chevron-down d-none d-lg-block align-middle ms-2"></i>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-end">
 
                                     <!-- item-->
-                                    <a href="javascript:void(0);" class="dropdown-item" onclick="window.location.href='profile.aspx';">
+                                    <a href="javascript:void(0);" class="dropdown-item" onclick="window.location.href='../Forest/profile.aspx';">
                                         <i class="ti ti-user-hexagon me-1 fs-17 align-middle"></i>
                                         <span class="align-middle">My Profile</span>
                                     </a>
 
                                     <!-- item-->
-                                    <a href="javascript:void(0);" class="dropdown-item" onclick="window.location.href='changePassword.aspx';">
+                                    <%-- <a href="javascript:void(0);" class="dropdown-item" onclick="window.location.href='changePassword.aspx';">--%>
+                                  <%--  <a href="javascript:void(0);" class="dropdown-item" onclick="window.location.href='../Forest/changePassword.aspx';">
                                         <i class="ti ti-settings me-1 fs-17 align-middle"></i>
                                         <span class="align-middle">Change Password</span>
-                                    </a>
+                                    </a>--%>
 
                                     <%--  <!-- item-->
                                     <a href="javascript:void(0);" class="dropdown-item active fw-semibold text-danger" onclick="signOut()">
@@ -740,6 +926,10 @@
                         </div>
                     </div>
                 </div>
+
+
+
+
 
                 <div class="p-3 border-bottom border-dashed">
                     <h5 class="mb-3 fs-16 fw-bold">Topbar Color</h5>
@@ -1003,7 +1193,7 @@
         </div>
 
 
-        <div class="page-content my-5" style="margin-top: 50px !important;">
+        <div class="page-content my-5">
             <div class="page-container">
                 <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
                 </asp:ContentPlaceHolder>
@@ -1039,7 +1229,24 @@
             window.location.href = "../web/index.aspx";  // Replace with your actual login route
         }
 
+
+
     </script>
+
+
+
+
+<%--    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'en',
+                includedLanguages: 'en,hi',
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+            }, 'google_translate_element');
+        }
+    </script>
+    <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>--%>
+
 
 </body>
 </html>

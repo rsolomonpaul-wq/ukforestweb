@@ -123,24 +123,6 @@ namespace uk_forest.Forest
         protected global::System.Web.UI.WebControls.ListBox ListBox1;
 
         /// <summary>
-        /// chkAll control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox chkAll;
-
-        /// <summary>
-        /// chkAccess control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBoxList chkAccess;
-
-        /// <summary>
         /// btnAssign control.
         /// </summary>
         /// <remarks>

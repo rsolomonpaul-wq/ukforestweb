@@ -179,21 +179,21 @@
                                             <asp:CheckBox ID="zone" runat="server" onclick='sfdzone(this);' Text="SFD Zone Boundaries" class="nav-item" />
 
                                             <span id='div_zone' style='display: none'>
-                                                <img src="http://180.151.15.18:9007/geoserver/uk_sfd/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=uk_sfd:tbl_zone_master&Format=image/gif&scale=800000&Transparent=true" />
+                                                <img src="https://ukforestgis.in/geoserver/uk_sfd/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=uk_sfd:tbl_zone_master&Format=image/gif&scale=800000&Transparent=true" />
                                             </span>
                                         </li>
                                          <li >
                                             <asp:CheckBox ID="circle" runat="server" onclick='sfdcircle(this);' Text="SFD Circle Boundaries" class="nav-item" />
 
                                             <span id='div_circle' style='display: none'>
-                                                <img src="http://180.151.15.18:9007/geoserver/uk_sfd/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=uk_sfd:tbl_circle_master&Format=image/gif&scale=800000&Transparent=true" />
+                                                <img src="https://ukforestgis.in/geoserver/uk_sfd/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=uk_sfd:tbl_circle_master&Format=image/gif&scale=800000&Transparent=true" />
                                             </span>
                                         </li>
                                          <li >
                                             <asp:CheckBox ID="division" runat="server" onclick='sfddivision(this);' Text="SFD Division Boundaries" class="nav-item" />
 
                                             <span id='div_division' style='display: none'>
-                                                <img src="http://180.151.15.18:9007/geoserver/uk_sfd/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=uk_sfd:tbl_division_master&Format=image/gif&scale=800000&Transparent=true" />
+                                                <img src="https://ukforestgis.in/geoserver/uk_sfd/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=uk_sfd:tbl_division_master&Format=image/gif&scale=800000&Transparent=true" />
                                             </span>
                                         </li> 
 
@@ -202,7 +202,7 @@
                                             <asp:CheckBox ID="cd_LandDetails" runat="server" onclick='LandDetails(this);' Text="Plantation AOI" class="nav-item" />
 
                                             <span id='div_LandDetails' style='display: none'>
-                                                <img src="http://180.151.15.18:9007/geoserver/uk_sfd/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=uk_sfd:tbl_plantation_area&Format=image/gif&scale=800000&Transparent=true" />
+                                                <img src="https://ukforestgis.in/geoserver/uk_sfd/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=uk_sfd:tbl_plantation_area&Format=image/gif&scale=800000&Transparent=true" />
                                             </span>
                                         </li>
 
@@ -212,7 +212,7 @@
                                             <asp:CheckBox ID="Aspect" runat="server" onclick='Aspect_Geofn(this);' Text="Aspects" class="nav-item" />
 
                                             <span id='div_Aspects' style='display: none'>
-                                                <%--<img src="http://180.151.15.18:9007/geoserver/uk_sfd/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=uk_sfd:Aspect_Geo&Format=image/gif&scale=800000&Transparent=true" />--%>
+                                                <%--<img src="https://ukforestgis.in/geoserver/uk_sfd/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=uk_sfd:Aspect_Geo&Format=image/gif&scale=800000&Transparent=true" />--%>
                                                 <img src="img/Aspect.PNG" />
                                             </span>
                                         </li>
@@ -221,7 +221,7 @@
                                             <asp:CheckBox ID="slope" runat="server" onclick='slopefn(this);' Text="Slope" class="nav-item" />
 
                                             <span id='div_slope' style='display: none'>
-                                                <%--<img src="http://180.151.15.18:9007/geoserver/uk_sfd/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=uk_sfd:Aspect_Geo&Format=image/gif&scale=800000&Transparent=true" />--%>
+                                                <%--<img src="https://ukforestgis.in/geoserver/uk_sfd/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=uk_sfd:Aspect_Geo&Format=image/gif&scale=800000&Transparent=true" />--%>
                                                 <img src="img/Slope.PNG" />
                                             </span>
                                         </li>
@@ -229,7 +229,7 @@
                                             <asp:CheckBox ID="srtm" runat="server" onclick='srtmfun(this);' Text="SRTM" class="nav-item" />
 
                                             <span id='div_srtm' style='display: none'>
-                                                <img src="http://180.151.15.18:9007/geoserver/uk_sfd/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=uk_sfd:Uttaranchal_SRTM_GEO&Format=image/gif&scale=800000&Transparent=true" />
+                                                <img src="https://ukforestgis.in/geoserver/uk_sfd/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=uk_sfd:Uttaranchal_SRTM_GEO&Format=image/gif&scale=800000&Transparent=true" />
                                                
                                             </span>
                                         </li>
@@ -238,7 +238,7 @@
                                             <asp:CheckBox ID="lulc" runat="server" onclick='lulcfun(this);' Text="LUCL" class="nav-item" />
 
                                             <span id='div_lulc' style='display: none'>
-                                                <img src="http://180.151.15.18:9007/geoserver/uk_sfd/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=uk_sfd:Uttaranchal_SRTM_GEO&Format=image/gif&scale=800000&Transparent=true" />
+                                                <img src="https://ukforestgis.in/geoserver/uk_sfd/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=uk_sfd:Uttaranchal_SRTM_GEO&Format=image/gif&scale=800000&Transparent=true" />
                                                
                                             </span>
                                         </li>

@@ -37,15 +37,11 @@ namespace uk_forest.common_email
                 if (sendTo.StartsWith(","))
                     sendTo = sendTo.Remove(0, 1);
 
-
                 if (sendTo.EndsWith(","))
                     sendTo = sendTo.Remove(sendTo.Length - 1, 1);
 
-
-
                 if (sendTo != "")
                     objEmail.To.Add(sendTo);
-
 
                 objEmail.Subject = sendSubject;
                 objEmail.Body = sw.ToString();
@@ -599,7 +595,7 @@ namespace uk_forest.common_email
 
                 using (MailMessage mm = new MailMessage(email_id, to))
                 {
-                    mm.Subject = "Notification: New User Added Under Your Supervisionas as " + user_role_name;
+                    mm.Subject = "Notification: New User Added Under Your Supervision as " + user_role_name;
 
                     textBody = $"Dear {group_name},<br><br>" +
                         $"We would like to inform you that a new user has been added under your supervision.<br><br>" +

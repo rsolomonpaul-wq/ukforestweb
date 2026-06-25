@@ -900,7 +900,11 @@ namespace uk_forest.Forest
                         if (!string.IsNullOrEmpty(message))
                         {
 
-                            MailsHandling.send_mail_for_user_credential(txt_email.Text, txt_name.Text, "http://180.151.15.18:9008/uk_forest_web/web/index", UserId, pass);
+                            //MailsHandling.send_mail_for_user_credential(txt_email.Text, txt_name.Text, "http://203.122.5.18:9008/uk_forest_web/web/index", UserId, pass);
+
+                            MailsHandling.send_mail_for_user_credential(txt_email.Text, txt_name.Text, "https://ukforestgis.in/web/indexs", UserId, pass);
+
+                            
 
                             //HttpResponseMessage Res = client.GetAsync(apiUrl + $"TblUserRegistrations/GetTblUserRegistration?id={groupId}").Result; 
                             HttpResponseMessage Res = client.GetAsync(apiUrl + $"TblUserRegistrations/GetAllUsers?user_id={groupId}").Result;
@@ -917,7 +921,11 @@ namespace uk_forest.Forest
                                     string user_role_name = firstUser.roleName;
                                     string group_name = firstUser.name;
 
-                                    MailsHandling.send_mail_to_group(group_email_id, group_name, txt_name.Text, "http://180.151.15.18:9008/uk_forest_web/web/index", UserId, ddl_role.SelectedItem.Text);
+                                    //MailsHandling.send_mail_to_group(group_email_id, group_name, txt_name.Text, "http://203.122.5.18:9008/uk_forest_web/web/index", UserId, ddl_role.SelectedItem.Text);
+
+                                    MailsHandling.send_mail_to_group(group_email_id, group_name, txt_name.Text, " https://ukforestgis.in/web/indexs", UserId, ddl_role.SelectedItem.Text);
+
+                                   
                                 }                                
                             }
 

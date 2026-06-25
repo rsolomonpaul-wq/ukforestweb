@@ -114,16 +114,16 @@
 
    
     <label><input type="checkbox" id="showWMSzone"> Zone</label>
-          <img id="legendzone" style="display:none" src="http://180.151.15.18:9007/geoserver/uk_sfd/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=uk_sfd:tbl_zone_master&Format=image/gif&scale=800000&Transparent=true" />
+          <img id="legendzone" style="display:none" src="https://ukforestgis.in/geoserver/uk_sfd/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=uk_sfd:tbl_zone_master&Format=image/gif&scale=800000&Transparent=true" />
         <br> 
     <label><input type="checkbox" id="showWMScircle"> Circle</label>
-         <img id="legendcircle" style="display:none" src="http://180.151.15.18:9007/geoserver/uk_sfd/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=uk_sfd:tbl_circle_master&Format=image/gif&scale=800000&Transparent=true" />
+         <img id="legendcircle" style="display:none" src="https://ukforestgis.in/geoserver/uk_sfd/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=uk_sfd:tbl_circle_master&Format=image/gif&scale=800000&Transparent=true" />
         <br> 
          <label><input type="checkbox" id="showWMS"> Division</label>
-        <img id="legenddivision" style="display:none" src="http://180.151.15.18:9007/geoserver/uk_sfd/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=uk_sfd:tbl_division_master&Format=image/gif&scale=800000&Transparent=true" />
+        <img id="legenddivision" style="display:none" src="https://ukforestgis.in/geoserver/uk_sfd/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=uk_sfd:tbl_division_master&Format=image/gif&scale=800000&Transparent=true" />
         <br> 
     <label><input type="checkbox" id="showWMSplantation"> plantat</label>
-         <img id="legendplantation" style="display:none" src="http://180.151.15.18:9007/geoserver/uk_sfd/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=uk_sfd:tbl_plantation_area&Format=image/gif&scale=800000&Transparent=true" />
+         <img id="legendplantation" style="display:none" src="https://ukforestgis.in/geoserver/uk_sfd/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=uk_sfd:tbl_plantation_area&Format=image/gif&scale=800000&Transparent=true" />
         <br> 
     
     <button type="button" onclick="loadComparisonLayers()">Compare Layers</button><br><br>
@@ -152,7 +152,7 @@
       
       const geoWMSLayer = new ol.layer.Tile({
           source: new ol.source.TileWMS({
-              url: 'http://180.151.15.18:9007/geoserver/uk_sfd/wms',
+              url: 'https://ukforestgis.in/geoserver/uk_sfd/wms',
               params: {
                   'LAYERS': 'uk_sfd:tbl_division_master',
                   'TILED': true,
@@ -166,7 +166,7 @@
       });
       const geoWMSLayerzone = new ol.layer.Tile({
           source: new ol.source.TileWMS({
-              url: 'http://180.151.15.18:9007/geoserver/uk_sfd/wms',
+              url: 'https://ukforestgis.in/geoserver/uk_sfd/wms',
               params: {
                   'LAYERS': 'uk_sfd:tbl_zone_master',
                   'TILED': true,
@@ -180,7 +180,7 @@
       });
       const geoWMSLayercircle = new ol.layer.Tile({
           source: new ol.source.TileWMS({
-              url: 'http://180.151.15.18:9007/geoserver/uk_sfd/wms',
+              url: 'https://ukforestgis.in/geoserver/uk_sfd/wms',
               params: {
                   'LAYERS': 'uk_sfd:tbl_circle_master',
                   'TILED': true,
@@ -194,7 +194,7 @@
       });
       const geoWMSLayerplantation = new ol.layer.Tile({
           source: new ol.source.TileWMS({
-              url: 'http://180.151.15.18:9007/geoserver/uk_sfd/wms',
+              url: 'https://ukforestgis.in/geoserver/uk_sfd/wms',
               params: {
                   'LAYERS': 'uk_sfd:tbl_plantation_area',
                   'TILED': true,
@@ -431,7 +431,7 @@
                                             <asp:CheckBox ID="zone" runat="server" onclick='sfdzone(this);' Text="SFD Zone Boundaries" class="nav-item" />
 
                                             <span id='div_zone' style='display: none'>
-                                                <img src="http://180.151.15.18:9007/geoserver/uk_sfd/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=uk_sfd:tbl_zone_master&Format=image/gif&scale=800000&Transparent=true" />
+                                                <img src="https://ukforestgis.in/geoserver/uk_sfd/wms?REQUEST=GetLegendGraphic&VERSION=1.0.0&FORMAT=image/png&WIDTH=20&HEIGHT=20&LAYER=uk_sfd:tbl_zone_master&Format=image/gif&scale=800000&Transparent=true" />
                                             </span>
                                         </li>
                                        
